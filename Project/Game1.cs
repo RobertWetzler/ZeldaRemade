@@ -71,7 +71,7 @@ namespace Project
                 controller.Update();
             }
             sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
-
+            //change
             base.Update(gameTime);
         }
 
