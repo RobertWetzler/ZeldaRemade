@@ -59,7 +59,7 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            texture_atlas = Content.Load<Texture2D>("mario_atlas");
+            texture_atlas = Content.Load<Texture2D>("mario");
             sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
         }
