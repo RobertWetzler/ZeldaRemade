@@ -62,6 +62,8 @@ namespace Project
             texture_atlas = Content.Load<Texture2D>("mario");
             sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
+            //Use static class to load all textures
+            Texture2DStorage.LoadTextures(Content);
         }
 
         protected override void Update(GameTime gameTime)
