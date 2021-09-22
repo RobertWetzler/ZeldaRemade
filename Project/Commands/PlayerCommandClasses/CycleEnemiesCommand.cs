@@ -8,14 +8,15 @@ namespace Project
     {
         private Game1 game;
 
-        public CycleEnemisCommand(Game1 game)
+        public CycleEnemiesCommand(Game1 game)
         {
             this.game = game;
         }
 
         public void Execute()
         {
-            game.SetSprite();   // need to implement - Cycle list of enemis sprites (moving animated).
+            //TODO: need to implement - Cycle list of enemis sprites (moving animated).
+            //game.SetSprite(); 
         }
     }
 }

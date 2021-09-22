@@ -15,7 +15,8 @@ namespace Project
 
         public void Execute()
         {
-            game.SetSprite();   // need to implement - Cycle list of block sprites (fixed nonanimated).
+            //TODO: need to implement - Cycle list of enemis sprites (moving animated).
+            //game.SetSprite();
         }
     }
 }

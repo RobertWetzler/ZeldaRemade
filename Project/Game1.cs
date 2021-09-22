@@ -37,7 +37,7 @@ namespace Project
             controllers = new List<IController>();
 
             KeyboardController keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.D0, new ExitCommand(this));
+            keyboardController.RegisterCommand(Keys.D0, new QuitCommand(this));
             keyboardController.RegisterCommand(Keys.D1, new SetFixedNonAnimatedSpriteCommand(this));
             keyboardController.RegisterCommand(Keys.D2, new SetFixedAnimatedSpriteCommand(this));
             keyboardController.RegisterCommand(Keys.D3, new SetMovingNonAnimatedSpriteCommand(this));
@@ -49,7 +49,7 @@ namespace Project
             mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.UpperRight), new SetFixedAnimatedSpriteCommand(this));
             mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.LowerLeft), new SetMovingNonAnimatedSpriteCommand(this));
             mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.LowerRight), new SetMovingAnimatedSpriteCommand(this));
-            mouseController.RegisterCommand(new ButtonPosition(Button.RightButton, Quadrant.All), new ExitCommand(this));
+            mouseController.RegisterCommand(new ButtonPosition(Button.RightButton, Quadrant.All), new QuitCommand(this));
             controllers.Add(mouseController);
 
             base.Initialize();
