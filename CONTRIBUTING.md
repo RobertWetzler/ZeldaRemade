@@ -46,6 +46,9 @@ If this is your first time pushing changes with this branch, you will be prompte
 
 If you get this prompt, just copy and paste it into your terminal.
 
+## Make a PR on github
+Go to the pull request tab on github and make a pull request for your branch into main.
+
 # Other stuff
 ## Viewing all your branches
 `git branch`
