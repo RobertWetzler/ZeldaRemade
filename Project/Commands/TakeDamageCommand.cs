@@ -4,18 +4,18 @@ using System.Text;
 
 namespace Project
 {
-    class ExitCommand : ICommand
+    class TakeDamageCommand : ICommand
     {
         private Game1 game;
 
-        public ExitCommand(Game1 game)
+        public TakeDamageCommand(Game1 game)
         {
             this.game = game;
         }
 
         public void Execute()
         {
-            game.Exit();
+            
         }
     }
 }
