@@ -4,15 +4,14 @@ using System.Text;
 
 namespace Project
 {
-    public enum MoveDir
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
     interface IPlayer: IEntity
     {
-        void Move(MoveDir dir);
+        void MoveUp();
+        void MoveDown();
+        void MoveLeft();
+        void MoveRight();
+        void UseSword();
+        void UseItem();
+
     }
 }
