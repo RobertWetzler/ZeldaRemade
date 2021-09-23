@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Project.Sprites.BlockSprites
 {
-    public class PlainBlockSprite : IBlock
+    public class PlainBlockSprite : IBlockSprite
     {
         private Texture2D blockSpriteSheet;
         private int sheetRows;

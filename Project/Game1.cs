@@ -18,7 +18,7 @@ namespace Project
         private List<IController> controllers;
         private TextSprite text;
         //List of blocks to cycle thru
-        private List<IBlock> blocks;
+        private List<IBlockSprite> blocks;
 
         //Keep track of the current block sprite that is showing
         public int CurrentBlockSpriteIndex { get; set; }
@@ -72,7 +72,7 @@ namespace Project
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            blocks = new List<IBlock>();
+            blocks = new List<IBlockSprite>();
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());

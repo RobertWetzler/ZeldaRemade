@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.BlockSprites
 {
-    public interface IBlock
+    public interface IBlockSprite
     {
         void Draw(SpriteBatch spriteBatch, Vector2 position);
     }
