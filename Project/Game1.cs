@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project.Factory;
+using Project.Sprites.BlockSprites;
 using System;
 using System.Collections.Generic;
 
@@ -15,6 +17,11 @@ namespace Project
         private Texture2D texture_atlas;
         private List<IController> controllers;
         private TextSprite text;
+        //List of blocks to cycle thru
+        private List<IBlockSprite> blocks;
+
+        //Keep track of the current block sprite that is showing
+        public int CurrentBlockSpriteIndex { get; set; }
 
         public Game1()
         {
@@ -62,6 +69,23 @@ namespace Project
             texture_atlas = Content.Load<Texture2D>("mario");
             sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
+
+            //Load block sprites
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            blocks = new List<IBlockSprite>();
+            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
+
+            //Set initial block sprite to show
+            CurrentBlockSpriteIndex = 9;
         }
 
         protected override void Update(GameTime gameTime)
@@ -79,8 +103,9 @@ namespace Project
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            sprite.Draw(_spriteBatch, gameTime);
-            text.Draw(_spriteBatch, gameTime);
+
+            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
+
             _spriteBatch.End();
 
             base.Draw(gameTime);
