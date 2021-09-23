@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project.Factory;
 using System;
 using System.Collections.Generic;
 
@@ -62,6 +63,8 @@ namespace Project
             texture_atlas = Content.Load<Texture2D>("mario");
             sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
+
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);
         }
 
         protected override void Update(GameTime gameTime)
