@@ -10,6 +10,7 @@ namespace Project
     class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> commandMapping;
+        private ICommand defaultCommand;
         public KeyboardController()
         {
             commandMapping = new Dictionary<Keys, ICommand>();
@@ -18,18 +19,31 @@ namespace Project
         {
             commandMapping.Add(key, command);
         }
+
+        public void RegisterDefaultCommand(ICommand command)
+        {
+            defaultCommand = command;
+        }
+
         public void Update()
         {
             Keys[] keys = Keyboard.GetState().GetPressedKeys();
-            foreach (Keys key in keys)
+            if (keys.Length == 0)
             {
-                ICommand command;
-                if (commandMapping.TryGetValue(key, out command))
+                defaultCommand.Execute();
+            }
+            else
+            {
+                foreach (Keys key in keys)
                 {
-
-                    command.Execute();
+                    ICommand command;
+                    if (commandMapping.TryGetValue(key, out command))
+                    {
+                        command.Execute();
+                    }
                 }
             }
         }
     }
 }
+1

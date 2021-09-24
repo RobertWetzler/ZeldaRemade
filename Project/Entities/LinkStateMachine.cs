@@ -28,22 +28,31 @@ namespace Project
         private Move move;
         private LinkColor color;
 
+        private LinkSpriteSelector spriteSelector;
+
         public LinkStateMachine(Facing facing, Move move, LinkColor color)
         {
             this.facing = facing;
             this.move = move;
             this.color = color;
+
+            this.spriteSelector = new LinkSpriteSelector();
         }
 
         public void MoveUp()
         {
             this.facing = Facing.Up;
             this.move = Move.Moving;
+
+            this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
         }
         public void MoveDown()
         {
             this.facing = Facing.Down;
             this.move = Move.Moving;
+
+            this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+
         }
         public void MoveLeft()
         {
@@ -60,7 +69,10 @@ namespace Project
             this.move = Move.Idle;
         }
 
+        public void UseSword()
+        {
 
+        }
 
     }
 }
