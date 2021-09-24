@@ -42,9 +42,11 @@ DeadLink
 ### big-jelly (zol)
 - animates, moves
 ### Hand (wall master)
-- animates, no movement
+- animates
+- movement (?)
 ### Spike cross (trap)
 - no movement and no animation
+- something happens when player is on trap
 ### Snake
 - animates, moves
 ### Dragon
