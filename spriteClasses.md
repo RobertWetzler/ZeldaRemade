@@ -60,3 +60,23 @@ DeadLink
 - no animation or movement
 ### Flame
 - animates but no movement
+
+## Item Sprites
+-	Compass
+-	Map
+-	Key
+-	Heart container
+-	Triforce piece
+-	Wooden boomerang
+-	Heart
+-	Rupee
+-	Bomb
+-	Fairy
+-	Clock
+-	Sword beam
+- Arrows
+-	Blue Candle
+-	Blue Potion
+-	Blue ring
+
+
