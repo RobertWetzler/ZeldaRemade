@@ -68,6 +68,7 @@ DeadLink
 -	Heart container
 -	Triforce piece
 -	Wooden boomerang
+-	wooden sword
 -	Heart
 -	Rupee
 -	Bomb
