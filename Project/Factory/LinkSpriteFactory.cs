@@ -42,6 +42,13 @@ namespace Project.Factory
 			linkUseSwordUpwardsSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-sword-upwards");
 		}
 
+		public void CreateLinkIdleSprite(Facing facing)
+        {
+			//TODO: Implement
+			//return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
+			throw new NotImplementedException();
+		}
+
 		public ISprite CreateLinkWalkingSprite(Facing facing)
 		{
 			//TODO: Implement
