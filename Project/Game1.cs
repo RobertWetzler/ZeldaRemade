@@ -17,10 +17,9 @@ namespace Project
         private Texture2D texture_atlas;
         private List<IController> controllers;
         private TextSprite text;
+
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
-
-        //Keep track of the current block sprite that is showing
         public int CurrentBlockSpriteIndex { get; set; }
 
         public Game1()
@@ -30,6 +29,7 @@ namespace Project
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
+
         public void SetSprite(ISprite sprite)
         {
             this.sprite = sprite;
@@ -44,20 +44,10 @@ namespace Project
             controllers = new List<IController>();
 
             KeyboardController keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.D0, new QuitCommand(this));
-            keyboardController.RegisterCommand(Keys.D1, new SetFixedNonAnimatedSpriteCommand(this));
-            keyboardController.RegisterCommand(Keys.D2, new SetFixedAnimatedSpriteCommand(this));
-            keyboardController.RegisterCommand(Keys.D3, new SetMovingNonAnimatedSpriteCommand(this));
-            keyboardController.RegisterCommand(Keys.D4, new SetMovingAnimatedSpriteCommand(this));
+            keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
+            keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
+            keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
             controllers.Add(keyboardController);
-
-            MouseController mouseController = new MouseController(_graphics.GraphicsDevice.Viewport.Bounds);
-            mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.UpperLeft), new SetFixedNonAnimatedSpriteCommand(this));
-            mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.UpperRight), new SetFixedAnimatedSpriteCommand(this));
-            mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.LowerLeft), new SetMovingNonAnimatedSpriteCommand(this));
-            mouseController.RegisterCommand(new ButtonPosition(Button.LeftButton, Quadrant.LowerRight), new SetMovingAnimatedSpriteCommand(this));
-            mouseController.RegisterCommand(new ButtonPosition(Button.RightButton, Quadrant.All), new QuitCommand(this));
-            controllers.Add(mouseController);
 
             base.Initialize();
         }
@@ -85,7 +75,7 @@ namespace Project
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
 
             //Set initial block sprite to show
-            CurrentBlockSpriteIndex = 9;
+            CurrentBlockSpriteIndex = 0;
         }
 
         protected override void Update(GameTime gameTime)
