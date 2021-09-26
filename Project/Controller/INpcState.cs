@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CrossPlatformDesktopProject
+namespace Project
 {
-    public interface INpcState
+    public interface INPCState
     {
         void Draw(SpriteBatch spriteBatch, float xPos, float yPos);
         void Update();
