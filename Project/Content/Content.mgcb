@@ -56,18 +56,6 @@
 /processorParam:TextureFormat=Color
 /build:PlayerSprites/link-pickup-item.png
 
-#begin PlayerSprites/link-shoot-sword-sideways.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:PlayerSprites/link-shoot-sword-sideways.png
-
 #begin PlayerSprites/link-use-item.png
 /importer:TextureImporter
 /processor:TextureProcessor
