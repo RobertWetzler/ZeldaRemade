@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project
+namespace Project.Entities
 {
     public enum Facing
     {
