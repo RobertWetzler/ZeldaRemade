@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-public interface INPC : ICollider
+public interface INPC : ICollisionHandler
     {
         void Draw(SpriteBatch spriteBatch);
         void Update();
