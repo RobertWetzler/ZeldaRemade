@@ -12,7 +12,5 @@ namespace Project
     {
         void Draw(SpriteBatch spriteBatch, float xPos, float yPos);
         void Update();
-        void TakeDamage();
-        void ChangeDirection();
     }
 }

@@ -9,11 +9,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    public interface INPC : ICollisionHandler
+    public interface INPC
     {
         void Draw(SpriteBatch spriteBatch);
         void Update();
-        void TakeDamage();
-        void ChangeDirection();
+
     }
 }
