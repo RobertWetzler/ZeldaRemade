@@ -10,6 +10,7 @@ namespace Project
     class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> commandMapping;
+        private KeyboardState oldState;
         private ICommand defaultCommand;
         public KeyboardController()
         {
@@ -28,19 +29,35 @@ namespace Project
         public void Update()
         {
             Keys[] keys = Keyboard.GetState().GetPressedKeys();
-            if (keys.Length == 0)
+
+            KeyboardState newState = Keyboard.GetState();
+            //Only execute 't' and 'y' command on first key press
+            if (oldState.IsKeyUp(Keys.T) && newState.IsKeyDown(Keys.T))
             {
-                defaultCommand.Execute();
+                commandMapping[Keys.T].Execute();
             }
-            else
+            else if (oldState.IsKeyUp(Keys.Y) && newState.IsKeyDown(Keys.Y))
             {
-                foreach (Keys key in keys)
+                commandMapping[Keys.Y].Execute();
+            }
+            oldState = newState;
+
+            foreach (Keys key in keys)
+            {
+                ICommand command;
+                if (commandMapping.TryGetValue(key, out command))
                 {
-                    ICommand command;
-                    if (commandMapping.TryGetValue(key, out command))
+                    switch (key)
                     {
-                        command.Execute();
+                        case Keys.T:
+                        case Keys.Y:
+                            continue;
+                        default:
+                            command.Execute();
+                            break;
                     }
+                    
+
                 }
             }
         }

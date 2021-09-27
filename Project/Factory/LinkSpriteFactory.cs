@@ -11,7 +11,6 @@ namespace Project.Factory
 	{
 		private Texture2D linkWalkingSpriteSheet;
 		private Texture2D linkPickupItemSpriteSheet;
-		private Texture2D linkShootSwordSidewaysSpriteSheet;
 		private Texture2D linkUseItemSpriteSheet;
 		private Texture2D linkUseSwordDownwardsSpriteSheet;
 		private Texture2D linkUseSwordSidewaysSpriteSheet;
@@ -35,14 +34,13 @@ namespace Project.Factory
 		{
 			linkWalkingSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-walking");
 			linkPickupItemSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-pickup-item");
-			linkShootSwordSidewaysSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-shoot-sword-sideways");
 			linkUseItemSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-item");
 			linkUseSwordDownwardsSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-sword-downwards");
 			linkUseSwordSidewaysSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-sword-sideways");
 			linkUseSwordUpwardsSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-sword-upwards");
 		}
 
-		public void CreateLinkIdleSprite(Facing facing)
+		public ISprite CreateLinkIdleSprite(Facing facing)
         {
 			//TODO: Implement
 			//return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
@@ -59,12 +57,6 @@ namespace Project.Factory
 		{
 			//TODO: Implement
 			//return new LinkPickupItemSprite(linkPickupItemSpriteSheet);
-			throw new NotImplementedException();
-		}
-		public ISprite CreateLinkShootSwordSidewaysSprite(bool facingRight)
-		{
-			//TODO: Implement. Mirror if facingRight is false (or we can make a different sprite class)
-			//return new LinkShootSwordSidewaysSprite(linkShootSwordSidewaysSpriteSheet, facingRight);
 			throw new NotImplementedException();
 		}
 		public ISprite CreateLinkUseItemSprite(Facing facing)
