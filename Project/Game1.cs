@@ -70,6 +70,9 @@ namespace Project
             sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
 
+            //Load Link Sprites
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             blocks = new List<IBlockSprite>();
