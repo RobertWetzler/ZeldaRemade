@@ -10,13 +10,16 @@ namespace Project.Factory
 {
     public class NPCSpriteFactory
     {
-        private Texture2D Boss_Dragon;
-        private Texture2D Dinosaur_Left_Right;
-        private Texture2D Dinosaur_Up_Down;
-        private Texture2D Bat;
-        private Texture2D Gel;
-        private Texture2D Skeleton;
-
+        private Texture2D bossDragonSpriteSheet;
+        private Texture2D dinosaurLeftRightSpriteSheet;
+        private Texture2D dinosaurUpDownSpriteSheet;
+        private Texture2D batSpriteSheet;
+        private Texture2D gelSpriteSheet;
+        private Texture2D skeletonSpriteSheet;
+        private Texture2D goriyaSpriteSheet;
+        private Texture2D snakeSpriteSheet;
+        private Texture2D wallmasterSpriteSheet;
+        private Texture2D zolSpriteSheet;
 
 
         private static NPCSpriteFactory instance = new NPCSpriteFactory();
@@ -34,11 +37,16 @@ namespace Project.Factory
 
         public void LoadAllTextures(ContentManager content)
         {
-            Boss_Dragon = content.Load<Texture2D>("EnemySprites/boss-dragon");
-            Dinosaur_Left_Right = content.Load<Texture2D>("EnemySprites/dinosaur-front-back");
-            Dinosaur_Up_Down = content.Load<Texture2D>("EnemySprites/dinosaur-left-right");
-            Bat = content.Load<Texture2D>("EnemySprites/enemy-bat");
-            Gel = content.Load<Texture2D>("EnemySprites/enemy-gel");
+            bossDragonSpriteSheet = content.Load<Texture2D>("EnemySprites/boss-dragon");
+            dinosaurLeftRightSpriteSheet = content.Load<Texture2D>("EnemySprites/dinosaur-front-back");
+            dinosaurUpDownSpriteSheet = content.Load<Texture2D>("EnemySprites/dinosaur-left-right");
+            batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
+            gelSpriteSheet= content.Load<Texture2D>("EnemySprites/enemy-gel");
+            skeletonSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-skeleton");
+            goriyaSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-goriya-walking");
+            snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
+            wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
+            zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
 
 
         }
