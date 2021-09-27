@@ -12,6 +12,8 @@
   <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+    <None Remove="NPC\" />
+    <None Remove="NPC\Bat\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -29,5 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\EnemySprites\" />
+    <Folder Include="NPC\" />
+    <Folder Include="NPC\Bat\" />
   </ItemGroup>
 </Project>
