@@ -16,7 +16,6 @@ namespace Project
         private SpriteBatch _spriteBatch;
         public GreenLink player;
         private List<IController> controllers;
-        private TextSprite text;
 
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
@@ -70,6 +69,10 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
+            texture_atlas = Content.Load<Texture2D>("mario");
+            sprite.texture = texture_atlas;
+            text.font = Content.Load<SpriteFont>("Caption");
+            sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
 
             //Load Link Sprites
@@ -98,11 +101,11 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IController controller in controllers)
+            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             {
                 controller.Update();
             }
-            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
         }
 
