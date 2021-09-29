@@ -21,8 +21,8 @@ namespace Project
 
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
-
-        private IPlayerSprite link;
+        
+        private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
 
         public Game1()
@@ -65,7 +65,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            link = LinkSpriteFactory.Instance.CreateLinkWalkingSprite(Entities.Facing.Down);
+            link = LinkSpriteFactory.Instance.CreateLinkWalkingSprite(Entities.Facing.Down);    //Test link sprite - can be eliminated
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -92,7 +92,7 @@ namespace Project
                 controller.Update();
             }
             sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
-            link.Update(gameTime);
+            link.Update(gameTime);  //Test link sprite - can be eliminated
             base.Update(gameTime);
         }
 
@@ -103,7 +103,7 @@ namespace Project
             _spriteBatch.Begin();
 
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
-            link.Draw(_spriteBatch, new Vector2(200, 200));
+            link.Draw(_spriteBatch, new Vector2(200, 200));     //Test link sprite - can be eliminated
 
             _spriteBatch.End();
 
