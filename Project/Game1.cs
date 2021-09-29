@@ -81,7 +81,6 @@ namespace Project
 
             _spriteBatch.Begin(samplerState:SamplerState.PointClamp); // PointClamp fixes sprite blurriness
 
-
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
 
             _spriteBatch.End();
