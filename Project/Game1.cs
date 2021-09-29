@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
+using Project.Sprites.PlayerSprites;
 using System;
 using System.Collections.Generic;
 
@@ -26,6 +27,8 @@ namespace Project
 
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
+        
+        private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
 
         public Game1()
@@ -111,8 +114,7 @@ namespace Project
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin();
-
+            _spriteBatch.Begin(samplerState:SamplerState.PointClamp);
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
