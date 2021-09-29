@@ -4,18 +4,18 @@ using System.Text;
 
 namespace Project
 {
-    class SetMovingAnimatedSpriteCommand : ICommand
+    class PlayerStopMovingCommand : ICommand
     {
         private Game1 game;
 
-        public SetMovingAnimatedSpriteCommand(Game1 game)
+        public PlayerStopMovingCommand(Game1 game)
         {
             this.game = game;
         }
 
         public void Execute()
         {
-            game.SetSprite(new MovingAnimatedSprite());
+            this.game.player.StopMoving();
         }
     }
 }

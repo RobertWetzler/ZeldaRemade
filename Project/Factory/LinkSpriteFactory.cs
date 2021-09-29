@@ -44,44 +44,44 @@ namespace Project.Factory
         {
 			//TODO: Implement
 			//return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
-			throw new NotImplementedException();
+			return null;
 		}
 
 		public ISprite CreateLinkWalkingSprite(Facing facing)
 		{
 			//TODO: Implement
 			//return new LinkWalkingSprite(linkWalkingSpriteSheet, facing);
-			throw new NotImplementedException();
+			return null;
 		}
 		public ISprite CreateLinkPickupItemSprite()
 		{
 			//TODO: Implement
 			//return new LinkPickupItemSprite(linkPickupItemSpriteSheet);
-			throw new NotImplementedException();
+			return null;
 		}
 		public ISprite CreateLinkUseItemSprite(Facing facing)
 		{
 			//TODO: Implement
 			//return new LinkUseItemSprite(linkUseItemSpriteSheet, facing);
-			throw new NotImplementedException();
+			return null;
 		}
 		public ISprite CreateLinkUseSwordDownwardsSprite()
 		{
 			//TODO: Implement
 			//return new LinkUseSwordDownwardsSprite(linkUseSwordDownwardsSpriteSheet);
-			throw new NotImplementedException();
+			return null;
 		}
 		public ISprite CreateLinkUseSwordSidewaysSprite(bool facingRight)
 		{
 			//TODO: Implement. Mirror if facingRight is false (or we can make a different sprite class)
 			//return new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, facingRight);
-			throw new NotImplementedException();
+			return null;
 		}
 		public ISprite CreateLinkUseSwordUpwardsSprite()
 		{
 			//TODO: Implement
 			//return new LinkUseSwordUpwardsSprite(linkUseSwordUpwardsSpriteSheet);
-			throw new NotImplementedException();
+			return null;
 		}
 	}
 }

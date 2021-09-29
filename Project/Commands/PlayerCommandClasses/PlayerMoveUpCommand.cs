@@ -15,7 +15,7 @@ namespace Project
 
         public void Execute()
         {
-            // need to implement
+            this.game.player.MoveUp();
         }
     }
 }

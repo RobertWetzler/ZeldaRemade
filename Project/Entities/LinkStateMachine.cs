@@ -4,28 +4,10 @@ using System.Text;
 
 namespace Project.Entities
 {
-    public enum Facing
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-    public enum Move
-    {
-        Moving,
-        Idle
-    }
-    public enum LinkColor
-    {
-        Green,
-        Red,
-        Blue
-    }
     class LinkStateMachine
     {
-        private Facing facing;
-        private Move move;
+        public Facing facing;
+        public Move move;
         private LinkColor color;
 
         private LinkSpriteSelector spriteSelector;
@@ -39,34 +21,38 @@ namespace Project.Entities
             this.spriteSelector = new LinkSpriteSelector();
         }
 
-        public void MoveUp()
+        public ISprite MoveUp()
         {
             this.facing = Facing.Up;
             this.move = Move.Moving;
 
-            this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
         }
-        public void MoveDown()
+        public ISprite MoveDown()
         {
             this.facing = Facing.Down;
             this.move = Move.Moving;
 
-            this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
 
         }
-        public void MoveLeft()
+        public ISprite MoveLeft()
         {
             this.facing = Facing.Left;
             this.move = Move.Moving;
+            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+
         }
-        public void MoveRight()
+        public ISprite MoveRight()
         {
             this.facing = Facing.Right;
             this.move = Move.Moving;
+            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
         }
-        public void StopMoving()
+        public ISprite StopMoving()
         {
             this.move = Move.Idle;
+            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
         }
 
         public void UseSword()

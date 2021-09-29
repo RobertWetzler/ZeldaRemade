@@ -11,7 +11,7 @@ namespace Project
     {
         private Dictionary<Keys, ICommand> commandMapping;
         private KeyboardState oldState;
-        private ICommand defaultCommand;
+        private ICommand defaultCommand = null;
         public KeyboardController()
         {
             commandMapping = new Dictionary<Keys, ICommand>();
@@ -42,6 +42,12 @@ namespace Project
             }
             oldState = newState;
 
+
+            //default command logic
+            if (keys.Length == 0 && defaultCommand != null)
+            {
+                defaultCommand.Execute();
+            }
             foreach (Keys key in keys)
             {
                 ICommand command;
@@ -56,8 +62,6 @@ namespace Project
                             command.Execute();
                             break;
                     }
-                    
-
                 }
             }
         }

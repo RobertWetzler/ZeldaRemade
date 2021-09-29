@@ -22,8 +22,6 @@ namespace Project.Entities
                 default:
                     sprite = LinkSpriteFactory.Instance.CreateLinkIdleSprite(facing);
                     break;
-
-
             }
             return sprite;
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 using System;
@@ -13,8 +14,7 @@ namespace Project
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private ISprite sprite;
-        private Texture2D texture_atlas;
+        public GreenLink player;
         private List<IController> controllers;
         private TextSprite text;
 
@@ -30,16 +30,10 @@ namespace Project
             IsMouseVisible = true;
         }
 
-        public void SetSprite(ISprite sprite)
-        {
-            this.sprite = sprite;
-            this.sprite.texture = texture_atlas;
-        }
-
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            sprite = new FixedNonAnimatedSprite();
+            player = new GreenLink();
             text = new TextSprite();
             controllers = new List<IController>();
 
@@ -47,6 +41,26 @@ namespace Project
             keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
             keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
             keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
+
+            //Register both WASD and Arrows
+            ICommand upCommand = new PlayerMoveUpCommand(this);
+            keyboardController.RegisterCommand(Keys.W, upCommand);
+            keyboardController.RegisterCommand(Keys.Up, upCommand);
+
+            ICommand leftCommand = new PlayerMoveLeftCommand(this);
+            keyboardController.RegisterCommand(Keys.A, leftCommand);
+            keyboardController.RegisterCommand(Keys.Left, leftCommand);
+
+            ICommand rightCommand = new PlayerMoveRightCommand(this);
+            keyboardController.RegisterCommand(Keys.D, rightCommand);
+            keyboardController.RegisterCommand(Keys.Right, rightCommand);
+
+            ICommand downCommand = new PlayerMoveDownCommand(this);
+            keyboardController.RegisterCommand(Keys.S, downCommand);
+            keyboardController.RegisterCommand(Keys.Down, downCommand);
+
+            //Register idle command as default
+            keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
             controllers.Add(keyboardController);
 
             base.Initialize();
@@ -56,8 +70,6 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            texture_atlas = Content.Load<Texture2D>("mario");
-            sprite.texture = texture_atlas;
             text.font = Content.Load<SpriteFont>("Caption");
 
             //Load Link Sprites
@@ -65,6 +77,9 @@ namespace Project
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            
+            this.player.SetSprite(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
+            
             blocks = new List<IBlockSprite>();
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
@@ -87,7 +102,7 @@ namespace Project
             {
                 controller.Update();
             }
-            sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
         }
 
@@ -98,7 +113,7 @@ namespace Project
             _spriteBatch.Begin();
 
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
-
+            player.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
 
             base.Draw(gameTime);
