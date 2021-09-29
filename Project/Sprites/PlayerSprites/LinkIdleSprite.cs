@@ -1,0 +1,61 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Project.Sprites.PlayerSprites
+{
+    public class LinkIdleSprite : IPlayerSprite
+    {
+        private Texture2D playerSpriteSheet;
+        private int sheetRows;
+        private int sheetColumns;
+        private int spriteRow;
+        private int spriteColumn;
+
+        public LinkIdleSprite(Texture2D playerSpriteSheet, Facing facing)
+        {
+            this.playerSpriteSheet = playerSpriteSheet;
+            sheetRows = 1;
+            sheetColumns = 6;
+            if (facing.CompareTo(Facing.Up) == 0)
+            {
+                spriteRow = 0;
+                spriteColumn = 4;
+            }
+            else if (facing.CompareTo(Facing.Down) == 0)
+            {
+                spriteRow = 0;
+                spriteColumn = 0;
+            }
+            else if (facing.CompareTo(Facing.Left) == 0)
+            {
+                spriteRow = 0;
+                spriteColumn = 2;
+            }
+            else if (facing.CompareTo(Facing.Right) == 0)
+            {
+                spriteRow = 0;
+                spriteColumn = 2;
+            }
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            int width = playerSpriteSheet.Width / sheetColumns;
+            int height = playerSpriteSheet.Height / sheetRows;
+            int scale = 4;
+
+            Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
+            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+        }
+    }
+}
