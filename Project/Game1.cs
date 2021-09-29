@@ -14,10 +14,7 @@ namespace Project
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private ISprite sprite;
-        private Texture2D texture_atlas;
         private List<IController> controllers;
-        private TextSprite text;
 
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
@@ -33,17 +30,8 @@ namespace Project
             IsMouseVisible = true;
         }
 
-        public void SetSprite(ISprite sprite)
-        {
-            this.sprite = sprite;
-            this.sprite.texture = texture_atlas;
-        }
-
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            sprite = new FixedNonAnimatedSprite();
-            text = new TextSprite();
             controllers = new List<IController>();
 
             KeyboardController keyboardController = new KeyboardController();
@@ -58,10 +46,6 @@ namespace Project
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: use this.Content to load your game content here
-            texture_atlas = Content.Load<Texture2D>("mario");
-            sprite.texture = texture_atlas;
-            text.font = Content.Load<SpriteFont>("Caption");
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
@@ -93,6 +77,7 @@ namespace Project
             }
             sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             link.Update(gameTime);  //Test link sprite - can be eliminated
+
             base.Update(gameTime);
         }
 
