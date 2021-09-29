@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Project
 {
-    interface IEntity
+    public interface IEntity
     {
         public void TakeDamage(int damage);
 

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
+using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
 {
@@ -13,8 +14,7 @@ namespace Project.Entities
         private LinkStateMachine stateMachine;
 
         private Vector2 position;
-        private ISprite sprite;
-        private IBlockSprite placeholderBlock;
+        private IPlayerSprite sprite;
         private double velocity = 100;
         public Vector2 Position
         {
@@ -25,31 +25,32 @@ namespace Project.Entities
         public GreenLink()
         {
             stateMachine = new LinkStateMachine(Facing.Right, Move.Idle, LinkColor.Green);
+            sprite = stateMachine.StopMoving();
         }
 
-        public void SetSprite(IBlockSprite sprite)
+        public void SetSprite(IPlayerSprite sprite)
         {
-            this.placeholderBlock = sprite;
+            this.sprite = sprite;
         }
         public void MoveUp()
         {
-            ISprite newSprite = stateMachine.MoveUp();
+            sprite = stateMachine.MoveUp();
         }
         public void MoveDown()
         {
-            this.sprite = stateMachine.MoveDown();
+            sprite = stateMachine.MoveDown();
         }
         public void MoveLeft()
         {
-            this.sprite = stateMachine.MoveLeft();
+            sprite = stateMachine.MoveLeft();
         }
         public void MoveRight()
         {
-            this.sprite = stateMachine.MoveRight();
+            sprite = stateMachine.MoveRight();
         }
         public void StopMoving()
         {
-            this.sprite = stateMachine.StopMoving();
+            sprite = stateMachine.StopMoving();
         }
         public void UseSword()
         {
@@ -73,9 +74,9 @@ namespace Project.Entities
         {
             int x_dir = 0;
             int y_dir = 0;
-            if (this.stateMachine.move == Move.Moving)
+            if (stateMachine.move == Move.Moving)
             {
-                switch (this.stateMachine.facing)
+                switch (stateMachine.facing)
                 {
                     case Facing.Up:
                         y_dir = -1;
@@ -91,13 +92,14 @@ namespace Project.Entities
                         break;
                 }
             }
-            this.position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-            this.position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+            position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+            position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+            sprite.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            this.placeholderBlock.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, this.position);
         }
     }
 }

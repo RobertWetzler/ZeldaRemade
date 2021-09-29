@@ -14,7 +14,14 @@ namespace Project
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        public GreenLink player;
+        private IPlayer player;
+        public IPlayer Player
+        {
+            get
+            {
+                return player;
+            }
+        }
         private List<IController> controllers;
 
         //List of blocks to cycle thru
@@ -32,8 +39,6 @@ namespace Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            player = new GreenLink();
-            text = new TextSprite();
             controllers = new List<IController>();
 
             KeyboardController keyboardController = new KeyboardController();
@@ -69,19 +74,12 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            texture_atlas = Content.Load<Texture2D>("mario");
-            sprite.texture = texture_atlas;
-            text.font = Content.Load<SpriteFont>("Caption");
-            sprite.texture = texture_atlas;
-            text.font = Content.Load<SpriteFont>("Caption");
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-
+            player = new GreenLink(); // must be done AFTER LinkSpriteFactory load
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            
-            this.player.SetSprite(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
             
             blocks = new List<IBlockSprite>();
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
@@ -101,11 +99,11 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-            sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
         }
 

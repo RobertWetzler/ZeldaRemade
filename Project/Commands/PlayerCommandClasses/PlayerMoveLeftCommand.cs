@@ -15,7 +15,7 @@ namespace Project
 
         public void Execute()
         {
-            this.game.player.MoveLeft();
+            this.game.Player.MoveLeft();
         }
     }
 }

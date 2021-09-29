@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Sprites.PlayerSprites;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -21,14 +22,14 @@ namespace Project.Entities
             this.spriteSelector = new LinkSpriteSelector();
         }
 
-        public ISprite MoveUp()
+        public IPlayerSprite MoveUp()
         {
             this.facing = Facing.Up;
             this.move = Move.Moving;
 
             return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
         }
-        public ISprite MoveDown()
+        public IPlayerSprite MoveDown()
         {
             this.facing = Facing.Down;
             this.move = Move.Moving;
@@ -36,20 +37,20 @@ namespace Project.Entities
             return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
 
         }
-        public ISprite MoveLeft()
+        public IPlayerSprite MoveLeft()
         {
             this.facing = Facing.Left;
             this.move = Move.Moving;
             return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
 
         }
-        public ISprite MoveRight()
+        public IPlayerSprite MoveRight()
         {
             this.facing = Facing.Right;
             this.move = Move.Moving;
             return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
         }
-        public ISprite StopMoving()
+        public IPlayerSprite StopMoving()
         {
             this.move = Move.Idle;
             return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
