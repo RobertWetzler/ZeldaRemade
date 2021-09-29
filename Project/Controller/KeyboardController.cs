@@ -30,7 +30,23 @@ namespace Project
         {
             Keys[] keys = Keyboard.GetState().GetPressedKeys();
 
+            
             KeyboardState newState = Keyboard.GetState();
+
+            foreach (Keys key in keys)
+            {
+                ICommand command;
+                if (oldState.IsKeyUp(key) && newState.IsKeyDown(key) && commandMapping.ContainsKey(key))
+                {
+                    commandMapping[key].Execute();
+                }
+            }
+            if(newState.GetPressedKeyCount() == 0)
+            {
+                defaultCommand.Execute();
+            }
+            oldState = newState;
+            /*
             //Only execute 't' and 'y' command on first key press
             if (oldState.IsKeyUp(Keys.T) && newState.IsKeyDown(Keys.T))
             {
@@ -63,7 +79,7 @@ namespace Project
                             break;
                     }
                 }
-            }
+            }*/
         }
     }
 }
