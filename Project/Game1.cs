@@ -75,7 +75,7 @@ namespace Project
             {
                 controller.Update();
             }
-            sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+
             link.Update(gameTime);  //Test link sprite - can be eliminated
 
             base.Update(gameTime);
