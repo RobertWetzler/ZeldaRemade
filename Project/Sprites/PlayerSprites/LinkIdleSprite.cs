@@ -10,31 +10,30 @@ namespace Project.Sprites.PlayerSprites
     public class LinkIdleSprite : IPlayerSprite
     {
         private Texture2D playerSpriteSheet;
-        private int sheetRows;
-        private int spriteRow;
-        private int spriteColumn;
+        private int sheetRows, spriteRow, spriteColumn;
         private List<(int spriteW, int totalW)> frameWidth;
-
+        private bool facingLeft, finished;
         public LinkIdleSprite(Texture2D playerSpriteSheet, Facing facing)
         {
             this.playerSpriteSheet = playerSpriteSheet;
             sheetRows = 1;
             spriteRow = 0;
-            if (facing.CompareTo(Facing.Up) == 0)
+            facingLeft = false;
+            switch (facing)
             {
-                spriteColumn = 4;
-            }
-            else if (facing.CompareTo(Facing.Down) == 0)
-            {
-                spriteColumn = 0;
-            }
-            else if (facing.CompareTo(Facing.Left) == 0)
-            {
-                spriteColumn = 2;   // TODO: need to change to 6 after adding left sprite
-            }
-            else if (facing.CompareTo(Facing.Right) == 0)
-            {
-                spriteColumn = 2;
+                case Facing.Up:
+                    spriteColumn = 4;
+                    break;
+                case Facing.Down:
+                    spriteColumn = 0;
+                    break;
+                case Facing.Left:
+                    spriteColumn = 2;
+                    facingLeft = true;
+                    break;
+                default:    //facing right
+                    spriteColumn = 2;
+                    break;
             }
 
             frameWidth = new List<(int spriteW, int totalW)>();
@@ -44,13 +43,16 @@ namespace Project.Sprites.PlayerSprites
             frameWidth.Add((16, 51));
             frameWidth.Add((16, 68));
             frameWidth.Add((16, 85));
-            //frameWidth.Add((16, 102));    last two frame for adding left sprites
-            //frameWidth.Add((16, 119));
         }
-
+        public bool IsFinished
+        {
+            get
+            {
+                return finished;
+            }
+        }
         public void Update(GameTime gameTime)
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -61,7 +63,10 @@ namespace Project.Sprites.PlayerSprites
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-            spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+            if (facingLeft)
+                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White,0,Vector2.Zero,SpriteEffects.FlipHorizontally,0);
+            else
+                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
         }
     }
 }

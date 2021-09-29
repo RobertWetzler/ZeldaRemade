@@ -10,15 +10,14 @@ namespace Project.Sprites.PlayerSprites
     public class LinkUseSwordSidewaysSprite : IPlayerSprite
     {
         private Texture2D playerSpriteSheet;
-        private int sheetRows;
-        private int spriteRow;
-        private int spriteColumn;
+        private int sheetRows, spriteRow, spriteColumn;
         private List<(int spriteW, int totalW)> frameWidth;
 
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 100;
+        private int millisecondPerFrame = 500;
         private int totalFrame;
         private bool facingRight;
+        private bool cycleOnce;
 
         public LinkUseSwordSidewaysSprite(Texture2D playerSpriteSheet, bool facingRight)
         {
@@ -26,16 +25,17 @@ namespace Project.Sprites.PlayerSprites
             sheetRows = 1;
             spriteRow = 0;
             this.facingRight = facingRight;
+            cycleOnce = false;
 
             if (facingRight)
             {
                 spriteColumn = 0;
                 totalFrame = 4;
             }
-            else   // facing left
+            else   //facing left
             {
-                spriteColumn = 0;   //TODO: need to change to 4 after adding left sprites
-                totalFrame = 4;     //TODO: need to change to 8 after adding left sprites
+                spriteColumn = 0;  // need to change to 4
+                totalFrame = 4;    // need to change to 8
             }
             frameWidth = new List<(int spriteW, int totalW)>();
             frameWidth.Add((16,0));
@@ -47,6 +47,13 @@ namespace Project.Sprites.PlayerSprites
             //frameWidth.Add((16, 102));    
             //frameWidth.Add((16, 119));
         }
+        public bool IsFinished
+        {
+            get
+            {
+                return cycleOnce;
+            }
+        }
 
         public void Update(GameTime gameTime)
         {
@@ -57,24 +64,33 @@ namespace Project.Sprites.PlayerSprites
                 spriteColumn++;
                 if (spriteColumn == totalFrame)
                 {
-                    if (facingRight)
-                        spriteColumn = 0;
-                    else
-                        spriteColumn = 0;   //TODO: need to change to 4 after adding left sprites
-
+                    cycleOnce = true;
                 }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            int width = frameWidth[spriteColumn].spriteW;
             int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
+            int width;
+            Rectangle source;
 
-            Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
+            if (!cycleOnce)
+            {
+                width = frameWidth[spriteColumn].spriteW;
+                source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
+            }
+            else
+            {
+                width = frameWidth[0].spriteW;
+                source = new Rectangle(frameWidth[0].totalW, spriteRow * height, width, height);
+            }
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-            spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+            if (facingRight)
+                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+            else
+                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
     }
 }

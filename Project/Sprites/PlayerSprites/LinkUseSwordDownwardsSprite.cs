@@ -16,9 +16,10 @@ namespace Project.Sprites.PlayerSprites
         private List<(int spriteW, int totalW)> frameWidth;
 
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 100;      // frequency of animation
+        private int millisecondPerFrame = 500;      // frequency of animation
         private int totalFrame;
-       
+        private bool cycleOnce;
+
         public LinkUseSwordDownwardsSprite(Texture2D playerSpriteSheet)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -26,12 +27,21 @@ namespace Project.Sprites.PlayerSprites
             spriteRow = 0;
             spriteColumn = 0;
             totalFrame = 4;
+            cycleOnce = false;
 
             frameWidth = new List<(int spriteW, int totalW)>();
             frameWidth.Add((16, 0));
             frameWidth.Add((16, 17));
             frameWidth.Add((16, 34));
             frameWidth.Add((16, 51));
+        }
+
+        public bool IsFinished
+        {
+            get
+            {
+                return cycleOnce;
+            }
         }
 
         public void Update(GameTime gameTime)
@@ -43,18 +53,27 @@ namespace Project.Sprites.PlayerSprites
                 spriteColumn++;
                 if (spriteColumn == totalFrame)
                 {
-                        spriteColumn = 0;
+                    cycleOnce = true;
                 }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            int width = frameWidth[spriteColumn].spriteW;
             int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
-
-            Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
+            int width;
+            Rectangle source;
+            if (!cycleOnce)
+            {
+                width = frameWidth[spriteColumn].spriteW;
+                source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
+            }
+            else
+            {
+                width = frameWidth[0].spriteW;
+                source = new Rectangle(frameWidth[0].totalW, spriteRow * height, width, height);
+            }
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
         }

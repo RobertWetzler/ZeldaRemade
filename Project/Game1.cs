@@ -49,7 +49,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            link = LinkSpriteFactory.Instance.CreateLinkWalkingSprite(Entities.Facing.Down);    //Test link sprite - can be eliminated
+            link = LinkSpriteFactory.Instance.CreateLinkWalkingSprite(Entities.Facing.Down);//Test link sprite - can be eliminated
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -75,7 +75,7 @@ namespace Project
             {
                 controller.Update();
             }
-            sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+
             link.Update(gameTime);  //Test link sprite - can be eliminated
 
             base.Update(gameTime);
