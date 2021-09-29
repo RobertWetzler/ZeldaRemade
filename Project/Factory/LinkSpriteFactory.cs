@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
+using Project.Sprites.PlayerSprites;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,47 +41,47 @@ namespace Project.Factory
 			linkUseSwordUpwardsSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-sword-upwards");
 		}
 
-		public ISprite CreateLinkIdleSprite(Facing facing)
+		public IPlayerSprite CreateLinkIdleSprite(Facing facing)
         {
 			//TODO: Implement
-			//return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
+			return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
 			throw new NotImplementedException();
 		}
 
-		public ISprite CreateLinkWalkingSprite(Facing facing)
+		public IPlayerSprite CreateLinkWalkingSprite(Facing facing)
 		{
 			//TODO: Implement
-			//return new LinkWalkingSprite(linkWalkingSpriteSheet, facing);
+			return new LinkWalkingSprite(linkWalkingSpriteSheet, facing);
 			throw new NotImplementedException();
 		}
-		public ISprite CreateLinkPickupItemSprite()
+		public IPlayerSprite CreateLinkPickupItemSprite()
 		{
 			//TODO: Implement
-			//return new LinkPickupItemSprite(linkPickupItemSpriteSheet);
+			return new LinkPickupItemSprite(linkPickupItemSpriteSheet);
 			throw new NotImplementedException();
 		}
-		public ISprite CreateLinkUseItemSprite(Facing facing)
+		public IPlayerSprite CreateLinkUseItemSprite(Facing facing)
 		{
 			//TODO: Implement
-			//return new LinkUseItemSprite(linkUseItemSpriteSheet, facing);
+			return new LinkUseItemSprite(linkUseItemSpriteSheet, facing);
 			throw new NotImplementedException();
 		}
-		public ISprite CreateLinkUseSwordDownwardsSprite()
+		public IPlayerSprite CreateLinkUseSwordDownwardsSprite()
 		{
 			//TODO: Implement
-			//return new LinkUseSwordDownwardsSprite(linkUseSwordDownwardsSpriteSheet);
+			return new LinkUseSwordDownwardsSprite(linkUseSwordDownwardsSpriteSheet);
 			throw new NotImplementedException();
 		}
-		public ISprite CreateLinkUseSwordSidewaysSprite(bool facingRight)
+		public IPlayerSprite CreateLinkUseSwordSidewaysSprite(bool facingRight)
 		{
 			//TODO: Implement. Mirror if facingRight is false (or we can make a different sprite class)
-			//return new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, facingRight);
+			return new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, facingRight);
 			throw new NotImplementedException();
 		}
-		public ISprite CreateLinkUseSwordUpwardsSprite()
+		public IPlayerSprite CreateLinkUseSwordUpwardsSprite()
 		{
 			//TODO: Implement
-			//return new LinkUseSwordUpwardsSprite(linkUseSwordUpwardsSpriteSheet);
+			return new LinkUseSwordUpwardsSprite(linkUseSwordUpwardsSpriteSheet);
 			throw new NotImplementedException();
 		}
 	}

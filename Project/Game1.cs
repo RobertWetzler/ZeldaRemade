@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
+using Project.Sprites.PlayerSprites;
 using System;
 using System.Collections.Generic;
 
@@ -20,6 +21,8 @@ namespace Project
 
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
+
+        private IPlayerSprite link;
         public int CurrentBlockSpriteIndex { get; set; }
 
         public Game1()
@@ -62,6 +65,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            link = LinkSpriteFactory.Instance.CreateLinkWalkingSprite(Entities.Facing.Down);
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -88,6 +92,7 @@ namespace Project
                 controller.Update();
             }
             sprite.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            link.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -98,6 +103,7 @@ namespace Project
             _spriteBatch.Begin();
 
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
+            link.Draw(_spriteBatch, new Vector2(200, 200));
 
             _spriteBatch.End();
 
