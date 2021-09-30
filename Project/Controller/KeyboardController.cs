@@ -33,7 +33,18 @@ namespace Project
             {
                 commandMapping[Keys.Y].Execute();
             }
+            else if(oldState.IsKeyUp(Keys.U) && newState.IsKeyDown(Keys.U))
+            {
+                commandMapping[Keys.U].Execute();
+            }
+            else if(oldState.IsKeyUp(Keys.I) && newState.IsKeyDown(Keys.I))
+            {
+                commandMapping[Keys.I].Execute();
+            }
+
             oldState = newState;
+
+
 
             foreach (Keys key in keys)
             {
@@ -42,6 +53,8 @@ namespace Project
                 {
                     switch (key)
                     {
+                        case Keys.U:
+                        case Keys.I:
                         case Keys.T:
                         case Keys.Y:
                             continue;
