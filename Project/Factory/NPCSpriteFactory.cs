@@ -20,6 +20,7 @@ namespace Project.Factory
         private Texture2D snakeSpriteSheet;
         private Texture2D wallmasterSpriteSheet;
         private Texture2D zolSpriteSheet;
+        private Texture2D enemySpriteSheet;
 
 
         private static NPCSpriteFactory instance = new NPCSpriteFactory();
@@ -47,9 +48,19 @@ namespace Project.Factory
             snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
+            enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
 
 
         }
+
+        public Texture2D GetEnemySpriteSheet()
+        {
+
+            return enemySpriteSheet;
+        }
+
+        public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
 
 
     }
