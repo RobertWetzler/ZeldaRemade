@@ -66,6 +66,7 @@ namespace Project
             blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
 
+            //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
 
             //Set initial block sprite to show
@@ -74,6 +75,7 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
+            NPC.Update();
             foreach (IController controller in controllers)
             {
                 controller.Update();
