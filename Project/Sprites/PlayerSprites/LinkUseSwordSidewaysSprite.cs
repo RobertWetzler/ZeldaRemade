@@ -14,7 +14,7 @@ namespace Project.Sprites.PlayerSprites
         private List<(int spriteW, int totalW)> frameWidth;
 
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 500;
+        private int millisecondPerFrame = 1000;
         private int totalFrame;
         private bool facingRight;
         private bool cycleOnce;
@@ -76,6 +76,24 @@ namespace Project.Sprites.PlayerSprites
                 }
                 else
                 {
+                    switch (spriteColumn)
+                    {
+                    case 1:
+                        dest = new Rectangle((int)position.X - (11 * scale), (int)position.Y, width * scale, height * scale);
+                        break;
+                    case 2:
+                        dest = new Rectangle((int)position.X - (7*scale), (int)position.Y, width * scale, height * scale);
+                        break;
+                    case 3:
+                        dest = new Rectangle((int)position.X - (3*scale), (int)position.Y, width * scale, height * scale);
+                        break;
+                    default:
+                        break;
+
+                    }
+                
+                    
+                
                     spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 }
                     

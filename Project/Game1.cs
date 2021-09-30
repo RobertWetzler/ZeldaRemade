@@ -49,7 +49,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            link = LinkSpriteFactory.Instance.CreateLinkUseSwordDownwardsSprite();//Test link sprite - can be eliminated
+            link = LinkSpriteFactory.Instance.CreateLinkUseSwordSidewaysSprite(false);//Test link sprite - can be eliminated
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
