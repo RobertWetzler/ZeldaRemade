@@ -19,6 +19,7 @@ namespace Project.Sprites.PlayerSprites
             sheetRows = 1;
             spriteRow = 0;
             facingLeft = false;
+            finished = false;
             switch (facing)
             {
                 case Facing.Up:
