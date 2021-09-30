@@ -46,40 +46,6 @@ namespace Project
                 defaultCommand.Execute();
             }
             oldState = newState;
-            /*
-            //Only execute 't' and 'y' command on first key press
-            if (oldState.IsKeyUp(Keys.T) && newState.IsKeyDown(Keys.T))
-            {
-                commandMapping[Keys.T].Execute();
-            }
-            else if (oldState.IsKeyUp(Keys.Y) && newState.IsKeyDown(Keys.Y))
-            {
-                commandMapping[Keys.Y].Execute();
-            }
-            oldState = newState;
-
-
-            //default command logic
-            if (keys.Length == 0 && defaultCommand != null)
-            {
-                defaultCommand.Execute();
-            }
-            foreach (Keys key in keys)
-            {
-                ICommand command;
-                if (commandMapping.TryGetValue(key, out command))
-                {
-                    switch (key)
-                    {
-                        case Keys.T:
-                        case Keys.Y:
-                            continue;
-                        default:
-                            command.Execute();
-                            break;
-                    }
-                }
-            }*/
         }
     }
 }
