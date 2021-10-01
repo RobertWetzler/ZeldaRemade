@@ -3,9 +3,11 @@
     "",
     "\\Project",
     "\\Project\\Commands",
-    "\\Project\\Commands\\PlayerCommandsClasses",
-    "\\Project\\Controller"
+    "\\Project\\Controller",
+    "\\Project\\Factory",
+    "\\Project\\Sprites",
+    "\\Project\\Sprites\\PlayerSprites"
   ],
-  "SelectedNode": "\\Project\\Commands\\PlayerCommandsClasses\\PlayerMoveUp.cs",
+  "SelectedNode": "\\Project\\Project.csproj",
   "PreviewInSolutionExplorer": false
 }
