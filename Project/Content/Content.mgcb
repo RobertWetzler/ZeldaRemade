@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:ItemSprites/items_arrows.png
 
+#begin ItemSprites/items_blue_arrows.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ItemSprites/items_blue_arrows.png
+
 #begin ItemSprites/items_bomb.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -228,6 +240,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ItemSprites/items_swords.png
+
+#begin ItemSprites/items_triforce.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ItemSprites/items_triforce.png
 
 #begin ItemSprites/items_wooden_bow.png
 /importer:TextureImporter

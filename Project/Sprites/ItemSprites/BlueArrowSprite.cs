@@ -34,5 +34,10 @@ namespace Project.Sprites.ItemSprites
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }
+
+        public void Update(GameTime gameTime)
+        {
+            
+        }
     }
 }

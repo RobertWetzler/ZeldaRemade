@@ -80,6 +80,12 @@ namespace Project.Factory
             
         }
 
+        public IItemSprite CreateBlueArrowSprite()
+        {
+            return new ArrowSprite(blueArrowSpriteSheet, 1, 4);
+
+        }
+
         public IItemSprite CreateWandSprite()
         {
             return new WandSprite(wandSpriteSheet, 1, 1);

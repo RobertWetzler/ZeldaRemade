@@ -10,7 +10,7 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         //private int spriteColumn;
         private int frame;
-        private int totalFrames;
+      
 
 
         private Texture2D spriteSheet;
@@ -22,8 +22,8 @@ namespace Project.Sprites.ItemSprites
             this.sheetRows = sheetRows;
 
             spriteRow = 0;
-            frame = 1;
-            totalFrames = 2;
+       
+            
             
 
         }

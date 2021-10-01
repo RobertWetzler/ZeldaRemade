@@ -10,7 +10,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Sprites\ItemSprites\BlueArrowSprite.cs" />
     <Compile Remove="Sprites\ItemSprites\BlueBoomerangSprite.cs" />
     <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
   </ItemGroup>

@@ -6,6 +6,7 @@ namespace Project.Sprites.ItemSprites
 {
     class BlueRupeeSprite : IItemSprite
     {
+        
         private int sheetRows;
         private int sheetColumns;
         private int spriteRow;
