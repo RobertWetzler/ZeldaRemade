@@ -1,4 +1,4 @@
-﻿using Project.NPC.Bat;
+﻿using Project.NPC.Skeleton;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;

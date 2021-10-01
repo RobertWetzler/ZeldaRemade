@@ -51,5 +51,3 @@ namespace Project.NPC.Skeleton
         }
     }
 }
-    }
-}

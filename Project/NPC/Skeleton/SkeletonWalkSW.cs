@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Project.NPC.Skeleton;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 using System.Collections.Generic;
+using Project;
+using Project.Factory;
 
 namespace Project.NPC.Skeleton
 {
-    class SkeletonWalkEast : INPCState
+    class SkeletonWalkSW : INPCState
     {
         private int my_frame_index;
         private int delay_frame_index;
@@ -18,7 +20,7 @@ namespace Project.NPC.Skeleton
 
         };
 
-        public SkeletonWalkEast(Skeleton skeleton)
+        public SkeletonWalkSW(Skeleton skeleton)
         {
             this.skeleton = skeleton;
             my_frame_index = 0;
@@ -37,9 +39,9 @@ namespace Project.NPC.Skeleton
 
         public void Update()
         {
-            if (skeleton.xPos == 450 && skeleton.yPos == 100)
+            if (skeleton.xPos == 350 && skeleton.yPos == 50)
             {
-                skeleton.currentState = new SkeletonWalkSouth(skeleton);
+                skeleton.currentState = new SkeletonWalkSE(skeleton);
             }
 
             if (++delay_frame_index >= delay_frames)

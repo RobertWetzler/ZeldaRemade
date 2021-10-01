@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Factory;
 using Project.NPC.Bat;
+using Project.NPC.Skeleton;
 using Project.Sprites.BlockSprites;
 using System;
 using System.Collections.Generic;
