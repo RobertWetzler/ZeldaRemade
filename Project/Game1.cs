@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using Project.Factory;
 using Project.NPC.Bat;
 using Project.NPC.Skeleton;
+using Project.NPC.OldMan;
+using Project.NPC.Merchant;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -45,6 +47,8 @@ namespace Project
 
             NPC = new Bat();
             NPC = new Skeleton();
+            NPC = new OldMan();
+            NPC = new Merchant();
 
 
             base.Initialize();

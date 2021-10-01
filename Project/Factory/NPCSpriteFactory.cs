@@ -63,5 +63,8 @@ namespace Project.Factory
         public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
         public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
 
+        public static Rectangle OLD_MAN = new Rectangle(1 * 10, 11, 16, 16);
+        public static Rectangle MERCHANT = new Rectangle(1 * 10, 11, 16, 16);
+
     }
 }
