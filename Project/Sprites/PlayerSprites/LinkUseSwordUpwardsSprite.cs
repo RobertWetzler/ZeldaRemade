@@ -16,7 +16,7 @@ namespace Project.Sprites.PlayerSprites
         private List<(int spriteW, int totalW)> frameWidth;
 
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 500;
+        private int millisecondPerFrame = 500;      // frequency of animation
         private int totalFrame;
         private bool cycleOnce;
 
@@ -50,8 +50,11 @@ namespace Project.Sprites.PlayerSprites
             if (timeSinceLastFrame > millisecondPerFrame)
             {
                 timeSinceLastFrame -= millisecondPerFrame;
-                spriteColumn++;
-                if (spriteColumn == totalFrame)
+                if (spriteColumn < totalFrame - 1)
+                {
+                    spriteColumn++;
+                }
+                else
                 {
                     cycleOnce = true;
                 }
@@ -62,18 +65,9 @@ namespace Project.Sprites.PlayerSprites
         {
             int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
-            int width;
-            Rectangle source;
-            if (!cycleOnce)
-            {
-                width = frameWidth[spriteColumn].spriteW;
-                source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            }
-            else
-            {
-                width = frameWidth[0].spriteW;
-                source = new Rectangle(frameWidth[0].totalW, spriteRow * height, width, height);
-            }
+            int width = frameWidth[spriteColumn].spriteW;
+
+            Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
         }

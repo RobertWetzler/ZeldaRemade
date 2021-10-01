@@ -18,8 +18,6 @@ namespace Project.Sprites.PlayerSprites
         private Facing facing;
         private bool facingLeft, finished;
 
-        private int displacement;   //not used so far
-
         public LinkWalkingSprite(Texture2D playerSpriteSheet, Facing facing)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -84,7 +82,10 @@ namespace Project.Sprites.PlayerSprites
                         case (Facing.Down):
                             spriteColumn = 0;
                             break;
-                        default:
+                        case (Facing.Left):
+                            spriteColumn = 2;
+                            break;
+                        default:    //facing right
                             spriteColumn = 2;
                             break;
                     }

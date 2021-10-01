@@ -9,33 +9,42 @@ namespace Project.Sprites.PlayerSprites
 {
     public class LinkUseItemSprite : IPlayerSprite
     {
-        private Texture2D playerSpriteSheet;
-        private int sheetRows, spriteRow, spriteColumn;
+        private Texture2D useItemSpriteSheet, idleSpriteSheet;
+        private int sheetRows, spriteRow, spriteOneColumn, spriteTwoColumn;
         private List<(int spriteW, int totalW)> frameWidth;
-        private bool facingLeft, finished;
+        private bool facingLeft;
+        private int timeSinceLastFrame = 0;
+        private int millisecondPerFrame = 500;     //frequency of animation
+        private int currentSheet = 1;
+        private bool cycleOnce;
 
-        public LinkUseItemSprite(Texture2D playerSpriteSheet, Facing facing)
+        public LinkUseItemSprite(Texture2D useItemSpriteSheet, Texture2D idleSpriteSheet, Facing facing)
         {
-            this.playerSpriteSheet = playerSpriteSheet;
+            this.useItemSpriteSheet = useItemSpriteSheet;
+            this.idleSpriteSheet = idleSpriteSheet;
             sheetRows = 1;
             spriteRow = 0;
             facingLeft = false;
-            finished = false;
+            cycleOnce = false;
 
             switch (facing)
             {
                 case Facing.Up:
-                    spriteColumn = 2;
+                    spriteOneColumn = 2;
+                    spriteTwoColumn = 5;
                     break;
                 case Facing.Down:
-                    spriteColumn = 0;
+                    spriteOneColumn = 0;
+                    spriteTwoColumn = 0;
                     break;
                 case Facing.Left:
-                    spriteColumn = 1;
+                    spriteOneColumn = 1;
+                    spriteTwoColumn = 2;
                     facingLeft = true;
                     break;
                 default:    //facing right
-                    spriteColumn = 1;
+                    spriteOneColumn = 1;
+                    spriteTwoColumn = 2;
                     break;
             }
 
@@ -43,32 +52,54 @@ namespace Project.Sprites.PlayerSprites
             frameWidth.Add((16, 0));
             frameWidth.Add((16, 17));
             frameWidth.Add((16, 34));
+            frameWidth.Add((16, 51));
+            frameWidth.Add((16, 68));
+            frameWidth.Add((16, 85));
         }
 
         public bool IsFinished
         {
             get
             {
-                return finished;
+                return cycleOnce;
             }
         }
 
         public void Update(GameTime gameTime)
         {
+            timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (timeSinceLastFrame > millisecondPerFrame)
+            {
+                currentSheet = 2;
+                cycleOnce = true;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            int width = frameWidth[spriteColumn].spriteW;
-            int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
-
-            Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-            if (facingLeft)
-                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+            if (currentSheet == 1)
+            {
+                int width = frameWidth[spriteOneColumn].spriteW;
+                int height = useItemSpriteSheet.Height / sheetRows;
+                Rectangle source = new Rectangle(frameWidth[spriteOneColumn].totalW, spriteRow * height, width, height);
+                Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+                if (facingLeft)
+                    spriteBatch.Draw(useItemSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                else
+                    spriteBatch.Draw(useItemSpriteSheet, dest, source, Color.White);
+            }
             else
-                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
-        }
+            {
+                int width = frameWidth[spriteTwoColumn].spriteW;
+                int height = idleSpriteSheet.Height / sheetRows;
+                Rectangle source = new Rectangle(frameWidth[spriteTwoColumn].totalW, spriteRow * height, width, height);
+                Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+                if (facingLeft)
+                    spriteBatch.Draw(idleSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                else
+                    spriteBatch.Draw(idleSpriteSheet, dest, source, Color.White);
+            }
+        }   
     }
 }
