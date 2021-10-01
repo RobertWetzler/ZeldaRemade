@@ -40,6 +40,7 @@ namespace Project
             controllers.Add(keyboardController);
 
             NPC = new Bat();
+            NPC = new Skeleton();
 
 
             base.Initialize();
