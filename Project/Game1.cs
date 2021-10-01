@@ -81,9 +81,9 @@ namespace Project
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             player = new GreenLink(); // must be done AFTER LinkSpriteFactory load
+            
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            
             blocks = new List<IBlockSprite>();
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
@@ -95,7 +95,6 @@ namespace Project
             blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
-
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
         }
@@ -115,7 +114,6 @@ namespace Project
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin(samplerState:SamplerState.PointClamp); // PointClamp fixes sprite blurriness
-
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();

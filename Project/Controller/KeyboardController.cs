@@ -11,7 +11,7 @@ namespace Project
     {
         private Dictionary<Keys, ICommand> commandMapping;
         private KeyboardState oldState;
-        private ICommand defaultCommand = null;
+        private ICommand defaultCommand;
         public KeyboardController()
         {
             commandMapping = new Dictionary<Keys, ICommand>();
@@ -29,10 +29,7 @@ namespace Project
         public void Update()
         {
             Keys[] keys = Keyboard.GetState().GetPressedKeys();
-
-            
             KeyboardState newState = Keyboard.GetState();
-
             foreach (Keys key in keys)
             {
                 ICommand command;
