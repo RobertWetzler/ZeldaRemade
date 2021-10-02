@@ -15,6 +15,7 @@ namespace Project.NPC.Bat
 
         private static int delay_frames = 10;
 
+
         public BatWalkNorth(Bat bat)
         {
             this.bat = bat;

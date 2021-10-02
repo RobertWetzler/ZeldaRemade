@@ -80,7 +80,7 @@ namespace Project
 
             //Set NPC
             //NPC = new Bat();
-            NPC = new Skeleton();
+            NPC = new Bat();
         }
 
         protected override void Update(GameTime gameTime)
