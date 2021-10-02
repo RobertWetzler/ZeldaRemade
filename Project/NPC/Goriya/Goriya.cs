@@ -12,7 +12,7 @@ namespace Project.NPC.Goriya
 
         public Goriya()
         {
-            currentState = new GoriyaUseItem(this, Entities.Facing.Down);
+            currentState = new GoriyaWalkEast(this);
             xPos = 400;
             yPos = 100;
         }

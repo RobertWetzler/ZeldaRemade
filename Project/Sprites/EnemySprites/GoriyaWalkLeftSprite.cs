@@ -23,7 +23,7 @@ namespace Project
             Rectangle source = sourceFrames[currentFrame];
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
-                source.Width * 3, source.Height * 3);
+                source.Width * 4, source.Height * 4);
             spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f); 
         }
 

@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Project
-{ 
-    class GoriyaWalkSouthSprite : IEnemySprite
+{
+    class GoriyaWalkUpDownSprite : IEnemySprite
     {
         private Texture2D goriyaSpriteSheet;
         private Rectangle sourceFrame;
         private bool flipSprite = false;
-        public GoriyaWalkSouthSprite(Texture2D goriyaSpriteSheet, Rectangle sourceFrame)
+        public GoriyaWalkUpDownSprite(Texture2D goriyaSpriteSheet, Rectangle sourceFrame)
         {
             this.goriyaSpriteSheet = goriyaSpriteSheet;
             this.sourceFrame = sourceFrame;
@@ -21,7 +21,7 @@ namespace Project
         {
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
-                sourceFrame.Width * 3, sourceFrame.Height * 3);
+                sourceFrame.Width * 4, sourceFrame.Height * 4);
             if (flipSprite)
             {
                 spriteBatch.Draw(goriyaSpriteSheet, destination, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);

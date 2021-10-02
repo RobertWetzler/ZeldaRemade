@@ -106,12 +106,12 @@ namespace Project.Factory
         public IEnemySprite CreateGoriyaWalkNorthSprite()
         {
             Rectangle source = new Rectangle(17, 0, 16, 16);
-            return new GoriyaWalkNorthSprite(goriyaSpriteSheet, source);
+            return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, source);
         }
         public IEnemySprite CreateGoriyaWalkSouthSprite()
         {
             Rectangle source = new Rectangle(0, 0, 16, 16);
-            return new GoriyaWalkSouthSprite(goriyaSpriteSheet, source);
+            return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, source);
         }
         public IEnemySprite CreateGoriyaUseItemSprite(Facing dir)
         {
@@ -123,9 +123,9 @@ namespace Project.Factory
             switch (dir)
             {
                 case Facing.Up:
-                    return new GoriyaWalkNorthSprite(goriyaSpriteSheet, upFrame);
+                    return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, upFrame);
                 case Facing.Down:
-                    return new GoriyaWalkSouthSprite(goriyaSpriteSheet, downFrame);
+                    return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, downFrame);
                 case Facing.Left:
                     return new GoriyaWalkLeftSprite(goriyaSpriteSheet, sourceFrames);
                 default:
