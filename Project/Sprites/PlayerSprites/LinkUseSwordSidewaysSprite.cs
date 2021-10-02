@@ -61,7 +61,7 @@ namespace Project.Sprites.PlayerSprites
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color = default)
         {
             int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
@@ -69,10 +69,9 @@ namespace Project.Sprites.PlayerSprites
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
 
-
             if (facingRight)
                 {    
-                    spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+                    spriteBatch.Draw(playerSpriteSheet, dest, source, color);
                 }
                 else
                 {
@@ -91,14 +90,8 @@ namespace Project.Sprites.PlayerSprites
                         break;
 
                     }
-                
-                    
-                
-                    spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                    spriteBatch.Draw(playerSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 }
-                    
-                
-            
         }
     }
 }

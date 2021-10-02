@@ -75,7 +75,7 @@ namespace Project.Sprites.PlayerSprites
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color = default)
         {
             int scale = 4;
             if (currentSheet == 1)
@@ -85,9 +85,9 @@ namespace Project.Sprites.PlayerSprites
                 Rectangle source = new Rectangle(frameWidth[spriteOneColumn].totalW, spriteRow * height, width, height);
                 Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
                 if (facingLeft)
-                    spriteBatch.Draw(useItemSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                    spriteBatch.Draw(useItemSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 else
-                    spriteBatch.Draw(useItemSpriteSheet, dest, source, Color.White);
+                    spriteBatch.Draw(useItemSpriteSheet, dest, source, color);
             }
             else
             {
@@ -96,9 +96,9 @@ namespace Project.Sprites.PlayerSprites
                 Rectangle source = new Rectangle(frameWidth[spriteTwoColumn].totalW, spriteRow * height, width, height);
                 Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
                 if (facingLeft)
-                    spriteBatch.Draw(idleSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                    spriteBatch.Draw(idleSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 else
-                    spriteBatch.Draw(idleSpriteSheet, dest, source, Color.White);
+                    spriteBatch.Draw(idleSpriteSheet, dest, source, color);
             }
         }   
     }

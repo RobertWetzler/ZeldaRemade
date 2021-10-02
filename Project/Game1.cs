@@ -17,13 +17,7 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-        public IPlayer Player
-        {
-            get
-            {
-                return player;
-            }
-        }
+        public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
         private INPC NPC;
 

@@ -13,6 +13,6 @@ namespace Project
         //TODO: add parameter: Item item
         public void UseItem();
         void Update(Rectangle windowBounds, GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color = default);
     }
 }

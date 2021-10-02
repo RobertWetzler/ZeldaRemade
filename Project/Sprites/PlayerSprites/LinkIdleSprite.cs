@@ -52,11 +52,14 @@ namespace Project.Sprites.PlayerSprites
                 return finished;
             }
         }
+
+        public bool IsFlashing { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Update(GameTime gameTime)
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color = default)
         {
             int width = frameWidth[spriteColumn].spriteW;
             int height = playerSpriteSheet.Height / sheetRows;

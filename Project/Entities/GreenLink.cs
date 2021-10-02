@@ -97,7 +97,7 @@ namespace Project.Entities
             sprite.Update(gameTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color = default)
         {
             sprite.Draw(spriteBatch, this.position);
         }
