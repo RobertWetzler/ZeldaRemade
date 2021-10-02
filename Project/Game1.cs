@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
+using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace Project
         private List<IItemSprite> items;
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
+        
+        private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
 
@@ -51,6 +54,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            link = LinkSpriteFactory.Instance.CreateLinkUseSwordSidewaysSprite(false);//Test link sprite - can be eliminated
 
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -105,6 +109,8 @@ namespace Project
                 controller.Update();
             }
 
+            link.Update(gameTime);  //Test link sprite - can be eliminated
+
             foreach (IItemSprite item in items)
             {
                 item.Update(gameTime);
@@ -120,6 +126,7 @@ namespace Project
             _spriteBatch.Begin(samplerState:SamplerState.PointClamp); // PointClamp fixes sprite blurriness
 
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
+            link.Draw(_spriteBatch, new Vector2(200, 200));     //Test link sprite - can be eliminated
             items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(400, 100));
 
             _spriteBatch.End();
