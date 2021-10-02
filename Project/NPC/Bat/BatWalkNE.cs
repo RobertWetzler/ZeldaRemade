@@ -8,7 +8,6 @@ namespace Project.NPC.Bat
 {
     class BatWalkNE : INPCState
     {
-        private int my_frame_index;
         private int delay_frame_index;
         private IEnemySprite sprite;
         private Bat bat;
