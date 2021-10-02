@@ -11,14 +11,14 @@ namespace Project.NPC.BigJelly
     {
        
         private int delay_frame_index;
-        private BigJelly skeleton;
+        private BigJelly bigjelly;
 
         private static int delay_frames = 10;
         private IEnemySprite sprite;
 
-        public BigJellyWalkNW(BigJelly skeleton)
+        public BigJellyWalkNW(BigJelly bigjelly)
         {
-            this.skeleton = skeleton;
+            this.bigjelly = bigjelly;
             sprite = NPCSpriteFactory.Instance.CreateBigJellySprite();
             delay_frame_index = 0;
         }
@@ -30,16 +30,16 @@ namespace Project.NPC.BigJelly
 
         public void Update()
         {
-            if (skeleton.xPos == 350 && skeleton.yPos == 50)
+            if (bigjelly.xPos == 350 && bigjelly.yPos == 50)
             {
-                skeleton.currentState = new BigJellyWalkNE(skeleton);
+                bigjelly.currentState = new BigJellyWalkNE(bigjelly);
             }
 
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                skeleton.xPos -= 5;
-                skeleton.yPos -= 5;
+                bigjelly.xPos -= 5;
+                bigjelly.yPos -= 5;
                 sprite.Update();
             }
         }

@@ -3,7 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Factory;
 using Project.NPC.Bat;
+using Project.NPC.BigJelly;
+using Project.NPC.Goriya;
 using Project.NPC.Skeleton;
+using Project.NPC.SmallJelly;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -80,7 +83,7 @@ namespace Project
 
             //Set NPC
             //NPC = new Bat();
-            NPC = new Skeleton();
+            NPC = new Goriya();
         }
 
         protected override void Update(GameTime gameTime)

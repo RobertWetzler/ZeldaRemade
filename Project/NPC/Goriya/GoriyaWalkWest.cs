@@ -1,24 +1,25 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Project.NPC.BigJelly
+namespace Project.NPC.Goriya
 {
-    class BigJellyWalkEast : INPCState
+    class GoriyaWalkWest : INPCState
     {
         private int delay_frame_index;
-        private BigJelly bigjelly;
+        private Goriya goriya;
         private IEnemySprite sprite;
         private static int delay_frames = 10;
 
-        public BigJellyWalkEast(BigJelly bigjelly)
+        public GoriyaWalkWest(Goriya goriya)
         {
-            this.bigjelly = bigjelly;
-            sprite = NPCSpriteFactory.Instance.CreateBigJellySprite();
+            this.goriya = goriya;
+            sprite = NPCSpriteFactory.Instance.CreateGoriyaWalkWestSprite();
             delay_frame_index = 0;
-        }
 
+        }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
             sprite.Draw(spriteBatch, xPos, yPos);
@@ -26,15 +27,14 @@ namespace Project.NPC.BigJelly
 
         public void Update()
         {
-            if (bigjelly.xPos == 450 && bigjelly.yPos == 100)
+            if (goriya.xPos == 400 && goriya.yPos == 150)
             {
-                bigjelly.currentState = new BigJellyWalkSouth(bigjelly);
+                goriya.currentState = new GoriyaWalkNorth(goriya);
             }
-
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                bigjelly.xPos += 5;
+                goriya.xPos -= 5;
                 sprite.Update();
             }
         }

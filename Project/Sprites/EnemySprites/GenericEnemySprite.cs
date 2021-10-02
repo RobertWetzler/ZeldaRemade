@@ -6,13 +6,13 @@ using System.Text;
 
 namespace Project
 {
-    class BatSprite : IEnemySprite
+    class GenericEnemySprite : IEnemySprite
     {
         private Texture2D spriteSheet;
         private List<Rectangle> sourceFrames; 
         private int my_frame_index = 0;
 
-        public BatSprite(Texture2D spriteSheet, List<Rectangle> sourceFrames)
+        public GenericEnemySprite(Texture2D spriteSheet, List<Rectangle> sourceFrames)
         {
             this.spriteSheet = spriteSheet;
             this.sourceFrames = sourceFrames;
