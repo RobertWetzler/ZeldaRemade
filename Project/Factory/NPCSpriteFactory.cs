@@ -49,7 +49,6 @@ namespace Project.Factory
             snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
-            //If we use this spritesheet, we have to get rid of the grey backgrounds
             enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
 
 

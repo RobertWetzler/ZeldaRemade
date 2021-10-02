@@ -8,6 +8,7 @@ namespace Project.NPC.Bat
 {
     class BatWalkSE : INPCState
     {
+
         private int delay_frame_index;
         private Bat bat;
 
