@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Factory;
 using Project.NPC.Bat;
+using Project.NPC.Skeleton;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -43,6 +44,7 @@ namespace Project
             controllers.Add(keyboardController);
 
             NPC = new Bat();
+            NPC = new Skeleton();
 
 
             base.Initialize();
