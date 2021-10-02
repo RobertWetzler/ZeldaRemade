@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Project.NPC.Bat;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 using System.Collections.Generic;
+using Project;
+using Project.Factory;
 
 namespace Project.NPC.Bat
 {
-    class BatWalkEast : INPCState
+    class BatWalkNorth : INPCState
     {
         private int my_frame_index;
         private int delay_frame_index;
@@ -13,12 +15,11 @@ namespace Project.NPC.Bat
 
         private static int delay_frames = 10;
         private static List<Rectangle> my_source_frames = new List<Rectangle>{
-            NPCSpriteFactory.BAT_1,
-            NPCSpriteFactory.BAT_2
-
+           NPCSpriteFactory.BAT_1,
+           NPCSpriteFactory.BAT_2
         };
 
-        public BatWalkEast(Bat bat)
+        public BatWalkNorth(Bat bat)
         {
             this.bat = bat;
             my_frame_index = 0;
@@ -37,15 +38,15 @@ namespace Project.NPC.Bat
 
         public void Update()
         {
-            if (bat.xPos == 450 && bat.yPos == 100)
+            if (bat.xPos == 400 && bat.yPos == 100)
             {
-                bat.currentState = new BatWalkSouth(bat);
+                bat.currentState = new BatWalkNW(bat);
             }
 
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                bat.xPos += 5;
+                bat.yPos -= 5;
                 my_frame_index++;
                 my_frame_index %= my_source_frames.Count;
             }
