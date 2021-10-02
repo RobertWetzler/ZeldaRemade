@@ -12,14 +12,14 @@ namespace Project.Factory
     {
         private Texture2D bossDragonSpriteSheet;
         private Texture2D dinosaurLeftRightSpriteSheet;
-        private Texture2D dinosaurUpDownSpriteSheet;
-        private Texture2D batSpriteSheet;
+        private Texture2D dinosaurUpDownSpriteSheet; 
         private Texture2D gelSpriteSheet;
         private Texture2D skeletonSpriteSheet;
         private Texture2D goriyaSpriteSheet;
         private Texture2D snakeSpriteSheet;
         private Texture2D wallmasterSpriteSheet;
         private Texture2D zolSpriteSheet;
+        private Texture2D enemySpriteSheet;
 
 
         private static NPCSpriteFactory instance = new NPCSpriteFactory();
@@ -40,16 +40,25 @@ namespace Project.Factory
             bossDragonSpriteSheet = content.Load<Texture2D>("EnemySprites/boss-dragon");
             dinosaurLeftRightSpriteSheet = content.Load<Texture2D>("EnemySprites/dinosaur-front-back");
             dinosaurUpDownSpriteSheet = content.Load<Texture2D>("EnemySprites/dinosaur-left-right");
-            batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
             gelSpriteSheet= content.Load<Texture2D>("EnemySprites/enemy-gel");
             skeletonSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-skeleton");
             goriyaSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-goriya-walking");
             snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
+            enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
 
 
         }
+
+        public Texture2D GetEnemySpriteSheet()
+        {
+
+            return enemySpriteSheet;
+        }
+
+        public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
 
 
     }

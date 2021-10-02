@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
+using Project.NPC.Bat;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -24,6 +25,7 @@ namespace Project
             }
         }
         private List<IController> controllers;
+        private INPC NPC;
 
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
@@ -70,6 +72,9 @@ namespace Project
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
             controllers.Add(keyboardController);
 
+            NPC = new Bat();
+
+
             base.Initialize();
         }
 
@@ -94,12 +99,17 @@ namespace Project
             blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
+
+            //Load NPC sprites
+            NPCSpriteFactory.Instance.LoadAllTextures(Content);
+
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
         }
 
         protected override void Update(GameTime gameTime)
         {
+            NPC.Update();
             foreach (IController controller in controllers)
             {
                 controller.Update();
@@ -115,6 +125,9 @@ namespace Project
             _spriteBatch.Begin(samplerState:SamplerState.PointClamp); // PointClamp fixes sprite blurriness
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
+
+            NPC.Draw(_spriteBatch);
+
             _spriteBatch.End();
 
             base.Draw(gameTime);
