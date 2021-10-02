@@ -74,6 +74,13 @@ namespace Project.Factory
         {
             return new SkeletonSprite(skeletonSpriteSheet);
         }
+        public IEnemySprite CreateBigJellySprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new BatSprite(zolSpriteSheet, sourceFrames);
+        }
 
     }
 }
