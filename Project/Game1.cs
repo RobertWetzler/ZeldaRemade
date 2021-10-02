@@ -43,8 +43,8 @@ namespace Project
             keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
             controllers.Add(keyboardController);
 
-            NPC = new Bat();
-            NPC = new Skeleton();
+            
+            
 
 
             base.Initialize();
@@ -77,6 +77,10 @@ namespace Project
 
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
+
+            //Set NPC
+            //NPC = new Bat();
+            NPC = new Skeleton();
         }
 
         protected override void Update(GameTime gameTime)

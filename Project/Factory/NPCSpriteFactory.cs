@@ -48,6 +48,7 @@ namespace Project.Factory
             snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
+            //If we use this spritesheet, we have to get rid of the grey backgrounds
             enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
 
 
@@ -60,12 +61,18 @@ namespace Project.Factory
         }
         //public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
         //public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
         public IEnemySprite CreateBatSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
             sourceFrames.Add(new Rectangle(17, 0, 16, 16));
             return new BatSprite(batSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateSkeletonSprite()
+        {
+            return new SkeletonSprite(skeletonSpriteSheet);
         }
 
     }
