@@ -21,7 +21,7 @@ namespace Project
         {
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
-                16 * 3, 16 * 3);
+                sourceFrame.Width * 3, sourceFrame.Height * 3);
             if (flipSprite)
             {
                 spriteBatch.Draw(goriyaSpriteSheet, destination, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);

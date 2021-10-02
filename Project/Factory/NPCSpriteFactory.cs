@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Sprites.BlockSprites;
 using System;
 using System.Collections.Generic;
@@ -112,6 +113,12 @@ namespace Project.Factory
             Rectangle source = new Rectangle(0, 0, 16, 16);
             return new GoriyaWalkSouthSprite(goriyaSpriteSheet, source);
         }
-
+        public IEnemySprite CreateGoriyaUseItemSidewaysSprite(bool facingRight)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(34, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            return new GoriyaUseItemSidewaysSprite(goriyaSpriteSheet, sourceFrames, facingRight);
+        }
     }
 }
