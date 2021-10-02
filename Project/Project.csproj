@@ -10,7 +10,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Sprites\ItemSprites\BlueBoomerangSprite.cs" />
     <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\EnemySprites\" />
+    <Folder Include="Items\" />
     <Folder Include="NPC\" />
     <Folder Include="NPC\Bat\" />
     <Folder Include="NPC\Skeleton\" />

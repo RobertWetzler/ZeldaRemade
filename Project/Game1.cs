@@ -70,32 +70,34 @@ namespace Project
             blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
 
+            
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             items = new List<IItemSprite>();
-            items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBombSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateArrowSprite());      
-            items.Add(ItemSpriteFactory.Instance.CreateRupeesSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBlueRupeesSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBoomerangSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBlueCandleSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateCandleSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBlueRingSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateRingSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBlueSwordSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateSwordSprite());      
-            items.Add(ItemSpriteFactory.Instance.CreateTriforceSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBottleSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBlueBottleSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateClockSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateHealthSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateHeartContSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateCompassSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateBowSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateMapSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateFluteSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateKeySprite());
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 0));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 3));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 4));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 5));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 7));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 8));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 9));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 1));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 2));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 5));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 6));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 7));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 9));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 3));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 5));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 6));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 9));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 1));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 2));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 3));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 4));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 5));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 7));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 8));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 9));
 
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;

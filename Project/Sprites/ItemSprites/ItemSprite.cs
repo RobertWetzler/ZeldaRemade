@@ -1,32 +1,37 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace Project.Sprites.ItemSprites
 {
-    class ClockSprite : IItemSprite
+    class ItemSprite : IItemSprite
     {
-        private int sheetRows;
-        private int sheetColumns;
-        private int spriteRow;
-        private int spriteColumn;
+
+        private int spriteWidth;
+        private int spriteHeight;
+
+        public int spriteRow;
+        public int spriteColumn;
 
         private Texture2D spriteSheet;
         //Texture, Rows, Columns
-        public ClockSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
+        public ItemSprite(Texture2D spriteSheet, int spriteWidth, int spriteHeight, int spriteRow, int spriteColumn)
         {
             this.spriteSheet = spriteSheet;
-            this.sheetColumns = sheetColumns;
-            this.sheetRows = sheetRows;
+            this.spriteWidth = spriteWidth;
+            this.spriteHeight = spriteHeight;
 
-            spriteRow = 0;
-            spriteColumn = 0;
+            this.spriteRow = spriteRow;
+            this.spriteColumn = spriteColumn;
+
+            
 
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            int width = spriteSheet.Width / sheetColumns;
-            int height = spriteSheet.Height / sheetRows;
+            int width = spriteWidth;
+            int height = spriteHeight;
             int scale = 2;
 
             Rectangle spriteRectangle = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
@@ -37,7 +42,7 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-          
+           
         }
     }
 }

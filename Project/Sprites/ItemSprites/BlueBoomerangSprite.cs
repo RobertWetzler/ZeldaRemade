@@ -15,25 +15,17 @@ namespace Project.Sprites.ItemSprites
         //Texture, Rows, Columns
         public BlueBoomerangSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
         {
-            this.spriteSheet = spriteSheet;
-            this.sheetColumns = sheetColumns;
-            this.sheetRows = sheetRows;
-
-            spriteRow = 0;
-            spriteColumn = 1;
 
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            int width = spriteSheet.Width / sheetColumns + 1;
-            int height = spriteSheet.Height / sheetRows;
-            int scale = 2;
+         
+        }
 
-            Rectangle spriteRectangle = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
-
+        public void Update(GameTime gameTime)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
