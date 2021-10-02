@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 using System;
@@ -8,21 +9,21 @@ using System.Text;
 
 namespace Project.NPC.Goriya
 {
-    class GoriyaUseItemSideways : INPCState
+    class GoriyaUseItem : INPCState
     {
         private int delay_frame_index;
         private Goriya goriya;
         private IEnemySprite goriyaSprite;
  
-        private static int delay_frames = 10;
-        private bool faceRight;
-        public GoriyaUseItemSideways(Goriya goriya, bool faceRight)
+        private static int delay_frames = 7;
+        private Facing dir;
+        public GoriyaUseItem(Goriya goriya, Facing dir)
         {
-            this.faceRight = faceRight;
+            this.dir = dir;
             this.goriya = goriya;
             delay_frame_index = 0;
             
-            goriyaSprite = NPCSpriteFactory.Instance.CreateGoriyaUseItemSidewaysSprite(faceRight);
+            goriyaSprite = NPCSpriteFactory.Instance.CreateGoriyaUseItemSprite(dir);
            
         }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
@@ -38,7 +39,6 @@ namespace Project.NPC.Goriya
             {
                 delay_frame_index = 0;
                 goriyaSprite.Update();
-                
 
             }
             

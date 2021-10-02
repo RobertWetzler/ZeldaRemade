@@ -113,12 +113,25 @@ namespace Project.Factory
             Rectangle source = new Rectangle(0, 0, 16, 16);
             return new GoriyaWalkSouthSprite(goriyaSpriteSheet, source);
         }
-        public IEnemySprite CreateGoriyaUseItemSidewaysSprite(bool facingRight)
+        public IEnemySprite CreateGoriyaUseItemSprite(Facing dir)
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(34, 0, 16, 16));
             sourceFrames.Add(new Rectangle(51, 0, 16, 16));
-            return new GoriyaUseItemSidewaysSprite(goriyaSpriteSheet, sourceFrames, facingRight);
+            Rectangle downFrame = new Rectangle(0, 0, 16, 16);
+            Rectangle upFrame = new Rectangle(17, 0, 16, 16);
+            switch (dir)
+            {
+                case Facing.Up:
+                    return new GoriyaWalkNorthSprite(goriyaSpriteSheet, upFrame);
+                case Facing.Down:
+                    return new GoriyaWalkSouthSprite(goriyaSpriteSheet, downFrame);
+                case Facing.Left:
+                    return new GoriyaWalkLeftSprite(goriyaSpriteSheet, sourceFrames);
+                default:
+                    return new GoriyaWalkRightSprite(goriyaSpriteSheet, sourceFrames);
+            }
         }
+
     }
 }
