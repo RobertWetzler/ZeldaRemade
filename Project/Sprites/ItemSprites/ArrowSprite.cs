@@ -38,15 +38,19 @@ namespace Project.Sprites.ItemSprites
             {
                 case Facing.Up:
                     spriteFrame = 3;
+                    this.position.Y = (int)position.Y - 50;
                     break;
                 case Facing.Down:
                     spriteFrame = 2;
+                    this.position.Y = (int)position.Y + 50;
                     break;
                 case Facing.Left:
                     spriteFrame = 1;
+                    this.position.X = (int)position.X - 50;
                     break;
                 case Facing.Right:
                     spriteFrame = 0;
+                    this.position.X = (int)position.X + 50;
                     break;
                 default:
                     break;
@@ -59,7 +63,7 @@ namespace Project.Sprites.ItemSprites
 
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 2;
+            int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);

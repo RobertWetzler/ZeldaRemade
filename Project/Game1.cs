@@ -143,7 +143,7 @@ namespace Project
 
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprites>();                                                      
-            weapons.Add(ItemSpriteFactory.Instance.CreateFlameSprite(testFacing, player.Position));
+            weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
            
 
             //Set initial block sprite to show

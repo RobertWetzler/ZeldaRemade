@@ -39,19 +39,19 @@ namespace Project.Sprites.ItemSprites
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    posY = (int)this.position.Y - 20;
+                    this.position.Y = (int)position.Y - 50;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
-                    posY = (int)this.position.Y + 20;
+                    this.position.Y = (int)position.Y + 50;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
-                    posX = (int)this.position.X - 20;
+                    this.position.X = (int)position.X - 50;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
-                    posX = (int)this.position.X - 20;
+                    this.position.X = (int)position.X + 50;
                     break;
                 default:
                     break;
