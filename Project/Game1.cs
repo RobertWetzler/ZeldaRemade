@@ -149,6 +149,7 @@ namespace Project
 
             //Set NPC
             //NPC = new Bat();
+            NPCSpriteFactory.Instance.LoadAllTextures(Content);
             NPC = new Bat();
             CurrentItemSpriteIndex = 0;
         }
