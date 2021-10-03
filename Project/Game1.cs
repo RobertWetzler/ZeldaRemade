@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project.Entities;
 using Project.Factory;
 using Project.NPC.Bat;
 using Project.NPC.BigJelly;
@@ -19,6 +20,14 @@ namespace Project
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private IPlayer player;
+        public IPlayer Player
+        {
+            get
+            {
+                return player;
+            }
+        }
         private List<IController> controllers;
         private INPC NPC;
 
@@ -38,12 +47,33 @@ namespace Project
 
         protected override void Initialize()
         {
+            // TODO: Add your initialization logic here
             controllers = new List<IController>();
 
             KeyboardController keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
             keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
             keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
+
+            //Register both WASD and Arrows
+            ICommand upCommand = new PlayerMoveUpCommand(this);
+            keyboardController.RegisterCommand(Keys.W, upCommand);
+            keyboardController.RegisterCommand(Keys.Up, upCommand);
+
+            ICommand leftCommand = new PlayerMoveLeftCommand(this);
+            keyboardController.RegisterCommand(Keys.A, leftCommand);
+            keyboardController.RegisterCommand(Keys.Left, leftCommand);
+
+            ICommand rightCommand = new PlayerMoveRightCommand(this);
+            keyboardController.RegisterCommand(Keys.D, rightCommand);
+            keyboardController.RegisterCommand(Keys.Right, rightCommand);
+
+            ICommand downCommand = new PlayerMoveDownCommand(this);
+            keyboardController.RegisterCommand(Keys.S, downCommand);
+            keyboardController.RegisterCommand(Keys.Down, downCommand);
+
+            //Register idle command as default
+            keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
             controllers.Add(keyboardController);
 
             
@@ -59,8 +89,8 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            link = LinkSpriteFactory.Instance.CreateLinkUseSwordSidewaysSprite(false);//Test link sprite - can be eliminated
-
+            player = new GreenLink(); // must be done AFTER LinkSpriteFactory load
+            
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             blocks = new List<IBlockSprite>();
@@ -93,9 +123,7 @@ namespace Project
             {
                 controller.Update();
             }
-
-            link.Update(gameTime);  //Test link sprite - can be eliminated
-
+            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
         }
 
@@ -104,9 +132,8 @@ namespace Project
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin(samplerState:SamplerState.PointClamp); // PointClamp fixes sprite blurriness
-
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
-            link.Draw(_spriteBatch, new Vector2(200, 200));     //Test link sprite - can be eliminated
+            player.Draw(_spriteBatch, gameTime);
 
             NPC.Draw(_spriteBatch);
 
