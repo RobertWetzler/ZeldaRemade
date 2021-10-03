@@ -9,37 +9,30 @@ namespace Project.NPC.Skeleton
 {
     class SkeletonWalkNE : INPCState
     {
-        private int my_frame_index;
+
         private int delay_frame_index;
         private Skeleton skeleton;
 
         private static int delay_frames = 10;
-        private static List<Rectangle> my_source_frames = new List<Rectangle>{
-            NPCSpriteFactory.SKELETON_1,
-            NPCSpriteFactory.SKELETON_2
+        private IEnemySprite sprite;
 
-        };
+        
 
         public SkeletonWalkNE(Skeleton skeleton)
         {
             this.skeleton = skeleton;
-            my_frame_index = 0;
+            sprite = NPCSpriteFactory.Instance.CreateSkeletonSprite();
             delay_frame_index = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
-            Texture2D texture = NPCSpriteFactory.Instance.GetSkeletonSpriteSheet();
-            Rectangle source = my_source_frames[my_frame_index];
-            Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
-                source.Width * 3, source.Height * 3);
-            spriteBatch.Draw(texture, destination, source, Color.White);
+            sprite.Draw(spriteBatch, xPos, yPos);
         }
 
         public void Update()
         {
-            if (skeleton.xPos == 350 && skeleton.yPos == 50)
+            if (skeleton.xPos == 400 && skeleton.yPos == 0)
             {
                 skeleton.currentState = new SkeletonWalkSW(skeleton);
             }
@@ -47,9 +40,8 @@ namespace Project.NPC.Skeleton
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
+                skeleton.yPos -= 5;
                 skeleton.xPos += 5;
-                my_frame_index++;
-                my_frame_index %= my_source_frames.Count;
             }
         }
     }

@@ -54,38 +54,41 @@ namespace Project.Factory
             merchantSpriteSheet = content.Load<Texture2D>("EnemySprites/merchant"); ;
         }
 
-        public Texture2D GetBatSpriteSheet()
+        //public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        public IEnemySprite CreateBatSprite()
         {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new BatSprite(batSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateSkeletonSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
-                return batSpriteSheet;
+            return new SkeletonSprite(skeletonSpriteSheet);
         }
 
-        public Texture2D GetSkeletonSpriteSheet()
+        public IEnemySprite CreateOldManSprite()
         {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
-            return skeletonSpriteSheet;
+            return new OldManSprite(oldManSpriteSheet);
         }
 
-        public Texture2D GetOldManSpriteSheet()
+        public IEnemySprite CreateMerchantSprite()
         {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
-            return oldManSpriteSheet;
+            return new MerchantSprite(merchantSpriteSheet);
         }
 
-        public Texture2D GetMerchantSpriteSheet()
-        {
-
-            return merchantSpriteSheet;
-        }
-
-        public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
-        public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
-
-        public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
-        public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
-
-        public static Rectangle OLD_MAN = new Rectangle(1 * 10, 11, 16, 16);
-        public static Rectangle MERCHANT = new Rectangle(1 * 10, 11, 16, 16);
 
     }
 }
