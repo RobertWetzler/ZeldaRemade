@@ -151,6 +151,8 @@ namespace Project
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
 
+            //Load NPC sprites
+            NPCSpriteFactory.Instance.LoadAllTextures(Content);
             //Set NPC
             NPC = new Bat();
             CurrentItemSpriteIndex = 0;
