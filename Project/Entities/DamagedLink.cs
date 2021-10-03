@@ -34,15 +34,12 @@ namespace Project.Entities
             remainingFlashTime -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             remainingKnockbackTime -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
 
+            // Update color if timer is still running
             if (remainingFlashTime > 0)
             {
-
                 UpdateColor();
             }
-            else
-            {
-                RemoveDecorator();
-            }
+            // Update knockback position if timer is still runnning, else do normal update
             if (remainingKnockbackTime > 0)
             {
                 UpdateKnockback(gameTime);
@@ -51,8 +48,11 @@ namespace Project.Entities
             {
                 this.decoratedPlayer.Update(windowBounds, gameTime);
             }
-            
-            
+            // If both timers depleted, remove decorator
+            if (Math.Max(remainingFlashTime, remainingKnockbackTime) <= 0)
+            {
+                RemoveDecorator();
+            }
         }
         private void UpdateColor()
         {
