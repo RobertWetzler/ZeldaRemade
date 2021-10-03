@@ -11,13 +11,11 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
 
-        private int MAX_DISTANCE;
-        private int START_DISTANCE;
+        private int posX;
+        private int posY;
 
         private int directionHolder;
-
-        private bool hasLooped;
-
+        private float timer;
 
         private Vector2 position;
         private Facing facing;
@@ -33,29 +31,27 @@ namespace Project.Sprites.ItemSprites
             this.facing = facing;
             this.position = position;
 
+            
+
             spriteRow = 0;
 
             switch (facing)
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    MAX_DISTANCE = (int)position.Y - 500;
-                    START_DISTANCE = (int)position.Y - 5;
+                    posY = (int)this.position.Y - 20;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
-                    MAX_DISTANCE = (int)position.Y + 500;
-                    START_DISTANCE = (int)position.Y + 5;
+                    posY = (int)this.position.Y + 20;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
-                    MAX_DISTANCE = (int)position.X - 500;
-                    START_DISTANCE = (int)position.X - 5;
+                    posX = (int)this.position.X - 20;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
-                    MAX_DISTANCE = (int)position.X + 500;
-                    START_DISTANCE = (int)position.X + 5;
+                    posX = (int)this.position.X - 20;
                     break;
                 default:
                     break;
@@ -68,7 +64,7 @@ namespace Project.Sprites.ItemSprites
 
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 4;
+            int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
@@ -80,7 +76,7 @@ namespace Project.Sprites.ItemSprites
         {
             bool isFinished = false;
 
-            if (hasLooped == true && (this.position.X == START_DISTANCE || this.position.Y == START_DISTANCE))
+            if (timer > 21000)
                 isFinished = true;
 
             return isFinished;
@@ -88,13 +84,13 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3;
 
             //TOWARDS PLAYER
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE || hasLooped)
+            if (timer > 14000)
             {
-                hasLooped = true;
+
                 switch (directionHolder)
                 {
                     case 0:
@@ -116,7 +112,7 @@ namespace Project.Sprites.ItemSprites
             }
 
             //AWAY FROM PLAYER
-            if (hasLooped == false)
+            if (timer < 14000)
             {
 
                 switch (directionHolder)

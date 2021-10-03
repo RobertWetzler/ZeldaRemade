@@ -11,13 +11,8 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
 
-        private int MAX_DISTANCE;
-        private int START_DISTANCE;
-
         private int directionHolder;
-
-        private bool hasLooped;
-
+        private float timer;
 
         private Vector2 position;
         private Facing facing;
@@ -39,23 +34,15 @@ namespace Project.Sprites.ItemSprites
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    MAX_DISTANCE = (int)position.Y - 250;
-                    START_DISTANCE = (int)position.Y - 5;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
-                    MAX_DISTANCE = (int)position.Y + 250;
-                    START_DISTANCE = (int)position.Y + 5;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
-                    MAX_DISTANCE = (int)position.X - 250;
-                    START_DISTANCE = (int)position.X - 5;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
-                    MAX_DISTANCE = (int)position.X + 250;
-                    START_DISTANCE = (int)position.X + 5;
                     break;
                 default:
                     break;
@@ -68,7 +55,7 @@ namespace Project.Sprites.ItemSprites
 
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 4;
+            int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
@@ -80,7 +67,7 @@ namespace Project.Sprites.ItemSprites
         {
             bool isFinished = false;
 
-            if (hasLooped == true && (this.position.X == START_DISTANCE || this.position.Y == START_DISTANCE))
+            if (timer > 6000)
                 isFinished = true;
 
             return isFinished;
@@ -88,13 +75,13 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3;
 
             //TOWARDS PLAYER
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE || hasLooped)
+            if (timer > 3000)
             {
-                hasLooped = true;
+          
                 switch (directionHolder)
                 {
                     case 0:
@@ -116,7 +103,7 @@ namespace Project.Sprites.ItemSprites
             }
 
             //AWAY FROM PLAYER
-            if (hasLooped == false) {
+            if (timer < 3000) {
 
                 switch (directionHolder)
                 {

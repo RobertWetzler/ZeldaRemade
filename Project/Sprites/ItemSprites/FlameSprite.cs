@@ -10,10 +10,11 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteColumn;
         private int spriteFrame;
-        private int MAX_DISTANCE;
         private int directionHolder;
 
+        private bool flipped;
 
+        private float timer;
         private Vector2 position;
         private Facing facing;
 
@@ -36,22 +37,18 @@ namespace Project.Sprites.ItemSprites
                 case Facing.Up:
                     directionHolder = 0;
                     this.position.Y = (int)position.Y - 20;
-                    MAX_DISTANCE = (int)position.Y - 600;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
                     this.position.Y = (int)position.Y + 20;
-                    MAX_DISTANCE = (int)position.Y + 600;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
                     this.position.X = (int)position.X - 20;
-                    MAX_DISTANCE = (int)position.X - 600;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
                     this.position.X = (int)position.X + 20;
-                    MAX_DISTANCE = (int)position.X + 600;
                     break;
                 default:
                     break;
@@ -66,16 +63,22 @@ namespace Project.Sprites.ItemSprites
             int height = spriteSheet.Height / sheetRows;
             int scale = 4;
 
-            Rectangle spriteRectangle = new Rectangle(spriteColumn * width, spriteFrame * height, width, height);
+            Rectangle spriteRectangle = new Rectangle(spriteColumn * width,  height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
-            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
+
+            SpriteEffects effect = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, effect, 0f);
+           
 
         }
 
         public void Update(GameTime gameTime)
         {
+            flipped = spriteFrame == 0;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 2) % 2;
-            
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+
             switch (directionHolder)
             {
                 case 0:
@@ -100,7 +103,7 @@ namespace Project.Sprites.ItemSprites
         {
             bool isFinished = false;
 
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE)
+            if (timer > 12000)
                 isFinished = true;
 
             return isFinished;

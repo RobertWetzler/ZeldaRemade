@@ -43,7 +43,7 @@ namespace Project.Factory
             bombSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_bomb_explosion");
             blueBoomerangSpriteSheet = content.Load<Texture2D>("ItemSprites/blue_weapon_boomerang");
             boomerangSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_boomerang");
-            flameSpriteSheet = content.Load<Texture2D>("ItemSprites/flame_weapon");
+            flameSpriteSheet = content.Load<Texture2D>("EnemySprites/flame");
             fairySpriteSheet = content.Load<Texture2D>("ItemSprites/items_fairy");
 
         }
@@ -70,6 +70,11 @@ namespace Project.Factory
             return new BoomerangSprite(boomerangSpriteSheet, 1, 4, facing, position);
         }
 
+        public IWeaponSprites CreateBlueBoomerangSprite(Facing facing, Vector2 position)
+        {
+            return new BoomerangSprite(blueBoomerangSpriteSheet, 1, 4, facing, position);
+        }
+
         public IWeaponSprites CreateBombSprite(Facing facing, Vector2 position)
         {
             return new BombSprite(bombSpriteSheet, 1, 4, facing, position);
@@ -80,5 +85,6 @@ namespace Project.Factory
             return new FlameSprite(flameSpriteSheet, 2, 1, facing, position);
         }
 
+      
     }
 }

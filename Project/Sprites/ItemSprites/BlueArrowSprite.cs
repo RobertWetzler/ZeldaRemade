@@ -12,6 +12,8 @@ namespace Project.Sprites.ItemSprites
         private int spriteFrame;
         private int MAX_DISTANCE;
 
+        bool isFin = false;
+        private float timer;
 
         private Vector2 position;
         private Facing facing;
@@ -33,11 +35,11 @@ namespace Project.Sprites.ItemSprites
             switch (facing)
             {
                 case Facing.Up:
-                    spriteFrame = 3;
+                    spriteFrame = 2;
                     MAX_DISTANCE = (int)position.Y - 400;
                     break;
                 case Facing.Down:
-                    spriteFrame = 2;
+                    spriteFrame = 3;
                     MAX_DISTANCE = (int)position.Y + 400;
                     break;
                 case Facing.Left:
@@ -69,18 +71,17 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE)
-            {
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (timer > 5500 && timer < 6000)
                 spriteFrame = 4;
-                
-            }
 
             switch (spriteFrame)
             {
-                case 3:
+                case 2:
                     this.position.Y--;
                     break;
-                case 2:
+                case 3:
                     this.position.Y++;
                     break;
                 case 1:
@@ -97,12 +98,11 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         {
-            bool isFinished = false;
 
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE)
-                isFinished = true;
+            if (timer > 6000)
+                isFin = true;
 
-            return isFinished;
+            return isFin;
         }
     }
 }

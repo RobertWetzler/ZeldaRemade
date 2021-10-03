@@ -10,7 +10,9 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-        private int MAX_DISTANCE;
+     
+
+        private float timer;
 
 
         private Vector2 position;
@@ -27,6 +29,8 @@ namespace Project.Sprites.ItemSprites
             this.facing = facing;
             this.position = position;
 
+            
+
             spriteRow = 0;
 
 
@@ -34,19 +38,15 @@ namespace Project.Sprites.ItemSprites
             {
                 case Facing.Up:
                     spriteFrame = 3;
-                    MAX_DISTANCE = (int)position.Y - 200;
                     break;
                 case Facing.Down:
                     spriteFrame = 2;
-                    MAX_DISTANCE = (int)position.Y + 200;
                     break;
                 case Facing.Left:
                     spriteFrame = 1;
-                    MAX_DISTANCE = (int)position.X - 200;
                     break;
                 case Facing.Right:
                     spriteFrame = 0;
-                    MAX_DISTANCE = (int)position.X + 200;
                     break;
                 default:
                     break;
@@ -69,13 +69,12 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE)
-            {
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (timer > 3500 && timer < 4000)
                 spriteFrame = 4;
 
-            }
-
-            switch (spriteFrame)
+                switch (spriteFrame)
             {
                 case 3:
                     this.position.Y--;
@@ -99,7 +98,7 @@ namespace Project.Sprites.ItemSprites
         {
             bool isFinished = false;
 
-            if (this.position.X == MAX_DISTANCE || this.position.Y == MAX_DISTANCE)
+            if (timer > 4000)
                 isFinished = true;
 
             return isFinished;

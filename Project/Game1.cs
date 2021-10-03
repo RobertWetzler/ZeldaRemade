@@ -15,7 +15,7 @@ namespace Project
 {
     public class Game1 : Game
     {
-        private Facing testFacing = Facing.Down;
+        private Facing testFacing = Facing.Right;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
@@ -138,6 +138,8 @@ namespace Project
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 7));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 8));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 9));
+            items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
+            
 
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprites>();                                                      
