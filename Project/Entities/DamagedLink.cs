@@ -55,12 +55,10 @@ namespace Project.Entities
         }
         private void UpdateColor()
         {
-            // for now, just adjust links hue. In the real game the sprite is alternated between ~4 colors.
-            float hue = (float)(4 * 360 * (totalFlashTime - remainingFlashTime) / totalFlashTime) % 360; //linearly traverse hue 4 times
             List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
             double t = totalFlashTime - remainingFlashTime;
-            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count;
-            color = ColorUtils.HSVToRGB(hues[i], 0.85f, 1);
+            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
+            color = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
         private void UpdateKnockback(GameTime gameTime)
         {
