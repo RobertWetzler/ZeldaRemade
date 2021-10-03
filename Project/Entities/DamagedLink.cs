@@ -58,9 +58,6 @@ namespace Project.Entities
         {
             // for now, just adjust links hue. In the real game the sprite is alternated between ~4 colors.
             float hue = (float)(4 * 360 * (totalFlashTime - remainingFlashTime) / totalFlashTime) % 360; //linearly traverse hue 4 times
-            float percentDone = (float)((totalFlashTime - remainingFlashTime) / totalFlashTime);
-            float timeFrame = (int)(4 * percentDone);
-            //float hue = timeFrame * 360 / 4f;
             color = ColorUtils.HSVToRGB(hue, 1, 1);
         }
         private void UpdateKnockback(GameTime gameTime)
@@ -90,7 +87,7 @@ namespace Project.Entities
         {
             this.decoratedPlayer.Draw(spriteBatch, gameTime, color);
         }
-        //Dont allow movement if still being knocked back
+        // If move during knockback, stop knockback (similar to real game)
         public override void MoveUp()
         {
             remainingKnockbackTime = 0;

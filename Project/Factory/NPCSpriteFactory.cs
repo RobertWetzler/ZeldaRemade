@@ -12,7 +12,8 @@ namespace Project.Factory
     {
         private Texture2D bossDragonSpriteSheet;
         private Texture2D dinosaurLeftRightSpriteSheet;
-        private Texture2D dinosaurUpDownSpriteSheet; 
+        private Texture2D dinosaurUpDownSpriteSheet;
+        private Texture2D batSpriteSheet;
         private Texture2D gelSpriteSheet;
         private Texture2D skeletonSpriteSheet;
         private Texture2D goriyaSpriteSheet;
@@ -47,19 +48,25 @@ namespace Project.Factory
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
             enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
-
+            batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
 
         }
 
-        public Texture2D GetEnemySpriteSheet()
+        //public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        public IEnemySprite CreateBatSprite()
         {
-
-            return enemySpriteSheet;
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new BatSprite(batSpriteSheet, sourceFrames);
         }
-
-        public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
-        public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
-
+        public IEnemySprite CreateSkeletonSprite()
+        {
+            return new SkeletonSprite(skeletonSpriteSheet);
+        }
 
     }
 }

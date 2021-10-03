@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
 using Project.NPC.Bat;
+using Project.NPC.Skeleton;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -100,6 +101,10 @@ namespace Project
 
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
+
+            //Set NPC
+            //NPC = new Bat();
+            NPC = new Bat();
         }
 
         protected override void Update(GameTime gameTime)
