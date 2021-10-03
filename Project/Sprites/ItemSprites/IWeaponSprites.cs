@@ -3,11 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.ItemSprites
 {
-    public interface IItemSprite
+    public interface IWeaponSprites
     {
         void Update(GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch, Vector2 position);
+        void Draw(SpriteBatch spriteBatch);
+        bool isFinished();
 
-        
+
     }
 }

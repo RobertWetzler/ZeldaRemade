@@ -20,6 +20,7 @@ namespace Project.Factory
         private Texture2D snakeSpriteSheet;
         private Texture2D wallmasterSpriteSheet;
         private Texture2D zolSpriteSheet;
+        private Texture2D enemySpriteSheet;
 
 
         private static NPCSpriteFactory instance = new NPCSpriteFactory();
@@ -40,17 +41,32 @@ namespace Project.Factory
             bossDragonSpriteSheet = content.Load<Texture2D>("EnemySprites/boss-dragon");
             dinosaurLeftRightSpriteSheet = content.Load<Texture2D>("EnemySprites/dinosaur-front-back");
             dinosaurUpDownSpriteSheet = content.Load<Texture2D>("EnemySprites/dinosaur-left-right");
-            batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
             gelSpriteSheet= content.Load<Texture2D>("EnemySprites/enemy-gel");
             skeletonSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-skeleton");
             goriyaSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-goriya-walking");
             snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
-
+            enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
+            batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
 
         }
 
+        //public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
+        //public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
+        public IEnemySprite CreateBatSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new BatSprite(batSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateSkeletonSprite()
+        {
+            return new SkeletonSprite(skeletonSpriteSheet);
+        }
 
     }
 }

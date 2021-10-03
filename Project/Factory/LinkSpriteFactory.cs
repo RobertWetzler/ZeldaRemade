@@ -44,18 +44,15 @@ namespace Project.Factory
 
 		public IPlayerSprite CreateLinkIdleSprite(Facing facing)
         {
-			//TODO: Implement
 			return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
 		}
 
 		public IPlayerSprite CreateLinkWalkingSprite(Facing facing)
 		{
-			//TODO: Implement
 			return new LinkWalkingSprite(linkWalkingSpriteSheet, facing);
 		}
 		public IPlayerSprite CreateLinkPickupItemSprite()
 		{
-			//TODO: Implement
 			return new LinkPickupItemSprite(linkPickupItemSpriteSheet);
 		}
 		public IPlayerSprite CreateLinkUseItemSprite(Facing facing)
@@ -65,17 +62,14 @@ namespace Project.Factory
 		}
 		public IPlayerSprite CreateLinkUseSwordDownwardsSprite()
 		{
-			//TODO: Implement
 			return new LinkUseSwordDownwardsSprite(linkUseSwordDownwardsSpriteSheet);
 		}
 		public IPlayerSprite CreateLinkUseSwordSidewaysSprite(bool facingRight)
 		{
-			//TODO: Implement. Mirror if facingRight is false (or we can make a different sprite class)
 			return new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, facingRight);
 		}
 		public IPlayerSprite CreateLinkUseSwordUpwardsSprite()
 		{
-			//TODO: Implement
 			return new LinkUseSwordUpwardsSprite(linkUseSwordUpwardsSpriteSheet);
 		}
 	}

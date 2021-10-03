@@ -1,18 +1,21 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Project.NPC.Bat;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 using System.Collections.Generic;
+using Project.Factory;
 
 namespace Project.NPC.Bat
 {
-    class BatWalkEast : INPCState
+    class BatWalkWest : INPCState
     {
+
         private int delay_frame_index;
         private Bat bat;
-        private IEnemySprite sprite;
-        private static int delay_frames = 10;
 
-        public BatWalkEast(Bat bat)
+        private static int delay_frames = 10;
+        private IEnemySprite sprite;
+
+        public BatWalkWest(Bat bat)
         {
             this.bat = bat;
             sprite = NPCSpriteFactory.Instance.CreateBatSprite();
@@ -26,15 +29,15 @@ namespace Project.NPC.Bat
 
         public void Update()
         {
-            if (bat.xPos == 450 && bat.yPos == 100)
+            if (bat.xPos == 400 && bat.yPos == 150)
             {
-                bat.currentState = new BatWalkSouth(bat);
+                bat.currentState = new BatWalkNorth(bat);
             }
 
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                bat.xPos += 5;
+                bat.xPos -= 5;
                 sprite.Update();
             }
         }
