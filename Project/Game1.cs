@@ -34,7 +34,6 @@ namespace Project
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
         
-        private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
 
         public Game1()
@@ -112,8 +111,7 @@ namespace Project
             CurrentBlockSpriteIndex = 0;
 
             //Set NPC
-            //NPC = new Bat();
-            NPC = new Goriya();
+            NPC = new Bat();
         }
 
         protected override void Update(GameTime gameTime)
