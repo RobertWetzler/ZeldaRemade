@@ -32,8 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\EnemySprites\" />
-    <Folder Include="NPC\" />
     <Folder Include="NPC\Bat\" />
-    <Folder Include="NPC\Skeleton\" />
   </ItemGroup>
 </Project>
