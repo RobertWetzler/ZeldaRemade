@@ -18,7 +18,7 @@ namespace Project.NPC.Merchant
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Texture2D texture = NPCSpriteFactory.Instance.GetEnemySpriteSheet();
+            Texture2D texture = NPCSpriteFactory.Instance.GetMerchantSpriteSheet();
             Rectangle source = NPCSpriteFactory.MERCHANT;
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,

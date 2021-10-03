@@ -27,7 +27,7 @@ namespace Project.NPC.Skeleton
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
-            Texture2D texture = NPCSpriteFactory.Instance.GetEnemySpriteSheet();
+            Texture2D texture = NPCSpriteFactory.Instance.GetSkeletonSpriteSheet();
             Rectangle source = my_source_frames[my_frame_index];
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,

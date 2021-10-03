@@ -18,7 +18,7 @@ namespace Project.NPC.OldMan
        
         public void Draw(SpriteBatch spriteBatch)
         {
-            Texture2D texture = NPCSpriteFactory.Instance.GetEnemySpriteSheet();
+            Texture2D texture = NPCSpriteFactory.Instance.GetOldManSpriteSheet();
             Rectangle source = NPCSpriteFactory.OLD_MAN;
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
