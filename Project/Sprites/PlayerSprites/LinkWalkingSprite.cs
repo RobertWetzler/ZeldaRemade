@@ -93,7 +93,7 @@ namespace Project.Sprites.PlayerSprites
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color = default)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int width = frameWidth[spriteColumn].spriteW;
             int height = playerSpriteSheet.Height / sheetRows;

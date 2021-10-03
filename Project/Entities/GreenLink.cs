@@ -16,14 +16,21 @@ namespace Project.Entities
         private Vector2 position;
         private IPlayerSprite sprite;
         private double velocity = 100;
+        private Game1 game;
         public Vector2 Position
         {
             get { return position; }
             set { position = value; }
         }
 
-        public GreenLink()
+        public LinkStateMachine StateMachine
         {
+            get => this.stateMachine;
+        }
+
+        public GreenLink(Game1 game)
+        {
+            this.game = game;
             stateMachine = new LinkStateMachine(Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
         }
@@ -67,7 +74,7 @@ namespace Project.Entities
 
         public void TakeDamage(int damage)
         {
-            throw new NotImplementedException();
+            this.game.Player = new DamagedLink(this, game);
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
@@ -97,9 +104,9 @@ namespace Project.Entities
             sprite.Update(gameTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color = default)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, this.position, color);
         }
     }
 }

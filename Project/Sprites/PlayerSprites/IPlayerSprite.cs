@@ -9,7 +9,11 @@ namespace Project.Sprites.PlayerSprites
         {
             get;
         }
-        void Update(GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch, Vector2 position, Color color = default);
+        public void Update(GameTime gameTime);
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            Draw(spriteBatch, position, Color.White);
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color);
     }
 }

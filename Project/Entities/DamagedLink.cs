@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,40 +9,108 @@ namespace Project.Entities
 {
     public class DamagedLink : PlayerDecorator
     {
-        private int effectTimer = 1000;
-        private int knockbackTimer = 750;
-
+        private double totalFlashTime = 1000;
+        private double totalKnockbackTime = 750;
+        private double remainingFlashTime;
+        private double remainingKnockbackTime;
+        private double knockbackVelocity = 200;
+        private Color color;
         public DamagedLink(IPlayer decoratedPlayer, Game1 game)
         {
             // inherited from PlayerDecorator
             this.decoratedPlayer = decoratedPlayer;
             this.game = game;
+            remainingFlashTime = totalFlashTime;
+            remainingKnockbackTime = totalKnockbackTime;
         }
-        public new void TakeDamage(int damage)
+        public override void TakeDamage(int damage)
         {
             // No damage is taken
         }
+        
 
-        public new void Update(Rectangle windowBounds, GameTime gameTime)
+        public override void Update(Rectangle windowBounds, GameTime gameTime)
         {
-            effectTimer -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            knockbackTimer -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            remainingFlashTime -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            remainingKnockbackTime -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (knockbackTimer > 0)
+            if (remainingFlashTime > 0)
             {
-                    
+
+                UpdateColor();
             }
-            if (effectTimer <= 0)
+            else
             {
                 RemoveDecorator();
             }
+            if (remainingKnockbackTime > 0)
+            {
+                UpdateKnockback(gameTime);
+            }
+            else
+            {
+                this.decoratedPlayer.Update(windowBounds, gameTime);
+            }
+            
+            
         }
-
-        public new void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        private void UpdateColor()
         {
-            this.decoratedPlayer.Draw(spriteBatch, gameTime);
+            // for now, just adjust links hue. In the real game the sprite is alternated between ~4 colors.
+            float hue = (float)(4 * 360 * (totalFlashTime - remainingFlashTime) / totalFlashTime) % 360; //linearly traverse hue 4 times
+            float percentDone = (float)((totalFlashTime - remainingFlashTime) / totalFlashTime);
+            float timeFrame = (int)(4 * percentDone);
+            //float hue = timeFrame * 360 / 4f;
+            color = ColorUtils.HSVToRGB(hue, 1, 1);
         }
+        private void UpdateKnockback(GameTime gameTime)
+        {
+            int x_dir = 0, y_dir = 0;
+            switch (this.decoratedPlayer.StateMachine.facing)
+            {
+                case Facing.Left:
+                    x_dir = 1;
+                    break;
+                case Facing.Right:
+                    x_dir = -1;
+                    break;
+                case Facing.Up:
+                    y_dir = 1;
+                    break;
+                case Facing.Down:
+                    y_dir = -1;
+                    break;
+            }
 
+            float newX = this.decoratedPlayer.Position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
+            float newY = this.decoratedPlayer.Position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
+            this.decoratedPlayer.Position = new Vector2(newX, newY);
+        }
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            this.decoratedPlayer.Draw(spriteBatch, gameTime, color);
+        }
+        //Dont allow movement if still being knocked back
+        public override void MoveUp()
+        {
+            remainingKnockbackTime = 0;
+            base.MoveUp();
+        }
+        public override void MoveDown()
+        {
+            remainingKnockbackTime = 0;
+            base.MoveDown();
+        }
+        public override void MoveLeft()
+        {
+            remainingKnockbackTime = 0;
+            base.MoveLeft();
+        }
+        public override void MoveRight()
+        {
+            remainingKnockbackTime = 0;
+            base.MoveRight();
+        }
 
     }
 }

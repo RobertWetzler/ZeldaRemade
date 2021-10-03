@@ -44,6 +44,7 @@ namespace Project
             keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
             keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
             keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
+            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(this));
 
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(this);
@@ -78,7 +79,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            player = new GreenLink(); // must be done AFTER LinkSpriteFactory load
+            player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
             
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);

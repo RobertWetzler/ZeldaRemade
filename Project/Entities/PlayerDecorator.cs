@@ -13,63 +13,68 @@ namespace Project.Entities
         protected IPlayer decoratedPlayer;
         protected Game1 game;
         public Vector2 Position { get => decoratedPlayer.Position; set => decoratedPlayer.Position = value; }
-
+        public LinkStateMachine StateMachine { get => this.decoratedPlayer.StateMachine; }
         public void RemoveDecorator()
         {
             game.Player = decoratedPlayer;
         }
-
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color = default)
+        // mark methods as virtual so they can be overriden by derived classes
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            decoratedPlayer.Draw(spriteBatch, gameTime);
+            decoratedPlayer.Draw(spriteBatch, gameTime, color);
         }
 
-        public void MoveDown()
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            decoratedPlayer.Draw(spriteBatch, gameTime, Color.White);
+        }
+
+        public virtual void MoveDown()
         {
             decoratedPlayer.MoveDown();
         }
 
-        public void MoveLeft()
+        public virtual void MoveLeft()
         {
             decoratedPlayer.MoveLeft();
         }
 
-        public void MoveRight()
+        public virtual void MoveRight()
         {
             decoratedPlayer.MoveRight();
         }
 
-        public void MoveUp()
+        public virtual void MoveUp()
         {
             decoratedPlayer.MoveUp();
         }
 
-        public void SetSprite(IPlayerSprite sprite)
+        public virtual void SetSprite(IPlayerSprite sprite)
         {
             decoratedPlayer.SetSprite(sprite);
         }
 
-        public void StopMoving()
+        public virtual void StopMoving()
         {
             decoratedPlayer.StopMoving();
         }
 
-        public void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage)
         {
             decoratedPlayer.TakeDamage(damage);
         }
 
-        public void Update(Rectangle windowBounds, GameTime gameTime)
+        public virtual void Update(Rectangle windowBounds, GameTime gameTime)
         {
             decoratedPlayer.Update(windowBounds, gameTime);
         }
 
-        public void UseItem()
+        public virtual void UseItem()
         {
             decoratedPlayer.UseItem();
         }
 
-        public void UseSword()
+        public virtual void UseSword()
         {
             decoratedPlayer.UseSword();
         }

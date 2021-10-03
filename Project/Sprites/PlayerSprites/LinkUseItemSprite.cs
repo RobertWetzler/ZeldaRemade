@@ -75,7 +75,7 @@ namespace Project.Sprites.PlayerSprites
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color = default)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int scale = 4;
             if (currentSheet == 1)
