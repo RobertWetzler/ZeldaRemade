@@ -10,8 +10,9 @@ namespace Project.NPC.Bat
         private int my_frame_index;
         private int delay_frame_index;
         private Bat bat;
+        Texture2D texture = NPCSpriteFactory.Instance.GetBatSpriteSheet();
 
-        private static int delay_frames = 10;
+        private static int delay_frames = 5;
         private static List<Rectangle> my_source_frames = new List<Rectangle>{
             NPCSpriteFactory.BAT_1,
             NPCSpriteFactory.BAT_2
@@ -27,7 +28,7 @@ namespace Project.NPC.Bat
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
-            Texture2D texture = NPCSpriteFactory.Instance.GetEnemySpriteSheet();
+            Texture2D texture = NPCSpriteFactory.Instance.GetBatSpriteSheet();
             Rectangle source = my_source_frames[my_frame_index];
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
