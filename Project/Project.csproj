@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -9,6 +9,14 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Items\**" />
+    <Compile Remove="NPC\Skeleton\**" />
+    <EmbeddedResource Remove="Items\**" />
+    <EmbeddedResource Remove="NPC\Skeleton\**" />
+    <None Remove="Items\**" />
+    <None Remove="NPC\Skeleton\**" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
   </ItemGroup>
@@ -56,9 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\EnemySprites\" />
-    <Folder Include="Items\" />
     <Folder Include="NPC\" />
     <Folder Include="NPC\Bat\" />
-    <Folder Include="NPC\Skeleton\" />
   </ItemGroup>
 </Project>
