@@ -24,7 +24,7 @@ namespace Project
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
                 source.Width * 3, source.Height * 3);
-            //spriteBatch.Draw(spriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(spriteSheet, destination, source, Color.White);
         }
 
         public void Update()
