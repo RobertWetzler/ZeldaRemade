@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,6 +10,39 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Items\**" />
+    <Compile Remove="NPC\Skeleton\**" />
+    <EmbeddedResource Remove="Items\**" />
+    <EmbeddedResource Remove="NPC\Skeleton\**" />
+    <None Remove="Items\**" />
+    <None Remove="NPC\Skeleton\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
+    <Compile Remove="Sprites\ItemSprites\FluteSprite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\ItemSprites\items_blue_arrow_down_up.png" />
+    <None Remove="Content\ItemSprites\items_blue_boomerang .png" />
+    <None Remove="Content\ItemSprites\items_blue_bottle.png" />
+    <None Remove="Content\ItemSprites\items_blue_candle.png" />
+    <None Remove="Content\ItemSprites\items_blue_ring.png" />
+    <None Remove="Content\ItemSprites\items_blue_rupee.png" />
+    <None Remove="Content\ItemSprites\items_blue_sword.png" />
+    <None Remove="Content\ItemSprites\items_blue_triforce.png" />
+    <None Remove="Content\ItemSprites\items_boss_key.png" />
+    <None Remove="Content\ItemSprites\items_candle.png" />
+    <None Remove="Content\ItemSprites\items_keys.png" />
+    <None Remove="Content\ItemSprites\items_ladder.png" />
+    <None Remove="Content\ItemSprites\items_meat_on_bone.png" />
+    <None Remove="Content\ItemSprites\items_red_bottle.png" />
+    <None Remove="Content\ItemSprites\items_red_remote.png" />
+    <None Remove="Content\ItemSprites\items_red_ring.png" />
+    <None Remove="Content\ItemSprites\items_red_sword.png" />
+    <None Remove="Content\ItemSprites\items_rupee.png" />
+    <None Remove="Content\ItemSprites\items_triforces.png" />
+    <None Remove="Content\ItemSprites\items_wooden_boomerang .png" />
+    <None Remove="Content\ItemSprites\items_wooden_sword.png" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="NPC\" />
