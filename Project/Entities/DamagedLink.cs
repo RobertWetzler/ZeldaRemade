@@ -10,10 +10,10 @@ namespace Project.Entities
     public class DamagedLink : PlayerDecorator
     {
         private double totalFlashTime = 1000;
-        private double totalKnockbackTime = 750;
+        private double totalKnockbackTime = 500;
         private double remainingFlashTime;
         private double remainingKnockbackTime;
-        private double knockbackVelocity = 200;
+        private double knockbackVelocity = 300;
         private Color color;
         public DamagedLink(IPlayer decoratedPlayer, Game1 game)
         {
@@ -27,7 +27,6 @@ namespace Project.Entities
         {
             // No damage is taken
         }
-        
 
         public override void Update(Rectangle windowBounds, GameTime gameTime)
         {
@@ -58,7 +57,10 @@ namespace Project.Entities
         {
             // for now, just adjust links hue. In the real game the sprite is alternated between ~4 colors.
             float hue = (float)(4 * 360 * (totalFlashTime - remainingFlashTime) / totalFlashTime) % 360; //linearly traverse hue 4 times
-            color = ColorUtils.HSVToRGB(hue, 1, 1);
+            List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
+            double t = totalFlashTime - remainingFlashTime;
+            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count;
+            color = ColorUtils.HSVToRGB(hues[i], 0.85f, 1);
         }
         private void UpdateKnockback(GameTime gameTime)
         {
@@ -78,7 +80,6 @@ namespace Project.Entities
                     y_dir = -1;
                     break;
             }
-
             float newX = this.decoratedPlayer.Position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
             float newY = this.decoratedPlayer.Position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
             this.decoratedPlayer.Position = new Vector2(newX, newY);
