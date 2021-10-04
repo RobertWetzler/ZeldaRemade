@@ -8,6 +8,9 @@ using Project.NPC.Skeleton;
 using Project.NPC.OldMan;
 using Project.NPC.Merchant;
 using Project.NPC.Trap;
+using Project.NPC.BigJelly;
+using Project.NPC.Goriya;
+using Project.NPC.SmallJelly;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
@@ -31,18 +34,14 @@ namespace Project
         private List<IBlockSprite> blocks;
         private List<IWeaponSprite> weapons;
         
-        private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
 
         public Game1()
         {
-
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
-            
         }
 
         protected override void Initialize()
@@ -142,6 +141,7 @@ namespace Project
             items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
             items.Add(ItemSpriteFactory.Instance.CreateRupeeSprite());
             items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
+            items.Add(ItemSpriteFactory.Instance.CreateTriforceSprite());
 
 
             //TESTING CAN BE DELETED
@@ -152,20 +152,16 @@ namespace Project
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
 
-            //Set NPC
-            //NPC = new Bat();
+            //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
-            NPC = new Bat();
-            NPC = new Skeleton();
-            NPC = new OldMan();
-            NPC = new Merchant();
-            NPC = new Trap();
+            //Set NPC
+            NPC = new Goriya();
             CurrentItemSpriteIndex = 0;
         }
 
         protected override void Update(GameTime gameTime)
         {
-            NPC.Update();
+            NPC.Update(gameTime);
             foreach (IController controller in controllers)
             {
                 controller.Update();
