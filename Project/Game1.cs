@@ -18,7 +18,7 @@ namespace Project
 {
     public class Game1 : Game
     {
-        private Facing testFacing = Facing.Right;
+        private Facing testFacing = Facing.Down;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
@@ -113,32 +113,31 @@ namespace Project
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             items = new List<IItemSprite>();
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 0));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 1));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 2));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 3));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 4));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 5));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 6));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 7));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 8));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 9));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 10));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 0));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 1));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 2));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 3));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 4));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 5));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 6));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 7));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 8));
             items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 9));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 3));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 5));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 6));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(2, 9));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 1));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 2));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 3));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 4));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 5));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 7));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 8));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(3, 9));
+            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 10));
             items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
-            
+            items.Add(ItemSpriteFactory.Instance.CreateRupeeSprite());
+            items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
+
 
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprites>();                                                      
@@ -188,7 +187,7 @@ namespace Project
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
              //Test link sprite - can be eliminated
             
-            items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(400, 100));
+            items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(200, 300));
             NPC.Draw(_spriteBatch);
 
             //TESTING

@@ -13,6 +13,9 @@ namespace Project.Sprites.ItemSprites
 
         private int directionHolder;
         private float timer;
+        private bool flipped;
+
+        
 
         private Vector2 position;
         private Facing facing;
@@ -34,7 +37,7 @@ namespace Project.Sprites.ItemSprites
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    this.position.Y = (int)position.Y - 50;
+                    this.position.Y = (int)position.Y;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
@@ -59,11 +62,13 @@ namespace Project.Sprites.ItemSprites
 
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 3;
+            int scale = 4;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
-            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
+
+        
+            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
 
         }
 
@@ -80,7 +85,7 @@ namespace Project.Sprites.ItemSprites
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3;
+            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
 
             //TOWARDS PLAYER
             if (timer > 3000)

@@ -3,29 +3,29 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.ItemSprites
 {
-    class FairySprite : IItemSprite
+    class RupeeSprite : IItemSprite
     {
         private int sheetRows;
         private int sheetColumns;
         private int spriteRow;
         //private int spriteColumn;
         private int frame;
-      
-      
+
+
 
 
         private Texture2D spriteSheet;
         //Texture, Rows, Columns
-        public FairySprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
+        public RupeeSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
         {
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
 
             spriteRow = 0;
-            
-            
-            
+
+
+
 
         }
 
@@ -35,7 +35,7 @@ namespace Project.Sprites.ItemSprites
             int height = spriteSheet.Height / sheetRows;
             int scale = 3;
 
-            Rectangle spriteRectangle = new Rectangle( frame * width, spriteRow * height, width, height);
+            Rectangle spriteRectangle = new Rectangle(frame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
@@ -44,8 +44,8 @@ namespace Project.Sprites.ItemSprites
         public void Update(GameTime gameTime)
         {
             frame = (int)(gameTime.TotalGameTime.TotalSeconds * 2) % 2;
-           
-            
+
+
         }
     }
 }
