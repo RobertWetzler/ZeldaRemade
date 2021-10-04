@@ -35,34 +35,10 @@ namespace Project
         private List<IWeaponSprites> weapons;
         private List<INPC> npcsList;
 
-        public int ItemsListLength
-        {
-            get
-            {
-                return items.Count;
-            }
-        }
-        public int BlocksListLength
-        {
-            get
-            {
-                return blocks.Count;
-            }
-        }
-        public int WeaponsListLength
-        {
-            get
-            {
-                return weapons.Count;
-            }
-        }
-        public int NPCSListLength
-        {
-            get
-            {
-                return npcsList.Count;
-            }
-        }
+        public int ItemsListLength => items.Count;
+        public int BlocksListLength => blocks.Count;
+        public int WeaponsListLength => weapons.Count;
+        public int NPCSListLength => npcsList.Count;
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
         public int CurrentNPCIndex { get; set; }
