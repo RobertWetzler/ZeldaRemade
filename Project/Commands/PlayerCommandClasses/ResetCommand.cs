@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
+using Project.Factory;
 
 namespace Project
 {
@@ -15,8 +14,13 @@ namespace Project
 
         public void Execute()
         {
-            // need to implement
-           
+            //Reset the lists to show first element in list
+            game.CurrentBlockSpriteIndex = 0;
+            game.CurrentItemSpriteIndex = 0;
+            game.CurrentNPCIndex = 0;
+            //Reset player position
+            game.Player.Position = Vector2.Zero;
+            game.Player.SetSprite(LinkSpriteFactory.Instance.CreateLinkIdleSprite(Entities.Facing.Right));
         }
     }
 }
