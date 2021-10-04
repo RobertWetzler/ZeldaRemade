@@ -16,7 +16,7 @@ namespace Project
         {
             game.CurrentItemSpriteIndex++;
 
-            if(game.CurrentItemSpriteIndex > 24)
+            if(game.CurrentItemSpriteIndex > 25)
             {
                 game.CurrentItemSpriteIndex = 0;
             }
