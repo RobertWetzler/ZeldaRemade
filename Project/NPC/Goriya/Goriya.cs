@@ -14,7 +14,7 @@ namespace Project.NPC.Goriya
         public Goriya()
         {
             xPos = 400;
-            yPos = 400;
+            yPos = 100;
             currentState = new GoriyaUseItem(this, Entities.Facing.Right);
             
         }
