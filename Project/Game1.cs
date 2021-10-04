@@ -138,6 +138,7 @@ namespace Project
             items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
             items.Add(ItemSpriteFactory.Instance.CreateRupeeSprite());
             items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
+            items.Add(ItemSpriteFactory.Instance.CreateTriforceSprite());
 
 
             //TESTING CAN BE DELETED
