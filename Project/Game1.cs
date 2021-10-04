@@ -38,6 +38,9 @@ namespace Project
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
 
+        private List<INPC> npcsList;
+        public int CurrentNPCIndex { get; set; }
+
         public Game1()
         {
 
