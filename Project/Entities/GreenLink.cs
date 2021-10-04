@@ -16,7 +16,7 @@ namespace Project.Entities
 
         private Vector2 position;
         private IPlayerSprite sprite;
-        private IWeaponSprite weaponSprite;
+        private List<IWeaponSprite> weaponSprites;
         private double velocity = 200;
         private Game1 game;
         public Vector2 Position
@@ -38,6 +38,7 @@ namespace Project.Entities
             this.game = game;
             stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
+            weaponSprites = new List<IWeaponSprite>();
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -72,7 +73,11 @@ namespace Project.Entities
         public void UseWeapon(WeaponTypes weaponType)
         {
             IWeaponSprite potentialWeapon = WeaponSpriteSelector.GetWeaponSprite(weaponType, stateMachine.facing, position);
-            (sprite, this.weaponSprite) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
+            (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
+            if (potentialWeapon != null)
+            {
+                weaponSprites.Add(potentialWeapon);
+            }
         }
         public void BecomeDamaged() 
         { 
@@ -110,19 +115,18 @@ namespace Project.Entities
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             sprite.Update(gameTime);
-            if (weaponSprite != null)
-            {
+            foreach (IWeaponSprite weaponSprite in weaponSprites)
+            { 
                 weaponSprite.Update(gameTime);
-                if (weaponSprite.isFinished())
-                    weaponSprite = null;
             }
+            weaponSprites.RemoveAll(weaponSprite => weaponSprite.isFinished());
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);
-            if (weaponSprite != null)
-            {
+            foreach (IWeaponSprite weaponSprite in weaponSprites)
+            {    
                 weaponSprite.Draw(spriteBatch);
             }
         }
