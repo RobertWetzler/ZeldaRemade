@@ -78,13 +78,6 @@ namespace Project
             keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(this));
             controllers.Add(keyboardController);
 
-            NPC = new Bat();
-            NPC = new Skeleton();
-            NPC = new OldMan();
-            NPC = new Merchant();
-            NPC = new Trap();
-
-
             base.Initialize();
         }
 
@@ -152,7 +145,7 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             //Set NPC
-            NPC = new Goriya();
+            NPC = new WallMaster();
             CurrentItemSpriteIndex = 0;
         }
 
