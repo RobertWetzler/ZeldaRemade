@@ -37,6 +37,8 @@ namespace Project.NPC.Skeleton
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
+                skeleton.xPos += 5;
+                sprite.Update();
             }
         }
     }

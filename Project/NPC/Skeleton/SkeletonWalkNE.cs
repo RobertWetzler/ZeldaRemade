@@ -42,6 +42,7 @@ namespace Project.NPC.Skeleton
                 delay_frame_index = 0;
                 skeleton.yPos -= 5;
                 skeleton.xPos += 5;
+                sprite.Update();
             }
         }
     }

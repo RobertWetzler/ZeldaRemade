@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-
 
 namespace Project.NPC.Merchant
+
 {
     class Merchant : INPC
     {
@@ -12,6 +10,7 @@ namespace Project.NPC.Merchant
 
         public Merchant()
         {
+            currentState = new MerchantStill(this);
             this.xPos = 400;
             this.yPos = 100;
 

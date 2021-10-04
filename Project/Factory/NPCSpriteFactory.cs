@@ -23,6 +23,7 @@ namespace Project.Factory
         private Texture2D batSpriteSheet;
         private Texture2D oldManSpriteSheet;
         private Texture2D merchantSpriteSheet;
+        private Texture2D trapSpriteSheet;
 
         private static NPCSpriteFactory instance = new NPCSpriteFactory();
 
@@ -51,7 +52,8 @@ namespace Project.Factory
             enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
             batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
             oldManSpriteSheet = content.Load<Texture2D>("EnemySprites/oldman"); ;
-            merchantSpriteSheet = content.Load<Texture2D>("EnemySprites/merchant"); ;
+            merchantSpriteSheet = content.Load<Texture2D>("EnemySprites/merchant");
+            trapSpriteSheet = content.Load<Texture2D>("EnemySprites/trap");
         }
 
         //public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
@@ -87,6 +89,14 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
             return new MerchantSprite(merchantSpriteSheet);
+        }
+
+        public IEnemySprite CreateTrapSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+
+            return new TrapSprite(trapSpriteSheet);
         }
 
 

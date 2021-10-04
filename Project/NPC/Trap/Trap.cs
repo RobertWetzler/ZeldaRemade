@@ -1,30 +1,30 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace Project.NPC.OldMan
+namespace Project.NPC.Trap
 {
-    class OldMan : INPC 
+    class Trap : INPC
     {
         public INPCState currentState;
         public float xPos, yPos;
 
-        public OldMan()
+        public Trap()
         {
-            currentState = new OldManStill(this);
+            currentState = new TrapStill(this);
             this.xPos = 400;
             this.yPos = 100;
-            
+
         }
-       
+
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);
         }
 
-        
+
         public void Update()
         {
             currentState.Update();
         }
     }
-           
+
 }

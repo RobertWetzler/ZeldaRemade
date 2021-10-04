@@ -7,6 +7,7 @@ using Project.NPC.Bat;
 using Project.NPC.Skeleton;
 using Project.NPC.OldMan;
 using Project.NPC.Merchant;
+using Project.NPC.Trap;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -79,6 +80,7 @@ namespace Project
             NPC = new Skeleton();
             NPC = new OldMan();
             NPC = new Merchant();
+            NPC = new Trap();
 
 
             base.Initialize();
@@ -113,8 +115,12 @@ namespace Project
             CurrentBlockSpriteIndex = 0;
 
             //Set NPC
-            //NPC = new Bat();
             NPC = new Bat();
+            NPC = new Bat();
+            NPC = new Skeleton();
+            NPC = new OldMan();
+            NPC = new Merchant();
+            NPC = new Trap();
         }
 
         protected override void Update(GameTime gameTime)
