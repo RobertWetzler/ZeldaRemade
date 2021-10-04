@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Project
 {
-    interface IController
+    public interface IController
     {
-        public void Update(); 
+        void Update(); 
     }
 }

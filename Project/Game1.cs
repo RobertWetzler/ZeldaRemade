@@ -30,11 +30,10 @@ namespace Project
         private List<IController> controllers;
         private INPC NPC;
 
-        private List<IItemSprite> items;
-        //List of blocks to cycle thru
-        private List<IBlockSprite> blocks;
-        private List<IWeaponSprites> weapons;
-        
+        private List<IItemSprite> items;        //List of items to cycle thru
+        private List<IBlockSprite> blocks;      //List of blocks to cycle thru
+        private List<IWeaponSprites> weapons;  
+
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
 
@@ -49,41 +48,13 @@ namespace Project
         {
             // TODO: Add your initialization logic here
             controllers = new List<IController>();
+            Utilities.Sprint2Utilities.GetControllers(controllers, this);
 
-            KeyboardController keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
-            keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
-            keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
-            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(this));
-
-            //Register both WASD and Arrows
-            ICommand upCommand = new PlayerMoveUpCommand(this);
-            keyboardController.RegisterCommand(Keys.W, upCommand);
-            keyboardController.RegisterCommand(Keys.Up, upCommand);
-
-            ICommand leftCommand = new PlayerMoveLeftCommand(this);
-            keyboardController.RegisterCommand(Keys.A, leftCommand);
-            keyboardController.RegisterCommand(Keys.Left, leftCommand);
-
-            ICommand rightCommand = new PlayerMoveRightCommand(this);
-            keyboardController.RegisterCommand(Keys.D, rightCommand);
-            keyboardController.RegisterCommand(Keys.Right, rightCommand);
-
-            ICommand downCommand = new PlayerMoveDownCommand(this);
-            keyboardController.RegisterCommand(Keys.S, downCommand);
-            keyboardController.RegisterCommand(Keys.Down, downCommand);
-
-            //Register idle command as default
-            keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
-            keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(this));
-            keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(this));
-            controllers.Add(keyboardController);
-
-            NPC = new Bat();
+            /*NPC = new Bat();
             NPC = new Skeleton();
             NPC = new OldMan();
             NPC = new Merchant();
-            NPC = new Trap();
+            NPC = new Trap();*/
 
 
             base.Initialize();
@@ -100,46 +71,12 @@ namespace Project
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             blocks = new List<IBlockSprite>();
-            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
+            Utilities.Sprint2Utilities.SetBlockList(blocks);
 
-            
+            //Load item sprites
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             items = new List<IItemSprite>();
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 0));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 1));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 2));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 3));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 4));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 5));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 6));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 7));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 8));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 9));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 10));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 0));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 1));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 2));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 3));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 4));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 5));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 6));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 7));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 8));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 9));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 10));
-            items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
-            items.Add(ItemSpriteFactory.Instance.CreateRupeeSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateTriforceSprite());
+            Utilities.Sprint2Utilities.SetItemList(items);
 
 
             //TESTING CAN BE DELETED
