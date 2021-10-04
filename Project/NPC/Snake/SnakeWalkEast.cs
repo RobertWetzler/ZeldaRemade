@@ -3,22 +3,20 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using System.Collections.Generic;
 
-namespace Project.NPC.Skeleton
+namespace Project.NPC.Snake
 {
-    class SkeletonWalkEast : INPCState
+    class SnakeWalkEast : INPCState
     {
         private int delay_frame_index;
-        private Skeleton skeleton;
-
+        private Snake snake;
         private static int delay_frames = 10;
         private IEnemySprite sprite;
+        
 
-
-
-        public SkeletonWalkEast(Skeleton skeleton)
+        public SnakeWalkEast(Snake snake)
         {
-            this.skeleton = skeleton;
-            sprite = NPCSpriteFactory.Instance.CreateSkeletonSprite();
+            this.snake = snake;
+            sprite = NPCSpriteFactory.Instance.CreateSnakeSprite(Entities.Facing.Right);
             delay_frame_index = 0;
         }
 
@@ -29,17 +27,18 @@ namespace Project.NPC.Skeleton
 
         public void Update(GameTime gameTime)
         {
-            if (skeleton.xPos == 450 && skeleton.yPos == 50)
+            if (snake.xPos == 450 && snake.yPos == 100)
             {
-                skeleton.currentState = new SkeletonWalkSouth(skeleton);
+                snake.currentState = new SnakeWalkSouth(snake);
             }
 
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                skeleton.xPos += 5;
+                snake.xPos += 5;
                 sprite.Update();
             }
         }
     }
 }
+

@@ -11,6 +11,7 @@ using Project.NPC.Trap;
 using Project.NPC.BigJelly;
 using Project.NPC.Goriya;
 using Project.NPC.SmallJelly;
+using Project.NPC.Snake;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
@@ -88,6 +89,7 @@ namespace Project
             NPC = new OldMan();
             NPC = new Merchant();
             NPC = new Trap();
+            NPC = new Snake();
 
 
             base.Initialize();
@@ -156,7 +158,8 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             //Set NPC
-            NPC = new Goriya();
+            //NPC = new Goriya();
+            NPC = new Snake();
             CurrentItemSpriteIndex = 0;
         }
 
