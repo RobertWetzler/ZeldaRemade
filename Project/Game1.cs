@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
 using Project.NPC.Bat;
+using Project.NPC.Dragon;
 
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
@@ -151,7 +152,7 @@ namespace Project
             //Set NPC
             //NPC = new Bat();
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
-            NPC = new Bat();
+            NPC = new Dragon();
             CurrentItemSpriteIndex = 0;
         }
 
