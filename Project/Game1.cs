@@ -90,7 +90,7 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             //Set NPC
-            NPC = new Goriya();
+            NPC = new Dragon();
             CurrentItemSpriteIndex = 0;
         }
 

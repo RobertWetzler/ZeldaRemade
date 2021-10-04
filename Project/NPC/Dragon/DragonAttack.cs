@@ -49,7 +49,7 @@ namespace Project.NPC.Dragon
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                dragon.Update(gameTime);
+                sprite.Update();
             }
             leftUpFireball.Update(gameTime);
             leftFireball.Update(gameTime);
