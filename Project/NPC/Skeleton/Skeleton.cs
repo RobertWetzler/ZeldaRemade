@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Project.NPC.Skeleton
 {
@@ -14,9 +15,9 @@ namespace Project.NPC.Skeleton
             yPos = 100;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentState.Update();
+            currentState.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
