@@ -4,7 +4,10 @@ using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
 using Project.NPC.Bat;
-
+using Project.NPC.BigJelly;
+using Project.NPC.Goriya;
+using Project.NPC.Skeleton;
+using Project.NPC.SmallJelly;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
@@ -34,7 +37,6 @@ namespace Project
         private List<IBlockSprite> blocks;
         private List<IWeaponSprites> weapons;
         
-        private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
 
@@ -43,12 +45,9 @@ namespace Project
 
         public Game1()
         {
-
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
-
-            
+            IsMouseVisible = true;   
         }
 
         protected override void Initialize()
@@ -146,26 +145,26 @@ namespace Project
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprites>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
-           
+            
 
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
 
-            //Set NPC
-            //NPC = new Bat();
+            //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
-            NPC = new Bat();
+            //Set NPC
+            NPC = new Goriya();
             CurrentItemSpriteIndex = 0;
         }
 
         protected override void Update(GameTime gameTime)
         {
-            NPC.Update();
+            
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-
+            NPC.Update(gameTime);
             foreach (IWeaponSprites weapon in weapons)
             {
                 weapon.Update(gameTime);

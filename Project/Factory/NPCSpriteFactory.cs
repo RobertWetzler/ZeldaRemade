@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Sprites.BlockSprites;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace Project.Factory
 {
     public class NPCSpriteFactory
     {
+        private Texture2D batSpriteSheet;
         private Texture2D bossDragonSpriteSheet;
         private Texture2D dinosaurLeftRightSpriteSheet;
         private Texture2D dinosaurUpDownSpriteSheet;
-        private Texture2D batSpriteSheet;
         private Texture2D gelSpriteSheet;
         private Texture2D skeletonSpriteSheet;
         private Texture2D goriyaSpriteSheet;
@@ -61,11 +62,68 @@ namespace Project.Factory
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
             sourceFrames.Add(new Rectangle(17, 0, 16, 16));
-            return new BatSprite(batSpriteSheet, sourceFrames);
+            return new GenericEnemySprite(batSpriteSheet, sourceFrames);
         }
         public IEnemySprite CreateSkeletonSprite()
         {
             return new SkeletonSprite(skeletonSpriteSheet);
+        }
+        public IEnemySprite CreateBigJellySprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new GenericEnemySprite(zolSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateSmallJellySprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 5, 8, 8));
+            sourceFrames.Add(new Rectangle(10, 4, 6, 9));
+            return new GenericEnemySprite(gelSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateGoriyaWalkEastSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(34, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            return new GoriyaWalkRightSprite(goriyaSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateGoriyaWalkWestSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(34, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            return new GoriyaWalkLeftSprite(goriyaSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateGoriyaWalkNorthSprite()
+        {
+            Rectangle source = new Rectangle(17, 0, 16, 16);
+            return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, source);
+        }
+        public IEnemySprite CreateGoriyaWalkSouthSprite()
+        {
+            Rectangle source = new Rectangle(0, 0, 16, 16);
+            return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, source);
+        }
+        public IEnemySprite CreateGoriyaUseItemSprite(Facing dir)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(34, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            Rectangle downFrame = new Rectangle(0, 0, 16, 16);
+            Rectangle upFrame = new Rectangle(17, 0, 16, 16);
+            switch (dir)
+            {
+                case Facing.Up:
+                    return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, upFrame);
+                case Facing.Down:
+                    return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, downFrame);
+                case Facing.Left:
+                    return new GoriyaWalkLeftSprite(goriyaSpriteSheet, sourceFrames);
+                default:
+                    return new GoriyaWalkRightSprite(goriyaSpriteSheet, sourceFrames);
+            }
         }
 
     }

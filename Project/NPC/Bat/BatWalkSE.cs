@@ -8,6 +8,7 @@ namespace Project.NPC.Bat
 {
     class BatWalkSE : INPCState
     {
+
         private int delay_frame_index;
         private Bat bat;
 
@@ -26,7 +27,7 @@ namespace Project.NPC.Bat
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (bat.xPos == 400 && bat.yPos == 100)
             {
