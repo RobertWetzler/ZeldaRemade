@@ -29,7 +29,7 @@ namespace Project.NPC.Skeleton
 
         public void Update(GameTime gameTime)
         {
-            if (skeleton.xPos == 450 && skeleton.yPos == 50)
+            if (skeleton.xPos == 450 && skeleton.yPos == 100)
             {
                 skeleton.currentState = new SkeletonWalkSouth(skeleton);
             }
