@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.NPC.Trap
 {
@@ -21,9 +22,9 @@ namespace Project.NPC.Trap
         }
 
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentState.Update();
+            currentState.Update(gameTime);
         }
     }
 

@@ -27,9 +27,9 @@ namespace Project.NPC.Skeleton
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            if (skeleton.xPos == 450 && skeleton.yPos == 50)
+            if (skeleton.xPos == 450 && skeleton.yPos == 100)
             {
                 skeleton.currentState = new SkeletonWalkSouth(skeleton);
             }

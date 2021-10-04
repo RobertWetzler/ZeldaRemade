@@ -11,6 +11,6 @@ namespace Project
     public interface INPCState
     {
         void Draw(SpriteBatch spriteBatch, float xPos, float yPos);
-        void Update();
+        void Update(GameTime gameTime);
     }
 }

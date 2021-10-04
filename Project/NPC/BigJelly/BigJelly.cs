@@ -1,16 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Project.NPC.Bat
+namespace Project.NPC.BigJelly
 {
-    class Bat : INPC
+    class BigJelly : INPC
     {
         public INPCState currentState;
         public float xPos, yPos;
 
-        public Bat()
+        public BigJelly()
         {
-            currentState = new BatWalkEast(this);
+            currentState = new BigJellyWalkEast(this);
             xPos = 400;
             yPos = 100;
         }

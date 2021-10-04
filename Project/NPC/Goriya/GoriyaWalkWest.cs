@@ -1,28 +1,26 @@
-﻿using Project.NPC.Bat;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Project.NPC.Bat
+namespace Project.NPC.Goriya
 {
-    class BatWalkSW : INPCState
+    class GoriyaWalkWest : INPCState
     {
-
         private int delay_frame_index;
-        private Bat bat;
-
+        private Goriya goriya;
+        private IEnemySprite sprite;
         private static int delay_frames = 10;
 
-        private IEnemySprite sprite;
-
-        public BatWalkSW(Bat bat)
+        public GoriyaWalkWest(Goriya goriya)
         {
-            this.bat = bat;
-            sprite = NPCSpriteFactory.Instance.CreateBatSprite();
+            this.goriya = goriya;
+            sprite = NPCSpriteFactory.Instance.CreateGoriyaWalkWestSprite();
             delay_frame_index = 0;
-        }
 
+        }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
             sprite.Draw(spriteBatch, xPos, yPos);
@@ -30,16 +28,14 @@ namespace Project.NPC.Bat
 
         public void Update(GameTime gameTime)
         {
-            if (bat.xPos == 350 && bat.yPos == 50)
+            if (goriya.xPos == 400 && goriya.yPos == 150)
             {
-                bat.currentState = new BatWalkSE(bat);
+                goriya.currentState = new GoriyaUseItem(goriya, Entities.Facing.Up);
             }
-
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                bat.yPos += 5;
-                bat.xPos -= 5;
+                goriya.xPos -= 5;
                 sprite.Update();
             }
         }
