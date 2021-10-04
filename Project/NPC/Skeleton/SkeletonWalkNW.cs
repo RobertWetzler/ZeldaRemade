@@ -16,6 +16,8 @@ namespace Project.NPC.Skeleton
         private static int delay_frames = 10;
         private IEnemySprite sprite;
 
+       
+
         public SkeletonWalkNW(Skeleton skeleton)
         {
             this.skeleton = skeleton;
@@ -28,7 +30,7 @@ namespace Project.NPC.Skeleton
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (skeleton.xPos == 350 && skeleton.yPos == 50)
             {

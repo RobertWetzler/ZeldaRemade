@@ -12,7 +12,7 @@ namespace Project
     public interface INPC
     {
         void Draw(SpriteBatch spriteBatch);
-        void Update();
+        void Update(GameTime gameTime);
 
     }
 }
