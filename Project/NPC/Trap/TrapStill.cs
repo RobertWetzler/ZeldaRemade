@@ -14,7 +14,7 @@ namespace Project.NPC.Trap
         public TrapStill(Trap trap)
         {
             this.trap = trap;
-            sprite = NPCSpriteFactory.Instance.CreateOldManSprite();
+            sprite = NPCSpriteFactory.Instance.CreateTrapSprite();
         }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
