@@ -1,25 +1,25 @@
-﻿using Project.NPC.Bat;
+﻿using Project.NPC.Skeleton;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using Project;
 using Project.Factory;
 
-namespace Project.NPC.Bat
+namespace Project.NPC.BigJelly
 {
-    class BatWalkSW : INPCState
+    class BigJellyWalkSouth : INPCState
     {
-
+        private IEnemySprite sprite;
         private int delay_frame_index;
-        private Bat bat;
+        private BigJelly bigjelly;
 
         private static int delay_frames = 10;
+        
 
-        private IEnemySprite sprite;
-
-        public BatWalkSW(Bat bat)
+        public BigJellyWalkSouth(BigJelly bigjelly)
         {
-            this.bat = bat;
-            sprite = NPCSpriteFactory.Instance.CreateBatSprite();
+            this.bigjelly = bigjelly;
+            sprite = NPCSpriteFactory.Instance.CreateBigJellySprite();
             delay_frame_index = 0;
         }
 
@@ -30,16 +30,15 @@ namespace Project.NPC.Bat
 
         public void Update(GameTime gameTime)
         {
-            if (bat.xPos == 350 && bat.yPos == 50)
+            if (bigjelly.xPos == 450 && bigjelly.yPos == 150)
             {
-                bat.currentState = new BatWalkSE(bat);
+                bigjelly.currentState = new BigJellyWalkWest(bigjelly);
             }
 
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                bat.yPos += 5;
-                bat.xPos -= 5;
+                bigjelly.yPos += 5;
                 sprite.Update();
             }
         }

@@ -10,10 +10,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
-    <Compile Remove="Sprites\ItemSprites\FluteSprite.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="Content\ItemSprites\items_blue_arrow_down_up.png" />
     <None Remove="Content\ItemSprites\items_blue_boomerang .png" />
     <None Remove="Content\ItemSprites\items_blue_bottle.png" />
@@ -54,9 +50,5 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\EnemySprites\" />
-    <Folder Include="NPC\Bat\" />
   </ItemGroup>
 </Project>

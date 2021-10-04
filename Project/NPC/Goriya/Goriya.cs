@@ -1,32 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Project.NPC.Merchant
-
+namespace Project.NPC.Goriya
 {
-    class Merchant : INPC
+    class Goriya : INPC
     {
         public INPCState currentState;
         public float xPos, yPos;
 
-        public Merchant()
+        public Goriya()
         {
-            currentState = new MerchantStill(this);
-            this.xPos = 400;
-            this.yPos = 100;
-
+            xPos = 400;
+            yPos = 100;
+            currentState = new GoriyaUseItem(this, Entities.Facing.Right);
+            
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);
         }
-
 
         public void Update(GameTime gameTime)
         {
             currentState.Update(gameTime);
         }
     }
-
 }

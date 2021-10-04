@@ -32,7 +32,6 @@ namespace Project
             KeyboardState newState = Keyboard.GetState();
             foreach (Keys key in keys)
             {
-                ICommand command;
                 if (oldState.IsKeyUp(key) && newState.IsKeyDown(key) && commandMapping.ContainsKey(key))
                 {
                     commandMapping[key].Execute();

@@ -20,7 +20,7 @@ namespace Project.NPC.OldMan
         {
             sprite.Draw(spriteBatch, xPos, yPos);
         }
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
         }
