@@ -18,7 +18,7 @@ namespace Project
 
             if (game.CurrentItemSpriteIndex < 0)
             {
-                game.CurrentItemSpriteIndex = 24;
+                game.CurrentItemSpriteIndex = game.ItemsListLength - 1;
             }
         }
     }

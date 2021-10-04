@@ -16,8 +16,7 @@ namespace Project
         public void Execute()
         {
             // need to implement
-            game = new Game1();
-            game.Run();         // ? reset all variables
+           
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Commands.PlayerCommandClasses
+namespace Project
 {
     /**
      * Command to change the current enemy to previous
@@ -17,7 +17,11 @@ namespace Project.Commands.PlayerCommandClasses
         }
         public void Execute()
         {
-            throw new NotImplementedException();
+            game.CurrentNPCIndex--;
+            if (game.CurrentNPCIndex < 0)
+            {
+                game.CurrentNPCIndex = game.NPCSListLength - 1;
+            }
         }
     }
 }

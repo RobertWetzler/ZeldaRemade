@@ -19,7 +19,11 @@ namespace Project
 
         public void Execute()
         {
-            
+            game.CurrentNPCIndex++;
+            if (game.CurrentNPCIndex > game.NPCSListLength - 1)
+            {
+                game.CurrentNPCIndex = 0;
+            }
         }
     }
 }
