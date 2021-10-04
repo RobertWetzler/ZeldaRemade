@@ -90,10 +90,16 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.S, downCommand);
             keyboardController.RegisterCommand(Keys.Down, downCommand);
 
+            //Register reset command
+            ICommand resetCommand = new ResetCommand(game);
+            keyboardController.RegisterCommand(Keys.R, downCommand);
+
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
             keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(game));
             keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(game));
+
+            
             controllers.Add(keyboardController);    
         }
     }
