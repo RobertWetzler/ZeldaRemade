@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace Project.NPC.Goriya
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (goriya.xPos == 450 && goriya.yPos == 100)
             {

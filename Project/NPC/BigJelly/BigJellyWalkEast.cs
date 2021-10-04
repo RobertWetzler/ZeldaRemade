@@ -24,7 +24,7 @@ namespace Project.NPC.BigJelly
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (bigjelly.xPos == 450 && bigjelly.yPos == 100)
             {

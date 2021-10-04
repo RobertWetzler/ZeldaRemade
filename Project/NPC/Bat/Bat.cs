@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.NPC.Bat
 {
@@ -14,9 +15,9 @@ namespace Project.NPC.Bat
             yPos = 100;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentState.Update();
+            currentState.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -26,7 +26,7 @@ namespace Project.NPC.Skeleton
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (skeleton.xPos == 400 && skeleton.yPos == 150)
             {

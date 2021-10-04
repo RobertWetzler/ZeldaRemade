@@ -42,12 +42,9 @@ namespace Project
 
         public Game1()
         {
-
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
-
-            
+            IsMouseVisible = true;   
         }
 
         protected override void Initialize()
@@ -146,7 +143,7 @@ namespace Project
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprites>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
-           
+            
 
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
@@ -154,18 +151,18 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             //Set NPC
-            NPC = new Bat();
+            NPC = new Goriya();
             CurrentItemSpriteIndex = 0;
         }
 
         protected override void Update(GameTime gameTime)
         {
-            NPC.Update();
+            
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-
+            NPC.Update(gameTime);
             foreach (IWeaponSprites weapon in weapons)
             {
                 weapon.Update(gameTime);

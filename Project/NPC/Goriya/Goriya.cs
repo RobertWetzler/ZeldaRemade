@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Project.NPC.Goriya
 
         public Goriya()
         {
-            currentState = new GoriyaWalkEast(this);
+            currentState = new GoriyaUseItem(this, Entities.Facing.Right);
             xPos = 400;
             yPos = 100;
         }
@@ -21,9 +22,9 @@ namespace Project.NPC.Goriya
             currentState.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentState.Update();
+            currentState.Update(gameTime);
         }
     }
 }
