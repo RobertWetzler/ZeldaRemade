@@ -57,7 +57,7 @@ namespace Project.Sprites.PlayerSprites
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
@@ -66,14 +66,14 @@ namespace Project.Sprites.PlayerSprites
                 int width = frameWidth[spriteColumn].spriteW;
                 Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
                 Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
             }
             else
             {
                 int width = frameWidth[0].spriteW;
                 Rectangle source = new Rectangle(frameWidth[0].totalW, spriteRow * height, width, height);
                 Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-                spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
+                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
             }
         }
     }

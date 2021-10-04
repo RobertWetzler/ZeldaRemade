@@ -25,13 +25,7 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-        public IPlayer Player
-        {
-            get
-            {
-                return player;
-            }
-        }
+        public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
         private INPC NPC;
 
@@ -47,7 +41,7 @@ namespace Project
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;   
+            IsMouseVisible = true;
         }
 
         protected override void Initialize()
@@ -59,6 +53,7 @@ namespace Project
             keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
             keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
             keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
+            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(this));
 
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(this);
@@ -99,7 +94,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            player = new GreenLink(); // must be done AFTER LinkSpriteFactory load
+            player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
             
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -148,7 +143,7 @@ namespace Project
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprites>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
-            
+           
 
             //Set initial block sprite to show
             CurrentBlockSpriteIndex = 0;
@@ -162,7 +157,7 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            
+            NPC.Update(gameTime);
             foreach (IController controller in controllers)
             {
                 controller.Update();
