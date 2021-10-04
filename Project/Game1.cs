@@ -11,6 +11,7 @@ using Project.NPC.Trap;
 using Project.NPC.BigJelly;
 using Project.NPC.Goriya;
 using Project.NPC.SmallJelly;
+using Project.NPC.Dragon;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
@@ -145,7 +146,7 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             //Set NPC
-            NPC = new WallMaster();
+            NPC = new Dragon();
             CurrentItemSpriteIndex = 0;
         }
 
