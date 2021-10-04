@@ -13,9 +13,10 @@ namespace Project.NPC.Goriya
 
         public Goriya()
         {
-            currentState = new GoriyaUseItem(this, Entities.Facing.Right);
             xPos = 400;
-            yPos = 100;
+            yPos = 400;
+            currentState = new GoriyaUseItem(this, Entities.Facing.Right);
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {

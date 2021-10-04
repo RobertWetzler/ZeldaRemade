@@ -30,7 +30,7 @@ namespace Project.NPC.Goriya
         {
             if (goriya.xPos == 450 && goriya.yPos == 100)
             {
-                goriya.currentState = new GoriyaWalkSouth(goriya);
+                goriya.currentState = new GoriyaUseItem(goriya, Entities.Facing.Down);
             }
             if (++delay_frame_index >= delay_frames)
             {
