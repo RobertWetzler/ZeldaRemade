@@ -9,12 +9,13 @@ namespace Project.NPC.Skeleton
 {
     class SkeletonWalkSouth : INPCState
     {
-        private IEnemySprite sprite;
         private int delay_frame_index;
         private Skeleton skeleton;
 
         private static int delay_frames = 10;
-        
+        private IEnemySprite sprite;
+
+
 
         public SkeletonWalkSouth(Skeleton skeleton)
         {

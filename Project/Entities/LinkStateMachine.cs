@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Project.Entities
 {
-    class LinkStateMachine
+    public class LinkStateMachine
     {
         public Facing facing;
         public Move move;

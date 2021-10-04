@@ -4,9 +4,12 @@ using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
 using Project.NPC.Bat;
+using Project.NPC.Skeleton;
+using Project.NPC.OldMan;
+using Project.NPC.Merchant;
+using Project.NPC.Trap;
 using Project.NPC.BigJelly;
 using Project.NPC.Goriya;
-using Project.NPC.Skeleton;
 using Project.NPC.SmallJelly;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
@@ -22,14 +25,7 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-        public IPlayer Player
-        {
-            get
-            {
-                return player;
-            }
-        }
-  
+        public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
 
         //List of sprites to cycle thru
@@ -74,7 +70,7 @@ namespace Project
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;   
+            IsMouseVisible = true;
         }
 
         protected override void Initialize()
@@ -85,6 +81,8 @@ namespace Project
             KeyboardController keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
             keyboardController.RegisterCommand(Keys.R, new ResetCommand(this));
+
+            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(this));
 
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(this);
@@ -124,7 +122,7 @@ namespace Project
 
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            player = new GreenLink(); // must be done AFTER LinkSpriteFactory load
+            player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
             
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -169,6 +167,7 @@ namespace Project
             items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
             items.Add(ItemSpriteFactory.Instance.CreateRupeeSprite());
             items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
+            items.Add(ItemSpriteFactory.Instance.CreateTriforceSprite());
 
             CurrentItemSpriteIndex = 0;
             //TESTING CAN BE DELETED
@@ -186,13 +185,16 @@ namespace Project
             npcsList.Add(new SmallJelly());
             npcsList.Add(new BigJelly());
             npcsList.Add(new Goriya());
+            npcsList.Add(new Trap());
+            npcsList.Add(new OldMan());
+            npcsList.Add(new Merchant());
             
             
         }
 
         protected override void Update(GameTime gameTime)
         {
-            
+
             foreach (IController controller in controllers)
             {
                 controller.Update();
