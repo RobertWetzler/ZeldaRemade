@@ -24,7 +24,7 @@ namespace Project.NPC.Bat
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (bat.xPos == 450 && bat.yPos == 100)
             {

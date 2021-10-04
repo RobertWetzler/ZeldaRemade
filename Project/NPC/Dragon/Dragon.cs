@@ -1,4 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Project.Sprites.ItemSprites;
+using Project.Factory;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +12,6 @@ namespace Project.NPC.Dragon
     {
         public INPCState currentState;
         public float xPos, yPos;
-        public bool attack = false;
 
         public Dragon()
         {
@@ -21,16 +23,11 @@ namespace Project.NPC.Dragon
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);
-
-            if (attack)
-            {
-                //
-            }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentState.Update();
+            currentState.Update(gameTime);
         }
     }
 }

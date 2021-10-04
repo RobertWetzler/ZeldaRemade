@@ -158,7 +158,7 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            NPC.Update();
+            NPC.Update(gameTime);
             foreach (IController controller in controllers)
             {
                 controller.Update();

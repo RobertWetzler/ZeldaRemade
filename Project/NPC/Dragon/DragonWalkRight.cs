@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using Project.Factory;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Project.NPC.Dragon
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (dragon.xPos == 400 && dragon.yPos == 300)
             {
