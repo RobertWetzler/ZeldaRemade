@@ -9,12 +9,13 @@ namespace Project.NPC.Skeleton
 {
     class SkeletonWalkSouth : INPCState
     {
-        private IEnemySprite sprite;
         private int delay_frame_index;
         private Skeleton skeleton;
 
         private static int delay_frames = 10;
-        
+        private IEnemySprite sprite;
+
+
 
         public SkeletonWalkSouth(Skeleton skeleton)
         {
@@ -30,7 +31,7 @@ namespace Project.NPC.Skeleton
 
         public void Update()
         {
-            if (skeleton.xPos == 450 && skeleton.yPos == 150)
+            if (skeleton.xPos == 400 && skeleton.yPos == 100)
             {
                 skeleton.currentState = new SkeletonWalkWest(skeleton);
             }

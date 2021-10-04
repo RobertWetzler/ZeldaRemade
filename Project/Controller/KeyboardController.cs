@@ -38,7 +38,7 @@ namespace Project
                     commandMapping[key].Execute();
                 }
             }
-            if(newState.GetPressedKeyCount() == 0)
+            if (newState.GetPressedKeyCount() == 0)
             {
                 defaultCommand.Execute();
             }
