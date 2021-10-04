@@ -9,8 +9,11 @@ namespace Project.NPC.Skeleton
     {
         private int delay_frame_index;
         private Skeleton skeleton;
-        private IEnemySprite sprite;
+
         private static int delay_frames = 10;
+        private IEnemySprite sprite;
+
+
 
         public SkeletonWalkEast(Skeleton skeleton)
         {
@@ -26,7 +29,7 @@ namespace Project.NPC.Skeleton
 
         public void Update()
         {
-            if (skeleton.xPos == 450 && skeleton.yPos == 100)
+            if (skeleton.xPos == 450 && skeleton.yPos == 50)
             {
                 skeleton.currentState = new SkeletonWalkSouth(skeleton);
             }

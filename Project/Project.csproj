@@ -10,14 +10,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Items\**" />
-    <Compile Remove="NPC\Skeleton\**" />
-    <EmbeddedResource Remove="Items\**" />
-    <EmbeddedResource Remove="NPC\Skeleton\**" />
-    <None Remove="Items\**" />
-    <None Remove="NPC\Skeleton\**" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
     <Compile Remove="Sprites\ItemSprites\FluteSprite.cs" />
   </ItemGroup>

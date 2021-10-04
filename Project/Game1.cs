@@ -4,7 +4,10 @@ using Microsoft.Xna.Framework.Input;
 using Project.Entities;
 using Project.Factory;
 using Project.NPC.Bat;
-
+using Project.NPC.Skeleton;
+using Project.NPC.OldMan;
+using Project.NPC.Merchant;
+using Project.NPC.Trap;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
@@ -81,8 +84,11 @@ namespace Project
             keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(this));
             controllers.Add(keyboardController);
 
-            
-            
+            NPC = new Bat();
+            NPC = new Skeleton();
+            NPC = new OldMan();
+            NPC = new Merchant();
+            NPC = new Trap();
 
 
             base.Initialize();
@@ -152,6 +158,10 @@ namespace Project
             //NPC = new Bat();
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             NPC = new Bat();
+            NPC = new Skeleton();
+            NPC = new OldMan();
+            NPC = new Merchant();
+            NPC = new Trap();
             CurrentItemSpriteIndex = 0;
         }
 
