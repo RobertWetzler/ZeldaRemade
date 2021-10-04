@@ -19,6 +19,8 @@ namespace Project.Factory
         private Texture2D blueBoomerangSpriteSheet;
         private Texture2D flameSpriteSheet;
         private Texture2D fairySpriteSheet;
+        private Texture2D heartSpriteSheet;
+        private Texture2D rupeeSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
 
@@ -37,20 +39,22 @@ namespace Project.Factory
 
         public void LoadAllTextures(ContentManager content)
         {
-            itemSpriteSheet = content.Load<Texture2D>("ItemSprites/items");
+            itemSpriteSheet = content.Load<Texture2D>("ItemSprites/spriteSheet_items");
             arrowSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_arrows");
             blueArrowSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_blue_arrow");
             bombSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_bomb_explosion");
             blueBoomerangSpriteSheet = content.Load<Texture2D>("ItemSprites/blue_weapon_boomerang");
-            boomerangSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_boomerang");
+            boomerangSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_boomerang_test");
             flameSpriteSheet = content.Load<Texture2D>("EnemySprites/flame");
-            fairySpriteSheet = content.Load<Texture2D>("ItemSprites/items_fairy");
+            fairySpriteSheet = content.Load<Texture2D>("ItemSprites/fairy");
+            heartSpriteSheet = content.Load<Texture2D>("ItemSprites/flashing_heart");
+            rupeeSpriteSheet = content.Load<Texture2D>("ItemSprites/rupee");
 
         }
 
         public IItemSprite CreateItemSprite(int spriteRow, int spriteColumn)
         {
-            return new ItemSprite(itemSpriteSheet, 38, 34, spriteRow, spriteColumn);
+            return new ItemSprite(itemSpriteSheet, 28, 25, spriteRow, spriteColumn);
         }
         public IItemSprite CreateFairySprite()
         {
@@ -67,12 +71,12 @@ namespace Project.Factory
         }
         public IWeaponSprites CreateBoomerangSprite(Facing facing, Vector2 position)
         {
-            return new BoomerangSprite(boomerangSpriteSheet, 1, 4, facing, position);
+            return new BoomerangSprite(boomerangSpriteSheet, 1, 6, facing, position);
         }
 
         public IWeaponSprites CreateBlueBoomerangSprite(Facing facing, Vector2 position)
         {
-            return new BoomerangSprite(blueBoomerangSpriteSheet, 1, 4, facing, position);
+            return new BoomerangSprite(blueBoomerangSpriteSheet, 1, 6, facing, position);
         }
 
         public IWeaponSprites CreateBombSprite(Facing facing, Vector2 position)
@@ -85,6 +89,15 @@ namespace Project.Factory
             return new FlameSprite(flameSpriteSheet, 2, 1, facing, position);
         }
 
-      
+        public IItemSprite CreateRupeeSprite()
+        {
+            return new RupeeSprite(rupeeSpriteSheet, 1, 2);
+        }
+
+        public IItemSprite CreateHeartSprite()
+        {
+            return new HeartSprite(heartSpriteSheet, 1, 2);
+        }
+
     }
 }

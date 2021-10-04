@@ -64,7 +64,7 @@ namespace Project.Sprites.ItemSprites
 
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 3;
+            int scale = 4;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
@@ -85,7 +85,7 @@ namespace Project.Sprites.ItemSprites
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3;
+            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
 
             //TOWARDS PLAYER
             if (timer > 14000)
