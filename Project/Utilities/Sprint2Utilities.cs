@@ -92,7 +92,7 @@ namespace Project.Utilities
 
             //Register reset command
             ICommand resetCommand = new ResetCommand(game);
-            keyboardController.RegisterCommand(Keys.R, downCommand);
+            keyboardController.RegisterCommand(Keys.R, resetCommand);
 
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));

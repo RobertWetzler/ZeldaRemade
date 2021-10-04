@@ -50,13 +50,6 @@ namespace Project
             controllers = new List<IController>();
             Utilities.Sprint2Utilities.GetControllers(controllers, this);
 
-            /*NPC = new Bat();
-            NPC = new Skeleton();
-            NPC = new OldMan();
-            NPC = new Merchant();
-            NPC = new Trap();*/
-
-
             base.Initialize();
         }
 
