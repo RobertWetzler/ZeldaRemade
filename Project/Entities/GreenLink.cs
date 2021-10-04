@@ -22,7 +22,10 @@ namespace Project.Entities
             get { return position; }
             set { position = value; }
         }
-
+        public IPlayerSprite PlayerSprite
+        {
+            get => this.sprite;
+        }
         public LinkStateMachine StateMachine
         {
             get => this.stateMachine;
@@ -31,7 +34,7 @@ namespace Project.Entities
         public GreenLink(Game1 game)
         {
             this.game = game;
-            stateMachine = new LinkStateMachine(Facing.Right, Move.Idle, LinkColor.Green);
+            stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
         }
 
@@ -61,7 +64,7 @@ namespace Project.Entities
         }
         public void UseSword()
         {
-            throw new NotImplementedException();
+            sprite = stateMachine.UseSword();
         }
         public void UseItem()
         {

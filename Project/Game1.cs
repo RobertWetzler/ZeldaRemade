@@ -64,6 +64,7 @@ namespace Project
             keyboardController.RegisterCommand(Keys.S, downCommand);
             keyboardController.RegisterCommand(Keys.Down, downCommand);
 
+            keyboardController.RegisterCommand(Keys.D1, new PlayerUseSwordCommand(this));
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
             controllers.Add(keyboardController);
