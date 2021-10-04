@@ -189,7 +189,7 @@ namespace Project
             npcsList.Add(new Trap());
             npcsList.Add(new OldMan());
             npcsList.Add(new Merchant());
-            
+            npcsList.Add(new Dragon());
             
         }
 
