@@ -164,6 +164,13 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(75, 0, 24, 32));
             return new DragonWalkSprite(bossDragonSpriteSheet, sourceFrames);
         }
+        public IEnemySprite CreateWallMasterSprite(Facing dir)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new WallMasterSprite(wallmasterSpriteSheet, sourceFrames, dir);
+        }
 
         public IEnemySprite CreateDragonAttackSprite()
         {

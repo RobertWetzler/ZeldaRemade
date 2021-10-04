@@ -166,7 +166,7 @@ namespace Project
             npcsList.Add(new OldMan());
             npcsList.Add(new Merchant());
             npcsList.Add(new Dragon());
-            
+            npcsList.Add(new WallMaster());
         }
 
         protected override void Update(GameTime gameTime)
