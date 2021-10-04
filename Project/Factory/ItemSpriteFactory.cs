@@ -21,6 +21,7 @@ namespace Project.Factory
         private Texture2D fairySpriteSheet;
         private Texture2D heartSpriteSheet;
         private Texture2D rupeeSpriteSheet;
+        private Texture2D triforceSpriteSheet;
         private Texture2D fireballSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
@@ -51,6 +52,8 @@ namespace Project.Factory
             heartSpriteSheet = content.Load<Texture2D>("ItemSprites/flashing_heart");
             rupeeSpriteSheet = content.Load<Texture2D>("ItemSprites/rupee");
             fireballSpriteSheet = content.Load<Texture2D>("EnemySprites/dragon-fireballs");
+            triforceSpriteSheet = content.Load<Texture2D>("ItemSprites/triforce");
+
         }
 
         public IItemSprite CreateItemSprite(int spriteRow, int spriteColumn)
@@ -129,6 +132,9 @@ namespace Project.Factory
         {
             return new HeartSprite(heartSpriteSheet, 1, 2);
         }
-
+        public IItemSprite CreateTriforceSprite()
+        {
+            return new TriforceSprite(triforceSpriteSheet, 1, 2);
+        }
     }
 }

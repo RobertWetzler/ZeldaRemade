@@ -16,6 +16,8 @@ namespace Project.NPC.Skeleton
         private static int delay_frames = 10;
         private IEnemySprite sprite;
 
+        
+
         public SkeletonWalkNE(Skeleton skeleton)
         {
             this.skeleton = skeleton;
