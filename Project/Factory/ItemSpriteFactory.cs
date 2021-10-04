@@ -60,31 +60,31 @@ namespace Project.Factory
         {
             return new FairySprite(fairySpriteSheet, 1, 2);
         }
-        public IWeaponSprites CreateArrowSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateArrowSprite(Facing facing, Vector2 position)
         {
             return new ArrowSprite(arrowSpriteSheet, 1, 5, facing, position);
 
         }
-        public IWeaponSprites CreateBlueArrowSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBlueArrowSprite(Facing facing, Vector2 position)
         {
             return new BlueArrowSprite(blueArrowSpriteSheet, 1, 5, facing, position);
         }
-        public IWeaponSprites CreateBoomerangSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBoomerangSprite(Facing facing, Vector2 position)
         {
             return new BoomerangSprite(boomerangSpriteSheet, 1, 6, facing, position);
         }
 
-        public IWeaponSprites CreateBlueBoomerangSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBlueBoomerangSprite(Facing facing, Vector2 position)
         {
             return new BoomerangSprite(blueBoomerangSpriteSheet, 1, 6, facing, position);
         }
 
-        public IWeaponSprites CreateBombSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBombSprite(Facing facing, Vector2 position)
         {
             return new BombSprite(bombSpriteSheet, 1, 4, facing, position);
         }
 
-        public IWeaponSprites CreateFlameSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateFlameSprite(Facing facing, Vector2 position)
         {
             return new FlameSprite(flameSpriteSheet, 2, 1, facing, position);
         }

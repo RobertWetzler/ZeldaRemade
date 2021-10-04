@@ -22,6 +22,9 @@ namespace Project.Entities
                 case Move.UsingSword:
                     sprite = LinkSpriteFactory.Instance.CreateLinkUseSwordSprite(facing);
                     break;
+                case Move.UsingItem:
+                    sprite = LinkSpriteFactory.Instance.CreateLinkUseItemSprite(facing);
+                    break;
                 default:
                     sprite = LinkSpriteFactory.Instance.CreateLinkIdleSprite(facing);
                     break;

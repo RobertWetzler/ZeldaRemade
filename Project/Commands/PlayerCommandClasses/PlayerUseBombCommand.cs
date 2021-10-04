@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.Sprites.ItemSprites;
+using Project.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,7 +17,7 @@ namespace Project
 
         public void Execute()
         {
-            this.game.Player.UseItem();
+            this.game.Player.UseWeapon(WeaponTypes.Bomb);
         }
     }
 }

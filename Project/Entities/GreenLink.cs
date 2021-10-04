@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
+using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
@@ -15,6 +16,7 @@ namespace Project.Entities
 
         private Vector2 position;
         private IPlayerSprite sprite;
+        private IWeaponSprite weaponSprite;
         private double velocity = 200;
         private Game1 game;
         public Vector2 Position
@@ -66,9 +68,11 @@ namespace Project.Entities
         {
             sprite = stateMachine.UseSword();
         }
-        public void UseItem()
+
+        public void UseWeapon(WeaponTypes weaponType)
         {
-            throw new NotImplementedException();
+            IWeaponSprite potentialWeapon = WeaponSpriteSelector.GetWeaponSprite(weaponType, stateMachine.facing, position);
+            (sprite, this.weaponSprite) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
         }
         public void BecomeDamaged() 
         { 
@@ -82,6 +86,7 @@ namespace Project.Entities
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            this.sprite = this.stateMachine.Update();
             int x_dir = 0;
             int y_dir = 0;
             if (stateMachine.move == Move.Moving)
@@ -105,11 +110,21 @@ namespace Project.Entities
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             sprite.Update(gameTime);
+            if (weaponSprite != null)
+            {
+                weaponSprite.Update(gameTime);
+                if (weaponSprite.isFinished())
+                    weaponSprite = null;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);
+            if (weaponSprite != null)
+            {
+                weaponSprite.Draw(spriteBatch);
+            }
         }
     }
 }

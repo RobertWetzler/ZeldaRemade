@@ -29,7 +29,7 @@ namespace Project
         private List<IItemSprite> items;
         //List of blocks to cycle thru
         private List<IBlockSprite> blocks;
-        private List<IWeaponSprites> weapons;
+        private List<IWeaponSprite> weapons;
         
         private IPlayerSprite link;     //Test link sprite - can be eliminated
         public int CurrentBlockSpriteIndex { get; set; }
@@ -73,7 +73,9 @@ namespace Project
             keyboardController.RegisterCommand(Keys.S, downCommand);
             keyboardController.RegisterCommand(Keys.Down, downCommand);
 
-            keyboardController.RegisterCommand(Keys.D1, new PlayerUseSwordCommand(this));
+            keyboardController.RegisterCommand(Keys.D1, new PlayerUseSwordCommand(this)); //Use sword with 1
+            keyboardController.RegisterCommand(Keys.D2, new PlayerUseBombCommand(this)); //Use sword with 1
+
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
             keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(this));
@@ -143,7 +145,7 @@ namespace Project
 
 
             //TESTING CAN BE DELETED
-            weapons = new List<IWeaponSprites>();                                                      
+            weapons = new List<IWeaponSprite>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
            
 
@@ -169,7 +171,7 @@ namespace Project
                 controller.Update();
             }
 
-            foreach (IWeaponSprites weapon in weapons)
+            foreach (IWeaponSprite weapon in weapons)
             {
                 weapon.Update(gameTime);
             }

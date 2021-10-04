@@ -10,8 +10,6 @@ namespace Project
     {
         public void TakeDamage(int damage);
 
-        //TODO: add parameter: Item item
-        public void UseItem();
         void Update(Rectangle windowBounds, GameTime gameTime);
         void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

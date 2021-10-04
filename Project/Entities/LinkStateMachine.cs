@@ -1,4 +1,5 @@
-﻿using Project.Sprites.PlayerSprites;
+﻿using Project.Sprites.ItemSprites;
+using Project.Sprites.PlayerSprites;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -92,19 +93,37 @@ namespace Project.Entities
             return sprite;
         }
 
-        public IPlayerSprite UseItem()
+        public (IPlayerSprite, IWeaponSprite) UseWeapon(IWeaponSprite weaponSprite)
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
             {
-                this.move = Move.UsingSword;
+                this.move = Move.UsingItem;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
-            return sprite;
+            else
+            {
+                weaponSprite = null; //If weapon can't be used right now, set it to null
+            }
+            return (sprite, weaponSprite);
+        }
+        private bool IsInActionState()
+        {
+            return this.move == Move.UsingItem || this.move == Move.UsingSword;
         }
         private bool IsPerformingAction()
         {
-            return (this.move == Move.UsingItem || this.move == Move.UsingSword) && !this.link.PlayerSprite.IsFinished;
+            return IsInActionState() && !this.link.PlayerSprite.IsFinished;
+        }
+
+        public IPlayerSprite Update()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (IsInActionState() && this.link.PlayerSprite.IsFinished) //If in an action state but action is done, go idle
+            {
+                sprite = StopMoving();
+            }
+            return sprite;
         }
     }
 }
