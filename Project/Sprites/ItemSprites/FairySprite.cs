@@ -33,7 +33,7 @@ namespace Project.Sprites.ItemSprites
         {
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 2;
+            int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle( frame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
