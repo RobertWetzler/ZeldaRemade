@@ -9,8 +9,11 @@ namespace Project.NPC.Skeleton
     {
         private int delay_frame_index;
         private Skeleton skeleton;
-        private IEnemySprite sprite;
+
         private static int delay_frames = 10;
+        private IEnemySprite sprite;
+
+
 
         public SkeletonWalkEast(Skeleton skeleton)
         {
