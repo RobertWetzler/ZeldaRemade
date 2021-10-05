@@ -11,6 +11,7 @@ using Project.NPC.Trap;
 using Project.NPC.BigJelly;
 using Project.NPC.Goriya;
 using Project.NPC.SmallJelly;
+using Project.NPC.Snake;
 using Project.NPC.Dragon;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
@@ -178,6 +179,7 @@ namespace Project
             npcsList.Add(new Merchant());
             npcsList.Add(new Dragon());
             npcsList.Add(new WallMaster());
+            npcsList.Add(new Snake());
         }
 
         protected override void Update(GameTime gameTime)
