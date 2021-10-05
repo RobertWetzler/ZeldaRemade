@@ -161,7 +161,7 @@ namespace Project
             CurrentItemSpriteIndex = 0;
             //TESTING CAN BE DELETED
             weapons = new List<IWeaponSprite>();                                                      
-            weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
+            weapons.Add(ItemSpriteFactory.Instance.CreateFlameSprite(testFacing, player.Position));
             
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
