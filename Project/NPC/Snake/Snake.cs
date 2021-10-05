@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.NPC.Snake
 {
-    class  Snake: INPC
+    class Snake : INPC
     {
         public INPCState currentState;
         public float xPos, yPos;

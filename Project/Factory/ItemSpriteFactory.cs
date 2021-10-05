@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sprites.ItemSprites;
 using Project.Entities;
-using System;
+using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Factory
 {

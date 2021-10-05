@@ -37,7 +37,7 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-          
+
         }
     }
 }

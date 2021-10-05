@@ -1,14 +1,12 @@
-﻿using Project.NPC.Skeleton;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Project.Factory;
 
 namespace Project.NPC.BigJelly
 {
     class BigJellyWalkWest : INPCState
     {
-        
+
         private int delay_frame_index;
         private BigJelly bigjelly;
         private static int delay_frames = 10;

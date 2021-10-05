@@ -50,7 +50,7 @@ namespace Project
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
-            
+
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
 
@@ -97,7 +97,7 @@ namespace Project
         {
             GraphicsDevice.Clear(Color.Tan);
 
-            _spriteBatch.Begin(samplerState:SamplerState.PointClamp); // PointClamp fixes sprite blurriness
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp); // PointClamp fixes sprite blurriness
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
 
@@ -109,6 +109,6 @@ namespace Project
             base.Draw(gameTime);
         }
 
-        
+
     }
 }

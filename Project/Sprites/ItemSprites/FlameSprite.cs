@@ -57,12 +57,12 @@ namespace Project.Sprites.ItemSprites
             int height = spriteSheet.Height / sheetRows;
             int scale = 4;
 
-            Rectangle spriteRectangle = new Rectangle(0,  0, width, height);
+            Rectangle spriteRectangle = new Rectangle(0, 0, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
 
             SpriteEffects effect = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, effect, 0f);
-           
+
 
         }
 

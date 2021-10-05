@@ -1,8 +1,5 @@
 ﻿using Project.Factory;
 using Project.Sprites.PlayerSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Entities
 {

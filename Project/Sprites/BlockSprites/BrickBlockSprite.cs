@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites.BlockSprites
 {
@@ -21,7 +18,7 @@ namespace Project.Sprites.BlockSprites
             this.sheetColumns = sheetColumns;
             spriteRow = 2;
             spriteColumn = 0;
-            
+
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)

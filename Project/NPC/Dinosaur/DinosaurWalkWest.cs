@@ -1,8 +1,6 @@
-﻿using Project.NPC;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System.Collections.Generic;
 
 namespace Project.NPC.Dinosaur
 {

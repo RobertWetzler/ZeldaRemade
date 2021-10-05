@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
-using Project.Sprites.BlockSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.NPC.Goriya
 {
@@ -45,7 +41,7 @@ namespace Project.NPC.Goriya
             {
                 boomerang.Draw(spriteBatch);
             }
-            
+
         }
 
         public void Update(GameTime gameTime)
@@ -67,7 +63,7 @@ namespace Project.NPC.Goriya
                         goriya.currentState = new GoriyaWalkWest(goriya);
                         break;
                 }
-                
+
             }
             if (++delay_frame_index >= delay_frames)
             {

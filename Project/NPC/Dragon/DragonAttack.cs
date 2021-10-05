@@ -1,11 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Entities;
 using Project.Sprites.ItemSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.NPC.Dragon
 {
@@ -45,7 +41,7 @@ namespace Project.NPC.Dragon
             {
                 dragon.currentState = new DragonWalkRight(dragon);
             }
-             
+
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
