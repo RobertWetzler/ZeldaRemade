@@ -9,6 +9,7 @@ using Project.NPC.BigJelly;
 using Project.NPC.Goriya;
 using Project.NPC.SmallJelly;
 using Project.NPC.Dragon;
+using Project.NPC.Dinosaur;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
@@ -125,6 +126,7 @@ namespace Project.Utilities
             npcsList.Add(new Merchant());
             npcsList.Add(new Dragon());
             npcsList.Add(new WallMaster());
+            npcsList.Add(new Dinosaur());
         }
     }
 }
