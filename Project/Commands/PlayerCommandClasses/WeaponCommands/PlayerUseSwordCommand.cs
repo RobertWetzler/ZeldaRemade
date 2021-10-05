@@ -4,19 +4,18 @@ using System.Text;
 
 namespace Project
 {
-    class CycleEnemiesCommand : ICommand
+    class PlayerUseSwordCommand : ICommand
     {
         private Game1 game;
 
-        public CycleEnemiesCommand(Game1 game)
+        public PlayerUseSwordCommand(Game1 game)
         {
             this.game = game;
         }
 
         public void Execute()
         {
-            //TODO: need to implement - Cycle list of enemis sprites (moving animated).
-            //game.SetSprite(); 
+            this.game.Player.UseSword();
         }
     }
 }

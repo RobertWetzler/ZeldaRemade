@@ -28,14 +28,20 @@ namespace Project
         private IPlayer player;
         public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
-        private INPC NPC;
 
-        private List<IItemSprite> items;        //List of items to cycle thru
-        private List<IBlockSprite> blocks;      //List of blocks to cycle thru
-        private List<IWeaponSprites> weapons;  
+        //List of sprites to cycle thru
+        private List<IItemSprite> items;
+        private List<IBlockSprite> blocks;
+        private List<IWeaponSprite> weapons;
+        private List<INPC> npcsList;
 
+        public int ItemsListLength => items.Count;
+        public int BlocksListLength => blocks.Count;
+        public int WeaponsListLength => weapons.Count;
+        public int NPCSListLength => npcsList.Count;
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
+        public int CurrentNPCIndex { get; set; }
 
         public Game1()
         {
@@ -49,6 +55,52 @@ namespace Project
             // TODO: Add your initialization logic here
             controllers = new List<IController>();
             Utilities.Sprint2Utilities.GetControllers(controllers, this);
+
+            KeyboardController keyboardController = new KeyboardController();
+            keyboardController.RegisterCommand(Keys.Q, new QuitCommand(this));
+            keyboardController.RegisterCommand(Keys.R, new ResetCommand(this));
+
+            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(this));
+
+            //Register both WASD and Arrows
+            ICommand upCommand = new PlayerMoveUpCommand(this);
+            keyboardController.RegisterCommand(Keys.W, upCommand);
+            keyboardController.RegisterCommand(Keys.Up, upCommand);
+
+            ICommand leftCommand = new PlayerMoveLeftCommand(this);
+            keyboardController.RegisterCommand(Keys.A, leftCommand);
+            keyboardController.RegisterCommand(Keys.Left, leftCommand);
+
+            ICommand rightCommand = new PlayerMoveRightCommand(this);
+            keyboardController.RegisterCommand(Keys.D, rightCommand);
+            keyboardController.RegisterCommand(Keys.Right, rightCommand);
+
+            ICommand downCommand = new PlayerMoveDownCommand(this);
+            keyboardController.RegisterCommand(Keys.S, downCommand);
+            keyboardController.RegisterCommand(Keys.Down, downCommand);
+
+            ICommand swordCommand = new PlayerUseSwordCommand(this);
+            keyboardController.RegisterCommand(Keys.Z, swordCommand); //Use sword with Z
+            keyboardController.RegisterCommand(Keys.N, swordCommand); //Use sword with N
+
+            keyboardController.RegisterCommand(Keys.D1, new PlayerUseBombCommand(this)); //Use bomb with 1
+            keyboardController.RegisterCommand(Keys.D2, new PlayerUseArrowCommand(this)); //Use arrow with 2
+            keyboardController.RegisterCommand(Keys.D3, new PlayerUseBlueArrowCommand(this)); //Use blue arrow with 3
+            keyboardController.RegisterCommand(Keys.D4, new PlayerUseBoomerangCommand(this)); //Use boomerang with 4
+            keyboardController.RegisterCommand(Keys.D5, new PlayerUseBlueBoomerangCommand(this)); //Use blue boomerang with 5
+            keyboardController.RegisterCommand(Keys.D6, new PlayerUseFlameCommand(this)); //Use flame with 6
+
+            //Register idle command as default
+            keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
+
+            //Cycle thru sprites commands
+            keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(this));
+            keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(this));
+            keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(this));
+            keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(this));
+            keyboardController.RegisterCommand(Keys.O, new GetPreviousEnemyCommand(this));
+            keyboardController.RegisterCommand(Keys.P, new GetNextEnemyCommand(this));
+            controllers.Add(keyboardController);
 
             base.Initialize();
         }
@@ -64,38 +116,55 @@ namespace Project
             //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             blocks = new List<IBlockSprite>();
-            Utilities.Sprint2Utilities.SetBlockList(blocks);
+            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
+            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
+            //Set initial block sprite to show
+            CurrentBlockSpriteIndex = 0;
 
-            //Load item sprites
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             items = new List<IItemSprite>();
             Utilities.Sprint2Utilities.SetItemList(items);
 
-
+            CurrentItemSpriteIndex = 0;
             //TESTING CAN BE DELETED
-            weapons = new List<IWeaponSprites>();                                                      
+            weapons = new List<IWeaponSprite>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
-           
-
-            //Set initial block sprite to show
-            CurrentBlockSpriteIndex = 0;
-
+            
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
+
+
             //Set NPC
-            NPC = new Dragon();
-            CurrentItemSpriteIndex = 0;
+            npcsList = new List<INPC>();
+            npcsList.Add(new Bat());
+            npcsList.Add(new Skeleton());
+            npcsList.Add(new SmallJelly());
+            npcsList.Add(new BigJelly());
+            npcsList.Add(new Goriya());
+            npcsList.Add(new Trap());
+            npcsList.Add(new OldMan());
+            npcsList.Add(new Merchant());
+            npcsList.Add(new Dragon());
+            npcsList.Add(new WallMaster());
         }
 
         protected override void Update(GameTime gameTime)
         {
-            NPC.Update(gameTime);
+
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-            NPC.Update(gameTime);
-            foreach (IWeaponSprites weapon in weapons)
+            npcsList[CurrentNPCIndex].Update(gameTime);
+            foreach (IWeaponSprite weapon in weapons)
             {
                 weapon.Update(gameTime);
             }
@@ -117,18 +186,14 @@ namespace Project
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
 
-            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
-             //Test link sprite - can be eliminated
-            
             items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(200, 300));
-            NPC.Draw(_spriteBatch);
+            npcsList[CurrentNPCIndex].Draw(_spriteBatch);
 
             //TESTING
             if (weapons[0].isFinished() == false)
             {
                 weapons[0].Draw(_spriteBatch);
             }
-                                                              
 
             _spriteBatch.End();
 

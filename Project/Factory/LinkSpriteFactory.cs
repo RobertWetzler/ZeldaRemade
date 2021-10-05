@@ -60,17 +60,17 @@ namespace Project.Factory
 			//TODO: Implement
 			return new LinkUseItemSprite(linkUseItemSpriteSheet, linkWalkingSpriteSheet, facing);
 		}
-		public IPlayerSprite CreateLinkUseSwordDownwardsSprite()
-		{
-			return new LinkUseSwordDownwardsSprite(linkUseSwordDownwardsSpriteSheet);
-		}
-		public IPlayerSprite CreateLinkUseSwordSidewaysSprite(bool facingRight)
-		{
-			return new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, facingRight);
-		}
-		public IPlayerSprite CreateLinkUseSwordUpwardsSprite()
-		{
-			return new LinkUseSwordUpwardsSprite(linkUseSwordUpwardsSpriteSheet);
+		public IPlayerSprite CreateLinkUseSwordSprite(Facing facing)
+        {
+            IPlayerSprite swordSprite = facing switch
+            {
+                Facing.Right => new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, true),
+                Facing.Left => new LinkUseSwordSidewaysSprite(linkUseSwordSidewaysSpriteSheet, false),
+                Facing.Up => new LinkUseSwordUpwardsSprite(linkUseSwordUpwardsSpriteSheet),
+                Facing.Down => new LinkUseSwordDownwardsSprite(linkUseSwordDownwardsSpriteSheet),
+                _ => throw new NotImplementedException(),
+            };
+            return swordSprite;
 		}
 	}
 }

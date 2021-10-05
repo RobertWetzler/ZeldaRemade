@@ -10,6 +10,7 @@ namespace Project
     public interface IPlayer: IEntity
     {
         public Vector2 Position { get; set; }
+        public IPlayerSprite PlayerSprite { get; }
         public LinkStateMachine StateMachine { get; }
         // used for setting an intial sprite upon Game.LoadContent()
         void SetSprite(IPlayerSprite sprite);
@@ -19,7 +20,7 @@ namespace Project
         void MoveRight();
         void StopMoving();
         void UseSword();
-        void UseItem();
+        void UseWeapon(WeaponTypes weaponType);
 
     }
 }

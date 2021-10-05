@@ -4,7 +4,7 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class BlueArrowSprite : IWeaponSprites
+    class BlueArrowSprite : IWeaponSprite
     {
         private int sheetRows;
         private int sheetColumns;

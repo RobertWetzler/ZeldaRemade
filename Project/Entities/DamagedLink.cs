@@ -107,6 +107,13 @@ namespace Project.Entities
             remainingKnockbackTime = 0;
             base.MoveRight();
         }
-
+        // only allow weapon after knockback (change later if not desired behavior)
+        public override void UseWeapon(WeaponTypes weaponType)
+        {
+            if (remainingKnockbackTime <= 0)
+            {
+                base.UseWeapon(weaponType);
+            }    
+        }
     }
 }
