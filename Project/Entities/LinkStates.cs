@@ -14,7 +14,9 @@ namespace Project.Entities
     public enum Move
     {
         Moving,
-        Idle
+        Idle,
+        UsingSword,
+        UsingItem
     }
     public enum LinkColor
     {

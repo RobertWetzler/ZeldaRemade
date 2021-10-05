@@ -32,7 +32,7 @@ namespace Project
         //List of sprites to cycle thru
         private List<IItemSprite> items;
         private List<IBlockSprite> blocks;
-        private List<IWeaponSprites> weapons;
+        private List<IWeaponSprite> weapons;
         private List<INPC> npcsList;
 
         public int ItemsListLength => items.Count;
@@ -77,6 +77,17 @@ namespace Project
             ICommand downCommand = new PlayerMoveDownCommand(this);
             keyboardController.RegisterCommand(Keys.S, downCommand);
             keyboardController.RegisterCommand(Keys.Down, downCommand);
+
+            ICommand swordCommand = new PlayerUseSwordCommand(this);
+            keyboardController.RegisterCommand(Keys.Z, swordCommand); //Use sword with Z
+            keyboardController.RegisterCommand(Keys.N, swordCommand); //Use sword with N
+
+            keyboardController.RegisterCommand(Keys.D1, new PlayerUseBombCommand(this)); //Use bomb with 1
+            keyboardController.RegisterCommand(Keys.D2, new PlayerUseArrowCommand(this)); //Use arrow with 2
+            keyboardController.RegisterCommand(Keys.D3, new PlayerUseBlueArrowCommand(this)); //Use blue arrow with 3
+            keyboardController.RegisterCommand(Keys.D4, new PlayerUseBoomerangCommand(this)); //Use boomerang with 4
+            keyboardController.RegisterCommand(Keys.D5, new PlayerUseBlueBoomerangCommand(this)); //Use blue boomerang with 5
+            keyboardController.RegisterCommand(Keys.D6, new PlayerUseFlameCommand(this)); //Use flame with 6
 
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(this));
@@ -148,7 +159,7 @@ namespace Project
 
             CurrentItemSpriteIndex = 0;
             //TESTING CAN BE DELETED
-            weapons = new List<IWeaponSprites>();                                                      
+            weapons = new List<IWeaponSprite>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateBlueArrowSprite(testFacing, player.Position));
             
             //Load NPC sprites
@@ -177,7 +188,7 @@ namespace Project
                 controller.Update();
             }
             npcsList[CurrentNPCIndex].Update(gameTime);
-            foreach (IWeaponSprites weapon in weapons)
+            foreach (IWeaponSprite weapon in weapons)
             {
                 weapon.Update(gameTime);
             }
