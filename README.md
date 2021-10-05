@@ -27,9 +27,12 @@ Developers:
 - ```Z```
 - ```N```
 ### Link Use Item
-- ```1```
-- ```2```
-- ```3```
+- Bomb: ```1```
+- Arrow: ```2```
+- Blue Arrow: ```3```
+- Boomerang: ```4```
+- Blue Boomerang: ```5```
+- Flame: ```6```
 ### Damage Link
 - ```E```
 ### Cycle Blocks
