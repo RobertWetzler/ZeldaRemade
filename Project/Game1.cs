@@ -13,6 +13,7 @@ using Project.NPC.Goriya;
 using Project.NPC.SmallJelly;
 using Project.NPC.Snake;
 using Project.NPC.Dragon;
+using Project.NPC.Dinosaur;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Sprites.ItemSprites;
@@ -180,6 +181,7 @@ namespace Project
             npcsList.Add(new Dragon());
             npcsList.Add(new WallMaster());
             npcsList.Add(new Snake());
+            npcsList.Add(new Dinosaur());
         }
 
         protected override void Update(GameTime gameTime)
