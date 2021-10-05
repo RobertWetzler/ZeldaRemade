@@ -57,7 +57,7 @@ namespace Project.Sprites.ItemSprites
 
         public void Draw(SpriteBatch spriteBatch)
         {
-         
+
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
             int scale = 3;

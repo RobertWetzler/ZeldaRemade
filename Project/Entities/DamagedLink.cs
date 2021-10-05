@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Entities
 {
@@ -113,7 +112,7 @@ namespace Project.Entities
             if (remainingKnockbackTime <= 0)
             {
                 base.UseWeapon(weaponType);
-            }    
+            }
         }
     }
 }

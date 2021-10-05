@@ -10,7 +10,7 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-     
+
 
         private float timer;
 
@@ -29,7 +29,7 @@ namespace Project.Sprites.ItemSprites
             this.facing = facing;
             this.position = position;
 
-            
+
 
             spriteRow = 0;
 
@@ -78,7 +78,7 @@ namespace Project.Sprites.ItemSprites
             if (timer > 3500 && timer < 4000)
                 spriteFrame = 4;
 
-                switch (spriteFrame)
+            switch (spriteFrame)
             {
                 case 3:
                     this.position.Y--;

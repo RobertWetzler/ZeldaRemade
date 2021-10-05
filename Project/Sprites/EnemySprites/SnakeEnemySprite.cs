@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {
@@ -18,7 +16,7 @@ namespace Project
         {
             this.snakeSpriteSheet = snakeSpriteSheet;
             this.sourceFrames = sourceFrames;
-            switch(dir)
+            switch (dir)
             {
                 case Facing.Right:
                     spriteEffects = SpriteEffects.None;

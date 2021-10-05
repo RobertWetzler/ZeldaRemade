@@ -11,9 +11,6 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
 
-        private int posX;
-        private int posY;
-
         private int directionHolder;
         private float timer;
 
@@ -31,7 +28,7 @@ namespace Project.Sprites.ItemSprites
             this.facing = facing;
             this.position = position;
 
-            
+
 
             spriteRow = 0;
 

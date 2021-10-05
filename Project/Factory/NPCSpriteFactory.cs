@@ -2,10 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
-using Project.Sprites.BlockSprites;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Factory
 {
@@ -14,7 +11,7 @@ namespace Project.Factory
         private Texture2D batSpriteSheet;
         private Texture2D bossDragonSpriteSheet;
         private Texture2D dinosaurLeftRightSpriteSheet;
-        private Texture2D dinosaurUpDownSpriteSheet; 
+        private Texture2D dinosaurUpDownSpriteSheet;
         private Texture2D gelSpriteSheet;
         private Texture2D skeletonSpriteSheet;
         private Texture2D goriyaSpriteSheet;

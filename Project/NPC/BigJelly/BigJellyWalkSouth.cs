@@ -1,8 +1,5 @@
-﻿using Project.NPC.Skeleton;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
-using Project;
 using Project.Factory;
 
 namespace Project.NPC.BigJelly
@@ -14,7 +11,7 @@ namespace Project.NPC.BigJelly
         private BigJelly bigjelly;
 
         private static int delay_frames = 10;
-        
+
 
         public BigJellyWalkSouth(BigJelly bigjelly)
         {

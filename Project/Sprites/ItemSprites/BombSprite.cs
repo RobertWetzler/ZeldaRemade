@@ -23,12 +23,12 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-            
+
             this.facing = facing;
             this.position = position;
 
             spriteRow = 0;
-          
+
 
 
             switch (facing)
@@ -66,10 +66,10 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-            
+
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            
-            if(timer > 3000 && timer < 4000)
+
+            if (timer > 3000 && timer < 4000)
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 4) % 4;
 
         }

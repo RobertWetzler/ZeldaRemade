@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites.BlockSprites
 {
@@ -29,7 +26,7 @@ namespace Project.Sprites.BlockSprites
             int height = blockSpriteSheet.Height / sheetRows + 1;
             int scale = 4;
 
-            Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width - 1, height -  1);
+            Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width - 1, height - 1);
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(blockSpriteSheet, dest, source, Color.White);
         }

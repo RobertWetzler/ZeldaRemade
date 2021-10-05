@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System.Collections.Generic;
 
 namespace Project.NPC.Snake
 {
@@ -11,7 +10,7 @@ namespace Project.NPC.Snake
         private Snake snake;
         private IEnemySprite sprite;
         private static int delay_frames = 10;
-        
+
 
         public SnakeWalkSouth(Snake snake)
         {
@@ -30,7 +29,7 @@ namespace Project.NPC.Snake
             if (snake.xPos == 450 && snake.yPos == 150)
             {
                 snake.currentState = new SnakeWalkWest(snake);
-              
+
             }
 
             if (++delay_frame_index >= delay_frames)

@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites.PlayerSprites
 {
@@ -100,6 +98,6 @@ namespace Project.Sprites.PlayerSprites
                 else
                     spriteBatch.Draw(idleSpriteSheet, dest, source, color);
             }
-        }   
+        }
     }
 }
