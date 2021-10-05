@@ -19,6 +19,7 @@ namespace Project
             game.CurrentItemSpriteIndex = 0;
             game.CurrentNPCIndex = 0;
             //Reset player position
+            game.Player.StopMoving();
             game.Player.Position = Vector2.Zero;
             game.Player.SetSprite(LinkSpriteFactory.Instance.CreateLinkIdleSprite(Entities.Facing.Right));
         }
