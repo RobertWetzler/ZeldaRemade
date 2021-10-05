@@ -48,3 +48,6 @@ Developers:
 - ```Q```
 ### Reset Level
 - ```R```
+
+## Known Bugs
+- When Link attacks with his sword facing upwards, he moves slightly downwards instead of staying in the same position
