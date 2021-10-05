@@ -188,5 +188,13 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(25, 0, 24, 32));
             return new DragonAttackSprite(bossDragonSpriteSheet, sourceFrames);
         }
+
+        public IEnemySprite CreateDinosaurSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new DinosaurWalkSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
+        }
     }
 }
