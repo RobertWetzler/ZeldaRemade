@@ -90,7 +90,7 @@ namespace Project.Factory
 
         public IWeaponSprites CreateFlameSprite(Facing facing, Vector2 position)
         {
-            return new FlameSprite(flameSpriteSheet, 2, 1, facing, position);
+            return new FlameSprite(flameSpriteSheet, 1, 1, facing, position);
         }
 
         public IWeaponSprites CreateLeftUpFireballSprite(Vector2 position)
