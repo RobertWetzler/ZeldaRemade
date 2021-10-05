@@ -1,8 +1,4 @@
-﻿using Project.Sprites.ItemSprites;
-using Project.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Project.Entities;
 
 namespace Project
 {

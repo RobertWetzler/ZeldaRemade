@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
@@ -22,7 +19,7 @@ namespace Project.Sprites.ItemSprites
             this.sourceFrames = sourceFrames;
             this.position = position;
             delay_frame_index = 0;
-    }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -47,7 +44,7 @@ namespace Project.Sprites.ItemSprites
             if (++delay_frame_index >= delay_frames)
             {
                 delay_frame_index = 0;
-                position.X-=5;
+                position.X -= 5;
                 currentFrame++;
                 currentFrame %= sourceFrames.Count;
             }

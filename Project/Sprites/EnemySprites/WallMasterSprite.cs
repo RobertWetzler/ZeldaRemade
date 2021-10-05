@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {
@@ -34,7 +32,7 @@ namespace Project
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
                 source.Width * 3, source.Height * 3);
-            
+
             spriteBatch.Draw(spriteSheet, destination, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
         }
 

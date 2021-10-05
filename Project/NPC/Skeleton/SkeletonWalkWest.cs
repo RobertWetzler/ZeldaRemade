@@ -1,14 +1,12 @@
-﻿using Project.NPC.Skeleton;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Project.Factory;
 
 namespace Project.NPC.Skeleton
 {
     class SkeletonWalkWest : INPCState
     {
-        
+
         private int delay_frame_index;
         private Skeleton skeleton;
         private static int delay_frames = 10;

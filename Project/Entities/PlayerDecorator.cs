@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites.PlayerSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Entities
 {

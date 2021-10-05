@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Utilities
 {
@@ -30,7 +28,7 @@ namespace Project.Utilities
             q = v * (1 - s * f);
             t = v * (1 - s * (1 - f));
 
-            switch (i) 
+            switch (i)
             {
                 case 0:
                     return new Color(v, t, p);

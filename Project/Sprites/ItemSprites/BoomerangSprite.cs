@@ -13,9 +13,6 @@ namespace Project.Sprites.ItemSprites
 
         private int directionHolder;
         private float timer;
-        private bool flipped;
-
-        
 
         private Vector2 position;
         private Facing facing;
@@ -67,7 +64,7 @@ namespace Project.Sprites.ItemSprites
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
 
-        
+
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
 
         }
@@ -90,7 +87,7 @@ namespace Project.Sprites.ItemSprites
             //TOWARDS PLAYER
             if (timer > 3000)
             {
-          
+
                 switch (directionHolder)
                 {
                     case 0:
@@ -112,7 +109,8 @@ namespace Project.Sprites.ItemSprites
             }
 
             //AWAY FROM PLAYER
-            if (timer < 3000) {
+            if (timer < 3000)
+            {
 
                 switch (directionHolder)
                 {

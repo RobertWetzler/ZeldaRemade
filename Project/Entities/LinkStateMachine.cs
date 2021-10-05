@@ -1,8 +1,5 @@
 ﻿using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Entities
 {
@@ -62,14 +59,14 @@ namespace Project.Entities
         public IPlayerSprite MoveRight()
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
-            if(!IsPerformingAction())
+            if (!IsPerformingAction())
             {
                 this.facing = Facing.Right;
                 this.move = Move.Moving;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
             return sprite;
-            
+
         }
         public IPlayerSprite StopMoving()
         {

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
-using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
+using System;
+using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink: IPlayer
+    public class GreenLink : IPlayer
     {
         private LinkStateMachine stateMachine;
 
@@ -79,8 +76,8 @@ namespace Project.Entities
                 weaponSprites.Add(potentialWeapon);
             }
         }
-        public void BecomeDamaged() 
-        { 
+        public void BecomeDamaged()
+        {
             throw new NotImplementedException();
         }
 
@@ -116,7 +113,7 @@ namespace Project.Entities
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             sprite.Update(gameTime);
             foreach (IWeaponSprite weaponSprite in weaponSprites)
-            { 
+            {
                 weaponSprite.Update(gameTime);
             }
             weaponSprites.RemoveAll(weaponSprite => weaponSprite.isFinished());
@@ -126,7 +123,7 @@ namespace Project.Entities
         {
             sprite.Draw(spriteBatch, this.position, color);
             foreach (IWeaponSprite weaponSprite in weaponSprites)
-            {    
+            {
                 weaponSprite.Draw(spriteBatch);
             }
         }

@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project
-{ 
+{
     class GoriyaWalkLeftSprite : IEnemySprite
     {
         private Texture2D goriyaSpriteSheet;
@@ -24,7 +22,7 @@ namespace Project
             Rectangle destination = new Rectangle(
                 (int)xPos, (int)yPos,
                 source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f); 
+            spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
         }
 
         public void Update()
