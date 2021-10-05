@@ -16,7 +16,7 @@ namespace Project
             game.CurrentBlockSpriteIndex--;
             if (game.CurrentBlockSpriteIndex < 0)
             {
-                game.CurrentBlockSpriteIndex = 9;
+                game.CurrentBlockSpriteIndex = game.BlocksListLength - 1;
             }
         }
     }
