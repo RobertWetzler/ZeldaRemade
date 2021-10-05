@@ -160,7 +160,7 @@ namespace Project
 
             CurrentItemSpriteIndex = 0;
             //TESTING CAN BE DELETED
-            weapons = new List<IWeaponSprites>();                                                      
+            weapons = new List<IWeaponSprite>();                                                      
             weapons.Add(ItemSpriteFactory.Instance.CreateFlameSprite(testFacing, player.Position));
             
             //Load NPC sprites
