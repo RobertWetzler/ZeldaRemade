@@ -16,7 +16,7 @@ namespace Project.NPC.Dragon
         private IEnemySprite sprite;
         private static int delay_frames = 10;
         private Vector2 weaponPos;
-        private IWeaponSprites leftUpFireball, leftFireball, leftDownFireball;
+        private IWeaponSprite leftUpFireball, leftFireball, leftDownFireball;
 
         public DragonAttack(Dragon dragon)
         {

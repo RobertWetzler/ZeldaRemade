@@ -7,7 +7,7 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class LeftDownFireballSprite : IWeaponSprites
+    class LeftDownFireballSprite : IWeaponSprite
     {
         private Texture2D dragonSpriteSheet;
         private List<Rectangle> sourceFrames;

@@ -15,7 +15,7 @@ namespace Project.NPC.Goriya
         private int delay_frame_index;
         private Goriya goriya;
         private IEnemySprite goriyaSprite;
-        private IWeaponSprites boomerang;
+        private IWeaponSprite boomerang;
         private Vector2 weaponPos;
         private static int delay_frames = 7;
         private Facing dir;
