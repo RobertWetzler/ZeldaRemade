@@ -22,6 +22,7 @@ namespace Project.Factory
         private Texture2D heartSpriteSheet;
         private Texture2D rupeeSpriteSheet;
         private Texture2D triforceSpriteSheet;
+        private Texture2D fireballSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
 
@@ -50,6 +51,7 @@ namespace Project.Factory
             fairySpriteSheet = content.Load<Texture2D>("ItemSprites/fairy");
             heartSpriteSheet = content.Load<Texture2D>("ItemSprites/flashing_heart");
             rupeeSpriteSheet = content.Load<Texture2D>("ItemSprites/rupee");
+            fireballSpriteSheet = content.Load<Texture2D>("EnemySprites/dragon-fireballs");
             triforceSpriteSheet = content.Load<Texture2D>("ItemSprites/triforce");
 
         }
@@ -89,6 +91,36 @@ namespace Project.Factory
         public IWeaponSprite CreateFlameSprite(Facing facing, Vector2 position)
         {
             return new FlameSprite(flameSpriteSheet, 2, 1, facing, position);
+        }
+
+        public IWeaponSprite CreateLeftUpFireballSprite(Vector2 position)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(9, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(18, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(27, 0, 8, 16));
+            return new LeftUpFireballSprite(fireballSpriteSheet, sourceFrames, position);
+        }
+
+        public IWeaponSprite CreateLeftFireballSprite(Vector2 position)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(9, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(18, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(27, 0, 8, 16));
+            return new LeftFireballSprite(fireballSpriteSheet, sourceFrames, position);
+        }
+
+        public IWeaponSprite CreateLeftDownFireballSprite(Vector2 position)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(9, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(18, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(27, 0, 8, 16));
+            return new LeftDownFireballSprite(fireballSpriteSheet, sourceFrames, position);
         }
 
         public IItemSprite CreateRupeeSprite()
