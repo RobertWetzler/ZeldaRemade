@@ -11,6 +11,7 @@ using Project.NPC.Skeleton;
 using Project.NPC.SmallJelly;
 using Project.NPC.Trap;
 using Project.NPC.Flame;
+using Project.NPC.Snake;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
@@ -129,6 +130,7 @@ namespace Project.Utilities
             npcsList.Add(new Dragon());
             npcsList.Add(new WallMaster());
             npcsList.Add(new Dinosaur());
+            npcsList.Add(new Snake());
         }
     }
 }
