@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using System.Text;
-
-namespace Project
+﻿namespace Project
 {
-    interface IController
+    public interface IController
     {
-        public void Update(); 
+        void Update();
     }
 }

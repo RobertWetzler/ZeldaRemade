@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project
+﻿namespace Project
 {
     class GetPreviousBlockCommand : ICommand
     {
@@ -16,7 +12,7 @@ namespace Project
             game.CurrentBlockSpriteIndex--;
             if (game.CurrentBlockSpriteIndex < 0)
             {
-                game.CurrentBlockSpriteIndex = 9;
+                game.CurrentBlockSpriteIndex = game.BlocksListLength - 1;
             }
         }
     }

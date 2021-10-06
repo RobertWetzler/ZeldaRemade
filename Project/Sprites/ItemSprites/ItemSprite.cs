@@ -24,7 +24,7 @@ namespace Project.Sprites.ItemSprites
             this.spriteRow = spriteRow;
             this.spriteColumn = spriteColumn;
 
-            
+
 
         }
 
@@ -42,9 +42,9 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-           
+
         }
 
-       
+
     }
 }

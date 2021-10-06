@@ -1,20 +1,20 @@
-﻿using Project.Sprites.PlayerSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Project.Sprites.ItemSprites;
+using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
 {
-    class LinkStateMachine
+    public class LinkStateMachine
     {
         public Facing facing;
         public Move move;
         private LinkColor color;
 
         private LinkSpriteSelector spriteSelector;
+        private IPlayer link;
 
-        public LinkStateMachine(Facing facing, Move move, LinkColor color)
+        public LinkStateMachine(IPlayer link, Facing facing, Move move, LinkColor color)
         {
+            this.link = link;
             this.facing = facing;
             this.move = move;
             this.color = color;
@@ -24,42 +24,103 @@ namespace Project.Entities
 
         public IPlayerSprite MoveUp()
         {
-            this.facing = Facing.Up;
-            this.move = Move.Moving;
-
-            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Up;
+                this.move = Move.Moving;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            return sprite;
         }
         public IPlayerSprite MoveDown()
         {
-            this.facing = Facing.Down;
-            this.move = Move.Moving;
-
-            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Down;
+                this.move = Move.Moving;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            return sprite;
 
         }
         public IPlayerSprite MoveLeft()
         {
-            this.facing = Facing.Left;
-            this.move = Move.Moving;
-            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
-
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Left;
+                this.move = Move.Moving;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            return sprite;
         }
         public IPlayerSprite MoveRight()
         {
-            this.facing = Facing.Right;
-            this.move = Move.Moving;
-            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Right;
+                this.move = Move.Moving;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            return sprite;
+
         }
         public IPlayerSprite StopMoving()
         {
-            this.move = Move.Idle;
-            return this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.move = Move.Idle;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            return sprite;
         }
 
-        public void UseSword()
+        public IPlayerSprite UseSword()
         {
-
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.move = Move.UsingSword;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            return sprite;
         }
 
+        public (IPlayerSprite, IWeaponSprite) UseWeapon(IWeaponSprite weaponSprite)
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.move = Move.UsingItem;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+            }
+            else
+            {
+                weaponSprite = null; //If weapon can't be used right now, set it to null
+            }
+            return (sprite, weaponSprite);
+        }
+        private bool IsInActionState()
+        {
+            return this.move == Move.UsingItem || this.move == Move.UsingSword;
+        }
+        private bool IsPerformingAction()
+        {
+            return IsInActionState() && !this.link.PlayerSprite.IsFinished;
+        }
+
+        public IPlayerSprite Update()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (IsInActionState() && this.link.PlayerSprite.IsFinished) //If in an action state but action is done, go idle
+            {
+                sprite = StopMoving();
+            }
+            return sprite;
+        }
     }
 }

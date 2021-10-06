@@ -1,8 +1,5 @@
 ﻿using Project.Factory;
 using Project.Sprites.PlayerSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Entities
 {
@@ -19,7 +16,12 @@ namespace Project.Entities
                 case Move.Moving:
                     sprite = LinkSpriteFactory.Instance.CreateLinkWalkingSprite(facing);
                     break;
-               // Default: Idle sprite
+                case Move.UsingSword:
+                    sprite = LinkSpriteFactory.Instance.CreateLinkUseSwordSprite(facing);
+                    break;
+                case Move.UsingItem:
+                    sprite = LinkSpriteFactory.Instance.CreateLinkUseItemSprite(facing);
+                    break;
                 default:
                     sprite = LinkSpriteFactory.Instance.CreateLinkIdleSprite(facing);
                     break;

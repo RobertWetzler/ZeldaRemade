@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sprites.ItemSprites;
 using Project.Entities;
-using System;
+using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Factory
 {
@@ -22,6 +20,7 @@ namespace Project.Factory
         private Texture2D heartSpriteSheet;
         private Texture2D rupeeSpriteSheet;
         private Texture2D triforceSpriteSheet;
+        private Texture2D fireballSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
 
@@ -50,6 +49,7 @@ namespace Project.Factory
             fairySpriteSheet = content.Load<Texture2D>("ItemSprites/fairy");
             heartSpriteSheet = content.Load<Texture2D>("ItemSprites/flashing_heart");
             rupeeSpriteSheet = content.Load<Texture2D>("ItemSprites/rupee");
+            fireballSpriteSheet = content.Load<Texture2D>("EnemySprites/dragon-fireballs");
             triforceSpriteSheet = content.Load<Texture2D>("ItemSprites/triforce");
 
         }
@@ -62,33 +62,63 @@ namespace Project.Factory
         {
             return new FairySprite(fairySpriteSheet, 1, 2);
         }
-        public IWeaponSprites CreateArrowSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateArrowSprite(Facing facing, Vector2 position)
         {
             return new ArrowSprite(arrowSpriteSheet, 1, 5, facing, position);
 
         }
-        public IWeaponSprites CreateBlueArrowSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBlueArrowSprite(Facing facing, Vector2 position)
         {
             return new BlueArrowSprite(blueArrowSpriteSheet, 1, 5, facing, position);
         }
-        public IWeaponSprites CreateBoomerangSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBoomerangSprite(Facing facing, Vector2 position)
         {
             return new BoomerangSprite(boomerangSpriteSheet, 1, 6, facing, position);
         }
 
-        public IWeaponSprites CreateBlueBoomerangSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBlueBoomerangSprite(Facing facing, Vector2 position)
         {
-            return new BoomerangSprite(blueBoomerangSpriteSheet, 1, 6, facing, position);
+            return new BlueBoomerangSprite(blueBoomerangSpriteSheet, 1, 6, facing, position);
         }
 
-        public IWeaponSprites CreateBombSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateBombSprite(Facing facing, Vector2 position)
         {
             return new BombSprite(bombSpriteSheet, 1, 4, facing, position);
         }
 
-        public IWeaponSprites CreateFlameSprite(Facing facing, Vector2 position)
+        public IWeaponSprite CreateFlameSprite(Facing facing, Vector2 position)
         {
-            return new FlameSprite(flameSpriteSheet, 2, 1, facing, position);
+            return new FlameSprite(flameSpriteSheet, 1, 1, facing, position);
+        }
+
+        public IWeaponSprite CreateLeftUpFireballSprite(Vector2 position)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(9, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(18, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(27, 0, 8, 16));
+            return new LeftUpFireballSprite(fireballSpriteSheet, sourceFrames, position);
+        }
+
+        public IWeaponSprite CreateLeftFireballSprite(Vector2 position)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(9, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(18, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(27, 0, 8, 16));
+            return new LeftFireballSprite(fireballSpriteSheet, sourceFrames, position);
+        }
+
+        public IWeaponSprite CreateLeftDownFireballSprite(Vector2 position)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(9, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(18, 0, 8, 16));
+            sourceFrames.Add(new Rectangle(27, 0, 8, 16));
+            return new LeftDownFireballSprite(fireballSpriteSheet, sourceFrames, position);
         }
 
         public IItemSprite CreateRupeeSprite()

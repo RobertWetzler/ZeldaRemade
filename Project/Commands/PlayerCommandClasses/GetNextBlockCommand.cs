@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project
+﻿namespace Project
 {
     class GetNextBlockCommand : ICommand
     {
@@ -14,7 +10,7 @@ namespace Project
         public void Execute()
         {
             game.CurrentBlockSpriteIndex++;
-            if (game.CurrentBlockSpriteIndex > 9)
+            if (game.CurrentBlockSpriteIndex > game.BlocksListLength - 1)
             {
                 game.CurrentBlockSpriteIndex = 0;
             }

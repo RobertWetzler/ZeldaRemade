@@ -1,31 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
-using Project.Sprites.BlockSprites;
+using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
+using System;
+using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink: IPlayer
+    public class GreenLink : IPlayer
     {
         private LinkStateMachine stateMachine;
 
         private Vector2 position;
         private IPlayerSprite sprite;
-        private double velocity = 100;
+        private List<IWeaponSprite> weaponSprites;
+        private double velocity = 200;
+        private Game1 game;
         public Vector2 Position
         {
             get { return position; }
             set { position = value; }
         }
-
-        public GreenLink()
+        public IPlayerSprite PlayerSprite
         {
-            stateMachine = new LinkStateMachine(Facing.Right, Move.Idle, LinkColor.Green);
+            get => this.sprite;
+        }
+        public LinkStateMachine StateMachine
+        {
+            get => this.stateMachine;
+        }
+
+        public GreenLink(Game1 game)
+        {
+            this.game = game;
+            stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
+            weaponSprites = new List<IWeaponSprite>();
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -54,24 +64,31 @@ namespace Project.Entities
         }
         public void UseSword()
         {
-            throw new NotImplementedException();
+            sprite = stateMachine.UseSword();
         }
-        public void UseItem()
+
+        public void UseWeapon(WeaponTypes weaponType)
         {
-            throw new NotImplementedException();
+            IWeaponSprite potentialWeapon = WeaponSpriteSelector.GetWeaponSprite(weaponType, stateMachine.facing, position);
+            (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
+            if (potentialWeapon != null)
+            {
+                weaponSprites.Add(potentialWeapon);
+            }
         }
-        public void BecomeDamaged() 
-        { 
+        public void BecomeDamaged()
+        {
             throw new NotImplementedException();
         }
 
         public void TakeDamage(int damage)
         {
-            throw new NotImplementedException();
+            this.game.Player = new DamagedLink(this, game);
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            this.sprite = this.stateMachine.Update();
             int x_dir = 0;
             int y_dir = 0;
             if (stateMachine.move == Move.Moving)
@@ -95,11 +112,20 @@ namespace Project.Entities
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             sprite.Update(gameTime);
+            foreach (IWeaponSprite weaponSprite in weaponSprites)
+            {
+                weaponSprite.Update(gameTime);
+            }
+            weaponSprites.RemoveAll(weaponSprite => weaponSprite.isFinished());
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, this.position, color);
+            foreach (IWeaponSprite weaponSprite in weaponSprites)
+            {
+                weaponSprite.Draw(spriteBatch);
+            }
         }
     }
 }

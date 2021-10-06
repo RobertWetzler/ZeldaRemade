@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project
+﻿namespace Project
 {
     class TakeDamageCommand : ICommand
     {
@@ -15,7 +11,7 @@ namespace Project
 
         public void Execute()
         {
-            
+
         }
     }
 }

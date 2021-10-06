@@ -4,18 +4,18 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class BoomerangSprite : IWeaponSprites
+    class BoomerangSprite : IWeaponSprite
     {
         private int sheetRows;
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
+        private int xPos, yPos;
+        private int velocity;
 
         private int directionHolder;
         private float timer;
-        private bool flipped;
-
-        
+        private bool isFin;
 
         private Vector2 position;
         private Facing facing;
@@ -31,25 +31,28 @@ namespace Project.Sprites.ItemSprites
             this.facing = facing;
             this.position = position;
 
+
+
             spriteRow = 0;
+            velocity = 200;
 
             switch (facing)
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    this.position.Y = (int)position.Y;
+                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
-                    this.position.Y = (int)position.Y + 50;
+                    this.position.Y += 50;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
-                    this.position.X = (int)position.X - 50;
+                    this.position.X -= 50;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
-                    this.position.X = (int)position.X + 50;
+                    this.position.X += 50;
                     break;
                 default:
                     break;
@@ -66,20 +69,13 @@ namespace Project.Sprites.ItemSprites
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
-
-        
-            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }
 
         public bool isFinished()
         {
-            bool isFinished = false;
-
-            if (timer > 6000)
-                isFinished = true;
-
-            return isFinished;
+            return isFin = timer > 3000? true : false;
         }
 
         public void Update(GameTime gameTime)
@@ -88,22 +84,22 @@ namespace Project.Sprites.ItemSprites
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
 
             //TOWARDS PLAYER
-            if (timer > 3000)
+            if (timer > 1500)
             {
-          
+
                 switch (directionHolder)
                 {
                     case 0:
-                        this.position.Y++;
+                        yPos = 1;
                         break;
                     case 1:
-                        this.position.Y--;
+                        yPos = -1;
                         break;
                     case 2:
-                        this.position.X++;
+                        xPos = 1;
                         break;
                     case 3:
-                        this.position.X--;
+                        xPos = -1;
                         break;
                     default:
                         break;
@@ -112,27 +108,31 @@ namespace Project.Sprites.ItemSprites
             }
 
             //AWAY FROM PLAYER
-            if (timer < 3000) {
+            if (timer < 1500)
+            {
 
                 switch (directionHolder)
                 {
                     case 0:
-                        this.position.Y--;
+                        yPos = -1;
                         break;
                     case 1:
-                        this.position.Y++;
+                        yPos = 1;
                         break;
                     case 2:
-                        this.position.X--;
+                        xPos = -1;
                         break;
                     case 3:
-                        this.position.X++;
+                        xPos = 1;
                         break;
                     default:
                         break;
                 }
 
             }
+
+            this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
+            this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
         }
     }

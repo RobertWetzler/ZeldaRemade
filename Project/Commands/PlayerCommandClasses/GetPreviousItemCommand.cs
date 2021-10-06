@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project
+﻿namespace Project
 {
     class GetPreviousItemCommand : ICommand
     {
@@ -18,7 +14,7 @@ namespace Project
 
             if (game.CurrentItemSpriteIndex < 0)
             {
-                game.CurrentItemSpriteIndex = 25;
+                game.CurrentItemSpriteIndex = game.ItemsListLength - 1;
             }
         }
     }

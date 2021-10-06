@@ -4,13 +4,14 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class BombSprite : IWeaponSprites
+    class BombSprite : IWeaponSprite
     {
         private int sheetRows;
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
         private float timer;
+        private bool isFin;
 
 
         private Vector2 position;
@@ -23,12 +24,13 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-            
+
             this.facing = facing;
             this.position = position;
 
             spriteRow = 0;
-          
+            isFin = false;
+
 
 
             switch (facing)
@@ -66,22 +68,17 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-            
+
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            
-            if(timer > 3000 && timer < 4000)
+
+            if (timer > 3000 && timer < 4000)
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 4) % 4;
 
         }
 
         public bool isFinished()
         {
-            bool isFinished = false;
-
-            if (timer > 4000)
-                isFinished = true;
-
-            return isFinished;
+            return isFin = timer > 3500 ? true : false;
         }
     }
 }

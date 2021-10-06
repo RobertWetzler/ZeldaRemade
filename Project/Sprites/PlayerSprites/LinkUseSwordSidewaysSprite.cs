@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites.PlayerSprites
 {
@@ -14,7 +11,7 @@ namespace Project.Sprites.PlayerSprites
         private List<(int spriteW, int totalW)> frameWidth;
 
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 1000;
+        private int millisecondPerFrame = 100;
         private int totalFrame;
         private bool facingRight;
         private bool cycleOnce;
@@ -31,10 +28,10 @@ namespace Project.Sprites.PlayerSprites
             totalFrame = 4;
 
             frameWidth = new List<(int spriteW, int totalW)>();
-            frameWidth.Add((16,0));
-            frameWidth.Add((27,17));
-            frameWidth.Add((23,45));
-            frameWidth.Add((19,69));
+            frameWidth.Add((16, 0));
+            frameWidth.Add((27, 17));
+            frameWidth.Add((23, 45));
+            frameWidth.Add((19, 69));
         }
         public bool IsFinished
         {
@@ -49,7 +46,7 @@ namespace Project.Sprites.PlayerSprites
             timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
             if (timeSinceLastFrame > millisecondPerFrame)
             {
-                timeSinceLastFrame -= millisecondPerFrame; 
+                timeSinceLastFrame -= millisecondPerFrame;
                 if (spriteColumn < totalFrame - 1)
                 {
                     spriteColumn++;
@@ -61,7 +58,7 @@ namespace Project.Sprites.PlayerSprites
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int height = playerSpriteSheet.Height / sheetRows;
             int scale = 4;
@@ -69,36 +66,29 @@ namespace Project.Sprites.PlayerSprites
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
 
-
             if (facingRight)
-                {    
-                    spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White);
-                }
-                else
+            {
+                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+            }
+            else
+            {
+                switch (spriteColumn)
                 {
-                    switch (spriteColumn)
-                    {
                     case 1:
                         dest = new Rectangle((int)position.X - (11 * scale), (int)position.Y, width * scale, height * scale);
                         break;
                     case 2:
-                        dest = new Rectangle((int)position.X - (7*scale), (int)position.Y, width * scale, height * scale);
+                        dest = new Rectangle((int)position.X - (7 * scale), (int)position.Y, width * scale, height * scale);
                         break;
                     case 3:
-                        dest = new Rectangle((int)position.X - (3*scale), (int)position.Y, width * scale, height * scale);
+                        dest = new Rectangle((int)position.X - (3 * scale), (int)position.Y, width * scale, height * scale);
                         break;
                     default:
                         break;
 
-                    }
-                
-                    
-                
-                    spriteBatch.Draw(playerSpriteSheet, dest, source, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 }
-                    
-                
-            
+                spriteBatch.Draw(playerSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+            }
         }
     }
 }

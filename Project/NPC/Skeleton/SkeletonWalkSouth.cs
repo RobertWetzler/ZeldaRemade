@@ -1,20 +1,18 @@
-﻿using Project.NPC.Skeleton;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
-using Project;
 using Project.Factory;
 
 namespace Project.NPC.Skeleton
 {
     class SkeletonWalkSouth : INPCState
     {
-        private IEnemySprite sprite;
         private int delay_frame_index;
         private Skeleton skeleton;
 
         private static int delay_frames = 10;
-        
+        private IEnemySprite sprite;
+
+
 
         public SkeletonWalkSouth(Skeleton skeleton)
         {
@@ -28,7 +26,7 @@ namespace Project.NPC.Skeleton
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (skeleton.xPos == 450 && skeleton.yPos == 150)
             {

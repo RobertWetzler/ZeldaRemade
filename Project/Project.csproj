@@ -10,18 +10,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Items\**" />
-    <Compile Remove="NPC\Skeleton\**" />
-    <EmbeddedResource Remove="Items\**" />
-    <EmbeddedResource Remove="NPC\Skeleton\**" />
-    <None Remove="Items\**" />
-    <None Remove="NPC\Skeleton\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Sprites\ItemSprites\BlueTriforceSprite.cs" />
-    <Compile Remove="Sprites\ItemSprites\FluteSprite.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="Content\ItemSprites\items_blue_arrow_down_up.png" />
     <None Remove="Content\ItemSprites\items_blue_boomerang .png" />
     <None Remove="Content\ItemSprites\items_blue_bottle.png" />
@@ -48,6 +36,7 @@
     <None Remove="NPC\" />
     <None Remove="NPC\Bat\" />
     <None Remove="NPC\Skeleton\" />
+    <None Remove="NPC\Dinosaur\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -64,7 +53,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\EnemySprites\" />
-    <Folder Include="NPC\Bat\" />
+    <Folder Include="NPC\Dinosaur\" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project.Entities
+﻿namespace Project.Entities
 {
     public enum Facing
     {
@@ -14,7 +10,9 @@ namespace Project.Entities
     public enum Move
     {
         Moving,
-        Idle
+        Idle,
+        UsingSword,
+        UsingItem
     }
     public enum LinkColor
     {

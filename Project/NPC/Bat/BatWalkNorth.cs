@@ -1,8 +1,5 @@
-﻿using Project.NPC.Bat;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
-using Project;
 using Project.Factory;
 
 namespace Project.NPC.Bat
@@ -28,7 +25,7 @@ namespace Project.NPC.Bat
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (bat.xPos == 400 && bat.yPos == 100)
             {

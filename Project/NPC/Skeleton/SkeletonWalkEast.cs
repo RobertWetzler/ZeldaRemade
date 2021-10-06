@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System.Collections.Generic;
 
 namespace Project.NPC.Skeleton
 {
@@ -9,8 +8,11 @@ namespace Project.NPC.Skeleton
     {
         private int delay_frame_index;
         private Skeleton skeleton;
-        private IEnemySprite sprite;
+
         private static int delay_frames = 10;
+        private IEnemySprite sprite;
+
+
 
         public SkeletonWalkEast(Skeleton skeleton)
         {
@@ -24,7 +26,7 @@ namespace Project.NPC.Skeleton
             sprite.Draw(spriteBatch, xPos, yPos);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             if (skeleton.xPos == 450 && skeleton.yPos == 100)
             {

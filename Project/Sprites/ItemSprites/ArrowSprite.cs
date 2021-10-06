@@ -4,15 +4,18 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class ArrowSprite : IWeaponSprites
+    class ArrowSprite : IWeaponSprite
     {
         private int sheetRows;
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-     
+        private float xPos, yPos;
+        private int velocity;
+
 
         private float timer;
+        private bool isFin;
 
 
         private Vector2 position;
@@ -29,28 +32,29 @@ namespace Project.Sprites.ItemSprites
             this.facing = facing;
             this.position = position;
 
-            
 
+            isFin = false;
             spriteRow = 0;
+            velocity = 150;
 
 
             switch (facing)
             {
                 case Facing.Up:
                     spriteFrame = 3;
-                    this.position.Y = (int)position.Y - 50;
+                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
                     spriteFrame = 2;
-                    this.position.Y = (int)position.Y + 50;
+                    this.position.Y += 50;
                     break;
                 case Facing.Left:
                     spriteFrame = 1;
-                    this.position.X = (int)position.X - 50;
+                    this.position.X -= 50;
                     break;
                 case Facing.Right:
                     spriteFrame = 0;
-                    this.position.X = (int)position.X + 50;
+                    this.position.X += 50;
                     break;
                 default:
                     break;
@@ -75,37 +79,40 @@ namespace Project.Sprites.ItemSprites
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 3500 && timer < 4000)
+            if (timer > 2000 && timer < 2500)
                 spriteFrame = 4;
 
-                switch (spriteFrame)
+            switch (spriteFrame)
             {
-                case 3:
-                    this.position.Y--;
-                    break;
                 case 2:
-                    this.position.Y++;
+                    yPos = -1;
+                    break;
+                case 3:
+                    yPos = 1;
                     break;
                 case 1:
-                    this.position.X--;
+                    xPos = -1;
                     break;
                 case 0:
-                    this.position.X++;
+                    xPos = 1;
+                    break;
+                case 4:
+                    xPos = 0;
+                    yPos = 0;
                     break;
                 default:
                     break;
             }
 
+
+            this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
+            this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
+
         }
 
         public bool isFinished()
         {
-            bool isFinished = false;
-
-            if (timer > 4000)
-                isFinished = true;
-
-            return isFinished;
+            return isFin = timer > 2500 ? true : false;
         }
     }
 }
