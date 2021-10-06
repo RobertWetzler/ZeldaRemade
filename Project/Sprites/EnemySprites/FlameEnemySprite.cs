@@ -11,7 +11,7 @@ namespace Project
         private List<Rectangle> sourceFrames;
         private int currentFrame;
         private bool flipped = false;
-        public int timer;
+        private int timer;
 
       
 
