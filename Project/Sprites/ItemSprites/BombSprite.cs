@@ -36,16 +36,16 @@ namespace Project.Sprites.ItemSprites
             switch (facing)
             {
                 case Facing.Up:
-                    this.position.Y = (int)position.Y - 50;
+                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
-                    this.position.Y = (int)position.Y + 50;
+                    this.position.Y += 50;
                     break;
                 case Facing.Left:
-                    this.position.X = (int)position.X - 50;
+                    this.position.X -= 50;
                     break;
                 case Facing.Right:
-                    this.position.X = (int)position.X + 50;
+                    this.position.X += 50;
                     break;
                 default:
                     break;

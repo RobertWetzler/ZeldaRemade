@@ -84,10 +84,10 @@ namespace Project.Sprites.ItemSprites
 
             switch (spriteFrame)
             {
-                case 2:
+                case 3:
                     yPos = -1;
                     break;
-                case 3:
+                case 2:
                     yPos = 1;
                     break;
                 case 1:
