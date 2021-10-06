@@ -39,18 +39,12 @@ namespace Project
 
         public void Update()
         {
-            timer += 1;
-            if (timer % 10 == 0)
+            if (++timer % 10 == 0)
             {
                 flipped = flipped ? false : true;
                 timer = 0;
             }
-                
-            
-          
-          
-           
-          
+
         }
     }
 }
