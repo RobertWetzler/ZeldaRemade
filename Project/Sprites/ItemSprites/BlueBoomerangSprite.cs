@@ -15,7 +15,7 @@ namespace Project.Sprites.ItemSprites
 
         private int directionHolder;
         private float timer;
-        private bool isFin;
+        private bool isFin, flipped;
 
         private Vector2 position;
         private Facing facing;
@@ -82,54 +82,32 @@ namespace Project.Sprites.ItemSprites
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
+            flipped = timer > 3000;
 
-            //TOWARDS PLAYER
-            if (timer > 3000)
-            {
+           
 
                 switch (directionHolder)
                 {
                     case 0:
-                        yPos = 1;
+                        yPos = flipped ?  1 : -1;
                         break;
                     case 1:
-                        yPos = -1;
+                        yPos = flipped ? -1 : 1;
                         break;
                     case 2:
-                        xPos = 1;
+                        xPos = flipped ? 1 : -1;
                         break;
                     case 3:
-                        xPos = -1;
+                        xPos = flipped ? -1 : 1;
                         break;
                     default:
                         break;
                 }
 
-            }
+            
 
             //AWAY FROM PLAYER
-            if (timer < 3000)
-            {
-
-                switch (directionHolder)
-                {
-                    case 0:
-                        yPos = -1;
-                        break;
-                    case 1:
-                        yPos = 1;
-                        break;
-                    case 2:
-                        xPos = -1;
-                        break;
-                    case 3:
-                        xPos = 1;
-                        break;
-                    default:
-                        break;
-                }
-
-            }
+           
 
             this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
