@@ -84,7 +84,6 @@ namespace Project.Sprites.ItemSprites
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
             flipped = timer > 3000;
 
-           
 
                 switch (directionHolder)
                 {
@@ -103,11 +102,6 @@ namespace Project.Sprites.ItemSprites
                     default:
                         break;
                 }
-
-            
-
-            //AWAY FROM PLAYER
-           
 
             this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);

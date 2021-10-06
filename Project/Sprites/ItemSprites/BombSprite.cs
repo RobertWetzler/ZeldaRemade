@@ -72,7 +72,7 @@ namespace Project.Sprites.ItemSprites
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (timer > 3000 && timer < 4000)
-                spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 4) % 4;
+                spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
 
         }
 

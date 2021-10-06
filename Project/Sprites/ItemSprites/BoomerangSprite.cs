@@ -32,7 +32,6 @@ namespace Project.Sprites.ItemSprites
             this.position = position;
 
 
-
             spriteRow = 0;
             velocity = 200;
 

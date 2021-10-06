@@ -106,10 +106,8 @@ namespace Project.Sprites.ItemSprites
                     break;
             }
 
-
             this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
-
 
         }
 
