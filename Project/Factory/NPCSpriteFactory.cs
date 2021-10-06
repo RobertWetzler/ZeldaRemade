@@ -189,6 +189,46 @@ namespace Project.Factory
             return new DragonAttackSprite(bossDragonSpriteSheet, sourceFrames);
         }
 
+        public IEnemySprite CreateTrapSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+
+            return new TrapSprite(trapSpriteSheet);
+        }
+
+        public IEnemySprite CreateDragonWalkSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(50, 0, 24, 32));
+            sourceFrames.Add(new Rectangle(75, 0, 24, 32));
+            return new DragonWalkSprite(bossDragonSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateWallMasterSprite(Facing dir)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new WallMasterSprite(wallmasterSpriteSheet, sourceFrames, dir);
+        }
+        public IEnemySprite CreateSnakeSprite(Facing dir)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new SnakeEnemySprite(snakeSpriteSheet, sourceFrames, dir);
+        }
+
+
+
+        public IEnemySprite CreateDragonAttackSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 24, 32));
+            sourceFrames.Add(new Rectangle(25, 0, 24, 32));
+            return new DragonAttackSprite(bossDragonSpriteSheet, sourceFrames);
+        }
+
         public IEnemySprite CreateDinosaurSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
@@ -203,6 +243,13 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
             return new FlameEnemySprite(flameSpriteSheet, sourceFrames);
+        }
+        public IEnemySprite CreateDinosaurSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new DinosaurWalkSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
         }
     }
 }
