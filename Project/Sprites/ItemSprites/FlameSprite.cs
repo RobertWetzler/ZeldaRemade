@@ -10,8 +10,11 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteFrame;
         private int directionHolder;
+        private float xPos, yPos;
+        private int velocity;
 
         private bool flipped;
+        private bool isFin;
 
         private float timer;
         private Vector2 position;
@@ -26,23 +29,26 @@ namespace Project.Sprites.ItemSprites
 
             this.position = position;
 
+            isFin = false;
+            velocity = 200;
+
             switch (facing)
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    this.position.Y = (int)position.Y - 50;
+                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
-                    this.position.Y = (int)position.Y + 50;
+                    this.position.Y += 50;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
-                    this.position.X = (int)position.X - 50;
+                    this.position.X -= 50;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
-                    this.position.X = (int)position.X + 50;
+                    this.position.X += 50;
                     break;
                 default:
                     break;
@@ -69,38 +75,36 @@ namespace Project.Sprites.ItemSprites
         public void Update(GameTime gameTime)
         {
             flipped = spriteFrame == 0;
-            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 2) % 2;
+            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 2;
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
 
             switch (directionHolder)
             {
                 case 0:
-                    this.position.Y--;
+                    yPos = -1;
                     break;
                 case 1:
-                    this.position.Y++;
+                    yPos = 1;
                     break;
                 case 2:
-                    this.position.X--;
+                    xPos = -1;
                     break;
                 case 3:
-                    this.position.X++;
+                    xPos = 1;
                     break;
                 default:
                     break;
             }
 
+            this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
+            this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
+
         }
 
         public bool isFinished()
         {
-            bool isFinished = false;
-
-            if (timer > 12000)
-                isFinished = true;
-
-            return isFinished;
+            return isFin = timer > 7000 ? true : false;
         }
     }
 }

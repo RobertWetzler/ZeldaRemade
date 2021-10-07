@@ -11,6 +11,7 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
         private float timer;
+        private bool isFin;
 
 
         private Vector2 position;
@@ -28,22 +29,23 @@ namespace Project.Sprites.ItemSprites
             this.position = position;
 
             spriteRow = 0;
+            isFin = false;
 
 
 
             switch (facing)
             {
                 case Facing.Up:
-                    this.position.Y = (int)position.Y - 50;
+                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
-                    this.position.Y = (int)position.Y + 50;
+                    this.position.Y += 50;
                     break;
                 case Facing.Left:
-                    this.position.X = (int)position.X - 50;
+                    this.position.X -= 50;
                     break;
                 case Facing.Right:
-                    this.position.X = (int)position.X + 50;
+                    this.position.X += 50;
                     break;
                 default:
                     break;
@@ -70,18 +72,13 @@ namespace Project.Sprites.ItemSprites
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (timer > 3000 && timer < 4000)
-                spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 4) % 4;
+                spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
 
         }
 
         public bool isFinished()
         {
-            bool isFinished = false;
-
-            if (timer > 4000)
-                isFinished = true;
-
-            return isFinished;
+            return isFin = timer > 3500 ? true : false;
         }
     }
 }
