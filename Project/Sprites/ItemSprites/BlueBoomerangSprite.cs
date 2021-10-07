@@ -11,6 +11,7 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
         private int xPos, yPos;
+
         private int velocity;
 
         private int directionHolder;
@@ -18,6 +19,7 @@ namespace Project.Sprites.ItemSprites
         private bool isFin, flipped;
 
         private Vector2 position;
+
         private Facing facing;
 
         private Texture2D spriteSheet;
