@@ -13,7 +13,7 @@ namespace Project.Sprites.PlayerSprites
         private List<(int spriteW, int totalW)> frameWidth;
 
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 1000;      // frequency of animation
+        private int millisecondPerFrame = 100;      // frequency of animation
         private int totalFrame;
         private bool cycleOnce;
 
