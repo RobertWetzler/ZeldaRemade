@@ -2,8 +2,7 @@ name: Release to itch.io
 
 on:
   push:
-    tags:
-    - 'v*'
+    tags: ['v*']
 
 env:
   ITCH_USER_NAME: mvps
