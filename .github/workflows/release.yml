@@ -6,7 +6,7 @@ on:
 
 env:
   ITCH_USER_NAME: mvps
-  ITCH_GAME_NAME: Legend of Zelda Remade
+  ITCH_GAME_NAME: "Legend of Zelda Remade"
   PROJECT_PATH: Project
 
 jobs:
