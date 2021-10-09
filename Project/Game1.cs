@@ -4,6 +4,7 @@ using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
+using System;
 using System.Collections.Generic;
 
 namespace Project
@@ -27,7 +28,7 @@ namespace Project
         public int CurrentBlockSpriteIndex { get; set; }
         public int CurrentItemSpriteIndex { get; set; }
         public int CurrentNPCIndex { get; set; }
-
+        private IEnemy enemy;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -58,7 +59,7 @@ namespace Project
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
 
             //Load NPC sprites
-            NPCSpriteFactory.Instance.LoadAllTextures(Content);
+            NPCEnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             //Set List for blocks, items, and NPCs
             blocks = new List<IBlockSprite>();
@@ -72,6 +73,8 @@ namespace Project
             npcsList = new List<INPC>();
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
+
+            enemy = new WallMaster(400f, 100f);
         }
 
         protected override void Update(GameTime gameTime)
@@ -82,7 +85,8 @@ namespace Project
                 controller.Update();
             }
 
-            npcsList[CurrentNPCIndex].Update(gameTime);
+            //npcsList[CurrentNPCIndex].Update(gameTime);
+            enemy.Update(new Rectangle(200, 50, 400, 200), gameTime);
 
             foreach (IItemSprite item in items)
             {
@@ -90,6 +94,7 @@ namespace Project
             }
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+   
             base.Update(gameTime);
         }
 
@@ -102,7 +107,8 @@ namespace Project
             player.Draw(_spriteBatch, gameTime);
 
             items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(200, 300));
-            npcsList[CurrentNPCIndex].Draw(_spriteBatch);
+            //npcsList[CurrentNPCIndex].Draw(_spriteBatch);
+            enemy.Draw(_spriteBatch, gameTime);
 
             _spriteBatch.End();
 

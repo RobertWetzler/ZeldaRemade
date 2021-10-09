@@ -13,7 +13,7 @@ namespace Project.NPC.Flame
         public FlameStatic(Flame flame)
         {
 
-            sprite = NPCSpriteFactory.Instance.CreateEnemyFlameSprite();
+            sprite = NPCEnemySpriteFactory.Instance.CreateEnemyFlameSprite();
 
         }
 
