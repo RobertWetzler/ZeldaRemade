@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Project.Factory
 {
-    public class NPCEnemySpriteFactory
+    public class EnemySpriteFactory
     {
         private Texture2D batSpriteSheet;
         private Texture2D bossDragonSpriteSheet;
@@ -18,22 +18,19 @@ namespace Project.Factory
         private Texture2D snakeSpriteSheet;
         private Texture2D wallmasterSpriteSheet;
         private Texture2D zolSpriteSheet;
-        private Texture2D enemySpriteSheet;
-        private Texture2D oldManSpriteSheet;
-        private Texture2D merchantSpriteSheet;
         private Texture2D trapSpriteSheet;
-        private Texture2D flameSpriteSheet;
 
-        private static NPCEnemySpriteFactory instance = new NPCEnemySpriteFactory();
 
-        public static NPCEnemySpriteFactory Instance
+        private static EnemySpriteFactory instance = new EnemySpriteFactory();
+
+        public static EnemySpriteFactory Instance
         {
             get
             {
                 return instance;
             }
         }
-        private NPCEnemySpriteFactory()
+        private EnemySpriteFactory()
         {
         }
 
@@ -48,19 +45,11 @@ namespace Project.Factory
             snakeSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-snake");
             wallmasterSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-wallmaster");
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
-            enemySpriteSheet = content.Load<Texture2D>("EnemySprites/enemysheet");
             batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
-            oldManSpriteSheet = content.Load<Texture2D>("EnemySprites/oldman"); ;
-            merchantSpriteSheet = content.Load<Texture2D>("EnemySprites/merchant");
             trapSpriteSheet = content.Load<Texture2D>("EnemySprites/trap");
-            flameSpriteSheet = content.Load<Texture2D>("EnemySprites/flame");
 
         }
 
-        //public static Rectangle BAT_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
-        //public static Rectangle BAT_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
-        //public static Rectangle SKELETON_1 = new Rectangle(3 + 18 * 10, 11, 16, 16);
-        //public static Rectangle SKELETON_2 = new Rectangle(0 + 20 * 10, 11, 16, 16);
         public IEnemySprite CreateBatSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
@@ -133,22 +122,6 @@ namespace Project.Factory
             }
         }
 
-        public IEnemySprite CreateOldManSprite()
-        {
-            List<Rectangle> sourceFrames = new List<Rectangle>();
-            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
-
-            return new OldManSprite(oldManSpriteSheet);
-        }
-
-        public IEnemySprite CreateMerchantSprite()
-        {
-            List<Rectangle> sourceFrames = new List<Rectangle>();
-            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
-
-            return new MerchantSprite(merchantSpriteSheet);
-        }
-
         public IEnemySprite CreateTrapSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
@@ -164,22 +137,6 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(75, 0, 24, 32));
             return new DragonWalkSprite(bossDragonSpriteSheet, sourceFrames);
         }
-        public IEnemySprite CreateWallMasterSprite(Facing dir)
-        {
-            List<Rectangle> sourceFrames = new List<Rectangle>();
-            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
-            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
-            return new WallMasterSprite(wallmasterSpriteSheet, sourceFrames, dir);
-        }
-        public IEnemySprite CreateSnakeSprite(Facing dir)
-        {
-            List<Rectangle> sourceFrames = new List<Rectangle>();
-            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
-            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
-            return new SnakeEnemySprite(snakeSpriteSheet, sourceFrames, dir);
-        }
-
-
 
         public IEnemySprite CreateDragonAttackSprite()
         {
@@ -189,6 +146,22 @@ namespace Project.Factory
             return new DragonAttackSprite(bossDragonSpriteSheet, sourceFrames);
         }
 
+        public IEnemySprite CreateWallMasterSprite(Facing dir)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new WallMasterSprite(wallmasterSpriteSheet, sourceFrames, dir);
+        }
+
+        public IEnemySprite CreateSnakeSprite(Facing dir)
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new SnakeEnemySprite(snakeSpriteSheet, sourceFrames, dir);
+        }
+
         public IEnemySprite CreateDinosaurLeftRightSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
@@ -196,14 +169,6 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(33, 0, 32, 16));
             sourceFrames.Add(new Rectangle(66, 0, 32, 16));
             return new DinosaurWalkLeftRightSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
-        }
-
-        public IEnemySprite CreateEnemyFlameSprite()
-        {
-            List<Rectangle> sourceFrames = new List<Rectangle>();
-            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
-
-            return new FlameEnemySprite(flameSpriteSheet, sourceFrames);
         }
        
     }

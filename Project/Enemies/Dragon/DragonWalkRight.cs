@@ -12,7 +12,7 @@ namespace Project
         public DragonWalkRight(Dragon dragon)
         {
             this.dragon = dragon;
-            this.dragon.EnemySprite = NPCEnemySpriteFactory.Instance.CreateDragonWalkSprite();
+            this.dragon.EnemySprite = EnemySpriteFactory.Instance.CreateDragonWalkSprite();
         }
 
         public void ChangeDirection(EnemyDirections direction)

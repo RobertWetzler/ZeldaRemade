@@ -29,7 +29,7 @@ namespace Project
             this.xpos = xPos;
             this.ypos = yPos;
             this.velocity = 50f;
-            this.sprite = NPCEnemySpriteFactory.Instance.CreateSkeletonSprite();
+            this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
             this.rand = new Random();
             animationDelay = 100;
             timeToChangeDirection = 1000;

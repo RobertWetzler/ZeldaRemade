@@ -29,7 +29,7 @@ namespace Project
             this.xpos = xPos;
             this.ypos = yPos;
             this.velocity = 50f;
-            this.sprite = NPCEnemySpriteFactory.Instance.CreateSmallJellySprite();
+            this.sprite = EnemySpriteFactory.Instance.CreateSmallJellySprite();
             this.rand = new Random();
             animationDelay = 100;
             timeToChangeDirection = 1000;

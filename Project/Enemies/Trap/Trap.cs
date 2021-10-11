@@ -26,7 +26,7 @@ namespace Project
             this.xpos = xPos;
             this.ypos = yPos;
             this.velocity = 50f;
-            this.sprite = NPCEnemySpriteFactory.Instance.CreateTrapSprite();
+            this.sprite = EnemySpriteFactory.Instance.CreateTrapSprite();
 
             //TODO
             //Should start at a spawning state that has the spawning enemies animation

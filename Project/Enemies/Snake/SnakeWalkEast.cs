@@ -11,7 +11,7 @@ namespace Project
         public SnakeWalkEast(Snake snake)
         {
             this.snake = snake;
-            this.snake.EnemySprite = NPCEnemySpriteFactory.Instance.CreateSnakeSprite(Entities.Facing.Right);
+            this.snake.EnemySprite = EnemySpriteFactory.Instance.CreateSnakeSprite(Entities.Facing.Right);
         }
 
         public void ChangeDirection(EnemyDirections direction)

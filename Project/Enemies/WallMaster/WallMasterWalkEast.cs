@@ -11,7 +11,7 @@ namespace Project
         public WallMasterWalkEast(WallMaster wallMaster)
         {
             this.wallMaster = wallMaster;
-            this.wallMaster.EnemySprite = NPCEnemySpriteFactory.Instance.CreateWallMasterSprite(Entities.Facing.Right);
+            this.wallMaster.EnemySprite = EnemySpriteFactory.Instance.CreateWallMasterSprite(Entities.Facing.Right);
 
         }
 

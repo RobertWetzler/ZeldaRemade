@@ -13,7 +13,7 @@ namespace Project.NPC.Merchant
         public MerchantStill(Merchant merchant)
         {
             this.merchant = merchant;
-            sprite = NPCEnemySpriteFactory.Instance.CreateMerchantSprite();
+            sprite = NPCSpriteFactory.Instance.CreateMerchantSprite();
         }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {

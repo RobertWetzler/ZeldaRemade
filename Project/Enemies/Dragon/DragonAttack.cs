@@ -14,7 +14,7 @@ namespace Project
         public DragonAttack(Dragon dragon)
         {
             this.dragon = dragon;
-            this.dragon.EnemySprite = NPCEnemySpriteFactory.Instance.CreateDragonAttackSprite();
+            this.dragon.EnemySprite = EnemySpriteFactory.Instance.CreateDragonAttackSprite();
             weaponPos = new Vector2(dragon.XPos - 10, dragon.YPos);
             this.dragon.TopFireball = ItemSpriteFactory.Instance.CreateLeftUpFireballSprite(weaponPos);
             this.dragon.MiddleFireball = ItemSpriteFactory.Instance.CreateLeftFireballSprite(weaponPos);

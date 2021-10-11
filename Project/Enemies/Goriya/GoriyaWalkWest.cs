@@ -11,7 +11,7 @@ namespace Project
         public GoriyaWalkWest(Goriya goriya)
         {
             this.goriya = goriya;
-            this.goriya.EnemySprite = NPCEnemySpriteFactory.Instance.CreateGoriyaWalkWestSprite();
+            this.goriya.EnemySprite = EnemySpriteFactory.Instance.CreateGoriyaWalkWestSprite();
 
         }
 

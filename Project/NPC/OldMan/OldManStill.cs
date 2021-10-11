@@ -13,7 +13,7 @@ namespace Project.NPC.OldMan
         public OldManStill(OldMan oldMan)
         {
             this.oldMan = oldMan;
-            sprite = NPCEnemySpriteFactory.Instance.CreateOldManSprite();
+            sprite = NPCSpriteFactory.Instance.CreateOldManSprite();
         }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {

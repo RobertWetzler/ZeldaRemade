@@ -11,7 +11,7 @@ namespace Project
         public DragonWalkLeft(Dragon dragon)
         {
             this.dragon = dragon;
-            this.dragon.EnemySprite = NPCEnemySpriteFactory.Instance.CreateDragonWalkSprite();
+            this.dragon.EnemySprite = EnemySpriteFactory.Instance.CreateDragonWalkSprite();
 
         }
 

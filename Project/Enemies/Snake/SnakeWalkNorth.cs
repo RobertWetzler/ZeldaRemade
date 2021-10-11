@@ -12,7 +12,7 @@ namespace Project
         public SnakeWalkNorth(Snake snake)
         {
             this.snake = snake;
-            this.snake.EnemySprite = NPCEnemySpriteFactory.Instance.CreateSnakeSprite(Entities.Facing.Left);
+            this.snake.EnemySprite = EnemySpriteFactory.Instance.CreateSnakeSprite(Entities.Facing.Left);
         }
 
         public void ChangeDirection(EnemyDirections direction)

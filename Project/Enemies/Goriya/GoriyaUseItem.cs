@@ -14,7 +14,7 @@ namespace Project
         public GoriyaUseItem(Goriya goriya)
         {
             this.goriya = goriya;
-            this.goriya.EnemySprite = NPCEnemySpriteFactory.Instance.CreateGoriyaUseItemSprite(goriya.FacingDirection);
+            this.goriya.EnemySprite = EnemySpriteFactory.Instance.CreateGoriyaUseItemSprite(goriya.FacingDirection);
             switch (goriya.FacingDirection)
             {
                 case Facing.Up:
