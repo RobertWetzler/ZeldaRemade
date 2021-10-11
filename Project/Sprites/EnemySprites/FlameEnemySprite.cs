@@ -19,7 +19,7 @@ namespace Project
         {
             this.flameSpriteSheet = flameSpriteSheet;
             this.sourceFrames = sourceFrames;
-
+            this.currentFrame = 0;
          
         }
 

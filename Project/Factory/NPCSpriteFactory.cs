@@ -36,7 +36,7 @@ namespace Project.Factory
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
-            return new OldManSprite(oldManSpriteSheet);
+            return new StillNPCSprite(oldManSpriteSheet);
         }
 
         public IEnemySprite CreateMerchantSprite()
@@ -44,7 +44,7 @@ namespace Project.Factory
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
-            return new MerchantSprite(merchantSpriteSheet);
+            return new StillNPCSprite(merchantSpriteSheet);
         }
 
         public IEnemySprite CreateEnemyFlameSprite()

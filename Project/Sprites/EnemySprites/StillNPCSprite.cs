@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    class OldManSprite : IEnemySprite
+    class StillNPCSprite : IEnemySprite
     {
         private Texture2D spriteSheet;
 
-        public OldManSprite(Texture2D spriteSheet)
+        public StillNPCSprite(Texture2D spriteSheet)
         {
             this.spriteSheet = spriteSheet;
         }
