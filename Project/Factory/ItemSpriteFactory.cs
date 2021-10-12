@@ -78,7 +78,7 @@ namespace Project.Factory
 
         public IWeaponSprite CreateBlueBoomerangSprite(Facing facing, Vector2 position)
         {
-            return new BoomerangSprite(blueBoomerangSpriteSheet, 1, 6, facing, position);
+            return new BlueBoomerangSprite(blueBoomerangSpriteSheet, 1, 6, facing, position);
         }
 
         public IWeaponSprite CreateBombSprite(Facing facing, Vector2 position)

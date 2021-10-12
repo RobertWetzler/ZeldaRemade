@@ -65,7 +65,9 @@ namespace Project.Sprites.PlayerSprites
             int width = frameWidth[spriteColumn].spriteW;
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            // Adjust y position so link doesn't move when attacking
+            Rectangle dest = new Rectangle((int)position.X, (int)position.Y - (scale * 12), width * scale, height * scale);
+
             spriteBatch.Draw(playerSpriteSheet, dest, source, color);
         }
     }

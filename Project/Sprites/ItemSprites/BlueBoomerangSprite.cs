@@ -10,9 +10,12 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
+        private int xPos, yPos;
+        private int velocity;
 
         private int directionHolder;
         private float timer;
+        private bool isFin, flipped;
 
         private Vector2 position;
         private Facing facing;
@@ -31,24 +34,25 @@ namespace Project.Sprites.ItemSprites
 
 
             spriteRow = 0;
+            velocity = 200;
 
             switch (facing)
             {
                 case Facing.Up:
                     directionHolder = 0;
-                    this.position.Y = (int)position.Y - 50;
+                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
                     directionHolder = 1;
-                    this.position.Y = (int)position.Y + 50;
+                    this.position.Y += 50;
                     break;
                 case Facing.Left:
                     directionHolder = 2;
-                    this.position.X = (int)position.X - 50;
+                    this.position.X -= 50;
                     break;
                 case Facing.Right:
                     directionHolder = 3;
-                    this.position.X = (int)position.X + 50;
+                    this.position.X += 50;
                     break;
                 default:
                     break;
@@ -71,66 +75,36 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         {
-            bool isFinished = false;
-
-            if (timer > 21000)
-                isFinished = true;
-
-            return isFinished;
+            return isFin = timer > 6000 ? true : false;
         }
 
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
+            flipped = timer > 3000;
 
-            //TOWARDS PLAYER
-            if (timer > 14000)
-            {
 
                 switch (directionHolder)
                 {
                     case 0:
-                        this.position.Y++;
+                        yPos = flipped ?  1 : -1;
                         break;
                     case 1:
-                        this.position.Y--;
+                        yPos = flipped ? -1 : 1;
                         break;
                     case 2:
-                        this.position.X++;
+                        xPos = flipped ? 1 : -1;
                         break;
                     case 3:
-                        this.position.X--;
+                        xPos = flipped ? -1 : 1;
                         break;
                     default:
                         break;
                 }
 
-            }
-
-            //AWAY FROM PLAYER
-            if (timer < 14000)
-            {
-
-                switch (directionHolder)
-                {
-                    case 0:
-                        this.position.Y--;
-                        break;
-                    case 1:
-                        this.position.Y++;
-                        break;
-                    case 2:
-                        this.position.X--;
-                        break;
-                    case 3:
-                        this.position.X++;
-                        break;
-                    default:
-                        break;
-                }
-
-            }
+            this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
+            this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
         }
     }

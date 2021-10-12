@@ -83,9 +83,6 @@ namespace Project.Sprites.PlayerSprites
                     case 3:
                         dest = new Rectangle((int)position.X - (3 * scale), (int)position.Y, width * scale, height * scale);
                         break;
-                    default:
-                        break;
-
                 }
                 spriteBatch.Draw(playerSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
             }
