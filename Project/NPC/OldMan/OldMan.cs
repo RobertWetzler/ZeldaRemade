@@ -16,6 +16,7 @@ namespace Project.NPC.OldMan
 
         }
 
+
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);

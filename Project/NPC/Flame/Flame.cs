@@ -15,6 +15,9 @@ namespace Project.NPC.Flame
             currentState = new FlameStatic(this);
 
         }
+
+        public Rectangle BoundingBox => currentState.Sprite.DestinateRectangle;
+
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);
