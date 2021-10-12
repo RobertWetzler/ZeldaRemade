@@ -43,7 +43,7 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-            frame = (int)(gameTime.TotalGameTime.TotalSeconds * 2) % 2;
+            frame = (int)(gameTime.TotalGameTime.TotalSeconds * 10) % 2;
 
 
         }
