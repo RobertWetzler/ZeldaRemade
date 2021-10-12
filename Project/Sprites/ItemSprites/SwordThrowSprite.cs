@@ -25,38 +25,34 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-            
-
             this.position = position;
 
             isFin = false;
             velocity = 400;
 
-         
-            this.position.Y -= 10;
-
+       
 
             switch (facing)
             {
                 case Facing.Up:
                     spriteFrame = 3;
-                    this.position.Y -= 50;
+                    this.position.Y -= 75;
                     this.position.X -= 32;
                     break;
                 case Facing.Down:
                     spriteFrame = 2;
-                    this.position.Y += 50;
-                    this.position.X -= 20;
+                    this.position.Y += 60;
+                    this.position.X -= 25;
                     break;
                 case Facing.Left:
                     spriteFrame = 0;
                     this.position.X -= 75;
-                    this.position.Y -= 3;
+                    this.position.Y -= 13;
                     break;
                 case Facing.Right:
                     spriteFrame = 1;
                     this.position.X += 75;
-                    this.position.Y -= 3;
+                    this.position.Y -= 13;
                     break;
                 default:
                     break;
@@ -66,7 +62,6 @@ namespace Project.Sprites.ItemSprites
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
             int scale = 4;
@@ -75,12 +70,7 @@ namespace Project.Sprites.ItemSprites
             Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
             
             if(!isFin)
-            {
                 spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-
-            }
-          
-
 
         }
 
