@@ -16,7 +16,8 @@ namespace Project.Sprites.PlayerSprites
         private int millisecondPerFrame = 100;      // frequency of animation
         private int totalFrame;
         private bool cycleOnce;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public LinkUseSwordUpwardsSprite(Texture2D playerSpriteSheet)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -66,9 +67,9 @@ namespace Project.Sprites.PlayerSprites
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             // Adjust y position so link doesn't move when attacking
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y - (scale * 12), width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y - (scale * 12), width * scale, height * scale);
 
-            spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+            spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
         }
     }
 }

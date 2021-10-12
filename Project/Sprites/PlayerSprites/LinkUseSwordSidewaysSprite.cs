@@ -15,7 +15,8 @@ namespace Project.Sprites.PlayerSprites
         private int totalFrame;
         private bool facingRight;
         private bool cycleOnce;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public LinkUseSwordSidewaysSprite(Texture2D playerSpriteSheet, bool facingRight)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -64,27 +65,27 @@ namespace Project.Sprites.PlayerSprites
             int scale = 4;
             int width = frameWidth[spriteColumn].spriteW;
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
 
             if (facingRight)
             {
-                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
             }
             else
             {
                 switch (spriteColumn)
                 {
                     case 1:
-                        dest = new Rectangle((int)position.X - (11 * scale), (int)position.Y, width * scale, height * scale);
+                        destRectangle = new Rectangle((int)position.X - (11 * scale), (int)position.Y, width * scale, height * scale);
                         break;
                     case 2:
-                        dest = new Rectangle((int)position.X - (7 * scale), (int)position.Y, width * scale, height * scale);
+                        destRectangle = new Rectangle((int)position.X - (7 * scale), (int)position.Y, width * scale, height * scale);
                         break;
                     case 3:
-                        dest = new Rectangle((int)position.X - (3 * scale), (int)position.Y, width * scale, height * scale);
+                        destRectangle = new Rectangle((int)position.X - (3 * scale), (int)position.Y, width * scale, height * scale);
                         break;
                 }
-                spriteBatch.Draw(playerSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
             }
         }
     }

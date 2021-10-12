@@ -13,7 +13,8 @@ namespace Project.Sprites.ItemSprites
         private int currentFrame = 0;
         private Vector2 position;
         private Vector2 startPosition;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public LeftFireballSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames, Vector2 position)
         {
             this.dragonSpriteSheet = dragonSpriteSheet;
@@ -26,8 +27,8 @@ namespace Project.Sprites.ItemSprites
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dragonSpriteSheet, destination, source, Color.White);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
+            spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
         }
 
         public bool isFinished()

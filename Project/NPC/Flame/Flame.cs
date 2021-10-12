@@ -16,8 +16,6 @@ namespace Project.NPC.Flame
 
         }
 
-        public Rectangle BoundingBox => currentState.Sprite.DestinateRectangle;
-
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);

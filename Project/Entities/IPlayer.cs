@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Project.Collision;
 using Project.Entities;
 using Project.Sprites.PlayerSprites;
 
 namespace Project
 {
-    public interface IPlayer : IEntity, ICollidable
+    public interface IPlayer : IEntity
     {
         public Vector2 Position { get; set; }
         public IPlayerSprite PlayerSprite { get; }
