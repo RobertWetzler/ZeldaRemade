@@ -9,11 +9,15 @@ namespace Project
         private Texture2D dinosaurSpriteSheet;
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
+        private int animationCounter;
+        private int animationDelay;
 
         public DinosaurWalkLeftRightSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.dinosaurSpriteSheet = dinosaurSpriteSheet;
             this.sourceFrames = sourceFrames;
+            this.animationCounter = 0;
+            this.animationDelay = 100;
         }
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
@@ -22,10 +26,16 @@ namespace Project
             Rectangle destination = new Rectangle((int)xPos, (int)yPos, source.Width * 4, source.Height * 4);
             spriteBatch.Draw(dinosaurSpriteSheet, destination, source, Color.White);
         }
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentFrame++;
-            currentFrame %= sourceFrames.Count;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                currentFrame++;
+                currentFrame %= sourceFrames.Count;
+            }
+                
         }
     }
 }

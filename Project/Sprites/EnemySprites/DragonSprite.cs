@@ -4,16 +4,20 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class DragonAttackSprite : IEnemySprite
+    class DragonSprite : IEnemySprite
     {
         private Texture2D dragonSpriteSheet;
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
+        private int animationCounter;
+        private int animationDelay;
 
-        public DragonAttackSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames)
+        public DragonSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.dragonSpriteSheet = dragonSpriteSheet;
             this.sourceFrames = sourceFrames;
+            this.animationCounter = 0;
+            this.animationDelay = 100;
         }
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
@@ -22,10 +26,16 @@ namespace Project
             Rectangle destination = new Rectangle((int)xPos, (int)yPos, source.Width * 4, source.Height * 4);
             spriteBatch.Draw(dragonSpriteSheet, destination, source, Color.White);
         }
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentFrame++;
-            currentFrame %= sourceFrames.Count;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                currentFrame++;
+                currentFrame %= sourceFrames.Count;
+            }
+
         }
     }
 }

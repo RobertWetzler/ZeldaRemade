@@ -11,6 +11,8 @@ namespace Project
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
         SpriteEffects spriteEffects;
+        private int animationCounter = 0;
+        private int animationDelay = 100;
 
         public SnakeEnemySprite(Texture2D snakeSpriteSheet, List<Rectangle> sourceFrames, Facing dir)
         {
@@ -36,10 +38,15 @@ namespace Project
             spriteBatch.Draw(snakeSpriteSheet, destination, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentFrame++;
-            currentFrame %= sourceFrames.Count;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                currentFrame++;
+                currentFrame %= sourceFrames.Count;
+            }
         }
     }
 }

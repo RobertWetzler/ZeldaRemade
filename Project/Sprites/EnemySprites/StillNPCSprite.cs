@@ -20,7 +20,7 @@ namespace Project
                 spriteSheet.Width * 3, spriteSheet.Height * 3);
             spriteBatch.Draw(spriteSheet, destination, source, Color.White);
         }
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
         }

@@ -135,7 +135,7 @@ namespace Project.Factory
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(50, 0, 24, 32));
             sourceFrames.Add(new Rectangle(75, 0, 24, 32));
-            return new DragonWalkSprite(bossDragonSpriteSheet, sourceFrames);
+            return new DragonSprite(bossDragonSpriteSheet, sourceFrames);
         }
 
         public IEnemySprite CreateDragonAttackSprite()
@@ -143,7 +143,7 @@ namespace Project.Factory
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 24, 32));
             sourceFrames.Add(new Rectangle(25, 0, 24, 32));
-            return new DragonAttackSprite(bossDragonSpriteSheet, sourceFrames);
+            return new DragonSprite(bossDragonSpriteSheet, sourceFrames);
         }
 
         public IEnemySprite CreateWallMasterSprite(Facing dir)

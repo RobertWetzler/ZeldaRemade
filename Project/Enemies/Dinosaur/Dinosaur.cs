@@ -9,10 +9,8 @@ namespace Project
 {
     class Dinosaur : IEnemy
     {
-        private int animationDelay; //animation speed
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
-        private int animationCounter;
         private IEnemyState currentState;
         private float xpos;
         private float ypos;
@@ -30,9 +28,7 @@ namespace Project
             this.ypos = yPos;
             this.velocity = 50f;
             this.rand = new Random();
-            animationDelay = 100;
             timeToChangeDirection = 1000;
-            animationCounter = 0;
             changeDirectionCounter = 0;
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
@@ -62,13 +58,8 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
-            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            sprite.Update(gameTime);
             changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
-            if (animationCounter > animationDelay)
-            {
-                animationCounter -= animationDelay;
-                sprite.Update();
-            }
             if (changeDirectionCounter > timeToChangeDirection)
             {
                 changeDirectionCounter -= timeToChangeDirection;

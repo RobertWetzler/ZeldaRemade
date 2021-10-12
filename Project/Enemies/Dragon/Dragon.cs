@@ -11,10 +11,8 @@ namespace Project
 {
     class Dragon : IEnemy
     {
-        private int animationDelay; //animation speed
-        private int timeToAttack; //time to randomly change direction
+        private int timeToAttack; 
         private int attackCounter;
-        private int animationCounter;
         private IEnemyState currentState;
         private float xpos;
         private float ypos;
@@ -36,9 +34,7 @@ namespace Project
             this.ypos = yPos;
             this.velocity = 50f;
 
-            animationDelay = 100;
             timeToAttack = 3000;
-            animationCounter = 0;
             attackCounter = 0;
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
@@ -69,12 +65,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
 
-            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
-            if (animationCounter > animationDelay)
-            {
-                animationCounter -= animationDelay;
-                sprite.Update();
-            }
+            sprite.Update(gameTime);
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (attackCounter > timeToAttack)
             {

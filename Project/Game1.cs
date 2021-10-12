@@ -78,7 +78,7 @@ namespace Project
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
 
-            enemy = new Bat(400, 100);
+            enemy = new Goriya(400, 100, Facing.Left);
 
         }
 

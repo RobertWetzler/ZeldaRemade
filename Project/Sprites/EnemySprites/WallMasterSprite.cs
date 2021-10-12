@@ -11,6 +11,9 @@ namespace Project
         private List<Rectangle> sourceFrames;
         private int my_frame_index = 0;
         SpriteEffects spriteEffects;
+        private int animationCounter = 0;
+        private int animationDelay = 100;
+
         public WallMasterSprite(Texture2D spriteSheet, List<Rectangle> sourceFrames, Facing dir)
         {
             this.spriteSheet = spriteSheet;
@@ -36,10 +39,15 @@ namespace Project
             spriteBatch.Draw(spriteSheet, destination, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            my_frame_index++;
-            my_frame_index %= sourceFrames.Count;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                my_frame_index++;
+                my_frame_index %= sourceFrames.Count;
+            }
         }
     }
 }

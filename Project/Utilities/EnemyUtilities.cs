@@ -36,5 +36,19 @@ namespace Project.Utilities
             }
             return Facing.Right;
         }
+
+        public static List<EnemyDirections> GetAllEnemyDirections()
+        {
+            List<EnemyDirections> list = new List<EnemyDirections>();
+            list.Add(EnemyDirections.North);
+            list.Add(EnemyDirections.East);
+            list.Add(EnemyDirections.South);
+            list.Add(EnemyDirections.West);
+            list.Add(EnemyDirections.Northeast);
+            list.Add(EnemyDirections.Southeast);
+            list.Add(EnemyDirections.Southwest);
+            list.Add(EnemyDirections.Northwest);
+            return list;
+        }
     }
 }
