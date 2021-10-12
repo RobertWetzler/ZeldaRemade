@@ -6,6 +6,7 @@ using Project.NPC.Flame;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
+using Project.Items;
 
 namespace Project.Utilities
 {
@@ -25,34 +26,33 @@ namespace Project.Utilities
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
         }
 
-        public static void SetItemList(List<IItemSprite> items)
+        public static void SetItemList(List<IItems> items)
         {
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 0));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 1));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 2));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 3));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 4));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 5));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 6));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 7));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 8));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 9));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(0, 10));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 0));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 1));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 2));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 3));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 4));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 5));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 6));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 7));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 8));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 9));
-            items.Add(ItemSpriteFactory.Instance.CreateItemSprite(1, 10));
-            items.Add(ItemSpriteFactory.Instance.CreateFairySprite());
-            items.Add(ItemSpriteFactory.Instance.CreateRupeeSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateHeartSprite());
-            items.Add(ItemSpriteFactory.Instance.CreateTriforceSprite());
+            items.Add(new Fairy());
+            items.Add(new Arrow());
+            items.Add(new BlueArrow());
+            items.Add(new Boomerang());
+            items.Add(new BlueBoomerang());
+            items.Add(new Bomb());
+            items.Add(new Heart());
+            items.Add(new Bow());
+            items.Add(new Sword());
+            items.Add(new WhiteSword());
+            items.Add(new Meat());
+            items.Add(new Ring());
+            items.Add(new BlueRing());
+            items.Add(new Bottle());
+            items.Add(new BlueBottle());
+            items.Add(new HeartContainer());
+            items.Add(new Candle());
+            items.Add(new BlueCandle());
+            items.Add(new OneRupee());
+            items.Add(new FiveRupee());
+            items.Add(new Key());
+            items.Add(new Flute());
+            items.Add(new Clock());
+            items.Add(new Compass());
+            items.Add(new Map());
         }
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
