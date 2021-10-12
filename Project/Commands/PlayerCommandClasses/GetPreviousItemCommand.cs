@@ -10,11 +10,11 @@
 
         public void Execute()
         {
-            game.CurrentItemSpriteIndex--;
+            game.CurrentItemIndex--;
 
-            if (game.CurrentItemSpriteIndex < 0)
+            if (game.CurrentItemIndex < 0)
             {
-                game.CurrentItemSpriteIndex = game.ItemsListLength - 1;
+                game.CurrentItemIndex = game.ItemsListLength - 1;
             }
         }
     }

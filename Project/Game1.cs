@@ -17,7 +17,7 @@ namespace Project
         private List<IController> controllers;
 
         //List of sprites to cycle thru
-        private List<IItemSprite> items;
+        private List<IItems> items;
         private List<IBlockSprite> blocks;
         private List<INPC> npcsList;
 
@@ -25,7 +25,7 @@ namespace Project
         public int BlocksListLength => blocks.Count;
         public int NPCSListLength => npcsList.Count;
         public int CurrentBlockSpriteIndex { get; set; }
-        public int CurrentItemSpriteIndex { get; set; }
+        public int CurrentItemIndex { get; set; }
         public int CurrentNPCIndex { get; set; }
 
         public Game1()
@@ -65,9 +65,9 @@ namespace Project
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
-            items = new List<IItemSprite>();
+            items = new List<IItems>();
             Utilities.Sprint2Utilities.SetItemList(items);
-            CurrentItemSpriteIndex = 0;
+            CurrentItemIndex = 0;
 
             npcsList = new List<INPC>();
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
@@ -84,10 +84,7 @@ namespace Project
 
             npcsList[CurrentNPCIndex].Update(gameTime);
 
-            foreach (IItemSprite item in items)
-            {
-                item.Update(gameTime);
-            }
+            items[CurrentItemIndex].Update(gameTime);
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
@@ -101,7 +98,7 @@ namespace Project
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
 
-            items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(200, 300));
+            items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
 
             _spriteBatch.End();
