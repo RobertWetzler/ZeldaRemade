@@ -37,6 +37,7 @@
     <None Remove="NPC\Bat\" />
     <None Remove="NPC\Skeleton\" />
     <None Remove="NPC\Dinosaur\" />
+    <None Remove="CollisionHandler\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -54,5 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NPC\Dinosaur\" />
+    <Folder Include="CollisionHandler\" />
   </ItemGroup>
 </Project>
