@@ -12,12 +12,14 @@ namespace Project.Sprites.ItemSprites
         private static int delay_frames = 5;
         private int currentFrame = 0;
         private Vector2 position;
+        private Vector2 startPosition;
 
         public LeftUpFireballSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames, Vector2 position)
         {
             this.dragonSpriteSheet = dragonSpriteSheet;
             this.sourceFrames = sourceFrames;
             this.position = position;
+            startPosition = position;
             delay_frame_index = 0;
         }
 
@@ -32,7 +34,7 @@ namespace Project.Sprites.ItemSprites
         {
             bool isFinished = false;
 
-            if (this.position.X == 250)
+            if ((int)(this.startPosition.X - this.position.X) > 200)
             {
                 isFinished = true;
             }

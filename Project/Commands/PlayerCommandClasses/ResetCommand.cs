@@ -16,7 +16,7 @@ namespace Project
         {
             //Reset the lists to show first element in list
             game.CurrentBlockSpriteIndex = 0;
-            game.CurrentItemSpriteIndex = 0;
+            game.CurrentItemIndex = 0;
             game.CurrentNPCIndex = 0;
             //Reset player position
             game.Player.StopMoving();

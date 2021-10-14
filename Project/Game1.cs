@@ -4,6 +4,7 @@ using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
+using System;
 using System.Collections.Generic;
 
 namespace Project
@@ -17,15 +18,16 @@ namespace Project
         private List<IController> controllers;
 
         //List of sprites to cycle thru
-        private List<IItemSprite> items;
+        private List<IItems> items;
         private List<IBlockSprite> blocks;
         private List<INPC> npcsList;
+        private IEnemy enemy;
 
         public int ItemsListLength => items.Count;
         public int BlocksListLength => blocks.Count;
         public int NPCSListLength => npcsList.Count;
         public int CurrentBlockSpriteIndex { get; set; }
-        public int CurrentItemSpriteIndex { get; set; }
+        public int CurrentItemIndex { get; set; }
         public int CurrentNPCIndex { get; set; }
 
         public Game1()
@@ -60,18 +62,24 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
 
+            //Load Enemy sprites
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
+
             //Set List for blocks, items, and NPCs
             blocks = new List<IBlockSprite>();
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
-            items = new List<IItemSprite>();
+            items = new List<IItems>();
             Utilities.Sprint2Utilities.SetItemList(items);
-            CurrentItemSpriteIndex = 0;
+            CurrentItemIndex = 0;
 
             npcsList = new List<INPC>();
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
+
+            enemy = new Goriya(400, 100, Facing.Left);
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -83,13 +91,12 @@ namespace Project
             }
 
             npcsList[CurrentNPCIndex].Update(gameTime);
+            enemy.Update(new Rectangle(200, 50, 400, 200), gameTime);
 
-            foreach (IItemSprite item in items)
-            {
-                item.Update(gameTime);
-            }
+            items[CurrentItemIndex].Update(gameTime);
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+   
             base.Update(gameTime);
         }
 
@@ -101,8 +108,9 @@ namespace Project
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
 
-            items[CurrentItemSpriteIndex].Draw(_spriteBatch, new Vector2(200, 300));
+            items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
+            enemy.Draw(_spriteBatch, gameTime);
 
             _spriteBatch.End();
 
