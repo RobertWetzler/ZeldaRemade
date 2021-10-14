@@ -28,6 +28,9 @@ namespace Project
         public IWeaponSprite TopFireball { get => this.topFireball; set => this.topFireball = value; }
         public IWeaponSprite MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
         public IWeaponSprite BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
+
+        public Rectangle BoundingBox => this.sprite.DestRectangle;
+
         public Dragon(float xPos, float yPos)
         {
             this.xpos = xPos;

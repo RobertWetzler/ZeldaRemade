@@ -16,7 +16,7 @@ namespace Project.NPC.Merchant
             sprite = NPCSpriteFactory.Instance.CreateMerchantSprite();
         }
 
-        public IEnemySprite Sprite => throw new System.NotImplementedException();
+        public IEnemySprite Sprite => sprite;
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {

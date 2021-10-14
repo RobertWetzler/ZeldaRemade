@@ -10,6 +10,7 @@ namespace Project.Items
 
         private IItemSprite sprite;
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public Flute()
         {

@@ -16,7 +16,6 @@ namespace Project.Entities
         private List<IWeaponSprite> weaponSprites;
         private double velocity = 200;
         private Game1 game;
-        private Rectangle boundingBox;
         public Vector2 Position
         {
             get { return position; }
@@ -31,7 +30,7 @@ namespace Project.Entities
             get => this.stateMachine;
         }
 
-        public Rectangle BoundingBox => boundingBox;
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public GreenLink(Game1 game)
         {

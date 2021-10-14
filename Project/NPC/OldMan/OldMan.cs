@@ -16,6 +16,7 @@ namespace Project.NPC.OldMan
 
         }
 
+        public Rectangle BoundingBox => currentState.Sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch)
         {

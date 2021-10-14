@@ -34,7 +34,7 @@ namespace Project.Sprites.ItemSprites
             int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(frame * width, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }
