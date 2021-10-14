@@ -12,6 +12,6 @@ namespace Project.Sprites.BlockSprites
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         
         // most blocks do not move
-        void Update();
+        void Update(GameTime gameTime);
     }
 }

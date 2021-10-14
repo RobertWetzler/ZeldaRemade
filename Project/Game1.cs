@@ -19,7 +19,7 @@ namespace Project
 
         //List of sprites to cycle thru
         private List<IItems> items;
-        private List<IBlockSprite> blocks;
+        private List<IBlock> blocks;
         private List<INPC> npcsList;
         private IEnemy enemy;
 
@@ -66,7 +66,7 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             //Set List for blocks, items, and NPCs
-            blocks = new List<IBlockSprite>();
+            blocks = new List<IBlock>();
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
