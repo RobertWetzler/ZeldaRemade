@@ -12,7 +12,7 @@ namespace Project.Utilities
 {
     public static class Sprint2Utilities
     {
-        public static void SetBlockList(List<IBlock> blocks)
+        public static void SetBlockList(List<IBlockSprite> blocks)
         {
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
