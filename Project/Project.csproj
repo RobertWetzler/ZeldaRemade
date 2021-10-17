@@ -37,7 +37,6 @@
     <None Remove="NPC\Bat\" />
     <None Remove="NPC\Skeleton\" />
     <None Remove="NPC\Dinosaur\" />
-    <None Remove="CollisionHandler\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -54,7 +53,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NPC\Dinosaur\" />
-    <Folder Include="CollisionHandler\" />
+    <Folder Include="Enemies\Dinosaur\" />
   </ItemGroup>
 </Project>

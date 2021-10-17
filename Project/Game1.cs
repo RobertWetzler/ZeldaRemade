@@ -4,6 +4,7 @@ using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
+using System;
 using System.Collections.Generic;
 
 namespace Project
@@ -20,6 +21,7 @@ namespace Project
         private List<IItems> items;
         private List<IBlockSprite> blocks;
         private List<INPC> npcsList;
+        private IEnemy enemy;
 
         public int ItemsListLength => items.Count;
         public int BlocksListLength => blocks.Count;
@@ -60,6 +62,9 @@ namespace Project
             //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
 
+            //Load Enemy sprites
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
+
             //Set List for blocks, items, and NPCs
             blocks = new List<IBlockSprite>();
             Utilities.Sprint2Utilities.SetBlockList(blocks);
@@ -72,6 +77,9 @@ namespace Project
             npcsList = new List<INPC>();
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
+
+            enemy = new Goriya(400, 100, Facing.Left);
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -83,10 +91,12 @@ namespace Project
             }
 
             npcsList[CurrentNPCIndex].Update(gameTime);
+            enemy.Update(new Rectangle(200, 50, 400, 200), gameTime);
 
             items[CurrentItemIndex].Update(gameTime);
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+   
             base.Update(gameTime);
         }
 
@@ -100,6 +110,7 @@ namespace Project
 
             items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
+            enemy.Draw(_spriteBatch, gameTime);
 
             _spriteBatch.End();
 

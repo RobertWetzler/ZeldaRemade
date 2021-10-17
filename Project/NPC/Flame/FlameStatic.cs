@@ -24,7 +24,7 @@ namespace Project.NPC.Flame
 
         public void Update(GameTime gameTime)
         {
-            sprite.Update();
+            sprite.Update(gameTime);
             
         }
     }

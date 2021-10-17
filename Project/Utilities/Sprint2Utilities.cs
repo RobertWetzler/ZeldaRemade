@@ -1,17 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Project.Factory;
-using Project.NPC.Bat;
-using Project.NPC.BigJelly;
-using Project.NPC.Dinosaur;
-using Project.NPC.Dragon;
-using Project.NPC.Goriya;
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
-using Project.NPC.Skeleton;
-using Project.NPC.SmallJelly;
-using Project.NPC.Trap;
 using Project.NPC.Flame;
-using Project.NPC.Snake;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
@@ -119,18 +110,8 @@ namespace Project.Utilities
         public static void SetNPCList(List<INPC> npcsList)
         {
             npcsList.Add(new Flame());
-            npcsList.Add(new Bat());
-            npcsList.Add(new Skeleton());
-            npcsList.Add(new SmallJelly());
-            npcsList.Add(new BigJelly());
-            npcsList.Add(new Goriya());
-            npcsList.Add(new Trap());
             npcsList.Add(new OldMan());
             npcsList.Add(new Merchant());
-            npcsList.Add(new Dragon());
-            npcsList.Add(new WallMaster());
-            npcsList.Add(new Dinosaur());
-            npcsList.Add(new Snake());
         }
     }
 }

@@ -9,6 +9,8 @@ namespace Project
         private Texture2D goriyaSpriteSheet;
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
+        private int animationCounter = 0;
+        private int animationDelay = 100;
 
         public GoriyaWalkLeftSprite(Texture2D goriyaSpriteSheet, List<Rectangle> sourceFrames)
         {
@@ -25,10 +27,15 @@ namespace Project
             spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            currentFrame++;
-            currentFrame %= sourceFrames.Count;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                currentFrame++;
+                currentFrame %= sourceFrames.Count;
+            }
         }
     }
 }
