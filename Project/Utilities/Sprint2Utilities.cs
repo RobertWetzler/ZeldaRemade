@@ -3,16 +3,15 @@ using Project.Factory;
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
-using Project.Sprites.BlockSprites;
-using Project.Sprites.ItemSprites;
 using System.Collections.Generic;
 using Project.Items;
+using Microsoft.Xna.Framework;
 
 namespace Project.Utilities
 {
     public static class Sprint2Utilities
     {
-        public static void SetBlockList(List<IBlockSprite> blocks)
+        public static void SetBlockList(List<ISprite> blocks)
         {
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
             blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
@@ -109,9 +108,10 @@ namespace Project.Utilities
         }
         public static void SetNPCList(List<INPC> npcsList)
         {
-            npcsList.Add(new Flame());
-            npcsList.Add(new OldMan());
-            npcsList.Add(new Merchant());
+            Vector2 pos = new Vector2(400, 100);
+            npcsList.Add(new Flame(pos));
+            npcsList.Add(new OldMan(pos));
+            npcsList.Add(new Merchant(pos));
         }
     }
 }

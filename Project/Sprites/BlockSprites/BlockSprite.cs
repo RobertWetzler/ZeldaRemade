@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Project.Sprites.BlockSprites
 {
-    class BlockSprite : IBlockSprite
+    class BlockSprite : ISprite
     {
         private Texture2D blockSpriteSheet;
         private int sheetRows;
@@ -22,7 +22,7 @@ namespace Project.Sprites.BlockSprites
             this.spriteRow = blockRow;
             this.spriteColumn = blockCol;
         }
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int width = blockSpriteSheet.Width / sheetColumns;
             int height = blockSpriteSheet.Height / sheetRows;
@@ -30,6 +30,10 @@ namespace Project.Sprites.BlockSprites
             Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
             Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(blockSpriteSheet, dest, source, Color.White);
+        }
+
+        public void Update(GameTime gameTime)
+        {
         }
     }
 }

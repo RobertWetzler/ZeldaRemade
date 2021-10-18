@@ -8,7 +8,7 @@ namespace Project.Items
     class BlueBoomerang : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public BlueBoomerang()

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    class SkeletonSprite : IEnemySprite
+    class SkeletonSprite : ISprite
     {
         private Texture2D spriteSheet;
         private bool flipSprite;
@@ -15,11 +15,11 @@ namespace Project
             this.spriteSheet = spriteSheet;
             flipSprite = false;
         }
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = new Rectangle(0, 0, spriteSheet.Width, spriteSheet.Height);
             Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
+                (int)position.X, (int)position.Y,
                 spriteSheet.Width * 3, spriteSheet.Height * 3);
             if (flipSprite)
             {

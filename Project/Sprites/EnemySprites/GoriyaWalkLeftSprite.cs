@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class GoriyaWalkLeftSprite : IEnemySprite
+    class GoriyaWalkLeftSprite : ISprite
     {
         private Texture2D goriyaSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -18,11 +18,11 @@ namespace Project
             this.sourceFrames = sourceFrames;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
             Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
+                (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
             spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
         }

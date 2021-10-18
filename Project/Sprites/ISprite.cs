@@ -5,9 +5,12 @@ namespace Project
 {
     public interface ISprite
     {
-        Texture2D texture { set; }
-        void Update(Rectangle windowBounds, GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        void Update(GameTime gameTime);
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            Draw(spriteBatch, position, Color.White);
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color);
 
     }
 }

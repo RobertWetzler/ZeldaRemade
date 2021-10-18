@@ -11,20 +11,17 @@ namespace Project
     {
 
         private IEnemyState currentState;
-        private float xpos;
-        private float ypos;
-        private IEnemySprite sprite;
+        private Vector2 position;
+        private ISprite sprite;
         private float velocity;
 
-        public float XPos { get => xpos; set => xpos = value; }
-        public float YPos { get => ypos; set => ypos = value; }
-        public IEnemySprite EnemySprite { get => this.sprite; set => this.sprite = value; }
+        public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
+        public Vector2 Position { get => position; set => position = value; }
 
-        public Trap(float xPos, float yPos)
+        public Trap(Vector2 pos)
         {
-            this.xpos = xPos;
-            this.ypos = yPos;
+            this.position = pos;
             this.velocity = 50f;
             this.sprite = EnemySpriteFactory.Instance.CreateTrapSprite();
 
@@ -61,7 +58,7 @@ namespace Project
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, xpos, ypos);
+            sprite.Draw(spriteBatch, position);
         }
     }
 

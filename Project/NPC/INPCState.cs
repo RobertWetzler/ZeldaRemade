@@ -5,7 +5,7 @@ namespace Project
 {
     public interface INPCState
     {
-        void Draw(SpriteBatch spriteBatch, float xPos, float yPos);
+        void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update(GameTime gameTime);
     }
 }

@@ -19,7 +19,7 @@ namespace Project
 
         //List of sprites to cycle thru
         private List<IItems> items;
-        private List<IBlockSprite> blocks;
+        private List<ISprite> blocks;
         private List<INPC> npcsList;
         private IEnemy enemy;
 
@@ -66,7 +66,7 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             //Set List for blocks, items, and NPCs
-            blocks = new List<IBlockSprite>();
+            blocks = new List<ISprite>();
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
@@ -78,7 +78,8 @@ namespace Project
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
 
-            enemy = new Goriya(400, 100, Facing.Left);
+            Vector2 pos = new Vector2(400, 100);
+            enemy = new Dragon(pos);
 
         }
 

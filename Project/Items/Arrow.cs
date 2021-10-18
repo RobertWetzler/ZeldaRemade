@@ -8,7 +8,7 @@ namespace Project.Items
     class Arrow : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Arrow()

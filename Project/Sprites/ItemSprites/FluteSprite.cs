@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.ItemSprites
 {
-    class FluteSprite : IItemSprite
+    class FluteSprite : ISprite
     {
         private int sheetRows;
         private int sheetColumns;
@@ -23,7 +23,7 @@ namespace Project.Sprites.ItemSprites
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;

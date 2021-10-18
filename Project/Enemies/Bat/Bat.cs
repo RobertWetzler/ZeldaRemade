@@ -12,20 +12,17 @@ namespace Project
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
         private IEnemyState currentState;
-        private float xpos;
-        private float ypos;
-        private IEnemySprite sprite;
+        private Vector2 position;
+        private ISprite sprite;
         private float velocity;
         private Random rand;
-        public float XPos { get => xpos; set => xpos = value; }
-        public float YPos { get => ypos; set => ypos = value; }
-        public IEnemySprite EnemySprite { get => this.sprite; set => this.sprite = value; }
+        public Vector2 Position { get => position; set => position = value; }
+        public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
 
-        public Bat(float xPos, float yPos)
+        public Bat(Vector2 position)
         {
-            this.xpos = xPos;
-            this.ypos = yPos;
+            this.position = position;
             this.velocity = 50f;
             this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
             this.rand = new Random();
@@ -95,22 +92,7 @@ namespace Project
                         break;
                 }
             }
-            if ((int)this.xpos < windowBounds.Left)
-            {
-                ChangeDirection(EnemyDirections.East);
-            }
-            else if ((int)this.ypos < windowBounds.Top)
-            {
-                ChangeDirection(EnemyDirections.South);
-            }
-            else if ((int)this.xpos > windowBounds.Right)
-            {
-                ChangeDirection(EnemyDirections.West);
-            }
-            else if ((int)this.ypos > windowBounds.Bottom)
-            {
-                ChangeDirection(EnemyDirections.North);
-            }
+
             currentState.Update(gameTime);
             
 
@@ -118,7 +100,7 @@ namespace Project
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, xpos, ypos);
+            sprite.Draw(spriteBatch, position);
         }
     }
 

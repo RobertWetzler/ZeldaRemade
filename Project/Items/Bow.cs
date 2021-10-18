@@ -8,7 +8,7 @@ namespace Project.Items
     class Bow : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Bow()

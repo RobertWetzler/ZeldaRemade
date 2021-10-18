@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class SnakeEnemySprite : IEnemySprite
+    class SnakeEnemySprite : ISprite
     {
         private Texture2D snakeSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -29,11 +29,11 @@ namespace Project
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
             Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
+                (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
             spriteBatch.Draw(snakeSpriteSheet, destination, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
         }

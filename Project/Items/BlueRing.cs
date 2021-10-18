@@ -8,7 +8,7 @@ namespace Project.Items
     class BlueRing : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public BlueRing()

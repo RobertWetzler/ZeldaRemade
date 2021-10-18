@@ -8,7 +8,7 @@ namespace Project.Items
     class Compass : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Compass()

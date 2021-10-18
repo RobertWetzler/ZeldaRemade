@@ -8,7 +8,7 @@ namespace Project.Items
     class Key : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Key()

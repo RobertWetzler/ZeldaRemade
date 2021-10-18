@@ -7,7 +7,7 @@ namespace Project.NPC.OldMan
     class OldManStill : INPCState
     {
         private OldMan oldMan;
-        private IEnemySprite sprite;
+        private ISprite sprite;
 
 
         public OldManStill(OldMan oldMan)
@@ -15,9 +15,9 @@ namespace Project.NPC.OldMan
             this.oldMan = oldMan;
             sprite = NPCSpriteFactory.Instance.CreateOldManSprite();
         }
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 pos)
         {
-            sprite.Draw(spriteBatch, xPos, yPos);
+            sprite.Draw(spriteBatch, pos);
         }
         public void Update(GameTime gameTime)
         {

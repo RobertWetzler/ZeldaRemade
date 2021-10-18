@@ -54,11 +54,11 @@ namespace Project.Factory
 
         }
 
-        public IItemSprite CreateItemSprite(int spriteRow, int spriteColumn)
+        public ISprite CreateItemSprite(int spriteRow, int spriteColumn)
         {
             return new ItemSprite(itemSpriteSheet, 28, 25, spriteRow, spriteColumn);
         }
-        public IItemSprite CreateFairySprite()
+        public ISprite CreateFairySprite()
         {
             return new FairySprite(fairySpriteSheet, 1, 2);
         }
@@ -121,16 +121,16 @@ namespace Project.Factory
             return new LeftDownFireballSprite(fireballSpriteSheet, sourceFrames, position);
         }
 
-        public IItemSprite CreateRupeeSprite()
+        public ISprite CreateRupeeSprite()
         {
             return new RupeeSprite(rupeeSpriteSheet, 1, 2);
         }
 
-        public IItemSprite CreateHeartSprite()
+        public ISprite CreateHeartSprite()
         {
             return new HeartSprite(heartSpriteSheet, 1, 2);
         }
-        public IItemSprite CreateTriforceSprite()
+        public ISprite CreateTriforceSprite()
         {
             return new TriforceSprite(triforceSpriteSheet, 1, 2);
         }

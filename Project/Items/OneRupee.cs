@@ -8,7 +8,7 @@ namespace Project.Items
     class OneRupee : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public OneRupee()

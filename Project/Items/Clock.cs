@@ -8,7 +8,7 @@ namespace Project.Items
     class Clock : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Clock()

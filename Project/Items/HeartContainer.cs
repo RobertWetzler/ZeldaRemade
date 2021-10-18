@@ -8,7 +8,7 @@ namespace Project.Items
     class HeartContainer : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public HeartContainer()

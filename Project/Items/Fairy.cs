@@ -8,7 +8,7 @@ namespace Project.Items
     class Fairy : IItems
     {
   
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Fairy()

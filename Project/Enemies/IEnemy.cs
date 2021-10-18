@@ -13,9 +13,8 @@ namespace Project
      */
     public interface IEnemy : IEntity
     {
-        public float XPos { get; set; }
-        public float YPos { get; set; }
-        public IEnemySprite EnemySprite { get; set; }
+        public Vector2 Position { get; set; }
+        public ISprite EnemySprite { get; set; }
         public float Velocity { get; }
         void ChangeDirection(EnemyDirections direction);
         void SetState(IEnemyState state);

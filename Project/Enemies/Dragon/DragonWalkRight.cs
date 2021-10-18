@@ -22,7 +22,8 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            this.dragon.XPos += (float)(gameTime.ElapsedGameTime.TotalSeconds * this.dragon.Velocity);
+            this.dragon.Position = new Vector2((float)(gameTime.ElapsedGameTime.TotalSeconds * this.dragon.Velocity) + dragon.Position.X,
+                                                dragon.Position.Y);
         }
 
         public void UseWeapon()

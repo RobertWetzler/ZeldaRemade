@@ -8,7 +8,7 @@ namespace Project.Items
     class Ring : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Ring()

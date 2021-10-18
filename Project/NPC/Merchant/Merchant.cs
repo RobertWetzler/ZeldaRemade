@@ -8,19 +8,18 @@ namespace Project.NPC.Merchant
     class Merchant : INPC
     {
         public INPCState currentState;
-        public float xPos, yPos;
+        public Vector2 pos;
 
-        public Merchant()
+        public Merchant(Vector2 pos)
         {
+            this.pos = pos;
             currentState = new MerchantStill(this);
-            this.xPos = 400;
-            this.yPos = 100;
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            currentState.Draw(spriteBatch, xPos, yPos);
+            currentState.Draw(spriteBatch, pos);
         }
 
 

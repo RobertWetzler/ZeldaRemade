@@ -8,7 +8,7 @@ namespace Project.Items
     class Map : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
 
 
         public Map()
