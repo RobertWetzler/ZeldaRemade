@@ -21,6 +21,7 @@ namespace Project
         public float YPos { get => ypos; set => ypos = value; }
         public IEnemySprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
+        private Rectangle hitbox;
 
         public Bat(float xPos, float yPos)
         {
@@ -34,6 +35,7 @@ namespace Project
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
             currentState = new EnemyWalkEast(this);
+            hitbox = new Rectangle((int)xPos, (int)yPos, 0, 0);
 
         }
 
@@ -59,6 +61,7 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            hitbox = new Rectangle((int)xpos, (int)ypos, 100, 100);
             sprite.Update(gameTime);
             changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (changeDirectionCounter > timeToChangeDirection)
@@ -119,6 +122,11 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, xpos, ypos);
+        }
+
+        public Rectangle GetRectangle()
+        {
+            return hitbox;
         }
     }
 
