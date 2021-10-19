@@ -11,6 +11,7 @@ namespace Project
         private int currentFrame = 0;
         private int animationCounter;
         private int animationDelay;
+        public bool oneCycleFinished { get; private set; }
 
         public DragonSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames)
         {
@@ -18,6 +19,7 @@ namespace Project
             this.sourceFrames = sourceFrames;
             this.animationCounter = 0;
             this.animationDelay = 100;
+            oneCycleFinished = false;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
@@ -33,6 +35,10 @@ namespace Project
             {
                 animationCounter -= animationDelay;
                 currentFrame++;
+                if (currentFrame >= 2 && !oneCycleFinished)
+                {
+                    oneCycleFinished = true;
+                }
                 currentFrame %= sourceFrames.Count;
             }
 

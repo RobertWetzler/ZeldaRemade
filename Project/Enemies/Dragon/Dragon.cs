@@ -58,7 +58,6 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
 
-            sprite.Update(gameTime);
             if ((int)position.X < windowBounds.Left)
             {
                 ChangeDirection(EnemyDirections.East);
@@ -76,6 +75,8 @@ namespace Project
                 UseWeapon();
             }
 
+
+            sprite.Update(gameTime);
             currentState.Update(gameTime);
             foreach (IWeaponSprite fireball in fireballs)
             {

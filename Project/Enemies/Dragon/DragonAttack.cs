@@ -34,7 +34,13 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            ChangeDirection(EnemyDirections.East);
+            this.dragon.Position = new Vector2((float)(gameTime.ElapsedGameTime.TotalSeconds * this.dragon.Velocity) + dragon.Position.X,
+                                               dragon.Position.Y);
+            if (((DragonSprite)dragon.EnemySprite).oneCycleFinished)
+            {
+                ChangeDirection(EnemyDirections.East);
+            }
+
         }
 
         public void UseWeapon()
