@@ -16,7 +16,6 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private Random rand;
-        private Facing facingDirection;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -29,7 +28,7 @@ namespace Project
             this.rand = new Random();
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
-            facingDirection = Facing.Left;
+
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
             currentState = new SnakeWalkWest(this);
