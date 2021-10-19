@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 
-namespace Project.Items
+namespace Project.Blocks
 {
     class LeftFacingDragonBlock : IBlockSprite
     {
