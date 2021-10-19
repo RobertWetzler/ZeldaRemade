@@ -22,31 +22,17 @@ namespace Project
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => pos; set => pos = value; }
 
-        public Snake(Vector2 pos, Facing facing)
+        public Snake(Vector2 pos)
         {
             this.pos = pos;
             this.velocity = 50f;
             this.rand = new Random();
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
-            facingDirection = facing;
+            facingDirection = Facing.Left;
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
-            switch (this.facingDirection)
-            {
-                case Facing.Down:
-                    currentState = new SnakeWalkSouth(this);
-                    break;
-                case Facing.Left:
-                    currentState = new SnakeWalkWest(this);
-                    break;
-                case Facing.Right:
-                    currentState = new SnakeWalkEast(this);
-                    break;
-                case Facing.Up:
-                    currentState = new SnakeWalkNorth(this);
-                    break;
-            }
+            currentState = new SnakeWalkWest(this);
 
         }
 

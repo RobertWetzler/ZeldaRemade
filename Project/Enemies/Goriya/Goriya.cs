@@ -26,31 +26,17 @@ namespace Project
         public IWeaponSprite WeaponSprite { get => this.boomerang; set => this.boomerang = value; }
         public Vector2 Position { get => position; set => position = value; }
 
-        public Goriya(Vector2 position, Facing facingDirection)
+        public Goriya(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
             this.rand = new Random();
-            this.facingDirection = facingDirection;
+            this.facingDirection = Facing.Down;
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
-            switch (this.facingDirection)
-            {
-                case Facing.Down:
-                    currentState = new GoriyaWalkSouth(this);
-                    break;
-                case Facing.Left:
-                    currentState = new GoriyaWalkWest(this);
-                    break;
-                case Facing.Right:
-                    currentState = new GoriyaWalkEast(this);
-                    break;
-                case Facing.Up:
-                    currentState = new GoriyaWalkNorth(this);
-                    break;
-            }
+            currentState = new GoriyaWalkSouth(this);
 
         }
 

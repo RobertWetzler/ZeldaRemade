@@ -79,7 +79,7 @@ namespace Project
             CurrentNPCIndex = 0;
 
             Vector2 pos = new Vector2(400, 100);
-            enemy = new Dragon(pos);
+            enemy = new WallMaster(pos);
 
         }
 
