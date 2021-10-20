@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Goriya : IEnemy
+    class Goriya : IEnemy, ICollidable
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
@@ -25,7 +26,7 @@ namespace Project
         public float Velocity { get => this.velocity; }
         public IWeaponSprite WeaponSprite { get => this.boomerang; set => this.boomerang = value; }
         public Vector2 Position { get => position; set => position = value; }
-
+        public Rectangle BoundingBox => sprite.DestRectangle;
         public Goriya(Vector2 position)
         {
             this.position = position;

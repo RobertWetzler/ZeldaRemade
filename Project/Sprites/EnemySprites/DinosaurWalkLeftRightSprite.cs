@@ -11,6 +11,8 @@ namespace Project
         private int currentFrame = 0;
         private int animationCounter;
         private int animationDelay;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
 
         public DinosaurWalkLeftRightSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
         {
@@ -23,8 +25,8 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dinosaurSpriteSheet, destination, source, Color.White);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
+            spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, source, Color.White);
         }
         public void Update(GameTime gameTime)
         {

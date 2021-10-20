@@ -10,6 +10,7 @@ namespace Project.Items
 
         private ISprite sprite;
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public Compass()
         {

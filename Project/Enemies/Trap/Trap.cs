@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Trap : IEnemy
+    class Trap : IEnemy, ICollidable
     {
 
         private IEnemyState currentState;
@@ -18,7 +19,7 @@ namespace Project
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
-
+        public Rectangle BoundingBox => sprite.DestRectangle;
         public Trap(Vector2 pos)
         {
             this.position = pos;

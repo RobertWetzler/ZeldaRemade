@@ -14,6 +14,8 @@ namespace Project.Sprites.ItemSprites
         public int spriteColumn;
 
         private Texture2D spriteSheet;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
         public ItemSprite(Texture2D spriteSheet, int spriteWidth, int spriteHeight, int spriteRow, int spriteColumn)
         {
@@ -23,9 +25,6 @@ namespace Project.Sprites.ItemSprites
 
             this.spriteRow = spriteRow;
             this.spriteColumn = spriteColumn;
-
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
@@ -35,7 +34,7 @@ namespace Project.Sprites.ItemSprites
             int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Dragon : IEnemy
+    class Dragon : IEnemy, ICollidable
     {
         private int timeToAttack; 
         private int attackCounter;
@@ -25,6 +26,7 @@ namespace Project
         public IWeaponSprite TopFireball { get => this.topFireball; set => this.topFireball = value; }
         public IWeaponSprite MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
         public IWeaponSprite BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
+        public Rectangle BoundingBox => sprite.DestRectangle;
         public Vector2 Position { get => position; set => position = value; }
 
         public Dragon(Vector2 position)

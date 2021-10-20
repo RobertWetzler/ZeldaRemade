@@ -14,7 +14,9 @@ namespace Project.Sprites.PlayerSprites
         private int timeSinceLastFrame = 0;
         private int millisecondPerFrame = 500;     //frequency of animation
         private int currentSheet = 1;
-        private bool cycleOnce;
+        private bool cycleOnce; 
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
 
         public LinkUseItemSprite(Texture2D useItemSpriteSheet, Texture2D idleSpriteSheet, Facing facing)
         {
@@ -81,22 +83,22 @@ namespace Project.Sprites.PlayerSprites
                 int width = frameWidth[spriteOneColumn].spriteW;
                 int height = useItemSpriteSheet.Height / sheetRows;
                 Rectangle source = new Rectangle(frameWidth[spriteOneColumn].totalW, spriteRow * height, width, height);
-                Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+                destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
                 if (facingLeft)
-                    spriteBatch.Draw(useItemSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                    spriteBatch.Draw(useItemSpriteSheet, destRectangle, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 else
-                    spriteBatch.Draw(useItemSpriteSheet, dest, source, color);
+                    spriteBatch.Draw(useItemSpriteSheet, destRectangle, source, color);
             }
             else
             {
                 int width = frameWidth[spriteTwoColumn].spriteW;
                 int height = idleSpriteSheet.Height / sheetRows;
                 Rectangle source = new Rectangle(frameWidth[spriteTwoColumn].totalW, spriteRow * height, width, height);
-                Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+                destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
                 if (facingLeft)
-                    spriteBatch.Draw(idleSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                    spriteBatch.Draw(idleSpriteSheet, destRectangle, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
                 else
-                    spriteBatch.Draw(idleSpriteSheet, dest, source, color);
+                    spriteBatch.Draw(idleSpriteSheet, destRectangle, source, color);
             }
         }
     }

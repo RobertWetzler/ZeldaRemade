@@ -15,6 +15,7 @@ namespace Project.NPC.OldMan
             this.oldMan = oldMan;
             sprite = NPCSpriteFactory.Instance.CreateOldManSprite();
         }
+        public ISprite Sprite => sprite;
         public void Draw(SpriteBatch spriteBatch, Vector2 pos)
         {
             sprite.Draw(spriteBatch, pos);

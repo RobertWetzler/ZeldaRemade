@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using Project.Collision;
 
 namespace Project.NPC.Merchant
 
 {
-    class Merchant : INPC
+    class Merchant : INPC, ICollidable
     {
         public INPCState currentState;
         public Vector2 pos;
@@ -16,6 +16,8 @@ namespace Project.NPC.Merchant
             currentState = new MerchantStill(this);
 
         }
+
+        public Rectangle BoundingBox => currentState.Sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch)
         {

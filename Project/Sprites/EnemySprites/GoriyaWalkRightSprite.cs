@@ -11,7 +11,8 @@ namespace Project
         private int currentFrame = 0;
         private int animationDelay = 100;
         private int animationCounter = 0;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public GoriyaWalkRightSprite(Texture2D goriyaSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.goriyaSpriteSheet = goriyaSpriteSheet;
@@ -24,7 +25,7 @@ namespace Project
             Rectangle destination = new Rectangle(
                 (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(goriyaSpriteSheet, destRectangle, source, Color.White);
         }
 
         public void Update(GameTime gameTime)

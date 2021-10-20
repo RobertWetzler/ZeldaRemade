@@ -11,7 +11,8 @@ namespace Project
         private int currentFrame = 0;
         private int animationCounter;
         private int animationDelay;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public DragonSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.dragonSpriteSheet = dragonSpriteSheet;
@@ -23,8 +24,8 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dragonSpriteSheet, destination, source, Color.White);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
+            spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
         }
         public void Update(GameTime gameTime)
         {

@@ -15,6 +15,8 @@ namespace Project.Sprites.ItemSprites
 
 
         private Texture2D spriteSheet;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
         public TriforceSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
         {
@@ -23,10 +25,6 @@ namespace Project.Sprites.ItemSprites
             this.sheetRows = sheetRows;
 
             spriteRow = 0;
-
-
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
@@ -36,7 +34,7 @@ namespace Project.Sprites.ItemSprites
             int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(frame * width, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }

@@ -5,6 +5,7 @@ namespace Project
 {
     public interface ISprite
     {
+        public Rectangle DestRectangle { get; }
         void Update(GameTime gameTime);
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

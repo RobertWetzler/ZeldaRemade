@@ -18,6 +18,8 @@ namespace Project.Items
 
         }
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             sprite.Draw(spriteBatch, position);

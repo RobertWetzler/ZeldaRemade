@@ -13,7 +13,8 @@ namespace Project
         private bool flipped = false;
         private int animationCounter;
         private int animationDelay;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
 
 
         public FlameEnemySprite(Texture2D flameSpriteSheet, List<Rectangle> sourceFrames)
@@ -30,10 +31,10 @@ namespace Project
             int scale = 4;
 
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle((int)position.X, (int)position.Y, source.Width * scale, source.Height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * scale, source.Height * scale);
             
             SpriteEffects effects = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;    
-            spriteBatch.Draw(flameSpriteSheet, destination, source, Color.White, 0f, Vector2.Zero, effects, 0f);
+            spriteBatch.Draw(flameSpriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, effects, 0f);
          
 
 

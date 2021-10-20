@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Bat : IEnemy
+    class Bat : IEnemy, ICollidable
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
@@ -19,7 +20,7 @@ namespace Project
         public Vector2 Position { get => position; set => position = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
-
+        public Rectangle BoundingBox => sprite.DestRectangle;
         public Bat(Vector2 position)
         {
             this.position = position;
