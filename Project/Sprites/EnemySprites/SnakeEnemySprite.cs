@@ -13,7 +13,8 @@ namespace Project
         SpriteEffects spriteEffects;
         private int animationCounter = 0;
         private int animationDelay = 100;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public SnakeEnemySprite(Texture2D snakeSpriteSheet, List<Rectangle> sourceFrames, Facing dir)
         {
             this.snakeSpriteSheet = snakeSpriteSheet;
@@ -32,10 +33,10 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle(
+            destRectangle = new Rectangle(
                 (int)xPos, (int)yPos,
                 source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(snakeSpriteSheet, destination, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
+            spriteBatch.Draw(snakeSpriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
         }
 
         public void Update(GameTime gameTime)

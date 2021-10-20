@@ -11,6 +11,8 @@ namespace Project.Sprites.PlayerSprites
         private int sheetRows, spriteRow, spriteColumn;
         private List<(int spriteW, int totalW)> frameWidth;
         private bool facingLeft, finished;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public LinkIdleSprite(Texture2D playerSpriteSheet, Facing facing)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -61,11 +63,11 @@ namespace Project.Sprites.PlayerSprites
             int scale = 4;
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             if (facingLeft)
-                spriteBatch.Draw(playerSpriteSheet, dest, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
             else
-                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
         }
     }
 }

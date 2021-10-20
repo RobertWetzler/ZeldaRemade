@@ -11,6 +11,8 @@ namespace Project.Sprites.ItemSprites
         private int spriteColumn;
 
         private Texture2D spriteSheet;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
         public FluteSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
         {
@@ -30,7 +32,7 @@ namespace Project.Sprites.ItemSprites
             int scale = 2;
 
             Rectangle spriteRectangle = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }

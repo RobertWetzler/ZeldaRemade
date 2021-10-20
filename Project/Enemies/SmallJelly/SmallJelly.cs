@@ -22,6 +22,8 @@ namespace Project
         public IEnemySprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
         public SmallJelly(float xPos, float yPos)
         {
             this.xpos = xPos;

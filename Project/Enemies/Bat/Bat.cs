@@ -23,6 +23,8 @@ namespace Project
         public float Velocity { get => this.velocity; }
         private Rectangle hitbox;
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
         public Bat(float xPos, float yPos)
         {
             this.xpos = xPos;
