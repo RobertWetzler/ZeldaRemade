@@ -16,14 +16,14 @@ namespace Project.Collision
     class AllCollisionHandler
     {
         private Dictionary<Tuple<Type, Type, CollisionSides>, Type> commandMap;
-        private HashSet<Tuple<Type, Type, CollisionSides>> keySet;
+ 
 
 
         public AllCollisionHandler()
         {
             commandMap = new Dictionary<Tuple<Type, Type, CollisionSides>, Type>();
             BuildDictionary();
-            keySet = new HashSet<Tuple<Type, Type, CollisionSides>>(commandMap.Keys);
+          
 
         }
 
