@@ -6,6 +6,8 @@ namespace Project
 {
     class GenericEnemySprite : IEnemySprite
     {
+        private int animationDelay; //animation speed
+        private int animationCounter;
         private Texture2D spriteSheet;
         private List<Rectangle> sourceFrames;
         private int my_frame_index = 0;
@@ -14,6 +16,8 @@ namespace Project
         {
             this.spriteSheet = spriteSheet;
             this.sourceFrames = sourceFrames;
+            animationCounter = 0;
+            animationDelay = 100;
         }
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
@@ -25,10 +29,16 @@ namespace Project
             spriteBatch.Draw(spriteSheet, destination, source, Color.White);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            my_frame_index++;
-            my_frame_index %= sourceFrames.Count;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                my_frame_index++;
+                my_frame_index %= sourceFrames.Count;
+            }
+
         }
     }
 }

@@ -7,6 +7,9 @@ namespace Project
     {
         private Texture2D spriteSheet;
         private bool flipSprite;
+        private int animationCounter = 0;
+        private int animationDelay = 100;
+
         public SkeletonSprite(Texture2D spriteSheet)
         {
             this.spriteSheet = spriteSheet;
@@ -29,9 +32,15 @@ namespace Project
 
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            flipSprite = flipSprite ? false : true;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                flipSprite = !flipSprite;
+            }
+
         }
     }
 }

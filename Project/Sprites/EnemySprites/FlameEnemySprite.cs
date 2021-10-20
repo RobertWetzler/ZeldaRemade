@@ -11,16 +11,18 @@ namespace Project
         private List<Rectangle> sourceFrames;
         private int currentFrame;
         private bool flipped = false;
-        private int timer;
+        private int animationCounter;
+        private int animationDelay;
 
-      
+
 
         public FlameEnemySprite(Texture2D flameSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.flameSpriteSheet = flameSpriteSheet;
             this.sourceFrames = sourceFrames;
-
-         
+            this.currentFrame = 0;
+            this.animationDelay = 100;
+            this.animationCounter = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
@@ -37,12 +39,13 @@ namespace Project
 
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            if (++timer % 10 == 0)
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
             {
+                animationCounter -= animationDelay;
                 flipped = flipped ? false : true;
-                timer = 0;
             }
 
         }

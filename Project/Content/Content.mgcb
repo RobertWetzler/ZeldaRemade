@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Blocks/blocks_sheet.png
+#begin Blocks/blocks_spritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,7 +23,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Blocks/blocks_sheet.png
+/build:Blocks/blocks_spritesheet.png
 
 #begin EnemySprites/boomerang.png
 /importer:TextureImporter

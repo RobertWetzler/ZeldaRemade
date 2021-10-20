@@ -8,6 +8,9 @@ namespace Project
         private Texture2D goriyaSpriteSheet;
         private Rectangle sourceFrame;
         private bool flipSprite = false;
+        private int animationCounter = 0;
+        private int animationDelay = 100;
+
         public GoriyaWalkUpDownSprite(Texture2D goriyaSpriteSheet, Rectangle sourceFrame)
         {
             this.goriyaSpriteSheet = goriyaSpriteSheet;
@@ -29,9 +32,15 @@ namespace Project
             }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            flipSprite = flipSprite ? false : true;
+            animationCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (animationCounter > animationDelay)
+            {
+                animationCounter -= animationDelay;
+                flipSprite = !flipSprite;
+            }
+         
         }
     }
 }
