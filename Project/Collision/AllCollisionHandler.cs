@@ -9,16 +9,17 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Project.NPC;
+using Project.Items;
 
-namespace Project.CollisionHandler
+namespace Project.Collision
 {
-    class CollisionResponse
+    class AllCollisionHandler
     {
         private Dictionary<Tuple<Type, Type, CollisionSides>, Type> commandMap;
         private HashSet<Tuple<Type, Type, CollisionSides>> keySet;
        
 
-        public CollisionResponse()
+        public AllCollisionHandler()
         {
             commandMap = new Dictionary<Tuple<Type, Type, CollisionSides>, Type>();
             BuildDictionary();
@@ -39,13 +40,13 @@ namespace Project.CollisionHandler
             Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType };
 
             //Object Types
-            Type boomerangType = typeof(WeaponTypes);
-            Type bombType = typeof(WeaponTypes);
-            Type bowType = typeof(WeaponTypes);
+            Type boomerangType = typeof(Boomerang);
+            Type bombType = typeof(Bomb);
+            Type bowType = typeof(Bow);
             Type[] objectTypes = { boomerangType, bowType, bombType };
 
             // Weapon Types
-            Type[] weaponTypes = { typeof(WeaponTypes), typeof(WeaponTypes), typeof(WeaponTypes), typeof(WeaponTypes) };
+            Type[] weaponTypes = { typeof(Sword), typeof(Boomerang), typeof(Bomb), typeof(Bow) };
 
 
             
@@ -62,7 +63,7 @@ namespace Project.CollisionHandler
             }
         }
 
-        public ICommand parseConstructor(ICollider subject, ICollider target, CollisionSides side, Type commandType)
+        public ICommand parseConstructor(ICollidable subject, ICollidable target, CollisionSides side, Type commandType)
         {
             //Command has only the target type as parameter
             Type targetType = target.GetType();
@@ -104,18 +105,20 @@ namespace Project.CollisionHandler
             return commandClass;
         }
 
-        public void HandleCollision(ICollider subject, ICollider target, CollisionSides side)
+        public void HandleCollision(ICollidable subject, ICollidable target, CollisionSides side)
         {
             Type subjectType = subject.GetType();
             Type targetType = target.GetType();
             Tuple<Type, Type, CollisionSides> key = new Tuple<Type, Type, CollisionSides>(subjectType, targetType, side);
-            if (keySet.Contains(key))
+            if (commandMap.ContainsKey(key))
             {
                 Type commandType = commandMap[key];
                 Console.WriteLine(commandType);
                 ICommand commandClass = parseConstructor(subject, target, side, commandType);
 
-                if (commandClass != null) { commandClass.Execute(); }
+                if (commandClass != null) {
+                    commandClass.Execute();
+                }
             }
         }
     }
