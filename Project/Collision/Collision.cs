@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Project.Collision
 {
-    public class Collision
+    public enum CollisionSides
     {
-        public Collision()
-        {
-        }
+        Left,
+        Up,
+        Right,
+        Down
     }
 }
