@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
 	<link type="text/css" rel="stylesheet" id="dark-mode-custom-link"/>
 	<link type="text/css" rel="stylesheet" id="dark-mode-general-link"/>
@@ -23,7 +24,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Flame</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room1>
 		<Room2 Type="MyDataTypes.Room2ObjectData[]">
@@ -31,8 +32,8 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room2</ObjectName>
 				<Position>X Y</Position>
-			
-		</Object>
+
+			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Stairs</ObjectName>
@@ -118,22 +119,22 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>PyramidMoveable</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room3>
 		<Room4 Type="MyDataTypes.Room4ObjectData[]">
@@ -150,32 +151,32 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room4>
 		<Room5 Type="MyDataTypes.Room5ObjectData[]">
@@ -187,22 +188,22 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Key</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room5>
 		<Room6 Type="MyDataTypes.Room6ObjectData[]">
@@ -214,22 +215,22 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Key</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room6>
 		<Room7 Type="MyDataTypes.Room7ObjectData[]">
@@ -241,17 +242,17 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room7>
 		<Room8 Type="MyDataTypes.Room8ObjectData[]">
@@ -288,32 +289,32 @@
 			<Object>
 				<ObjectType>Object</ObjectType>
 				<ObjectName>Map</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room8>
 		<Room9 Type="MyDataTypes.Room9ObjectData[]">
@@ -345,32 +346,32 @@
 			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Key</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room9>
 		<Room10 Type="MyDataTypes.Room10ObjectData[]">
@@ -387,17 +388,17 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room10>
 		<Room11 Type="MyDataTypes.Room11ObjectData[]">
@@ -476,42 +477,42 @@
 			<Object>
 				<ObjectType>Object</ObjectType>
 				<ObjectName>Boomerang</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room12>
 		<Room13 Type="MyDataTypes.Room13ObjectData[]">
@@ -523,67 +524,67 @@
 			<Object>
 				<ObjectType>Object</ObjectType>
 				<ObjectName>Compass</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>X Y</Position>	
+				<Position>X Y</Position>
 			</Object>
 		</Room13>
 		<Room14 Type="MyDataTypes.Room14ObjectData[]">
