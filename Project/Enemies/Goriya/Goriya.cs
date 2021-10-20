@@ -28,6 +28,8 @@ namespace Project
         public float Velocity { get => this.velocity; }
         public IWeaponSprite WeaponSprite { get => this.boomerang; set => this.boomerang = value; }
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
         public Goriya(float xPos, float yPos, Facing facingDirection)
         {
             this.xpos = xPos;

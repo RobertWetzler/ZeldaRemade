@@ -13,6 +13,7 @@ namespace Project
      */
     public interface IEnemyState
     {
+
         void ChangeDirection(EnemyDirections direction);
         void UseWeapon();
         void Update(GameTime gameTime);
