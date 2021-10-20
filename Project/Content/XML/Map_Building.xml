@@ -1,0 +1,1032 @@
+<XnaContent>
+	<link type="text/css" rel="stylesheet" id="dark-mode-custom-link"/>
+	<link type="text/css" rel="stylesheet" id="dark-mode-general-link"/>
+	<style lang="en" type="text/css" id="dark-mode-custom-style"/>
+	<style lang="en" type="text/css" id="dark-mode-native-style"/>
+	<Asset Type="MyDataTypes.Level1ObjectData[]">
+		<Room1 Type="MyDataTypes.Room1ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room1</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>NPC</ObjectType>
+				<ObjectName>OldMan</ObjectName>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Flame</ObjectName>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Flame</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room1>
+		<Room2 Type="MyDataTypes.Room2ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room2</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Stairs</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Moveable</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Single</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Single</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+		</Room2>
+		<Room3 Type="MyDataTypes.Room3ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room3</ObjectName>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>ClosedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>PyramidMoveable</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room3>
+		<Room4 Type=MyDataTypes.Room3ObjectData[]>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>ClosedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room4>
+		<Room5 Type="MyDataTypes.Room5ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room5</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room5>
+		<Room6 Type="MyDataTypes.Room6ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room6</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room6>
+		<Room7 Type="MyDataTypes.Room7ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room7</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room7>
+		<Room8 Type="MyDataTypes.Room8ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room8</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>BombDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Object</ObjectType>
+				<ObjectName>Map</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room8>
+		<Room9 Type="MyDataTypes.Room9ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room9</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>BombDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room9>
+		<Room10 Type="MyDataTypes.Room10ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room10</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room10>
+		<Room11 Type="MyDataTypes.Room11ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room11</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>X Y </Position>
+			</Object>
+		</Room11>
+		<Room12 Type="MyDataTypes.Room12ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room12</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>BombDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Object</ObjectType>
+				<ObjectName>Boomerang</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room12>
+		<Room13 Type="MyDataTypes.Room13ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room13</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>BombDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Object</ObjectType>
+				<ObjectName>Compass</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>X Y</Position>	
+			</Object>
+		</Room13>
+		<Room14 Type="MyDataTypes.Room14ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room14</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+		</Room14>
+		<Room15 Type=MyDataTypes.Room15ObjectData[]>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room15</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>ClosedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle3</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle3</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>HeartContainer</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Dragon</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+		</Room15>
+		<Room16 Type="MyDataTypes.Room16ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room16</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>LockedDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+		</Room16>
+		<Room17 Type="MyDataTypes.Room17ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room17</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>OpenDoor</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle4</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Triforce</ObjectType>
+				<Position>X Y</Position>
+			</Object>
+		</Room17>
+	</Asset>
+</XnaContent>
