@@ -5,7 +5,7 @@ using Project.Collision;
 namespace Project.NPC.Merchant
 
 {
-    class Merchant : INPC, ICollidable
+    class Merchant : INPC
     {
         public INPCState currentState;
         public Vector2 pos;

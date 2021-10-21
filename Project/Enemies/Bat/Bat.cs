@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Bat : IEnemy, ICollidable
+    class Bat : IEnemy
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Dinosaur : IEnemy, ICollidable
+    class Dinosaur : IEnemy
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
