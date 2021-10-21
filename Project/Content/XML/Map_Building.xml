@@ -845,7 +845,7 @@
 			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Key</ObjectName>
-				<Position>6 8</Position>
+				<Position>8 6</Position>
 			</Object>
 		</Room16>
 		<Room17 Type="MyDataTypes.Room17ObjectData[]">
