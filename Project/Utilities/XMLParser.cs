@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Project.NPC.Flame;
+using Project.NPC.OldMan;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,13 +12,12 @@ namespace Project.Utilities
 {
     class XMLParser
     {
-        private XmlReader reader;
+
         private static int X_OFFSET = 16;
         private static int Y_OFFSET = 16;
         private static int BLOCK_WIDTH = 64;
         private XMLParser()
         {
-            reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml");
         }
         public static XMLParser instance = new XMLParser();
         public List<IEnemy> GetEnemiesFromRoom(string room)
@@ -24,37 +25,80 @@ namespace Project.Utilities
             List<IEnemy> enemies = new List<IEnemy>();
             IEnemy enemy;
 
-            reader.MoveToContent();
-            reader.ReadToFollowing(room);
-
-            while (reader.Read())
+            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
             {
-                if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
-                    && reader.ReadElementContentAsString() == "Enemy")
+                reader.MoveToContent();
+                reader.ReadToFollowing(room);
+
+                while (reader.Read())
                 {
-                    
-                    reader.Read();
-                    string enemyType = reader.ReadElementContentAsString();
-                    reader.Read();
-                    string strPos = reader.ReadElementContentAsString();
-                    float xPos = int.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
-                    float yPos = int.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
-                    xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
-                    yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
-                    enemy = GetEnemy(enemyType, new Vector2(xPos, yPos));
-                    enemies.Add(enemy);
-                    Debug.WriteLine(" Enemy " + enemyType + " in " + room + " at (" + xPos + ", " + yPos + ")");
-                }
-                else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
-                {
-                    return enemies;
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
+                        && reader.ReadElementContentAsString() == "Enemy")
+                    {
+
+                        reader.Read();
+                        string enemyType = reader.ReadElementContentAsString();
+                        reader.Read();
+                        string strPos = reader.ReadElementContentAsString();
+                        float xPos = int.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = int.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
+                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        enemy = GetEnemy(enemyType, new Vector2(xPos, yPos));
+                        enemies.Add(enemy);
+                        Debug.WriteLine(" Enemy " + enemyType + " in " + room + " at (" + xPos + ", " + yPos + ")");
+                    }
+                    else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
+                    {
+                        return enemies;
+                    }
                 }
             }
+
 
             return enemies;
         }
 
-        private IEnemy GetEnemy(string enemyStr, Vector2 pos)
+        public List<INPC> GetNPCSFromRoom(string room)
+        {
+            List<INPC> npcs = new List<INPC>();
+            INPC npc;
+
+            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
+            {
+                reader.MoveToContent();
+                reader.ReadToFollowing(room);
+
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
+                        && reader.ReadElementContentAsString() == "NPC")
+                    {
+
+                        reader.Read();
+                        string npcType = reader.ReadElementContentAsString();
+                        reader.Read();
+                        string strPos = reader.ReadElementContentAsString();
+                        float xPos = int.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = int.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
+                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        npc = GetNPC(npcType, new Vector2(xPos, yPos));
+                        npcs.Add(npc);
+                        Debug.WriteLine(" Enemy " + npcType + " in " + room + " at (" + xPos + ", " + yPos + ")");
+                    }
+                    else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
+                    {
+                        return npcs;
+                    }
+                }
+            }
+                
+
+            return npcs;
+        }
+
+        private static IEnemy GetEnemy(string enemyStr, Vector2 pos)
         {
             IEnemy enemy = null;
             switch (enemyStr)
@@ -82,6 +126,21 @@ namespace Project.Utilities
                     break;
             }
             return enemy;
+        }
+
+        private static INPC GetNPC(string npcStr, Vector2 pos)
+        {
+            INPC npc = null;
+            switch (npcStr)
+            {
+                case "OldMan":
+                    npc = new OldMan(pos);
+                    break;
+                case "Flame":
+                    npc = new Flame(pos);
+                    break;
+            }
+            return npc;
         }
     }
 }

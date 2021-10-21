@@ -24,6 +24,8 @@ namespace Project
         private List<INPC> npcsList;
         private IEnemy enemy;
         private List<IEnemy> enemies;
+        private List<INPC> npcs;
+
         public int ItemsListLength => items.Count;
         public int BlocksListLength => blocks.Count;
         public int NPCSListLength => npcsList.Count;
@@ -82,7 +84,8 @@ namespace Project
             Vector2 pos = new Vector2(400, 100);
             enemy = new WallMaster(pos);
 
-            enemies = XMLParser.instance.GetEnemiesFromRoom("Room12");
+            enemies = XMLParser.instance.GetEnemiesFromRoom("Room1");
+            npcs = XMLParser.instance.GetNPCSFromRoom("Room1");
         }
 
         protected override void Update(GameTime gameTime)
@@ -92,9 +95,9 @@ namespace Project
             {
                 controller.Update();
             }
-            foreach (IEnemy e in enemies)
+            foreach (INPC n in npcs)
             {
-                e.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+                n.Update(gameTime);
             }
             npcsList[CurrentNPCIndex].Update(gameTime);
             enemy.Update(new Rectangle(200, 50, 400, 200), gameTime);
@@ -117,9 +120,9 @@ namespace Project
             items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
             enemy.Draw(_spriteBatch, gameTime);
-            foreach (IEnemy e in enemies)
+            foreach (INPC n in npcs)
             {
-                e.Draw(_spriteBatch, gameTime);
+                n.Draw(_spriteBatch);
             }
             _spriteBatch.End();
 
