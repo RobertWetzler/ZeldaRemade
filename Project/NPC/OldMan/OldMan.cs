@@ -4,7 +4,7 @@ using Project.Collision;
 
 namespace Project.NPC.OldMan
 {
-    class OldMan : INPC, ICollidable
+    class OldMan : INPC
     {
         public INPCState currentState;
         public Vector2 pos;

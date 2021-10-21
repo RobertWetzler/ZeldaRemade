@@ -4,7 +4,7 @@ using Project.Collision;
 
 namespace Project.NPC.Flame
 {
-    class Flame : INPC, ICollidable
+    class Flame : INPC
     {
         public INPCState currentState;
         public Vector2 pos;
