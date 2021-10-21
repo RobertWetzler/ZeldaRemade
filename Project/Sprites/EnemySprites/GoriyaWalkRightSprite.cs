@@ -22,7 +22,7 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle(
+            destRectangle = new Rectangle(
                 (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
             spriteBatch.Draw(goriyaSpriteSheet, destRectangle, source, Color.White);
