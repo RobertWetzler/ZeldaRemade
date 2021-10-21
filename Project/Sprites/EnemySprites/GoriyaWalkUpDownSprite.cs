@@ -20,7 +20,7 @@ namespace Project
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Rectangle destination = new Rectangle(
+            destRectangle = new Rectangle(
                 (int)position.X, (int)position.Y,
                 sourceFrame.Width * 4, sourceFrame.Height * 4);
             if (flipSprite)
