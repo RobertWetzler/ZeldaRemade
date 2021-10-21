@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Trap : IEnemy, ICollidable
+    class Trap : IEnemy
     {
 
         private IEnemyState currentState;

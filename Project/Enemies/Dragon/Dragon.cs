@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Dragon : IEnemy, ICollidable
+    class Dragon : IEnemy
     {
         private int timeToAttack; 
         private int attackCounter;
