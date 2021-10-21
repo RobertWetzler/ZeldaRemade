@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+	<link type="text/css" rel="stylesheet" id="dark-mode-custom-link"/>
+	<link type="text/css" rel="stylesheet" id="dark-mode-general-link"/>
+	<style lang="en" type="text/css" id="dark-mode-custom-style"/>
+	<style lang="en" type="text/css" id="dark-mode-native-style"/>
+	<Asset Type="MyDataTypes.Level1ObjectData[]">
+		<Room1 Type="MyDataTypes.Room1ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room1</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>NPC</ObjectType>
+				<ObjectName>OldMan</ObjectName>
+				<Position>6 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>NPC</ObjectType>
+				<ObjectName>Flame</ObjectName>
+				<Position>2 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>NPC</ObjectType>
+				<ObjectName>Flame</ObjectName>
+				<Position>9 2</Position>
+			</Object>
+		</Room1>
+		<Room2 Type="MyDataTypes.Room2ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room2</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Stairs</ObjectName>
+				<Position>6 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Moveable</ObjectName>
+				<Position>4 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>5 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>5 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>6 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>6 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>11 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>0 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>11 6</Position>
+			</Object>
+		</Room2>
+		<Room3 Type="MyDataTypes.Room3ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room3</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>5 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>5 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>3 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Moveable</ObjectName>
+				<Position>5 3</Position>
+			</Object>
+		</Room3>
+		<Room4 Type="MyDataTypes.Room4ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room4</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>5 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>0 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>3 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>3 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>8 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>8 6</Position>
+			</Object>
+		</Room4>
+		<Room5 Type="MyDataTypes.Room5ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room5</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>1 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>3 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>8 6</Position>
+			</Object>
+		</Room5>
+		<Room6 Type="MyDataTypes.Room6ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room6</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle1</ObjectName>
+				<Position>1 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle1</ObjectName>
+				<Position>8 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle2</ObjectName>
+				<Position>3 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>6 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>8 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>6 1</Position>
+			</Object>
+		</Room6>
+		<Room7 Type="MyDataTypes.Room7ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room7</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle3</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle4</ObjectName>
+				<Position>0 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle4</ObjectName>
+				<Position>6 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>WaterRectangle3</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>2 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>3 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>10 1</Position>
+			</Object>
+		</Room7>
+		<Room8 Type="MyDataTypes.Room8ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room8</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>1 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>5 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>9 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>9 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Object</ObjectType>
+				<ObjectName>Map</ObjectName>
+				<Position>10 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>2 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>3 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>3 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>SmallJelly</ObjectName>
+				<Position>8 2</Position>
+			</Object>
+		</Room8>
+		<Room9 Type="MyDataTypes.Room9ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room9</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>6 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>4 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>7 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>6 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>3 4</Position>
+			</Object>
+		</Room9>
+		<Room10 Type="MyDataTypes.Room10ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room10</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>5 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>3 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>4 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>3 4</Position>
+			</Object>
+		</Room10>
+		<Room11 Type="MyDataTypes.Room11ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room11</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>1 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>1 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>4 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>4 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>4 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>7 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>10 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>7 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>10 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>7 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>10 5</Position>
+			</Object>
+		</Room11>
+		<Room12 Type="MyDataTypes.Room12ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room12</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Object</ObjectType>
+				<ObjectName>Boomerang</ObjectName>
+				<Position>6 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>0 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>7 4</Position>
+			</Object>
+		</Room12>
+		<Room13 Type="MyDataTypes.Room13ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room13</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Object</ObjectType>
+				<ObjectName>Compass</ObjectName>
+				<Position>3 10</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>3 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>6 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>6 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>8 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>8 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>10 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>10 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>11 3</Position>
+			</Object>
+		</Room13>
+		<Room14 Type="MyDataTypes.Room14ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room14</ObjectName>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>2 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>8 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>6 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>9 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>6 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>10 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>3 5</Position>
+			</Object>
+		</Room14>
+		<Room15 Type="MyDataTypes.Room15ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room15</ObjectName>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>10 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle2</ObjectName>
+				<Position>10 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>HeartContainer</ObjectName>
+				<Position>10 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Dragon</ObjectName>
+				<Position>8 3</Position>
+			</Object>
+		</Room15>
+		<Room16 Type="MyDataTypes.Room16ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room16</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>5 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>5 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Rectangle1</ObjectName>
+				<Position>5 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>3 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>3 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>3 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 3</Position>
+
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>2 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>3 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>9 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>11 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>0 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>0 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>11 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>WallMaster</ObjectName>
+				<Position>11 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Key</ObjectName>
+				<Position>6 8</Position>
+			</Object>
+		</Room16>
+		<Room17 Type="MyDataTypes.Room17ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room17</ObjectName>
+				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>4 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>3 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>1 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>2 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>3 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>4 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>5 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>6 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>10 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>9 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>8 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Pyramid</ObjectName>
+				<Position>7 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>7 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>LeftDragon</ObjectName>
+				<Position>8 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>4 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>RightDragon</ObjectName>
+				<Position>3 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Triforce</ObjectName>
+				<Position>5.5 3</Position>
+			</Object>
+		</Room17>
+	</Asset>
+</XnaContent>
