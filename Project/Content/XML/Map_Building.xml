@@ -96,7 +96,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Trap</ObjectName>
-				<Position>6 11</Position>
+				<Position>11 6</Position>
 			</Object>
 		</Room2>
 		<Room3 Type="MyDataTypes.Room3ObjectData[]">
