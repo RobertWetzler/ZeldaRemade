@@ -4,6 +4,7 @@ using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
+using Project.Utilities;
 using System;
 using System.Collections.Generic;
 
@@ -81,6 +82,7 @@ namespace Project
             Vector2 pos = new Vector2(400, 100);
             enemy = new WallMaster(pos);
 
+            XMLParser.instance.GetObjectsFromRoom("Room1");
         }
 
         protected override void Update(GameTime gameTime)
