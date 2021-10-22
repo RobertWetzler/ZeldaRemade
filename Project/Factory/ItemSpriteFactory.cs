@@ -21,6 +21,7 @@ namespace Project.Factory
         private Texture2D rupeeSpriteSheet;
         private Texture2D triforceSpriteSheet;
         private Texture2D fireballSpriteSheet;
+        private Texture2D swordSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
 
@@ -51,6 +52,7 @@ namespace Project.Factory
             rupeeSpriteSheet = content.Load<Texture2D>("ItemSprites/rupee");
             fireballSpriteSheet = content.Load<Texture2D>("EnemySprites/dragon-fireballs");
             triforceSpriteSheet = content.Load<Texture2D>("ItemSprites/triforce");
+            swordSpriteSheet = content.Load<Texture2D>("ItemSprites/sword_throw");
 
         }
 
@@ -89,6 +91,10 @@ namespace Project.Factory
         public IWeaponSprite CreateFlameSprite(Facing facing, Vector2 position)
         {
             return new FlameSprite(flameSpriteSheet, 1, 1, facing, position);
+        }
+        public IWeaponSprite CreateSwordSprite(Facing facing, Vector2 position)
+        {
+            return new SwordThrowSprite(swordSpriteSheet, 1, 5, facing, position);
         }
 
         public IWeaponSprite CreateLeftUpFireballSprite(Vector2 position)
