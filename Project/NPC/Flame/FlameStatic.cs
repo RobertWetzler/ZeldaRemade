@@ -17,6 +17,8 @@ namespace Project.NPC.Flame
 
         }
 
+        public IEnemySprite Sprite => sprite;
+
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
             sprite.Draw(spriteBatch, xPos, yPos);

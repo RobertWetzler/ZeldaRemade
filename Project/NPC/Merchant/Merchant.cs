@@ -20,6 +20,8 @@ namespace Project.NPC.Merchant
 
         }
 
+        public Rectangle BoundingBox => currentState.Sprite.DestRectangle;
+
         public void Draw(SpriteBatch spriteBatch)
         {
             currentState.Draw(spriteBatch, xPos, yPos);

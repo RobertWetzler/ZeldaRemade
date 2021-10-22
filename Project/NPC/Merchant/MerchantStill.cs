@@ -14,6 +14,9 @@ namespace Project.NPC.Merchant
             this.merchant = merchant;
             sprite = NPCSpriteFactory.Instance.CreateMerchantSprite();
         }
+
+        public IEnemySprite Sprite => sprite;
+
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
             sprite.Draw(spriteBatch, xPos, yPos);

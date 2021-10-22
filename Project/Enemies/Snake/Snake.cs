@@ -25,6 +25,8 @@ namespace Project
         public IEnemySprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
         public Snake(float xPos, float yPos, Facing facing)
         {
             this.xpos = xPos;

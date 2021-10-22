@@ -30,6 +30,8 @@ namespace Project.Entities
             get => this.stateMachine;
         }
 
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
         public GreenLink(Game1 game)
         {
             this.game = game;
