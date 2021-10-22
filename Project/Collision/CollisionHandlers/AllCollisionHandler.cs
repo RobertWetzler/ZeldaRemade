@@ -12,6 +12,7 @@ using Project.NPC;
 using Project.Items;
 using Project.Collision.CollisionHandlers;
 using Project.Sprites.BlockSprites;
+using Project.Sprites.PlayerSprites;
 
 namespace Project.Collision
 {
@@ -48,18 +49,20 @@ namespace Project.Collision
             commandMap.Add(new Tuple<Type, Type>(playerType, typeof(BlockSprite)), new PlayerBlockCollisionHandler());
             foreach (Type enemyType in enemyTypes)
             {
-                commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(enemyType, playerType), new PlayerEnemyCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(typeof(Sword), enemyType), new EnemyPlayerCollisionHandler());
             }
+            
         }
 
 
-        public void HandleCollision(ICollidable subject, ICollidable target, CollisionSide side)
+        public void HandleCollision(ICollidable subject, ICollidable damage, CollisionSide side)
         {
-            Tuple<Type, Type> key = new Tuple<Type, Type>(subject.GetType(), target.GetType());
+            Tuple<Type, Type> key = new Tuple<Type, Type>(damage.GetType(), subject.GetType());
             if (commandMap.ContainsKey(key))
             {
                 ICollisionHandler handler = commandMap[key];
-                handler.HandleCollision(subject, target, side);
+                handler.HandleCollision(subject, damage, side);
             }
         }
     }
