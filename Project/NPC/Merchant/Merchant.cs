@@ -3,18 +3,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Project.NPC.Merchant
-
 {
     class Merchant : INPC
     {
         public INPCState currentState;
         public float xPos, yPos;
+        private int timeToSpawn, startTime;
 
         public Merchant()
         {
-            currentState = new MerchantStill(this);
             this.xPos = 400;
             this.yPos = 100;
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new NPCSpawning();
 
         }
 
@@ -27,6 +29,14 @@ namespace Project.NPC.Merchant
         public void Update(GameTime gameTime)
         {
             currentState.Update(gameTime);
+            if (currentState is NPCSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    currentState = new MerchantStill(this);
+                }
+            }
         }
     }
 

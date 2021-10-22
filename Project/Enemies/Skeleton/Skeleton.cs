@@ -11,6 +11,8 @@ namespace Project
     {
         private int timeToChangeDirection;//time to randomly change direction
         private int changeDirectionCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private float xpos;
         private float ypos;
@@ -27,14 +29,12 @@ namespace Project
             this.xpos = xPos;
             this.ypos = yPos;
             this.velocity = 50f;
-            this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
             this.rand = new Random();
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new EnemyWalkEast(this);
-
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new SkeletonSpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -60,6 +60,15 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is SkeletonSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
+                    currentState = new EnemyWalkEast(this);
+                }
+            }
             changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (changeDirectionCounter > timeToChangeDirection)
             {

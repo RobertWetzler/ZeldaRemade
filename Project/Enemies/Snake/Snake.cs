@@ -11,6 +11,8 @@ namespace Project
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private float xpos;
         private float ypos;
@@ -32,23 +34,9 @@ namespace Project
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
             facingDirection = facing;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            switch (this.facingDirection)
-            {
-                case Facing.Down:
-                    currentState = new SnakeWalkSouth(this);
-                    break;
-                case Facing.Left:
-                    currentState = new SnakeWalkWest(this);
-                    break;
-                case Facing.Right:
-                    currentState = new SnakeWalkEast(this);
-                    break;
-                case Facing.Up:
-                    currentState = new SnakeWalkNorth(this);
-                    break;
-            }
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new SnakeSpawning(this);
 
         }
 
@@ -75,6 +63,28 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is SnakeSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    switch (this.facingDirection)
+                    {
+                        case Facing.Down:
+                            currentState = new SnakeWalkSouth(this);
+                            break;
+                        case Facing.Left:
+                            currentState = new SnakeWalkWest(this);
+                            break;
+                        case Facing.Right:
+                            currentState = new SnakeWalkEast(this);
+                            break;
+                        case Facing.Up:
+                            currentState = new SnakeWalkNorth(this);
+                            break;
+                    }
+                }
+            }
             changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (changeDirectionCounter > timeToChangeDirection)
             {

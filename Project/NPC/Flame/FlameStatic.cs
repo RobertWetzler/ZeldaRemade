@@ -7,12 +7,12 @@ namespace Project.NPC.Flame
 {
     class FlameStatic : INPCState
     {
-       
+        private Flame flame;
         private IEnemySprite sprite;
 
         public FlameStatic(Flame flame)
         {
-
+            this.flame = flame;
             sprite = NPCSpriteFactory.Instance.CreateEnemyFlameSprite();
 
         }

@@ -13,6 +13,8 @@ namespace Project
     {
         private int timeToAttack; 
         private int attackCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private float xpos;
         private float ypos;
@@ -36,10 +38,9 @@ namespace Project
 
             timeToAttack = 3000;
             attackCounter = 0;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new DragonWalkLeft(this);
-
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new DragonSpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -64,8 +65,13 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
-
             sprite.Update(gameTime);
+            if (currentState is DragonSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                    currentState = new DragonWalkLeft(this);
+            }
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (attackCounter > timeToAttack)
             {

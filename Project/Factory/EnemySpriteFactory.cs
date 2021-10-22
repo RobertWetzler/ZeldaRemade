@@ -19,6 +19,7 @@ namespace Project.Factory
         private Texture2D wallmasterSpriteSheet;
         private Texture2D zolSpriteSheet;
         private Texture2D trapSpriteSheet;
+        private Texture2D bombSpriteSheet;
 
 
         private static EnemySpriteFactory instance = new EnemySpriteFactory();
@@ -47,7 +48,16 @@ namespace Project.Factory
             zolSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-zol");
             batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
             trapSpriteSheet = content.Load<Texture2D>("EnemySprites/trap");
+            bombSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_bomb_explosion");
+        }
 
+        public IEnemySprite CreateEnemySpawnSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(34, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            return new EnemySpawnSprite(bombSpriteSheet, sourceFrames);
         }
 
         public IEnemySprite CreateBatSprite()

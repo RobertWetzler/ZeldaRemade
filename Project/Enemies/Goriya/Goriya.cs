@@ -13,6 +13,8 @@ namespace Project
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
+        private int timeToSpawn; 
+        private int startTime;
         private IEnemyState currentState;
         private float xpos;
         private float ypos;
@@ -37,24 +39,9 @@ namespace Project
             this.facingDirection = facingDirection;
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            switch (this.facingDirection)
-            {
-                case Facing.Down:
-                    currentState = new GoriyaWalkSouth(this);
-                    break;
-                case Facing.Left:
-                    currentState = new GoriyaWalkWest(this);
-                    break;
-                case Facing.Right:
-                    currentState = new GoriyaWalkEast(this);
-                    break;
-                case Facing.Up:
-                    currentState = new GoriyaWalkNorth(this);
-                    break;
-            }
-
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new GoriyaSpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -81,6 +68,28 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if(currentState is GoriyaSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    switch (this.facingDirection)
+                    {
+                        case Facing.Down:
+                            currentState = new GoriyaWalkSouth(this);
+                            break;
+                        case Facing.Left:
+                            currentState = new GoriyaWalkWest(this);
+                            break;
+                        case Facing.Right:
+                            currentState = new GoriyaWalkEast(this);
+                            break;
+                        case Facing.Up:
+                            currentState = new GoriyaWalkNorth(this);
+                            break;
+                    }
+                }
+            }
             if (!(currentState is GoriyaUseItem))
             {
                 changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;

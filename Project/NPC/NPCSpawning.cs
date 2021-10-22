@@ -1,26 +1,27 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using System;
 
-namespace Project.NPC.Merchant
+namespace Project.NPC
 {
-    class MerchantStill : INPCState
+    class NPCSpawning : INPCState
     {
-        private Merchant merchant;
         private IEnemySprite sprite;
 
-        public MerchantStill(Merchant merchant)
+        public NPCSpawning()
         {
-            this.merchant = merchant;
-            sprite = NPCSpriteFactory.Instance.CreateMerchantSprite();
+            sprite = EnemySpriteFactory.Instance.CreateEnemySpawnSprite();
         }
+
         public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
         {
             sprite.Draw(spriteBatch, xPos, yPos);
         }
+
         public void Update(GameTime gameTime)
         {
-
+            sprite.Update(gameTime);
         }
     }
 }

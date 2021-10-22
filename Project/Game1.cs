@@ -78,7 +78,11 @@ namespace Project
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
 
-            enemy = new Goriya(400, 100, Facing.Left);
+            //enemy = new Goriya(400, 300, Facing.Left);
+            //enemy = new Bat(400, 300);
+            //enemy = new BigJelly(400, 300);
+            //enemy = new Snake(400, 300, Facing.Left);
+            enemy = new WallMaster(400, 300);
 
         }
 
