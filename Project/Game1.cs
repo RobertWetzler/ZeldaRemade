@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
@@ -26,6 +27,8 @@ namespace Project
         private List<IEnemy> enemies;
         private List<INPC> npcs;
         private List<(IItems, Vector2)> itemAndPos;
+
+        public CollisionIterator collisionIterator;
 
         public int ItemsListLength => items.Count;
         public int BlocksListLength => blocks.Count;
@@ -82,8 +85,8 @@ namespace Project
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
 
-            Vector2 pos = new Vector2(400, 100);
-            enemy = new WallMaster(pos);
+            //collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
+
 
             enemies = XMLParser.instance.GetEnemiesFromRoom("Room3");
             npcs = XMLParser.instance.GetNPCSFromRoom("Room1");
@@ -92,7 +95,7 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-
+            //collisionIterator.UpdateCollisions();
             foreach (IController controller in controllers)
             {
                 controller.Update();
@@ -111,12 +114,11 @@ namespace Project
             }
 
             npcsList[CurrentNPCIndex].Update(gameTime);
-            enemy.Update(new Rectangle(200, 50, 400, 200), gameTime);
+  
 
             items[CurrentItemIndex].Update(gameTime);
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
-   
             base.Update(gameTime);
         }
 
@@ -130,7 +132,7 @@ namespace Project
 
             items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
-            enemy.Draw(_spriteBatch, gameTime);
+      
             foreach (IEnemy n in enemies)
             {
                 n.Draw(_spriteBatch, gameTime);
