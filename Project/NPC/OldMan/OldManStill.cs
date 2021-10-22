@@ -9,7 +9,6 @@ namespace Project.NPC.OldMan
         private OldMan oldMan;
         private IEnemySprite sprite;
 
-
         public OldManStill(OldMan oldMan)
         {
             this.oldMan = oldMan;
