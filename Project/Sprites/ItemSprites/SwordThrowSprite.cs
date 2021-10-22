@@ -19,6 +19,10 @@ namespace Project.Sprites.ItemSprites
         private Vector2 position;
 
         private Texture2D spriteSheet;
+        private Rectangle destRectangle;
+
+        public Rectangle DestRectangle => destRectangle;
+
         //Texture, Rows, Columns
         public SwordThrowSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
         {
