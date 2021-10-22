@@ -9,11 +9,11 @@ namespace Project.Items
     {
 
         private IItemSprite sprite;
+        private Vector2 position;
 
-
-        public BlueArrow()
+        public BlueArrow(Vector2 position)
         {
-
+            this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 1);
 
         }
@@ -22,7 +22,7 @@ namespace Project.Items
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            sprite.Draw(spriteBatch, position);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)

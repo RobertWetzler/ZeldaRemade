@@ -9,19 +9,19 @@ namespace Project.Items
     {
 
         private IItemSprite sprite;
-
+        private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public Clock()
+        public Clock(Vector2 position)
         {
-
+            this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 9);
 
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            sprite.Draw(spriteBatch, position);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)

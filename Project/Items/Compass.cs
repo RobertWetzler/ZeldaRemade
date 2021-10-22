@@ -9,12 +9,12 @@ namespace Project.Items
     {
 
         private IItemSprite sprite;
-
+        private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public Compass()
+        public Compass(Vector2 position)
         {
-
+            this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 9);
 
         }
