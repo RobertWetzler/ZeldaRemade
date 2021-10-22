@@ -81,7 +81,7 @@ namespace Project
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
 
-            enemy = new Goriya(400, 100, Facing.Left);
+            enemy = new Goriya(400, 300, Facing.Left);
             collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
         }
 
