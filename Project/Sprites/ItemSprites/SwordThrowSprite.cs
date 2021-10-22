@@ -71,7 +71,7 @@ namespace Project.Sprites.ItemSprites
             int scale = 4;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, 0, width, height);
-            Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
             
             if(!isFin)
                 spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
