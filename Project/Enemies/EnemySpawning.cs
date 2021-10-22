@@ -4,14 +4,13 @@ using Project.Factory;
 
 namespace Project
 {
-    class SmallJellySpawning : IEnemyState
+    class EnemySpawning : IEnemyState
     {
-        private SmallJelly smallJelly;
-
-        public SmallJellySpawning(SmallJelly smallJelly)
+        private IEnemy enemy;
+        public EnemySpawning(IEnemy enemy)
         {
-            this.smallJelly = smallJelly;
-            this.smallJelly.EnemySprite = EnemySpriteFactory.Instance.CreateEnemySpawnSprite();
+            this.enemy = enemy;
+            this.enemy.EnemySprite = EnemySpriteFactory.Instance.CreateEnemySpawnSprite();
         }
 
         public void ChangeDirection(EnemyDirections direction)

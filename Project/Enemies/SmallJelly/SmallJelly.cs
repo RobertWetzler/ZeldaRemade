@@ -36,7 +36,7 @@ namespace Project
             changeDirectionCounter = 0;
             startTime = 0;
             timeToSpawn = 600;
-            currentState = new SmallJellySpawning(this);
+            currentState = new EnemySpawning(this);
 
         }
 
@@ -63,7 +63,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is SmallJellySpawning)
+            if (currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (startTime > timeToSpawn)

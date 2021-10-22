@@ -31,7 +31,7 @@ namespace Project
             this.velocity = 50f;
             startTime = 0;
             timeToSpawn = 600;
-            currentState = new TrapSpawning(this);
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -57,7 +57,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is TrapSpawning)
+            if (currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (startTime > timeToSpawn)

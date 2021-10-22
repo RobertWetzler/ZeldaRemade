@@ -43,7 +43,7 @@ namespace Project
             changeDirectionCounter = 0;
             startTime = 0;
             timeToSpawn = 600;
-            currentState = new GoriyaSpawning(this);
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -70,7 +70,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if(currentState is GoriyaSpawning)
+            if(currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (startTime > timeToSpawn)

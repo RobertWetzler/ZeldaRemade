@@ -38,7 +38,7 @@ namespace Project
             facingDirection = facing;
             startTime = 0;
             timeToSpawn = 600;
-            currentState = new SnakeSpawning(this);
+            currentState = new EnemySpawning(this);
 
         }
 
@@ -65,7 +65,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is SnakeSpawning)
+            if (currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (startTime > timeToSpawn)
