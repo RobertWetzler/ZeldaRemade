@@ -26,33 +26,33 @@ namespace Project.Utilities
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
         }
 
-        public static void SetItemList(List<IItems> items)
+        public static void SetItemList(List<IItem> item)
         {
-            items.Add(new Fairy());
-            items.Add(new Arrow());
-            items.Add(new BlueArrow());
-            items.Add(new Boomerang());
-            items.Add(new BlueBoomerang());
-            items.Add(new Bomb());
-            items.Add(new Heart());
-            items.Add(new Bow());
-            items.Add(new Sword());
-            items.Add(new WhiteSword());
-            items.Add(new Meat());
-            items.Add(new Ring());
-            items.Add(new BlueRing());
-            items.Add(new Bottle());
-            items.Add(new BlueBottle());
-            items.Add(new HeartContainer());
-            items.Add(new Candle());
-            items.Add(new BlueCandle());
-            items.Add(new OneRupee());
-            items.Add(new FiveRupee());
-            items.Add(new Key());
-            items.Add(new Flute());
-            items.Add(new Clock());
-            items.Add(new Compass());
-            items.Add(new Map());
+            item.Add(new Fairy());
+            item.Add(new Arrow());
+            item.Add(new BlueArrow());
+            item.Add(new Boomerang());
+            item.Add(new BlueBoomerang());
+            item.Add(new Bomb());
+            item.Add(new Heart());
+            item.Add(new Bow());
+            item.Add(new Sword());
+            item.Add(new WhiteSword());
+            item.Add(new Meat());
+            item.Add(new Ring());
+            item.Add(new BlueRing());
+            item.Add(new Bottle());
+            item.Add(new BlueBottle());
+            item.Add(new HeartContainer());
+            item.Add(new Candle());
+            item.Add(new BlueCandle());
+            item.Add(new OneRupee());
+            item.Add(new FiveRupee());
+            item.Add(new Key());
+            item.Add(new Flute());
+            item.Add(new Clock());
+            item.Add(new Compass());
+            item.Add(new Map());
         }
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
