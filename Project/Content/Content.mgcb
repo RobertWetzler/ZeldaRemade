@@ -517,8 +517,3 @@
 /processorParam:TextureFormat=Color
 /build:PlayerSprites/link-walking.png
 
-#begin XML/Map_Building.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:XML/Map_Building.xml
-
