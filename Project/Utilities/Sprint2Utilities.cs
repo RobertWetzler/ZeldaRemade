@@ -4,13 +4,13 @@ using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
 using System.Collections.Generic;
-using Project.Items;
 using Microsoft.Xna.Framework;
 
 namespace Project.Utilities
 {
     public static class Sprint2Utilities
     {
+       
         public static void SetBlockList(List<ISprite> blocks)
         {
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
@@ -25,34 +25,6 @@ namespace Project.Utilities
             blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
         }
 
-        public static void SetItemList(List<IItems> items)
-        {
-            items.Add(new Fairy());
-            items.Add(new Arrow());
-            items.Add(new BlueArrow());
-            items.Add(new Boomerang());
-            items.Add(new BlueBoomerang());
-            items.Add(new Bomb());
-            items.Add(new Heart());
-            items.Add(new Bow());
-            items.Add(new Sword());
-            items.Add(new WhiteSword());
-            items.Add(new Meat());
-            items.Add(new Ring());
-            items.Add(new BlueRing());
-            items.Add(new Bottle());
-            items.Add(new BlueBottle());
-            items.Add(new HeartContainer());
-            items.Add(new Candle());
-            items.Add(new BlueCandle());
-            items.Add(new OneRupee());
-            items.Add(new FiveRupee());
-            items.Add(new Key());
-            items.Add(new Flute());
-            items.Add(new Clock());
-            items.Add(new Compass());
-            items.Add(new Map());
-        }
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();

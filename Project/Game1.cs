@@ -20,13 +20,13 @@ namespace Project
         private List<IController> controllers;
 
         //List of sprites to cycle thru
-        private List<IItems> items;
+
         private List<ISprite> blocks;
         private List<INPC> npcsList;
-        private IEnemy enemy;
+
         private List<IEnemy> enemies;
         private List<INPC> npcs;
-        private List<(IItems, Vector2)> itemAndPos;
+        private List<IItems> items;
 
         public CollisionIterator collisionIterator;
 
@@ -77,8 +77,7 @@ namespace Project
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
-            items = new List<IItems>();
-            Utilities.Sprint2Utilities.SetItemList(items);
+
             CurrentItemIndex = 0;
 
             npcsList = new List<INPC>();
@@ -90,7 +89,7 @@ namespace Project
 
             enemies = XMLParser.instance.GetEnemiesFromRoom("Room3");
             npcs = XMLParser.instance.GetNPCSFromRoom("Room1");
-            itemAndPos = XMLParser.instance.GetItemsFromRoom("Room5");
+            items = XMLParser.instance.GetItemsFromRoom("Room5");
         }
 
         protected override void Update(GameTime gameTime)
@@ -108,15 +107,14 @@ namespace Project
             {
                 n.Update(gameTime);
             }
-            foreach (var i in itemAndPos)
+            foreach (var i in items)
             {
-                i.Item1.Update(gameTime);
+                i.Update(gameTime);
             }
 
             npcsList[CurrentNPCIndex].Update(gameTime);
   
 
-            items[CurrentItemIndex].Update(gameTime);
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
@@ -130,7 +128,6 @@ namespace Project
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
 
-            items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
       
             foreach (IEnemy n in enemies)
@@ -141,9 +138,9 @@ namespace Project
             {
                 n.Draw(_spriteBatch);
             }
-            foreach (var i in itemAndPos)
+            foreach (var i in items)
             {
-                i.Item1.Draw(_spriteBatch, i.Item2);
+                i.Draw(_spriteBatch);
             }
             _spriteBatch.End();
 

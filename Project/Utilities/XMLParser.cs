@@ -99,9 +99,9 @@ namespace Project.Utilities
             return npcs;
         }
 
-        public List<(IItems, Vector2)> GetItemsFromRoom(string room)
+        public List<IItems> GetItemsFromRoom(string room)
         {
-            List<(IItems, Vector2)> items = new List<(IItems, Vector2)>();
+            List<IItems> items = new List<IItems>();
             IItems item;
 
             using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
@@ -123,8 +123,8 @@ namespace Project.Utilities
                         float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
                         yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
-                        item = GetItem(itemType);
-                        items.Add((item, new Vector2(xPos, yPos)));
+                        item = GetItem(itemType, new Vector2(xPos, yPos));
+                        items.Add(item);
                         Debug.WriteLine(" Item " + itemType + " in " + room + " at (" + xPos + ", " + yPos + ")");
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
@@ -181,19 +181,19 @@ namespace Project.Utilities
             return npc;
         }
 
-        private static IItems GetItem(string itemStr)
+        private static IItems GetItem(string itemStr, Vector2 pos)
         {
             IItems item = null;
             switch (itemStr)
             {
                 case "Key":
-                    item = new Key();
+                    item = new Key(pos);
                     break;
                 case "HeartContainer":
-                    item = new HeartContainer();
+                    item = new HeartContainer(pos);
                     break;
                 case "Triforce":
-                    item = new Triforce();
+                    item = new Triforce(pos);
                     break;
             }
             return item;
