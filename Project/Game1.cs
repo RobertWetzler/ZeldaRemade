@@ -85,7 +85,7 @@ namespace Project
             Vector2 pos = new Vector2(400, 100);
             enemy = new WallMaster(pos);
 
-            enemies = XMLParser.instance.GetEnemiesFromRoom("Room1");
+            enemies = XMLParser.instance.GetEnemiesFromRoom("Room3");
             npcs = XMLParser.instance.GetNPCSFromRoom("Room1");
             itemAndPos = XMLParser.instance.GetItemsFromRoom("Room5");
         }
@@ -96,6 +96,10 @@ namespace Project
             foreach (IController controller in controllers)
             {
                 controller.Update();
+            }
+            foreach (IEnemy n in enemies)
+            {
+                n.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             }
             foreach (INPC n in npcs)
             {
@@ -127,6 +131,10 @@ namespace Project
             items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
             enemy.Draw(_spriteBatch, gameTime);
+            foreach (IEnemy n in enemies)
+            {
+                n.Draw(_spriteBatch, gameTime);
+            }
             foreach (INPC n in npcs)
             {
                 n.Draw(_spriteBatch);
