@@ -64,9 +64,15 @@ namespace Project.Entities
         {
             sprite = stateMachine.StopMoving();
         }
-        public void UseSword()
+        public void UseSword(WeaponTypes weaponType)
         {
-            sprite = stateMachine.UseSword();
+            IWeaponSprite weapon = WeaponSpriteSelector.GetWeaponSprite(weaponType, stateMachine.facing, position);
+            (sprite, weapon) = stateMachine.UseSword(weapon); // only sets this.weaponSprite if the state machine allows it
+            if (weapon != null)
+            {
+                weaponSprites.Add(weapon);
+            }
+          
         }
 
         public void UseWeapon(WeaponTypes weaponType)
