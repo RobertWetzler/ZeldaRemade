@@ -21,6 +21,8 @@ namespace Project.Sprites.ItemSprites
         private Facing facing;
 
         private Texture2D spriteSheet;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
         public BoomerangSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
         {

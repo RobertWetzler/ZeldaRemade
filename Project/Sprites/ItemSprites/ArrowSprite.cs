@@ -22,6 +22,8 @@ namespace Project.Sprites.ItemSprites
         private Facing facing;
 
         private Texture2D spriteSheet;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
         public ArrowSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
         {
@@ -70,7 +72,7 @@ namespace Project.Sprites.ItemSprites
             int scale = 3;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }

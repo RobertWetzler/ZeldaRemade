@@ -13,7 +13,8 @@ namespace Project.Sprites.BlockSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteColumn;
-
+        private Rectangle destRectangle;
+        public Rectangle BoundingBox => destRectangle;
         public BlockSprite(Texture2D blockSpriteSheet, int sheetRows, int sheetColumns, int blockRow, int blockCol)
         {
             this.blockSpriteSheet = blockSpriteSheet;
@@ -28,8 +29,8 @@ namespace Project.Sprites.BlockSprites
             int height = blockSpriteSheet.Height / sheetRows;
             int scale = 4;
             Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-            spriteBatch.Draw(blockSpriteSheet, dest, source, Color.White);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            spriteBatch.Draw(blockSpriteSheet, destRectangle, source, Color.White);
         }
     }
 }

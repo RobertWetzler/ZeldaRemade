@@ -16,6 +16,8 @@ namespace Project.Sprites.PlayerSprites
         private int millisecondPerFrame = 100;      // frequency of animation
         private int totalFrame;
         private bool cycleOnce;
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
 
         public LinkUseSwordDownwardsSprite(Texture2D playerSpriteSheet)
         {
@@ -65,8 +67,8 @@ namespace Project.Sprites.PlayerSprites
             int width = frameWidth[spriteColumn].spriteW;
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-            spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
         }
     }
 }

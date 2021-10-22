@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.BlockSprites;
@@ -22,6 +23,8 @@ namespace Project
         private List<IBlockSprite> blocks;
         private List<INPC> npcsList;
         private IEnemy enemy;
+
+        public CollisionIterator collisionIterator;
 
         public int ItemsListLength => items.Count;
         public int BlocksListLength => blocks.Count;
@@ -79,12 +82,12 @@ namespace Project
             CurrentNPCIndex = 0;
 
             enemy = new Goriya(400, 100, Facing.Left);
-
+            collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
         }
 
         protected override void Update(GameTime gameTime)
         {
-
+            collisionIterator.UpdateCollisions();
             foreach (IController controller in controllers)
             {
                 controller.Update();
@@ -96,7 +99,6 @@ namespace Project
             items[CurrentItemIndex].Update(gameTime);
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
-   
             base.Update(gameTime);
         }
 
