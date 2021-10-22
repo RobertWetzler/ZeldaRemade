@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Clock : IItems
+    class Clock : IItem
     {
 
         private IItemSprite sprite;

@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Triforce: IItems
+    class Triforce: IItem
     {
 
         private IItemSprite sprite;

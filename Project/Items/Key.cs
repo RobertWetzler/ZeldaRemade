@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Key : IItems
+    class Key : IItem
     {
 
         private IItemSprite sprite;
