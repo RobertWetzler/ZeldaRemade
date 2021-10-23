@@ -14,7 +14,7 @@ namespace Project.Sprites.BlockSprites
         private int spriteRow;
         private int spriteColumn;
         private Rectangle destRectangle;
-        public Rectangle DestRectangle => destRectangle;
+        public Rectangle BoundingBox => destRectangle;
         public BlockSprite(Texture2D blockSpriteSheet, int sheetRows, int sheetColumns, int blockRow, int blockCol)
         {
             this.blockSpriteSheet = blockSpriteSheet;
@@ -31,6 +31,11 @@ namespace Project.Sprites.BlockSprites
             Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(blockSpriteSheet, destRectangle, source, Color.White);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
         }
     }
 }

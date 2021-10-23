@@ -1,18 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Sprites.BlockSprites;
 
-namespace Project.Items
+namespace Project.Blocks
 {
-    class Arrow : IItems
+    class BlackBlock : IBlock
     {
-        private IItemSprite sprite;
 
-        public Arrow()
+        private IBlockSprite sprite;
+        private Vector2 position;
+
+        public BlackBlock(Vector2 position)
         {
-
-            sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 0);
+            this.position = position;
+            sprite = BlockSpriteFactory.Instance.CreateBlackBlockSprite();
 
         }
 
@@ -20,7 +22,7 @@ namespace Project.Items
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            sprite.Draw(spriteBatch, position);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)

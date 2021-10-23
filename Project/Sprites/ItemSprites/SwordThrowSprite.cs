@@ -4,56 +4,59 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class BoomerangSprite : IWeaponSprite
+    class SwordThrowSprite : IWeaponSprite
     {
         private int sheetRows;
         private int sheetColumns;
-        private int spriteRow;
         private int spriteFrame;
-        private int xPos, yPos;
+        private float xPos, yPos;
         private int velocity;
 
-        private int directionHolder;
-        private float timer;
-        private bool isFin, flipped;
+      
+        private bool isFin;
 
+        private float timer;
         private Vector2 position;
-        private Facing facing;
 
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
+
         public Rectangle DestRectangle => destRectangle;
+
         //Texture, Rows, Columns
-        public BoomerangSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
+        public SwordThrowSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
         {
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-
-            this.facing = facing;
             this.position = position;
 
+            isFin = false;
+            velocity = 400;
 
-            spriteRow = 0;
-            velocity = 200;
+       
 
             switch (facing)
             {
                 case Facing.Up:
-                    directionHolder = 0;
-                    this.position.Y -= 50;
+                    spriteFrame = 3;
+                    this.position.Y -= 75;
+                    this.position.X -= 32;
                     break;
                 case Facing.Down:
-                    directionHolder = 1;
-                    this.position.Y += 50;
+                    spriteFrame = 2;
+                    this.position.Y += 60;
+                    this.position.X -= 25;
                     break;
                 case Facing.Left:
-                    directionHolder = 2;
-                    this.position.X -= 50;
+                    spriteFrame = 0;
+                    this.position.X -= 75;
+                    this.position.Y -= 13;
                     break;
                 case Facing.Right:
-                    directionHolder = 3;
-                    this.position.X += 50;
+                    spriteFrame = 1;
+                    this.position.X += 75;
+                    this.position.Y -= 13;
                     break;
                 default:
                     break;
@@ -63,45 +66,43 @@ namespace Project.Sprites.ItemSprites
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
             int scale = 4;
 
-            Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
+            Rectangle spriteRectangle = new Rectangle(spriteFrame * width, 0, width, height);
             destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
-          
-            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
-        
-          
+            
+            if(!isFin)
+                spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
 
-        }
-
-        public bool isFinished()
-        {
-            return isFin = timer > 3000? true : false;
         }
 
         public void Update(GameTime gameTime)
         {
-            isFin = timer > 3000 ? true : false;
+      
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
-            flipped = timer > 1500;
 
-            switch (directionHolder)
+            if (timer > 1000)
+                spriteFrame = 4;
+
+            switch (spriteFrame)
             {
-                case 0:
-                    yPos = flipped ? 1 : -1;
-                    break;
-                case 1:
-                    yPos = flipped ? -1 : 1;
+                case 3:
+                    yPos = -1;
                     break;
                 case 2:
-                    xPos = flipped ? 1 : -1;
+                    yPos = 1;
                     break;
-                case 3:
-                    xPos = flipped ? -1 : 1;
+                case 0:
+                    xPos = -1;
+                    break;
+                case 1:
+                    xPos = 1;
+                    break;
+                case 4:
+                    xPos = 0;
+                    yPos = 0;
                     break;
                 default:
                     break;
@@ -111,5 +112,11 @@ namespace Project.Sprites.ItemSprites
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
         }
+
+        public bool isFinished()
+        {
+            return isFin = timer > 1250 ? true : false;
+        }
     }
 }
+
