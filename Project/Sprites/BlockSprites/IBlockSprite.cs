@@ -6,9 +6,7 @@ namespace Project.Sprites.BlockSprites
 {
     public interface IBlockSprite: ICollidable
     {
-        Rectangle BoundingBox { get; }
-        Rectangle DestRectangle { get; }
-
+        public Rectangle DestRectangle { get; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update(GameTime gameTime);
     }

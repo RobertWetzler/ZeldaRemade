@@ -98,37 +98,12 @@
 				<ObjectName>Trap</ObjectName>
 				<Position>11 6</Position>
 			</Object>
-			<Object>
-				<ObjectType>Block</ObjectType>
-				<ObjectName>Single</ObjectName>
-				<Position>X Y </Position>
-			</Object>
-			<Object>
-				<ObjectType>Block</ObjectType>
-				<ObjectName>Single</ObjectName>
-				<Position>X Y </Position>
-			</Object>
 		</Room2>
 		<Room3 Type="MyDataTypes.Room3ObjectData[]">
 			<Object>
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room3</ObjectName>
 				<Position>0 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>ClosedDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>LockedDoor</ObjectType>
-				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
@@ -156,16 +131,6 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room4</ObjectName>
 				<Position>0 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>ClosedDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>LockedDoor</ObjectType>
-				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -208,11 +173,6 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room5</ObjectName>
 				<Position>0 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
@@ -326,26 +286,6 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>LockedDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>BombDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle1</ObjectName>
 				<Position>1 1</Position>
@@ -408,26 +348,6 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>BombDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
 				<Position>2 2</Position>
@@ -485,16 +405,6 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>LockedDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle2</ObjectName>
 				<Position>5 2</Position>
@@ -520,26 +430,6 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room11</ObjectName>
 				<Position>0 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>LockedDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -607,21 +497,6 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room12</ObjectName>
 				<Position>0 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>OpenDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>LockedDoor</ObjectType>
-				<Position>X Y</Position>
-			</Object>
-			<Object>
-				<ObjectType>Background</ObjectType>
-				<ObjectName>BombDoor</ObjectType>
-				<Position>X Y</Position>
 			</Object>
 			<Object>
 				<ObjectType>Object</ObjectType>
