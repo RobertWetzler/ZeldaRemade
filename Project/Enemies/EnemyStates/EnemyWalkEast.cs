@@ -44,7 +44,8 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            enemy.XPos += (float)(gameTime.ElapsedGameTime.TotalSeconds * enemy.Velocity);
+            enemy.Position = new Vector2((float)(gameTime.ElapsedGameTime.TotalSeconds * enemy.Velocity) + enemy.Position.X,
+                                        enemy.Position.Y);
         }
 
         public void UseWeapon()

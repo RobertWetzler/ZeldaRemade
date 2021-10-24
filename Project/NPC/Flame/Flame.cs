@@ -4,15 +4,14 @@ using Project.Collision;
 
 namespace Project.NPC.Flame
 {
-    class Flame : INPC, ICollidable
+    class Flame : INPC
     {
         public INPCState currentState;
-        public float xPos, yPos;
+        public Vector2 pos;
 
-        public Flame()
+        public Flame(Vector2 pos)
         {
-            xPos = 400;
-            yPos = 100;
+            this.pos = pos;
             currentState = new FlameStatic(this);
 
         }
@@ -21,7 +20,7 @@ namespace Project.NPC.Flame
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            currentState.Draw(spriteBatch, xPos, yPos);
+            currentState.Draw(spriteBatch, pos);
         }
 
         public void Update(GameTime gameTime)

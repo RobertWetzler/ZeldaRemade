@@ -12,6 +12,7 @@ using Project.NPC;
 using Project.Items;
 using Project.Collision.CollisionHandlers;
 using Project.Sprites.BlockSprites;
+using Project.Blocks;
 
 namespace Project.Collision
 {
@@ -45,7 +46,15 @@ namespace Project.Collision
             // Weapon Types
             Type[] weaponTypes = { typeof(Sword), typeof(Boomerang), typeof(Bomb), typeof(Bow) };
 
-            commandMap.Add(new Tuple<Type, Type>(playerType, typeof(BlockSprite)), new PlayerBlockCollisionHandler());
+            //Block Types
+            Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
+            typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), typeof(MoveableBlock), 
+            typeof(PlainBlock), typeof(PyramidBlock), typeof(Rectangle1), typeof(Rectangle2), typeof(RightFacingDragonBlock)};
+            foreach (var blockType in blockTypes)
+            {
+                commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
+            }
+            
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());

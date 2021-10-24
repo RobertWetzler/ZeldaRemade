@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 
 namespace Project
 {
-    public interface IEnemySprite
+    public interface IBlock : ICollidable
     {
-        Rectangle DestRectangle { get; }
-        void Draw(SpriteBatch spriteBatch, float xPos, float yPos);
+        void Draw(SpriteBatch spriteBatch);
         void Update(GameTime gameTime);
+
     }
 }

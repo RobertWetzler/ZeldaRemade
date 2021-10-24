@@ -50,59 +50,59 @@ namespace Project.Factory
 
         }
 
-        public IEnemySprite CreateBatSprite()
+        public ISprite CreateBatSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
             sourceFrames.Add(new Rectangle(17, 0, 16, 16));
             return new GenericEnemySprite(batSpriteSheet, sourceFrames);
         }
-        public IEnemySprite CreateSkeletonSprite()
+        public ISprite CreateSkeletonSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
 
             return new SkeletonSprite(skeletonSpriteSheet);
         }
-        public IEnemySprite CreateBigJellySprite()
+        public ISprite CreateBigJellySprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
             sourceFrames.Add(new Rectangle(17, 0, 16, 16));
             return new GenericEnemySprite(zolSpriteSheet, sourceFrames);
         }
-        public IEnemySprite CreateSmallJellySprite()
+        public ISprite CreateSmallJellySprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 5, 8, 8));
             sourceFrames.Add(new Rectangle(10, 4, 6, 9));
             return new GenericEnemySprite(gelSpriteSheet, sourceFrames);
         }
-        public IEnemySprite CreateGoriyaWalkEastSprite()
+        public ISprite CreateGoriyaWalkEastSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(34, 0, 16, 16));
             sourceFrames.Add(new Rectangle(51, 0, 16, 16));
             return new GoriyaWalkRightSprite(goriyaSpriteSheet, sourceFrames);
         }
-        public IEnemySprite CreateGoriyaWalkWestSprite()
+        public ISprite CreateGoriyaWalkWestSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(34, 0, 16, 16));
             sourceFrames.Add(new Rectangle(51, 0, 16, 16));
             return new GoriyaWalkLeftSprite(goriyaSpriteSheet, sourceFrames);
         }
-        public IEnemySprite CreateGoriyaWalkNorthSprite()
+        public ISprite CreateGoriyaWalkNorthSprite()
         {
             Rectangle source = new Rectangle(17, 0, 16, 16);
             return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, source);
         }
-        public IEnemySprite CreateGoriyaWalkSouthSprite()
+        public ISprite CreateGoriyaWalkSouthSprite()
         {
             Rectangle source = new Rectangle(0, 0, 16, 16);
             return new GoriyaWalkUpDownSprite(goriyaSpriteSheet, source);
         }
-        public IEnemySprite CreateGoriyaUseItemSprite(Facing dir)
+        public ISprite CreateGoriyaUseItemSprite(Facing dir)
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(34, 0, 16, 16));
@@ -122,7 +122,7 @@ namespace Project.Factory
             }
         }
 
-        public IEnemySprite CreateTrapSprite()
+        public ISprite CreateTrapSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
@@ -130,7 +130,7 @@ namespace Project.Factory
             return new TrapSprite(trapSpriteSheet);
         }
 
-        public IEnemySprite CreateDragonWalkSprite()
+        public ISprite CreateDragonWalkSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(50, 0, 24, 32));
@@ -138,7 +138,7 @@ namespace Project.Factory
             return new DragonSprite(bossDragonSpriteSheet, sourceFrames);
         }
 
-        public IEnemySprite CreateDragonAttackSprite()
+        public ISprite CreateDragonAttackSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 24, 32));
@@ -146,7 +146,7 @@ namespace Project.Factory
             return new DragonSprite(bossDragonSpriteSheet, sourceFrames);
         }
 
-        public IEnemySprite CreateWallMasterSprite(Facing dir)
+        public ISprite CreateWallMasterSprite(Facing dir)
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
@@ -154,7 +154,7 @@ namespace Project.Factory
             return new WallMasterSprite(wallmasterSpriteSheet, sourceFrames, dir);
         }
 
-        public IEnemySprite CreateSnakeSprite(Facing dir)
+        public ISprite CreateSnakeSprite(Facing dir)
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
@@ -162,7 +162,7 @@ namespace Project.Factory
             return new SnakeEnemySprite(snakeSpriteSheet, sourceFrames, dir);
         }
 
-        public IEnemySprite CreateDinosaurLeftRightSprite()
+        public ISprite CreateDinosaurLeftRightSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 32, 16));

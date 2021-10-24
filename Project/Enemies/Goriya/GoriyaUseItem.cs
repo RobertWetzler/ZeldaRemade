@@ -19,10 +19,10 @@ namespace Project
             {
                 case Facing.Up:
                 case Facing.Down:
-                    weaponPos = new Vector2(goriya.XPos + 20, goriya.YPos);
+                    weaponPos = new Vector2(goriya.Position.X + 20, goriya.Position.Y);
                     break;
                 default:
-                    weaponPos = new Vector2(goriya.XPos, goriya.YPos);
+                    weaponPos = new Vector2(goriya.Position.X, goriya.Position.Y);
                     break;
             }
             this.goriya.WeaponSprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(goriya.FacingDirection, weaponPos);

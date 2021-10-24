@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
@@ -14,27 +15,23 @@ namespace Project
         private int timeToAttack; 
         private int attackCounter;
         private IEnemyState currentState;
-        private float xpos;
-        private float ypos;
-        private IEnemySprite sprite;
+        private Vector2 position;
+        private ISprite sprite;
         private float velocity;
         private IWeaponSprite topFireball;
         private IWeaponSprite middleFireball;
         private IWeaponSprite bottomFireball;
-        public float XPos { get => xpos; set => xpos = value; }
-        public float YPos { get => ypos; set => ypos = value; }
-        public IEnemySprite EnemySprite { get => this.sprite; set => this.sprite = value; }
+        public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public IWeaponSprite TopFireball { get => this.topFireball; set => this.topFireball = value; }
         public IWeaponSprite MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
         public IWeaponSprite BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
+        public Rectangle BoundingBox => sprite.DestRectangle;
+        public Vector2 Position { get => position; set => position = value; }
 
-        public Rectangle BoundingBox => this.sprite.DestRectangle;
-
-        public Dragon(float xPos, float yPos)
+        public Dragon(Vector2 position)
         {
-            this.xpos = xPos;
-            this.ypos = yPos;
+            this.position = position;
             this.velocity = 50f;
 
             timeToAttack = 3000;
@@ -75,15 +72,6 @@ namespace Project
                 attackCounter -= timeToAttack;
                 UseWeapon();
             }
-
-            if ((int)this.xpos < windowBounds.Left)
-            {
-                ChangeDirection(EnemyDirections.East);
-            }
-            else if ((int)this.xpos > windowBounds.Right)
-            {
-                ChangeDirection(EnemyDirections.West);
-            }
             
             currentState.Update(gameTime);
             
@@ -92,7 +80,7 @@ namespace Project
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, xpos, ypos);
+            sprite.Draw(spriteBatch, position);
             if (currentState is DragonAttack)
             {
                 topFireball.Draw(spriteBatch);

@@ -33,7 +33,8 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            goriya.XPos += (float)(-1 * gameTime.ElapsedGameTime.TotalSeconds * goriya.Velocity);
+            goriya.Position = new Vector2((float)(-1 * gameTime.ElapsedGameTime.TotalSeconds * goriya.Velocity) + goriya.Position.X,
+                                     goriya.Position.Y);
         }
 
         public void UseWeapon()

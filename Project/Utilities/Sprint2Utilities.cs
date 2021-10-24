@@ -1,59 +1,17 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using Project.Factory;
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
-using Project.Sprites.BlockSprites;
-using Project.Sprites.ItemSprites;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Project.Items;
+using Project.Blocks;
 
 namespace Project.Utilities
 {
+    
     public static class Sprint2Utilities
     {
-        public static void SetBlockList(List<IBlockSprite> blocks)
-        {
-            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
-        }
-
-        public static void SetItemList(List<IItems> items)
-        {
-            items.Add(new Fairy());
-            items.Add(new Arrow());
-            items.Add(new BlueArrow());
-            items.Add(new Boomerang());
-            items.Add(new BlueBoomerang());
-            items.Add(new Bomb());
-            items.Add(new Heart());
-            items.Add(new Bow());
-            items.Add(new Sword());
-            items.Add(new WhiteSword());
-            items.Add(new Meat());
-            items.Add(new Ring());
-            items.Add(new BlueRing());
-            items.Add(new Bottle());
-            items.Add(new BlueBottle());
-            items.Add(new HeartContainer());
-            items.Add(new Candle());
-            items.Add(new BlueCandle());
-            items.Add(new OneRupee());
-            items.Add(new FiveRupee());
-            items.Add(new Key());
-            items.Add(new Flute());
-            items.Add(new Clock());
-            items.Add(new Compass());
-            items.Add(new Map());
-        }
+       
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
@@ -97,21 +55,7 @@ namespace Project.Utilities
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
-            //Cycle thru sprites commands
-            keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(game));
-            keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(game));
-            keyboardController.RegisterCommand(Keys.O, new GetPreviousEnemyCommand(game));
-            keyboardController.RegisterCommand(Keys.P, new GetNextEnemyCommand(game));
-            keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(game));
-            keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(game));
-
             controllers.Add(keyboardController);
-        }
-        public static void SetNPCList(List<INPC> npcsList)
-        {
-            npcsList.Add(new Flame());
-            npcsList.Add(new OldMan());
-            npcsList.Add(new Merchant());
         }
     }
 }

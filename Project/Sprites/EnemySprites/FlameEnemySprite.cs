@@ -5,7 +5,7 @@ using System;
 
 namespace Project
 {
-    class FlameEnemySprite : IEnemySprite
+    class FlameEnemySprite : ISprite
     {
         private Texture2D flameSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -26,12 +26,12 @@ namespace Project
             this.animationCounter = 0;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int scale = 4;
 
             Rectangle source = sourceFrames[currentFrame];
-            destRectangle = new Rectangle((int)xPos, (int)yPos, source.Width * scale, source.Height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * scale, source.Height * scale);
             
             SpriteEffects effects = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;    
             spriteBatch.Draw(flameSpriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, effects, 0f);

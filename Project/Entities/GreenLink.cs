@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink : IPlayer
+    public class GreenLink : IPlayer, ICollidable
     {
         private LinkStateMachine stateMachine;
 

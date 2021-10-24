@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class DragonSprite : IEnemySprite
+    class DragonSprite : ISprite
     {
         private Texture2D dragonSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -21,10 +21,10 @@ namespace Project
             this.animationDelay = 100;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            destRectangle = new Rectangle((int)xPos, (int)yPos, source.Width * 4, source.Height * 4);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
             spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
         }
         public void Update(GameTime gameTime)

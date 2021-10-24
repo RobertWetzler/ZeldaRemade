@@ -27,7 +27,8 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            wallMaster.XPos += (float)(gameTime.ElapsedGameTime.TotalSeconds * wallMaster.Velocity);
+            wallMaster.Position = new Vector2(wallMaster.Position.X + (float)(gameTime.ElapsedGameTime.TotalSeconds * wallMaster.Velocity),
+                                            wallMaster.Position.Y);
         }
 
         public void UseWeapon()
