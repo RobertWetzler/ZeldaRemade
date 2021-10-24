@@ -20,13 +20,12 @@ namespace Project
         private List<IController> controllers;
 
         //List of sprites to cycle thru
-
+        private List<IItems> items;
         private List<IBlock> blocks;
         private List<INPC> npcsList;
 
         private List<IEnemy> enemies;
         private List<INPC> npcs;
-        private List<IItems> items;
         private IEnemy enemy;
         public CollisionIterator collisionIterator;
 
@@ -125,7 +124,7 @@ namespace Project
             GraphicsDevice.Clear(Color.Tan);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp); // PointClamp fixes sprite blurriness
-            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
+            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch);
             player.Draw(_spriteBatch, gameTime);
 
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);

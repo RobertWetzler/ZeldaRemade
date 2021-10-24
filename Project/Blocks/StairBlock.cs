@@ -5,16 +5,15 @@ using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
-    class BrickBlock : IBlock
+    class StairBlock : IBlock
     {
         private ISprite sprite;
         private Vector2 position;
-    
 
-        public BrickBlock(Vector2 position)
+        public StairBlock(Vector2 position)
         {
             this.position = position;
-            sprite = BlockSpriteFactory.Instance.CreateBrickBlockSprite();
+            sprite = BlockSpriteFactory.Instance.CreateStairBlockSprite();
 
         }
 

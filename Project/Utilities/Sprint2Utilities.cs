@@ -3,12 +3,16 @@ using Project.Factory;
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
-using System.Collections.Generic;
+using Project.Sprites.BlockSprites;
+using Project.Sprites.ItemSprites;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Project.Blocks;
 
 namespace Project.Utilities
 {
+    
     public static class Sprint2Utilities
     {
        
@@ -24,7 +28,7 @@ namespace Project.Utilities
             blocks.Add(new LayeredBlock(pos));
             blocks.Add(new LeftFacingDragonBlock(pos));
             blocks.Add(new RightFacingDragonBlock(pos));
-         
+            blocks.Add(new StairBlock(pos));
 
         }
 
