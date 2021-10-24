@@ -107,7 +107,7 @@ namespace Project
             GraphicsDevice.Clear(Color.Tan);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp); // PointClamp fixes sprite blurriness
-            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
+            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch);
             player.Draw(_spriteBatch, gameTime);
 
             items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));

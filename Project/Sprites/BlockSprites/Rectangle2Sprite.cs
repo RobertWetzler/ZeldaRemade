@@ -12,7 +12,6 @@ namespace Project.Sprites.BlockSprites
         private int spriteRow;
         private int spriteColumn;
         private Rectangle destRectangle;
-        
         public Rectangle DestRectangle => destRectangle;
 
 

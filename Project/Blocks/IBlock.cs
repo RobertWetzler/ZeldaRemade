@@ -6,7 +6,7 @@ namespace Project
 {
     public interface IBlock : ICollidable
     {
-        void Draw(SpriteBatch spriteBatch, Vector2 position);
+        void Draw(SpriteBatch spriteBatch);
         void Update(GameTime gameTime);
 
     }
