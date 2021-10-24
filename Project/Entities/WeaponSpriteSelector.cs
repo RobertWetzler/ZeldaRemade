@@ -18,6 +18,7 @@ namespace Project.Entities
                 WeaponTypes.BlueBoomerang => ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(facing, position),
                 WeaponTypes.Bomb => ItemSpriteFactory.Instance.CreateBombSprite(facing, position),
                 WeaponTypes.Flame => ItemSpriteFactory.Instance.CreateFlameSprite(facing, position),
+                WeaponTypes.Sword => ItemSpriteFactory.Instance.CreateSwordSprite(facing,position),
                 _ => throw new NotImplementedException(), //default
             };
             return weaponSprite;
