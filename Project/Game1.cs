@@ -37,7 +37,6 @@ namespace Project
             _graphics.ApplyChanges();
             controllers = new List<IController>();
             Sprint2Utilities.SetKeyboardControllers(controllers, this);
-
             base.Initialize();
         }
 
@@ -45,20 +44,13 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
-
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            player = new GreenLink(this); 
-            player.Position = new Vector2(_graphics.PreferredBackBufferWidth / 2, 500);
-            player.SetSprite(LinkSpriteFactory.Instance.CreateLinkIdleSprite(Facing.Up));
-
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
-
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
-
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
+            player = new GreenLink(this);
             enemies = XMLParser.instance.GetEnemiesFromRoom("Room6");
             npcs = XMLParser.instance.GetNPCSFromRoom("Room6");
             items = XMLParser.instance.GetItemsFromRoom("Room6");
@@ -70,8 +62,7 @@ namespace Project
                                 enemies);
             List<ICollidable> dynamics = new List<ICollidable>(enemies);
             dynamics.Add(player);
-            collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks));
-         
+            collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks));       
         }
 
         protected override void Update(GameTime gameTime)
@@ -88,14 +79,10 @@ namespace Project
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Teal);
-            
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             room.Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
-
            _spriteBatch.End();
-
             base.Draw(gameTime);
         }
 

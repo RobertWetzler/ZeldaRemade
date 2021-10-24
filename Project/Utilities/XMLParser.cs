@@ -38,7 +38,6 @@ namespace Project.Utilities
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
                         && reader.ReadElementContentAsString() == "Enemy")
                     {
-
                         reader.Read();
                         string enemyType = reader.ReadElementContentAsString();
                         reader.Read();
@@ -76,7 +75,6 @@ namespace Project.Utilities
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
                         && reader.ReadElementContentAsString() == "NPC")
                     {
-
                         reader.Read();
                         string npcType = reader.ReadElementContentAsString();
                         reader.Read();
@@ -114,7 +112,6 @@ namespace Project.Utilities
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
                         && reader.ReadElementContentAsString() == "Item")
                     {
-
                         reader.Read();
                         string itemType = reader.ReadElementContentAsString();
                         reader.Read();
@@ -150,7 +147,6 @@ namespace Project.Utilities
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
                         && reader.ReadElementContentAsString() == "Block")
                     {
-
                         reader.Read();
                         string blockType = reader.ReadElementContentAsString();
                         reader.Read();
@@ -185,7 +181,6 @@ namespace Project.Utilities
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
                         && reader.ReadElementContentAsString() == "Background")
                     {
-
                         reader.Read();
                         string roomNumber = reader.ReadElementContentAsString();
                         background = new Background(roomNumber);
