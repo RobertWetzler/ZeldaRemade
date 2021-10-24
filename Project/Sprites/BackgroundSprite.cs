@@ -31,11 +31,11 @@ namespace Project
             int indexCol = height * spriteRow;
             if (spriteCol > 0)
             {
-                indexRow++;
+                indexRow += spriteCol;
             }
             if (spriteRow > 0)
             {
-                indexCol++;
+                indexCol += spriteRow;
             }
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
             Rectangle dest = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);

@@ -393,6 +393,11 @@
 				<ObjectName>Blue</ObjectName>
 				<Position>2 0</Position>
 			</Object>
+      <Object>
+        <ObjectType>Block</ObjectType>
+        <ObjectName>Blue</ObjectName>
+        <Position>2 2</Position>
+      </Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Blue</ObjectName>
@@ -621,7 +626,7 @@
 				<Position>9 5</Position>
 			</Object>
 			<Object>
-				<ObjectType>Object</ObjectType>
+				<ObjectType>Item</ObjectType>
 				<ObjectName>Map</ObjectName>
 				<Position>10 3</Position>
 			</Object>
@@ -809,7 +814,7 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Object</ObjectType>
+				<ObjectType>Item</ObjectType>
 				<ObjectName>Boomerang</ObjectName>
 				<Position>6 1</Position>
 			</Object>
@@ -856,7 +861,7 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Object</ObjectType>
+				<ObjectType>Item</ObjectType>
 				<ObjectName>Compass</ObjectName>
 				<Position>3 10</Position>
 			</Object>

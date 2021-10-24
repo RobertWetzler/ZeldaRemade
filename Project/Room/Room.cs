@@ -28,11 +28,6 @@ namespace Project
         
         public void Update(Rectangle rectangle, GameTime gameTime)
         {
-            
-            foreach (IItems items in items)
-            {
-                items.Update(gameTime);
-            }
             foreach (IBlock blocks in blocks)
             {
                 blocks.Update(gameTime);
@@ -40,6 +35,10 @@ namespace Project
             foreach (INPC npcs in npcs)
             {
                 npcs.Update(gameTime);
+            }
+            foreach (IItems item in items)
+            {
+                item.Update(gameTime);
             }
             foreach (IEnemy enemies in enemies)
             {
@@ -58,10 +57,14 @@ namespace Project
             {
                 npc.Draw(spriteBatch);
             }
+            foreach (IItems item in items)
+            {
+                item.Draw(spriteBatch);
+            }
             foreach (IEnemy enemy in enemies)
             {
                 enemy.Draw(spriteBatch, gameTime);
-            }         
+            }
         }
 
 

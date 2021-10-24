@@ -15,7 +15,7 @@ namespace Project.Utilities
     class XMLParser
     {
 
-        private static int X_OFFSET = 126;
+        private static int X_OFFSET = 128;
         private static int Y_OFFSET = 126;
         private static int BLOCK_WIDTH = 64;
         private static int BLOCK_HEIGHT = 64;
@@ -252,6 +252,15 @@ namespace Project.Utilities
                     break;
                 case "Triforce":
                     item = new Triforce(pos);
+                    break;
+                case "Map":
+                    item = new Map(pos);
+                    break;
+                case "Boomerang":
+                    item = new Boomerang(pos);
+                    break;
+                case "Compass":
+                    item = new Compass(pos);
                     break;
             }
             return item;
