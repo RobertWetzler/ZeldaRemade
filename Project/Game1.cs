@@ -21,6 +21,7 @@ namespace Project
         private List<IEnemy> enemies;
         private List<INPC> npcs;
         public CollisionIterator collisionIterator;
+        private Texture2D background;
 
         public Game1()
         {
@@ -40,7 +41,7 @@ namespace Project
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            background = Content.Load<Texture2D>("background");
             //Load Link Sprites
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
@@ -57,13 +58,13 @@ namespace Project
             //Load Enemy sprites
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
-            enemies = XMLParser.instance.GetEnemiesFromRoom("Room14");
-            npcs = XMLParser.instance.GetNPCSFromRoom("Room1");
-            items = XMLParser.instance.GetItemsFromRoom("Room5");
-            blocks = XMLParser.instance.GetBlocksFromRoom("Room1");
+            enemies = XMLParser.instance.GetEnemiesFromRoom("Room11");
+            npcs = XMLParser.instance.GetNPCSFromRoom("Room11");
+            items = XMLParser.instance.GetItemsFromRoom("Room11");
+            blocks = XMLParser.instance.GetBlocksFromRoom("Room11");
  
             List<ICollidable> dynamics = new List<ICollidable>(enemies);
-            dynamics.Insert(0, player);
+            dynamics.Add(player);
             collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks));
          
         }
@@ -85,22 +86,23 @@ namespace Project
             }
             foreach (IEnemy n in enemies)
             {
-                n.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+                n.Update(new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), gameTime);
             }
             foreach (INPC n in npcs)
             {
                 n.Update(gameTime);
             }
 
-            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            player.Update(new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Tan);
-
+            GraphicsDevice.Clear(Color.Teal);
+            
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            _spriteBatch.Draw(background, new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), Color.White);
             foreach (var i in blocks)
             {
                 i.Draw(_spriteBatch);

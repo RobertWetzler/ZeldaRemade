@@ -77,7 +77,7 @@ namespace Project.Sprites.PlayerSprites
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            int scale = 4;
+            int scale = 3;
             if (currentSheet == 1)
             {
                 int width = frameWidth[spriteOneColumn].spriteW;

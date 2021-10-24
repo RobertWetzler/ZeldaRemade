@@ -62,7 +62,7 @@ namespace Project.Sprites.PlayerSprites
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int height = playerSpriteSheet.Height / sheetRows;
-            int scale = 4;
+            int scale = 3;
             int width = frameWidth[spriteColumn].spriteW;
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);

@@ -15,9 +15,10 @@ namespace Project.Utilities
     class XMLParser
     {
 
-        private static int X_OFFSET = 16;
-        private static int Y_OFFSET = 16;
-        private static int BLOCK_WIDTH = 64;
+        private static int X_OFFSET = 101;
+        private static int Y_OFFSET = 83;
+        private static int BLOCK_WIDTH = 50;
+        private static int BLOCK_HEIGHT = 45;
         private XMLParser()
         {
         }
@@ -45,7 +46,7 @@ namespace Project.Utilities
                         float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
                         float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
-                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         enemy = GetEnemy(enemyType, new Vector2(xPos, yPos));
                         enemies.Add(enemy);
                         Debug.WriteLine(" Enemy " + enemyType + " in " + room + " at (" + xPos + ", " + yPos + ")");
@@ -84,7 +85,7 @@ namespace Project.Utilities
                         float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
                         float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
-                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         npc = GetNPC(npcType, new Vector2(xPos, yPos));
                         npcs.Add(npc);
                         Debug.WriteLine(" NPC " + npcType + " in " + room + " at (" + xPos + ", " + yPos + ")");
@@ -123,7 +124,7 @@ namespace Project.Utilities
                         float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
                         float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
-                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         item = GetItem(itemType, new Vector2(xPos, yPos));
                         items.Add(item);
                         Debug.WriteLine(" Item " + itemType + " in " + room + " at (" + xPos + ", " + yPos + ")");
@@ -160,7 +161,7 @@ namespace Project.Utilities
                         float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
                         float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
-                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         block = GetBlock(blockType, new Vector2(xPos, yPos));
                         blocks.Add(block);
                         Debug.WriteLine(" Block " + blockType + " in " + room + " at (" + xPos + ", " + yPos + ")");
@@ -263,11 +264,7 @@ namespace Project.Utilities
                 case "Rectangle2":
                     block = new Rectangle2(pos);
                     break;
-                case "Water":
-                case "WaterRectangle1":
-                case "WaterRectangle2":
-                case "WaterRectangle3":
-                case "WaterRectangle4":
+                case "Blue":
                     block = new BlueBlock(pos);
                     break;
             }
