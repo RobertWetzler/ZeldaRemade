@@ -5,25 +5,34 @@ using Project.NPC.OldMan;
 using Project.NPC.Flame;
 using Project.Sprites.BlockSprites;
 using Project.Sprites.ItemSprites;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project.Items;
+using Project.Blocks;
 
 namespace Project.Utilities
 {
+    
     public static class Sprint2Utilities
     {
-        public static void SetBlockList(List<IBlockSprite> blocks)
+
+        public static void SetBlockList(List<IBlock> blocks)
         {
-            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
+
+            blocks.Add(new BlackBlock(new Vector2(200, 100)));
+            blocks.Add(new BlueBlock(new Vector2(200, 100)));
+            blocks.Add(new BrickBlock(new Vector2(200, 100)));
+            blocks.Add(new DottedBlock(new Vector2(200, 100)));
+            blocks.Add(new LayeredBlock(new Vector2(200, 100)));
+            blocks.Add(new PyramidBlock(new Vector2(200, 100)));
+            blocks.Add(new MoveableBlock(new Vector2(200, 100)));
+            blocks.Add(new LeftFacingDragonBlock(new Vector2(200, 100)));
+            blocks.Add(new RightFacingDragonBlock(new Vector2(200, 100)));
+            blocks.Add(new StairBlock(new Vector2(200, 100)));
+            blocks.Add(new PlainBlock(new Vector2(200, 100)));
+            blocks.Add(new Rectangle1(new Vector2(200, 100)));
+            blocks.Add(new Rectangle2(new Vector2(200, 100)));
         }
 
         public static void SetItemList(List<IItems> items)

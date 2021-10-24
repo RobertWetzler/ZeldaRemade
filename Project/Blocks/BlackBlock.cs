@@ -18,7 +18,7 @@ namespace Project.Blocks
 
         }
 
-        public Rectangle BoundingBox => sprite.BoundingBox;
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

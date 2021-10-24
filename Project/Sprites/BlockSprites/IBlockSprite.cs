@@ -4,11 +4,9 @@ using Project.Collision;
 
 namespace Project.Sprites.BlockSprites
 {
-    public interface IBlockSprite: ICollidable
+    public interface IBlockSprite
     {
-        public Rectangle BoundingBox { get; }
-
-
+        public Rectangle DestRectangle { get; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update(GameTime gameTime);
     }

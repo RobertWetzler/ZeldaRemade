@@ -5,7 +5,7 @@ using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
-    class DottedBlock
+    class DottedBlock : IBlock
     {
         private IBlockSprite sprite;
         private Vector2 position;
@@ -17,7 +17,7 @@ namespace Project.Blocks
 
         }
 
-        public Rectangle BoundingBox => sprite.BoundingBox;
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

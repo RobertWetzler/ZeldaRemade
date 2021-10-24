@@ -9,12 +9,11 @@ namespace Project.Sprites.BlockSprites
     class Rectangle2Sprite : IBlockSprite
     {
         private Texture2D blockSpriteSheet;
-        private int sheetRows;
-        private int sheetColumns;
         private int spriteRow;
         private int spriteColumn;
         private Rectangle destRectangle;
-        public Rectangle BoundingBox => destRectangle;
+        
+        public Rectangle DestRectangle => destRectangle;
 
 
         public Rectangle2Sprite(Texture2D blockSpriteSheet)

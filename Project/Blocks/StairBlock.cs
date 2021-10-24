@@ -5,15 +5,15 @@ using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
-    class LayeredBlock :IBlock
+    class StairBlock : IBlock
     {
         private IBlockSprite sprite;
         private Vector2 position;
 
-        public LayeredBlock(Vector2 position)
+        public StairBlock(Vector2 position)
         {
             this.position = position;
-            sprite = BlockSpriteFactory.Instance.CreateLayeredBlockSprite();
+            sprite = BlockSpriteFactory.Instance.CreateStairBlockSprite();
 
         }
 

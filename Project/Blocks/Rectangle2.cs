@@ -5,7 +5,7 @@ using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
-    class Rectangle2
+    class Rectangle2 : IBlock
     {
         private IBlockSprite sprite;
         private Vector2 position;
@@ -16,7 +16,7 @@ namespace Project.Blocks
             sprite = BlockSpriteFactory.Instance.CreateRectangle2Sprite();
         }
 
-        public Rectangle BoundingBox => sprite.BoundingBox;
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
