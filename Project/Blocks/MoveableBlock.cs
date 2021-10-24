@@ -5,15 +5,16 @@ using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
-    class Rectangle2
+    class MoveableBlock
     {
         private IBlockSprite sprite;
         private Vector2 position;
 
-        public Rectangle2(Vector2 position)
+        public MoveableBlock(Vector2 position)
         {
             this.position = position;
-            sprite = BlockSpriteFactory.Instance.CreateRectangle2Sprite();
+            sprite = BlockSpriteFactory.Instance.CreatePyramidBlockSprite();
+
         }
 
         public Rectangle BoundingBox => sprite.BoundingBox;
