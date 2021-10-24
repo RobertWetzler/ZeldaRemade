@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class BlueBottle : IItems
+    class BlueBottle : IItem
     {
 
         private IItemSprite sprite;
@@ -20,7 +20,7 @@ namespace Project.Items
 
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);
         }

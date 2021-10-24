@@ -19,7 +19,7 @@ namespace Project
         private List<IController> controllers;
 
         //List of sprites to cycle thru
-        private List<IItems> items;
+        private List<IItem> items;
         private List<IBlockSprite> blocks;
         private List<INPC> npcsList;
         private IEnemy enemy;
@@ -73,7 +73,7 @@ namespace Project
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
-            items = new List<IItems>();
+            items = new List<IItem>();
             Utilities.Sprint2Utilities.SetItemList(items);
             CurrentItemIndex = 0;
 
@@ -110,7 +110,7 @@ namespace Project
             blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
             player.Draw(_spriteBatch, gameTime);
 
-            items[CurrentItemIndex].Draw(_spriteBatch, new Vector2(200, 300));
+            items[CurrentItemIndex].Draw(_spriteBatch);
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
             enemy.Draw(_spriteBatch, gameTime);
 

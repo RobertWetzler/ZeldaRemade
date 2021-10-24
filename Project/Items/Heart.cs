@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Heart : IItems
+    class Heart : IItem
     {
 
         private IItemSprite sprite;
@@ -18,8 +18,7 @@ namespace Project.Items
             sprite = ItemSpriteFactory.Instance.CreateHeartSprite();
 
         }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);
         }

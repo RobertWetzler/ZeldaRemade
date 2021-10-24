@@ -5,21 +5,21 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class FiveRupee : IItems
+    class FiveRupee : IItem
     {
 
         private IItemSprite sprite;
         private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public FiveRupee()
+        public FiveRupee(Vector2 position)
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateRupeeSprite();
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);
         }

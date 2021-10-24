@@ -4,9 +4,9 @@ using Project.Collision;
 
 namespace Project
 {
-    public interface IItems: ICollidable
+    public interface IItem: ICollidable
     {
-        void Draw(SpriteBatch spriteBatch, Vector2 position);
+        void Draw(SpriteBatch spriteBatch);
         void Update(GameTime gameTime);
 
     }

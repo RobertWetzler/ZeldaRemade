@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class WhiteSword : IItems
+    class WhiteSword : IItem
     {
 
         private IItemSprite sprite;
@@ -18,8 +18,7 @@ namespace Project.Items
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 10);
 
         }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);
         }

@@ -5,7 +5,7 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Map : IItems
+    class Map : IItem
     {
 
         private IItemSprite sprite;
@@ -19,9 +19,9 @@ namespace Project.Items
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, this.position.);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)
