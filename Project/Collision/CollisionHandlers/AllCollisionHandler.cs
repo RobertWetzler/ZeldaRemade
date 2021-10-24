@@ -56,12 +56,14 @@ namespace Project.Collision
         }
 
 
+
         public void HandleCollision(ICollidable subject, ICollidable damage, CollisionSide side)
         {
-            Tuple<Type, Type> key = new Tuple<Type, Type>(damage.GetType(), subject.GetType());
+            Tuple<Type, Type> key = new Tuple<Type, Type>(subject.GetType(), damage.GetType());
             if (commandMap.ContainsKey(key))
             {
                 ICollisionHandler handler = commandMap[key];
+                Console.WriteLine(handler);
                 handler.HandleCollision(subject, damage, side);
             }
         }
