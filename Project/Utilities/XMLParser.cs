@@ -171,6 +171,34 @@ namespace Project.Utilities
             return blocks;
         }
 
+        public Background GetBackgroundFromRoom(string room)
+        {
+            Background background = null;
+
+            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
+            {
+                reader.MoveToContent();
+                reader.ReadToFollowing(room);
+
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
+                        && reader.ReadElementContentAsString() == "Background")
+                    {
+
+                        reader.Read();
+                        string roomNumber = reader.ReadElementContentAsString();
+                        background = new Background(roomNumber);
+                    }
+                    else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
+                    {
+                        break;
+                    }
+                }
+            }
+            return background;
+        }
+
         private static IEnemy GetEnemy(string enemyStr, Vector2 pos)
         {
             IEnemy enemy = null;

@@ -1,41 +1,74 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Room
+namespace Project
 {
     public class Background
     {
-        private Texture2D backgroundSpriteSheet;
-       
-        
-
-        private static Background instance = new Background();
-
-        public static Background Instance
+        private BackgroundSprite backgroundSprite;
+        public Background(string room)
         {
-            get
+            switch (room)
             {
-                return instance;
+                case "Room1":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateOldManRoomBackgroundSprite();
+                    break;
+                case "Room2":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateStairRoomBackgroundSprite();
+                    break;
+                case "Room3":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateOneBlockRoomBackgroundSprite();
+                    break;
+                case "Room4":
+                case "Room10":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateSixBlockRoomBackgroundSprite();
+                    break;
+                case "Room5":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateEmptyRoomBackgroundSprite();
+                    break;
+                case "Room6":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateWaterRoomBackgroundSprite();
+                    break;
+                case "Room7":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateLotsWaterRoomBackgroundSprite();
+                    break;
+                case "Room8":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateXRoomBackgroundSprite();
+                    break;
+                case "Room9":
+                case "Room12":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.Create4BlockRoomBackgroundSprite();
+                    break;
+                case "Room11":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateStartRoomBackgroundSprite();
+                    break;
+                case "Room13":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateBig4BlockRoomBackgroundSprite();
+                    break;
+                case "Room14":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateTwo6BlockRoomBackgroundSprite();
+                    break;
+                case "Room15":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateDragonBackgroundSprite();
+                    break;
+                case "Room16":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateWallMasterRoomBackgroundSprite();
+                    break;
+                case "Room17":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateFinalRoomBackgroundSprite();
+                    break;
             }
         }
 
-        private Background()
-        {
-
-        }
-
-        public void LoadAllTextures(ContentManager content)
-        {
-            backgroundSpriteSheet = content.Load<Texture2D>("");
-        }
 
         public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
         {
-            spriteBatch.Draw(backgroundSpriteSheet, new Vector2 (0,0), new Rectangle (0,0,graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), Color.White);
+            backgroundSprite.Draw(spriteBatch, graphics);
         }
 
        

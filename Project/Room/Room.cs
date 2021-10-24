@@ -4,25 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Room
+namespace Project
 {
     public class Room
     {
-        
+        private Background background;
         private List<IItems> items;
-        private List<ISprite> blocks;
+        private List<IBlock> blocks;
         private List<INPC> npcs;
-        private List<IEntity> entity;
         private List<IEnemy> enemies;
         
 
-        public Room()
+        public Room(Background background, List<IItems> items, List<IBlock> blocks,
+                    List<INPC> npcs, List<IEnemy> enemies)
         {
-            items = new List<IItems>();
-            blocks = new List<ISprite>();
-            npcs = new List<INPC>();
-            entity = new List<IEntity>();
-            enemies = new List<IEnemy>();
+            this.background = background;
+            this.items = items;
+            this.blocks = blocks;
+            this.npcs = npcs;
+            this.enemies = enemies;
         }
 
         
@@ -33,17 +33,13 @@ namespace Project.Room
             {
                 items.Update(gameTime);
             }
-            foreach (ISprite blocks in blocks)
+            foreach (IBlock blocks in blocks)
             {
-                blocks.Update(rectangle, gameTime);
+                blocks.Update(gameTime);
             }
             foreach (INPC npcs in npcs)
             {
                 npcs.Update(gameTime);
-            }
-            foreach (IEntity entity in entity)
-            {
-                entity.Update(rectangle, gameTime);
             }
             foreach (IEnemy enemies in enemies)
             {
@@ -53,25 +49,19 @@ namespace Project.Room
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
         {
-            Background.Instance.Draw(spriteBatch, graphics);
-            foreach (ISprite blocks in blocks)
+            this.background.Draw(spriteBatch, graphics);
+            foreach (IBlock block in blocks)
             {
-                blocks.Draw(spriteBatch, gameTime);
+                block.Draw(spriteBatch);
             }
-            foreach (INPC npcs in npcs)
+            foreach (INPC npc in npcs)
             {
-                npcs.Draw(spriteBatch);
+                npc.Draw(spriteBatch);
             }
-            foreach (IEntity entity in entity)
+            foreach (IEnemy enemy in enemies)
             {
-                entity.Draw(spriteBatch, gameTime);
-            }
-            foreach (IEnemy enemies in enemies)
-            {
-                enemies.Draw(spriteBatch, gameTime);
-            }
-
-            
+                enemy.Draw(spriteBatch, gameTime);
+            }         
         }
 
 
