@@ -49,7 +49,6 @@ namespace Project.Utilities
                         yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         enemy = GetEnemy(enemyType, new Vector2(xPos, yPos));
                         enemies.Add(enemy);
-                        Debug.WriteLine(" Enemy " + enemyType + " in " + room + " at (" + xPos + ", " + yPos + ")");
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
                     {
@@ -88,7 +87,6 @@ namespace Project.Utilities
                         yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         npc = GetNPC(npcType, new Vector2(xPos, yPos));
                         npcs.Add(npc);
-                        Debug.WriteLine(" NPC " + npcType + " in " + room + " at (" + xPos + ", " + yPos + ")");
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
                     {
@@ -127,7 +125,6 @@ namespace Project.Utilities
                         yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         item = GetItem(itemType, new Vector2(xPos, yPos));
                         items.Add(item);
-                        Debug.WriteLine(" Item " + itemType + " in " + room + " at (" + xPos + ", " + yPos + ")");
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
                     {
@@ -164,7 +161,6 @@ namespace Project.Utilities
                         yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         block = GetBlock(blockType, new Vector2(xPos, yPos));
                         blocks.Add(block);
-                        Debug.WriteLine(" Block " + blockType + " in " + room + " at (" + xPos + ", " + yPos + ")");
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
                     {
@@ -182,7 +178,7 @@ namespace Project.Utilities
             {
                 case "Bat":
                     enemy = new Bat(pos);
-                            break;
+                    break;
                 case "Dragon":
                     enemy = new Dragon(pos);
                     break;

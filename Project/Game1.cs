@@ -45,20 +45,18 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             background = Content.Load<Texture2D>("background");
-            //Load Link Sprites
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
 
-            //Load block sprites
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            player = new GreenLink(this); 
+            player.Position = new Vector2(_graphics.PreferredBackBufferWidth / 2, 500);
+            player.SetSprite(LinkSpriteFactory.Instance.CreateLinkIdleSprite(Facing.Up));
+
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
 
-            //Load item sprites
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
 
-            //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
 
-            //Load Enemy sprites
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             enemies = XMLParser.instance.GetEnemiesFromRoom("Room11");
@@ -96,7 +94,7 @@ namespace Project
                 n.Update(gameTime);
             }
 
-            player.Update(new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), gameTime);
+            player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             base.Update(gameTime);
         }
 
@@ -106,21 +104,21 @@ namespace Project
             
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _spriteBatch.Draw(background, new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), Color.White);
-            foreach (var i in blocks)
+            foreach (var block in blocks)
             {
-                i.Draw(_spriteBatch);
+                block.Draw(_spriteBatch);
             }
-            foreach (var i in items)
+            foreach (var item in items)
             {
-                i.Draw(_spriteBatch);
+                item.Draw(_spriteBatch);
             }
-            foreach (IEnemy n in enemies)
+            foreach (IEnemy enemy in enemies)
             {
-                n.Draw(_spriteBatch, gameTime);
+                enemy.Draw(_spriteBatch, gameTime);
             }
-            foreach (INPC n in npcs)
+            foreach (INPC npc in npcs)
             {
-                n.Draw(_spriteBatch);
+                npc.Draw(_spriteBatch);
             }
             player.Draw(_spriteBatch, gameTime);
 
