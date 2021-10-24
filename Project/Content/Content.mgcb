@@ -337,6 +337,18 @@
 /processorParam:TextureFormat=Color
 /build:ItemSprites/spriteSheet_items.png
 
+#begin ItemSprites/sword_throw.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ItemSprites/sword_throw.png
+
 #begin ItemSprites/triforce.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -408,6 +420,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ItemSprites/weapon_boomerang_test.png
+
+#begin ItemSprites/white_sword_throw.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ItemSprites/white_sword_throw.png
 
 #begin PlayerSprites/link-pickup-item.png
 /importer:TextureImporter

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Collision
 {
-    public enum CollisionSides
+    public enum CollisionSide
     {
         Left,
         Up,
