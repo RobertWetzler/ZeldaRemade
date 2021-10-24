@@ -27,8 +27,17 @@ namespace Project
         {
             int width = texture.Width / totalCols;
             int height = texture.Height / totalRows;
-
-            Rectangle source = new Rectangle(width * spriteCol, height * spriteRow, width, height);
+            int indexRow = width * spriteCol;
+            int indexCol = height * spriteRow;
+            if (spriteCol > 0)
+            {
+                indexRow++;
+            }
+            if (spriteRow > 0)
+            {
+                indexCol++;
+            }
+            Rectangle source = new Rectangle(indexRow, indexCol, width, height);
             Rectangle dest = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             spriteBatch.Draw(texture, dest, source, Color.White);
         }
