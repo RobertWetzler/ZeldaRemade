@@ -32,6 +32,9 @@ namespace Project
 
         protected override void Initialize()
         {
+            _graphics.PreferredBackBufferWidth = 1024;
+            _graphics.PreferredBackBufferHeight = 700;
+            _graphics.ApplyChanges();
             controllers = new List<IController>();
             Sprint2Utilities.SetKeyboardControllers(controllers, this);
 

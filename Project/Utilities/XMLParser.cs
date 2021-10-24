@@ -15,10 +15,10 @@ namespace Project.Utilities
     class XMLParser
     {
 
-        private static int X_OFFSET = 101;
-        private static int Y_OFFSET = 83;
-        private static int BLOCK_WIDTH = 50;
-        private static int BLOCK_HEIGHT = 45;
+        private static int X_OFFSET = 128;
+        private static int Y_OFFSET = 128;
+        private static int BLOCK_WIDTH = 64;
+        private static int BLOCK_HEIGHT = 64;
         private XMLParser()
         {
         }

@@ -68,7 +68,7 @@ namespace Project.Sprites.ItemSprites
         {
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 3;
+            int scale = 4;
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, 0, width, height);
             destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);

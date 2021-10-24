@@ -30,7 +30,7 @@ namespace Project.Sprites.BlockSprites
         {
             int width = blockSpriteSheet.Width / sheetColumns;
             int height = blockSpriteSheet.Height / sheetRows;
-            int scale = 3;
+            int scale = 4;
   
             Rectangle source = new Rectangle(spriteColumn * width, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);

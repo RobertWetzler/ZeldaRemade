@@ -60,7 +60,7 @@ namespace Project.Sprites.PlayerSprites
         {
             int width = frameWidth[spriteColumn].spriteW;
             int height = playerSpriteSheet.Height / sheetRows;
-            int scale = 3;
+            int scale = 4;
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);

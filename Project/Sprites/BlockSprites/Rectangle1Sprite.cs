@@ -23,7 +23,7 @@ namespace Project.Sprites.BlockSprites
         {
             int width = blockSpriteSheet.Width;
             int height = blockSpriteSheet.Height;
-            int scale = 3;
+            int scale = 4;
             Rectangle source = new Rectangle(0, 0, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(blockSpriteSheet, destRectangle, source, Color.White);
