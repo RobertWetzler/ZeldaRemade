@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Project.Collision.CollisionHandlers
 {
-    class EnemyPlayerCollisionHandler : ICollisionHandler
+    class EnemyWeaponCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable weapon, ICollidable enemyCollidable, CollisionSide side)
         {
