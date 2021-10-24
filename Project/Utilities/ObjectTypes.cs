@@ -61,4 +61,16 @@ namespace Project
         Triforce,
         WhiteSword
     }
+
+    enum BlockTypes
+    {
+        Stairs,
+        Pyramid,
+        Moveable,
+        LeftDragon,
+        RightDragon,
+        Rectangle1,
+        Rectangle2,
+        Water,
+    }
 }

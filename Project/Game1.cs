@@ -3,10 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.BlockSprites;
-using Project.Sprites.ItemSprites;
 using Project.Utilities;
-using System;
 using System.Collections.Generic;
 
 namespace Project
@@ -19,22 +16,11 @@ namespace Project
         public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
 
-        //List of sprites to cycle thru
         private List<IItems> items;
         private List<IBlock> blocks;
-        private List<INPC> npcsList;
-
         private List<IEnemy> enemies;
         private List<INPC> npcs;
-        private IEnemy enemy;
         public CollisionIterator collisionIterator;
-
-        public int ItemsListLength => items.Count;
-        public int BlocksListLength => blocks.Count;
-        public int NPCSListLength => npcsList.Count;
-        public int CurrentBlockSpriteIndex { get; set; }
-        public int CurrentItemIndex { get; set; }
-        public int CurrentNPCIndex { get; set; }
 
         public Game1()
         {
@@ -46,7 +32,7 @@ namespace Project
         protected override void Initialize()
         {
             controllers = new List<IController>();
-            Utilities.Sprint2Utilities.SetKeyboardControllers(controllers, this);
+            Sprint2Utilities.SetKeyboardControllers(controllers, this);
 
             base.Initialize();
         }
@@ -71,33 +57,31 @@ namespace Project
             //Load Enemy sprites
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
-            //Set List for blocks, items, and NPCs
-            blocks = new List<IBlock>();
-            Utilities.Sprint2Utilities.SetBlockList(blocks);
-            CurrentBlockSpriteIndex = 0;
-
-
-            CurrentItemIndex = 0;
-
-            npcsList = new List<INPC>();
-            Utilities.Sprint2Utilities.SetNPCList(npcsList);
-            CurrentNPCIndex = 0;
-            enemy = new Goriya(new Vector2(400, 100));
-            collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
-
-
-            enemies = XMLParser.instance.GetEnemiesFromRoom("Room3");
+            enemies = XMLParser.instance.GetEnemiesFromRoom("Room14");
             npcs = XMLParser.instance.GetNPCSFromRoom("Room1");
             items = XMLParser.instance.GetItemsFromRoom("Room5");
+            blocks = XMLParser.instance.GetBlocksFromRoom("Room1");
+ 
+            List<ICollidable> dynamics = new List<ICollidable>(enemies);
+            dynamics.Insert(0, player);
+            collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks));
+         
         }
 
         protected override void Update(GameTime gameTime)
         {
             collisionIterator.UpdateCollisions();
-            blocks[CurrentBlockSpriteIndex].Update(gameTime);
             foreach (IController controller in controllers)
             {
                 controller.Update();
+            }
+            foreach (var i in blocks)
+            {
+                i.Update(gameTime);
+            }
+            foreach (var i in items)
+            {
+                i.Update(gameTime);
             }
             foreach (IEnemy n in enemies)
             {
@@ -107,14 +91,6 @@ namespace Project
             {
                 n.Update(gameTime);
             }
-            foreach (var i in items)
-            {
-                i.Update(gameTime);
-            }
-            enemy.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
-            npcsList[CurrentNPCIndex].Update(gameTime);
-  
-
 
             player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             base.Update(gameTime);
@@ -124,12 +100,15 @@ namespace Project
         {
             GraphicsDevice.Clear(Color.Tan);
 
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp); // PointClamp fixes sprite blurriness
-            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch);
-            player.Draw(_spriteBatch, gameTime);
-
-            npcsList[CurrentNPCIndex].Draw(_spriteBatch);
-      
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            foreach (var i in blocks)
+            {
+                i.Draw(_spriteBatch);
+            }
+            foreach (var i in items)
+            {
+                i.Draw(_spriteBatch);
+            }
             foreach (IEnemy n in enemies)
             {
                 n.Draw(_spriteBatch, gameTime);
@@ -138,12 +117,9 @@ namespace Project
             {
                 n.Draw(_spriteBatch);
             }
-            foreach (var i in items)
-            {
-                i.Draw(_spriteBatch);
-            }
-            enemy.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
+            player.Draw(_spriteBatch, gameTime);
+
+           _spriteBatch.End();
 
             base.Draw(gameTime);
         }

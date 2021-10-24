@@ -1,12 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using Project.Factory;
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
-using Project.Sprites.BlockSprites;
-using Project.Sprites.ItemSprites;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project.Blocks;
 
@@ -16,22 +12,6 @@ namespace Project.Utilities
     public static class Sprint2Utilities
     {
        
-        public static void SetBlockList(List<IBlock> blocks)
-        {
-            Vector2 pos = new Vector2(200, 100);
-            blocks.Add(new PlainBlock(pos));
-            blocks.Add(new PyramidBlock(pos));
-            blocks.Add(new BlackBlock(pos));
-            blocks.Add(new BlueBlock(pos));
-            blocks.Add(new BrickBlock(pos));
-            blocks.Add(new DottedBlock(pos));
-            blocks.Add(new LayeredBlock(pos));
-            blocks.Add(new LeftFacingDragonBlock(pos));
-            blocks.Add(new RightFacingDragonBlock(pos));
-            blocks.Add(new StairBlock(pos));
-
-        }
-
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
@@ -75,22 +55,7 @@ namespace Project.Utilities
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
-            //Cycle thru sprites commands
-            keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(game));
-            keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(game));
-            keyboardController.RegisterCommand(Keys.O, new GetPreviousEnemyCommand(game));
-            keyboardController.RegisterCommand(Keys.P, new GetNextEnemyCommand(game));
-            keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(game));
-            keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(game));
-
             controllers.Add(keyboardController);
-        }
-        public static void SetNPCList(List<INPC> npcsList)
-        {
-            Vector2 pos = new Vector2(400, 100);
-            npcsList.Add(new Flame(pos));
-            npcsList.Add(new OldMan(pos));
-            npcsList.Add(new Merchant(pos));
         }
     }
 }

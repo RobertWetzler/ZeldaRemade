@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Project.Blocks;
 using Project.Items;
 using Project.NPC.Flame;
 using Project.NPC.OldMan;
@@ -41,8 +42,8 @@ namespace Project.Utilities
                         string enemyType = reader.ReadElementContentAsString();
                         reader.Read();
                         string strPos = reader.ReadElementContentAsString();
-                        float xPos = int.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
-                        float yPos = int.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
                         yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
                         enemy = GetEnemy(enemyType, new Vector2(xPos, yPos));
@@ -80,8 +81,8 @@ namespace Project.Utilities
                         string npcType = reader.ReadElementContentAsString();
                         reader.Read();
                         string strPos = reader.ReadElementContentAsString();
-                        float xPos = int.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
-                        float yPos = int.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
                         yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
                         npc = GetNPC(npcType, new Vector2(xPos, yPos));
@@ -134,6 +135,43 @@ namespace Project.Utilities
                 }
             }
             return items;
+        }
+
+        public List<IBlock> GetBlocksFromRoom(string room)
+        {
+            List<IBlock> blocks = new List<IBlock>();
+            IBlock block;
+
+            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
+            {
+                reader.MoveToContent();
+                reader.ReadToFollowing(room);
+
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
+                        && reader.ReadElementContentAsString() == "Block")
+                    {
+
+                        reader.Read();
+                        string blockType = reader.ReadElementContentAsString();
+                        reader.Read();
+                        string strPos = reader.ReadElementContentAsString();
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
+                        yPos = (yPos * BLOCK_WIDTH) + Y_OFFSET;
+                        block = GetBlock(blockType, new Vector2(xPos, yPos));
+                        blocks.Add(block);
+                        Debug.WriteLine(" Block " + blockType + " in " + room + " at (" + xPos + ", " + yPos + ")");
+                    }
+                    else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
+                    {
+                        break;
+                    }
+                }
+            }
+            return blocks;
         }
 
         private static IEnemy GetEnemy(string enemyStr, Vector2 pos)
@@ -197,6 +235,43 @@ namespace Project.Utilities
                     break;
             }
             return item;
+        }
+
+        private static IBlock GetBlock(string blockStr, Vector2 pos)
+        {
+            IBlock block = null;
+            switch (blockStr)
+            {
+                case "Pyramid":
+                    block = new PyramidBlock(pos);
+                    break;
+                case "Stairs":
+                    block = new StairBlock(pos);
+                    break;
+                case "Moveable":
+                    block = new MoveableBlock(pos);
+                    break;
+                case "LeftDragon":
+                    block = new LeftFacingDragonBlock(pos);
+                    break;
+                case "RightDragon":
+                    block = new RightFacingDragonBlock(pos);
+                    break;
+                case "Rectangle1":
+                    block = new Rectangle1(pos);
+                    break;
+                case "Rectangle2":
+                    block = new Rectangle2(pos);
+                    break;
+                case "Water":
+                case "WaterRectangle1":
+                case "WaterRectangle2":
+                case "WaterRectangle3":
+                case "WaterRectangle4":
+                    block = new BlueBlock(pos);
+                    break;
+            }
+            return block;
         }
     }
 }
