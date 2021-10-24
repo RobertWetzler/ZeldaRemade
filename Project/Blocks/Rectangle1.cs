@@ -1,26 +1,24 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Sprites.BlockSprites;
 
-namespace Project.Items
+namespace Project.Blocks
 {
-    class FiveRupee : IItems
+    class Rectangle1 : IBlock
     {
-
         private ISprite sprite;
         private Vector2 position;
 
-        public Rectangle BoundingBox => sprite.DestRectangle;
-
-        public FiveRupee(Vector2 position)
+        public Rectangle1(Vector2 position)
         {
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateRupeeSprite();
-
+            sprite = BlockSpriteFactory.Instance.CreateRectangle1Sprite();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             sprite.Draw(spriteBatch, this.position);
         }

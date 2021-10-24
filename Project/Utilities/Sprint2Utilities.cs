@@ -5,24 +5,27 @@ using Project.NPC.OldMan;
 using Project.NPC.Flame;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Project.Blocks;
 
 namespace Project.Utilities
 {
     public static class Sprint2Utilities
     {
        
-        public static void SetBlockList(List<ISprite> blocks)
+        public static void SetBlockList(List<IBlock> blocks)
         {
-            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
+            Vector2 pos = new Vector2(200, 100);
+            blocks.Add(new PlainBlock(pos));
+            blocks.Add(new PyramidBlock(pos));
+            blocks.Add(new BlackBlock(pos));
+            blocks.Add(new BlueBlock(pos));
+            blocks.Add(new BrickBlock(pos));
+            blocks.Add(new DottedBlock(pos));
+            blocks.Add(new LayeredBlock(pos));
+            blocks.Add(new LeftFacingDragonBlock(pos));
+            blocks.Add(new RightFacingDragonBlock(pos));
+         
+
         }
 
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)

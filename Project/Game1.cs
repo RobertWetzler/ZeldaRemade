@@ -21,13 +21,13 @@ namespace Project
 
         //List of sprites to cycle thru
 
-        private List<ISprite> blocks;
+        private List<IBlock> blocks;
         private List<INPC> npcsList;
 
         private List<IEnemy> enemies;
         private List<INPC> npcs;
         private List<IItems> items;
-
+        private IEnemy enemy;
         public CollisionIterator collisionIterator;
 
         public int ItemsListLength => items.Count;
@@ -73,7 +73,7 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             //Set List for blocks, items, and NPCs
-            blocks = new List<ISprite>();
+            blocks = new List<IBlock>();
             Utilities.Sprint2Utilities.SetBlockList(blocks);
             CurrentBlockSpriteIndex = 0;
 
@@ -83,8 +83,8 @@ namespace Project
             npcsList = new List<INPC>();
             Utilities.Sprint2Utilities.SetNPCList(npcsList);
             CurrentNPCIndex = 0;
-
-            //collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
+            enemy = new Goriya(new Vector2(400, 100));
+            collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
 
 
             enemies = XMLParser.instance.GetEnemiesFromRoom("Room3");
@@ -94,7 +94,7 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            //collisionIterator.UpdateCollisions();
+            collisionIterator.UpdateCollisions();
             foreach (IController controller in controllers)
             {
                 controller.Update();
@@ -111,7 +111,7 @@ namespace Project
             {
                 i.Update(gameTime);
             }
-
+            enemy.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
             npcsList[CurrentNPCIndex].Update(gameTime);
   
 
@@ -142,6 +142,7 @@ namespace Project
             {
                 i.Draw(_spriteBatch);
             }
+            enemy.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
 
             base.Draw(gameTime);

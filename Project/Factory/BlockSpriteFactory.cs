@@ -7,6 +7,9 @@ namespace Project.Factory
     public class BlockSpriteFactory
     {
         private Texture2D blockSpriteSheet;
+        private Texture2D rectangle1SpriteSheet;
+        private Texture2D rectangle2SpriteSheet;
+
 
         private static BlockSpriteFactory instance = new BlockSpriteFactory();
 
@@ -25,6 +28,8 @@ namespace Project.Factory
         public void LoadAllTextures(ContentManager content)
         {
             blockSpriteSheet = content.Load<Texture2D>("Blocks/blocks_spritesheet");
+            rectangle1SpriteSheet = content.Load<Texture2D>("Blocks/Rectangle1");
+            rectangle2SpriteSheet = content.Load<Texture2D>("Blocks/Rectangle2");
         }
 
         //Plain green block
@@ -80,6 +85,16 @@ namespace Project.Factory
         public ISprite CreateLeftFacingDragonBlockSprite()
         {
             return new BlockSprite(blockSpriteSheet, 3, 4, 0, 3);
+        }
+
+        public ISprite CreateRectangle1Sprite()
+        {
+            return new Rectangle1Sprite(rectangle1SpriteSheet);
+        }
+
+        public ISprite CreateRectangle2Sprite()
+        {
+            return new Rectangle2Sprite(rectangle2SpriteSheet);
         }
     }
 }
