@@ -94,6 +94,7 @@ namespace Project
         protected override void Update(GameTime gameTime)
         {
             collisionIterator.UpdateCollisions();
+            blocks[CurrentBlockSpriteIndex].Update(gameTime);
             foreach (IController controller in controllers)
             {
                 controller.Update();
