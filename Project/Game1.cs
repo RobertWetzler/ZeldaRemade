@@ -51,11 +51,11 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            enemies = XMLParser.instance.GetEnemiesFromRoom("Room5");
-            npcs = XMLParser.instance.GetNPCSFromRoom("Room5");
-            items = XMLParser.instance.GetItemsFromRoom("Room5");
-            blocks = XMLParser.instance.GetBlocksFromRoom("Room5");
-            room = new Room(XMLParser.instance.GetBackgroundFromRoom("Room5"),
+            enemies = XMLParser.instance.GetEnemiesFromRoom("Room15");
+            npcs = XMLParser.instance.GetNPCSFromRoom("Room15");
+            items = XMLParser.instance.GetItemsFromRoom("Room15");
+            blocks = XMLParser.instance.GetBlocksFromRoom("Room15");
+            room = new Room(XMLParser.instance.GetBackgroundFromRoom("Room15"),
                                 items,
                                 blocks,
                                 npcs,
