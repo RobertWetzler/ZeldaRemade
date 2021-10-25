@@ -28,16 +28,16 @@ namespace Project.Collision.CollisionHandlers
                     break;
                 case CollisionSide.Left:
                     dx = enemy2.BoundingBox.Right - enemy.BoundingBox.Left;
-                    enemy.ChangeDirection(EnemyDirections.East);
-                    enemy2.ChangeDirection(EnemyDirections.West);
-                    break;
-                case CollisionSide.Right:
-                    dx = enemy2.BoundingBox.Left - enemy.BoundingBox.Right;
                     enemy.ChangeDirection(EnemyDirections.West);
                     enemy2.ChangeDirection(EnemyDirections.East);
                     break;
+                case CollisionSide.Right:
+                    dx = enemy2.BoundingBox.Left - enemy.BoundingBox.Right;
+                    enemy.ChangeDirection(EnemyDirections.East);
+                    enemy2.ChangeDirection(EnemyDirections.West);
+                    break;
             }
-            enemy.Position = new Vector2(enemy.Position.X + dx, enemy.Position.Y + dy);
+          
         }
     }
 }
