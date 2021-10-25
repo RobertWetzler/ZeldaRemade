@@ -1,0 +1,11 @@
+Author: Maggie Feng
+Date: Oct. 25, 2021
+Sprint 3
+File reviewed: PlayerBlockCollisionHandler.cs
+Author of file being reviewed: Robert W
+Number of minutes to complete review: 15 
+Maintainability comments:
+- Loose coupling which is good. Only needs ICollidable and IPlayer.
+- Uses interfaces, which is good. Allows for more abstraction
+- Easy to refactor because of loose coupling and uses interfaces
+- High cohesion. Class does 1 thing which is handle block vs. player collisions

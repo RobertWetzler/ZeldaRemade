@@ -1,23 +1,23 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.BlockSprites;
+using Project.Sprites.ItemSprites;
 
-namespace Project.Blocks
+namespace Project.Items
 {
-    class MoveableBlock : IBlock
+    class WhiteSwordItem : IItems
     {
+
         private ISprite sprite;
         private Vector2 position;
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public MoveableBlock(Vector2 position)
+        public WhiteSwordItem(Vector2 position)
         {
             this.position = position;
-            sprite = BlockSpriteFactory.Instance.CreatePyramidBlockSprite();
+            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 10);
 
         }
-
-        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch)
         {
