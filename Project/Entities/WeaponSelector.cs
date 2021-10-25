@@ -15,7 +15,7 @@ namespace Project.Entities
             Vector2 offsetDir = facing switch
             {
                 Facing.Right => new Vector2(1, 0),
-                Facing.Left => new Vector2(-1, 0),
+                Facing.Left => new Vector2(-1.5f, 0),
                 Facing.Up => new Vector2(0, -1.5f),
                 Facing.Down => new Vector2(0, 1),
                 _ => throw new NotImplementedException()
