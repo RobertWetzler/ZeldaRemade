@@ -77,6 +77,9 @@ namespace Project.Utilities
                 case "Compass":
                     item = new Compass(pos);
                     break;
+                case "Bow":
+                    item = new Bow(pos);
+                    break;
             }
             return item;
         }
