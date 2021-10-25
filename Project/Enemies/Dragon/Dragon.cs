@@ -88,7 +88,7 @@ namespace Project
             {
                 fireball.Update(gameTime);
             }
-            this.fireballs.RemoveAll(fireball => fireball.isFinished());
+            this.fireballs.RemoveAll(fireball => fireball.IsFinished);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

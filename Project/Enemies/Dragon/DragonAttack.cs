@@ -49,12 +49,14 @@ namespace Project
         public void UseWeapon()
         {
             weaponPos = new Vector2(dragon.Position.X - 10, dragon.Position.Y);
-            dragon.TopFireball = new Fireball(Facing.Up, weaponPos, isFriendly: false);
-            dragon.MiddleFireball = new Fireball(Facing.Left, weaponPos, isFriendly: false);
-            dragon.BottomFireball = new Fireball(Facing.Down, weaponPos, isFriendly: false);
-            RoomManager.Instance.CurrentRoom.AddProjectile(dragon.TopFireball);
-            RoomManager.Instance.CurrentRoom.AddProjectile(dragon.MiddleFireball);
-            RoomManager.Instance.CurrentRoom.AddProjectile(dragon.BottomFireball);
+
+            dragon.fireballs.Add(new Fireball(Facing.Up, weaponPos, isFriendly: false));
+            dragon.fireballs.Add(new Fireball(Facing.Left, weaponPos, isFriendly: false));
+            dragon.fireballs.Add(new Fireball(Facing.Down, weaponPos, isFriendly: false));
+ 
+            RoomManager.Instance.CurrentRoom.AddProjectile(dragon.fireballs[0]);
+            RoomManager.Instance.CurrentRoom.AddProjectile(dragon.fireballs[1]);
+            RoomManager.Instance.CurrentRoom.AddProjectile(dragon.fireballs[2]);
         }
     }
 }

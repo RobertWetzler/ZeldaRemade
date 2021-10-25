@@ -18,10 +18,8 @@ namespace Project
         private IEnemyState currentState;
         private ISprite sprite;
         private float velocity;
-        private Random rand;
         private IProjectile boomerang;
         private EnemyMovement movement;
-        private IWeaponSprite boomerang;
         private Facing facingDirection;
         private Vector2 position;
         public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
