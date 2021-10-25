@@ -49,6 +49,39 @@ namespace Project.Collision
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
             typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), 
             typeof(PlainBlock), typeof(PyramidBlock), typeof(Rectangle1), typeof(Rectangle2), typeof(RightFacingDragonBlock)};
+
+            //Item Types
+            Type keyType = typeof(Key);
+            Type fairyType = typeof(Fairy);
+            Type triforceType = typeof(Triforce);
+            Type boomerangType = typeof(BoomerangItem);
+            Type arrowType = typeof(ArrowItem);
+            Type heartType = typeof(Heart);
+            Type mapType = typeof(Map);
+            Type ringType = typeof(Ring);
+            Type bowType = typeof(Bow);
+            Type heartcontainerType = typeof(HeartContainer);
+            Type fluteType = typeof(Flute);
+            Type meatType = typeof(Meat);
+            Type onerupeeType = typeof(OneRupee);
+            Type fiverupeeType = typeof(FiveRupee);
+            Type bombitemType = typeof(BombItem);
+            Type bluearrowType = typeof(BlueArrowItem);
+            Type blueboomerangType = typeof(BlueBoomerangItem);
+            Type bluebottleType = typeof(BlueBottle);
+            Type bluecandleType = typeof(BlueCandle);
+            Type blueringType = typeof(BlueRing);
+            Type bottleType = typeof(Bottle);
+            Type clockType = typeof(Clock);
+            Type compassType = typeof(Compass);
+            Type swordType = typeof(SwordItem);
+            Type whiteswordType = typeof(WhiteSwordItem);
+
+            Type[] itemTypes = { keyType, fairyType, triforceType, boomerangType, arrowType, heartType, mapType, ringType, bowType,
+            heartcontainerType, fluteType, meatType, onerupeeType, fiverupeeType, bombitemType, bluearrowType, blueboomerangType,
+            bluebottleType, bluecandleType, blueringType, bottleType, clockType, compassType, swordType, whiteswordType };
+
+
             foreach (Type blockType in blockTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
@@ -76,6 +109,10 @@ namespace Project.Collision
                 {
                     commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
                 }
+            }
+            foreach(Type itemType in itemTypes)
+            {
+                commandMap.Add(new Tuple<Type, Type>(itemType, playerType), new ItemPlayerCollisionHandler());
             }
         }
 

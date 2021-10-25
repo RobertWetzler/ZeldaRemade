@@ -104,5 +104,10 @@ namespace Project.Factory
             return new BackgroundSprite(backgroundSpriteSheet, 5, 3, 6, 6);
         }
 
+        public BackgroundSprite CreateHiddenRoomBackgroundSprite()
+        {
+            return new BackgroundSprite(backgroundSpriteSheet, 0, 0, 6, 6);
+        }
+
     }
 }
