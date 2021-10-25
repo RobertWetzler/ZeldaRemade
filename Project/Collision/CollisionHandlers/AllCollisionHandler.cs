@@ -20,7 +20,7 @@ using Project.Blocks.MovableBlock;
 
 namespace Project.Collision
 {
-    class AllCollisionHandler
+    class AllCollisionHandler: ICollisionHandler
     {
         private Dictionary<Tuple<Type, Type>, ICollisionHandler> commandMap;
         public AllCollisionHandler()
@@ -130,13 +130,13 @@ namespace Project.Collision
         }
 
 
-        public void HandleCollision(ICollidable subject, ICollidable target, CollisionSide side)
+        public void HandleCollision(ICollidable collidee, ICollidable collider, CollisionSide side)
         {
-            Tuple<Type, Type> key = new Tuple<Type, Type>(subject.GetType(), target.GetType());
+            Tuple<Type, Type> key = new Tuple<Type, Type>(collidee.GetType(), collider.GetType());
             if (commandMap.ContainsKey(key))
             {
                 ICollisionHandler handler = commandMap[key];
-                handler.HandleCollision(subject, target, side);
+                handler.HandleCollision(collidee, collider, side);
             }
         }
     }

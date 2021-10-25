@@ -17,7 +17,7 @@ namespace Project.Collision.CollisionHandlers
             {
                 case CollisionSide.Up:
                     //Collided with top, move down
-                    dy = block.BoundingBox.Bottom -player.BoundingBox.Top;
+                    dy = block.BoundingBox.Bottom - player.BoundingBox.Top;
                     break;
                 case CollisionSide.Down:
                     //Collided with bottom, move up
