@@ -17,13 +17,11 @@ namespace Project.Collision.CollisionHandlers
             switch (side)
             {
                 case CollisionSide.Up:
-                    //Collided with top, move down
                     dy = enemy2.BoundingBox.Bottom - enemy.BoundingBox.Top;
                     enemy.ChangeDirection(EnemyDirections.South);
                     enemy2.ChangeDirection(EnemyDirections.North);
                     break;
                 case CollisionSide.Down:
-                    //Collided with bottom, move up
                     dy = enemy2.BoundingBox.Top - enemy.BoundingBox.Bottom;
                     enemy.ChangeDirection(EnemyDirections.North);
                     enemy2.ChangeDirection(EnemyDirections.South);
