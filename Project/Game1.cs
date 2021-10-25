@@ -16,15 +16,13 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-
         private List<IController> controllers;
-
         private List<Room> roomList;
         public CollisionIterator collisionIterator;
         private int roomIdx = 0;
 
         public IPlayer Player { get => player; set => player = value; }
-        public int RoomIdx { get => roomIdx; set => roomIdx = value; } //
+        public int RoomIdx { get => roomIdx; set => roomIdx = value; } 
         public int RoomNum { get => roomList.Count; }
 
         public Game1()
