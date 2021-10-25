@@ -19,10 +19,10 @@ namespace Project
 
         private List<IController> controllers;
 
-        private List<IItems> items;
-        private List<IBlock> blocks;
-        private List<IEnemy> enemies;
-        private List<INPC> npcs;
+        //private List<IItems> items;
+        //private List<IBlock> blocks;
+        //private List<IEnemy> enemies;
+        //private List<INPC> npcs;
         private List<Room> roomList;
         public CollisionIterator collisionIterator;
         private int roomIdx = 0;
@@ -62,20 +62,20 @@ namespace Project
             player = new GreenLink(this);
             for (int i = 1; i <= 17; i++)
             {
-                string currentRoom = "Room"+i;
-                enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
-                npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
-                items = XMLParser.instance.GetItemsFromRoom(currentRoom);
-                blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+                string currentRoom = "Room" + i;
+                List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+                List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
+                List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+                List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
                 Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
-                                    items,
-                                    blocks,
-                                    npcs,
-                                    enemies);
+                                items,
+                                blocks,
+                                npcs,
+                                enemies);
                 roomList.Add(room);
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            collisionIterator = new CollisionIterator(); 
+            collisionIterator = new CollisionIterator();       
         }
 
         protected override void Update(GameTime gameTime)
