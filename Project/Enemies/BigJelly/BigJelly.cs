@@ -27,6 +27,7 @@ namespace Project
         {
             this.position = position;
             this.velocity = 50f;
+            this.rand = new Random();
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
             startTime = 0;
