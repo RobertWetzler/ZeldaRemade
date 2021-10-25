@@ -53,7 +53,7 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            string currentRoom = "Room16";
+            string currentRoom = "Room2";
             enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
             npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
             items = XMLParser.instance.GetItemsFromRoom(currentRoom);

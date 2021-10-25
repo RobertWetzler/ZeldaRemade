@@ -37,7 +37,8 @@ namespace Project.Collision
             Type goriyaType = typeof(Goriya);
             Type skeletonType = typeof(Skeleton);
             Type wallmasterType = typeof(WallMaster);
-            Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType, wallmasterType };
+            Type trapType = typeof(Trap);
+            Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType, wallmasterType, trapType };
 
             //Object Types
             Type boomerangType = typeof(Boomerang);
