@@ -18,7 +18,6 @@ namespace Project
         private IPlayer player;
 
         private List<IController> controllers;
-        private MouseController mouseController;
 
         private List<IItems> items;
         private List<IBlock> blocks;
@@ -26,7 +25,6 @@ namespace Project
         private List<INPC> npcs;
         private List<Room> roomList;
         public CollisionIterator collisionIterator;
-        private Room room;
         private int roomIdx = 0;
 
         public IPlayer Player { get => player; set => player = value; }
@@ -41,13 +39,13 @@ namespace Project
         }
         protected override void Initialize()
         {
-            mouseController = new MouseController(this);
             roomList = new List<Room>();
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 700;
             _graphics.ApplyChanges();
             controllers = new List<IController>();
-            Sprint2Utilities.SetKeyboardControllers(controllers, this);
+            ControllerUtilities.SetKeyboardControllers(controllers, this);
+            ControllerUtilities.SetMouseControllers(controllers, this);
             base.Initialize();
         }
 
@@ -87,7 +85,6 @@ namespace Project
             {
                 controller.Update();
             }
-            mouseController.Update();
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
