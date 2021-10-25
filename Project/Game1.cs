@@ -24,8 +24,10 @@ namespace Project
         private List<IBlock> blocks;
         private List<IEnemy> enemies;
         private List<INPC> npcs;
+        private List<Room> roomList;
         public CollisionIterator collisionIterator;
         private Room room;
+        private int roomIdx = 0;
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; } //
@@ -75,10 +77,6 @@ namespace Project
                 roomList.Add(room);
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            //List<ICollidable> dynamics = new List<ICollidable>(enemies);
-            //dynamics.AddRange(blocks.FindAll(b => b is MovableBlock));
-            //dynamics.Add(player);
-            //collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks.FindAll(b => !(b is MovableBlock))));
             collisionIterator = new CollisionIterator(); 
         }
 
@@ -90,7 +88,7 @@ namespace Project
                 controller.Update();
             }
             mouseController.Update();
-            //roomList[roomIdx].Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+            RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             base.Update(gameTime);
@@ -100,7 +98,6 @@ namespace Project
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
-            //room.Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
            _spriteBatch.End();
             base.Draw(gameTime);
