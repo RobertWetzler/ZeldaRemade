@@ -62,6 +62,7 @@ namespace Project.Collision
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(enemyType, enemyType), new EnemyEnemyCollisionHandler());
             }
 
             foreach (Type projectileType in projectileTypes)
