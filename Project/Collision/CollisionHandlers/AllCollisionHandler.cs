@@ -52,8 +52,9 @@ namespace Project.Collision
 
             //Item Types
             Type keyType = typeof(Key);
-
-            Type[] itemTypes = { keyType };
+            Type fairyType = typeof(Fairy);
+            Type triforceType = typeof(Triforce);
+            Type[] itemTypes = { keyType, fairyType, triforceType };
 
 
             foreach (Type blockType in blockTypes)
