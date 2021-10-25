@@ -15,6 +15,6 @@ namespace Project
         }
         public void Execute()
         {
-
+            room.LeftRoom
         }
 }
