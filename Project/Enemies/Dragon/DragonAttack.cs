@@ -1,7 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Factory;
+using Project.Projectiles;
 using Project.Sprites.ItemSprites;
+using Project.Utilities;
 using System;
 
 namespace Project
@@ -16,11 +19,11 @@ namespace Project
             this.dragon = dragon;
             this.dragon.EnemySprite = EnemySpriteFactory.Instance.CreateDragonAttackSprite();
             weaponPos = new Vector2(dragon.Position.X - 10, dragon.Position.Y);
-            this.dragon.TopFireball = ItemSpriteFactory.Instance.CreateLeftUpFireballSprite(weaponPos);
-            this.dragon.MiddleFireball = ItemSpriteFactory.Instance.CreateLeftFireballSprite(weaponPos);
-            this.dragon.BottomFireball = ItemSpriteFactory.Instance.CreateLeftDownFireballSprite(weaponPos);
+            RoomManager.Instance.CurrentRoom.AddProjectile(new Fireball(Facing.Up, weaponPos, isFriendly: false));
+            RoomManager.Instance.CurrentRoom.AddProjectile(new Fireball(Facing.Left, weaponPos, isFriendly: false));
+            RoomManager.Instance.CurrentRoom.AddProjectile(new Fireball(Facing.Down, weaponPos, isFriendly: false));
         }
-
+        
         public void ChangeDirection(EnemyDirections direction)
         {
             switch (direction)

@@ -74,7 +74,10 @@ namespace Project.Collision
                 }
                 foreach (Type blockType in blockTypes)
                 {
-                    commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
+                    if(blockType != typeof(BlueBlock))
+                    {
+                        commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
+                    }
                 }
             }
         }
