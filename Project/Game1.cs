@@ -15,15 +15,21 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-        public IPlayer Player { get => player; set => player = value; }
+
         private List<IController> controllers;
+        private MouseController mouseController;
 
         private List<IItems> items;
         private List<IBlock> blocks;
         private List<IEnemy> enemies;
-        private List<INPC> npcs;
+        private List<INPC> npcs;       
+        private List<Room> roomList;
         public CollisionIterator collisionIterator;
-        private Room room;
+        private int roomIdx = 0;
+
+        public IPlayer Player { get => player; set => player = value; }
+        public int RoomIdx { get => roomIdx; set => roomIdx = value; } //
+        public int RoomNum { get => roomList.Count; }
 
         public Game1()
         {
@@ -34,6 +40,8 @@ namespace Project
 
         protected override void Initialize()
         {
+            mouseController = new MouseController(this);
+            roomList = new List<Room>();
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 700;
             _graphics.ApplyChanges();
@@ -53,16 +61,21 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            string currentRoom = "Room17";
-            enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
-            npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
-            items = XMLParser.instance.GetItemsFromRoom(currentRoom);
-            blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-            room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
-                                items,
-                                blocks,
-                                npcs,
-                                enemies);
+            for (int i = 1; i <= 17; i++)
+            {
+                string currentRoom = "Room"+i;
+                enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+                npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
+                items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+                blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+                Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+                                    items,
+                                    blocks,
+                                    npcs,
+                                    enemies);
+                roomList.Add(room);
+            }
+
             List<ICollidable> dynamics = new List<ICollidable>(enemies);
             dynamics.AddRange(blocks.FindAll(b => b is MovableBlock));
             dynamics.Add(player);
@@ -76,7 +89,8 @@ namespace Project
             {
                 controller.Update();
             }
-            room.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+            mouseController.Update();
+            roomList[roomIdx].Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             base.Update(gameTime);
         }
@@ -84,12 +98,10 @@ namespace Project
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            room.Draw(_spriteBatch, gameTime, _graphics);
+            roomList[roomIdx].Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
            _spriteBatch.End();
             base.Draw(gameTime);
         }
-
-
     }
 }
