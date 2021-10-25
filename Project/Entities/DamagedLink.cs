@@ -81,7 +81,7 @@ namespace Project.Entities
             float newY = this.decoratedPlayer.Position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
             if (x_dir == 1)
             {
-                newX = (int)(newX + BoundingBox.Width * 2) < windowBounds.Right ? newX : windowBounds.Right - (BoundingBox.Width * 2);
+                newX = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - (BoundingBox.Width);
             }
             else if (x_dir == -1)
             {
