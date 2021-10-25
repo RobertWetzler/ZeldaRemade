@@ -113,6 +113,12 @@ namespace Project.Utilities
                 case "Blue":
                     block = new BlueBlock(pos);
                     break;
+                case "Black":
+                    block = new BlackBlock(pos);
+                    break;
+                case "Brick":
+                    block = new BrickBlock(pos);
+                    break;
             }
             return block;
         }
