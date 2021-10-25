@@ -19,10 +19,6 @@ namespace Project
 
         private List<IController> controllers;
 
-        //private List<IItems> items;
-        //private List<IBlock> blocks;
-        //private List<IEnemy> enemies;
-        //private List<INPC> npcs;
         private List<Room> roomList;
         public CollisionIterator collisionIterator;
         private int roomIdx = 0;
