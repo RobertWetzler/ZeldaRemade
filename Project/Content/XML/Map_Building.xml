@@ -1315,6 +1315,253 @@
 				<Position>5.5 3.5</Position>
 			</Object>
 		</Room17>
+		<Room18 Type="MyDataTypes.Room18ObjectData[]">
+			<Object>
+				<ObjectType>Background</ObjectType>
+				<ObjectName>Room18</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>0 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>0 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>0 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>0 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>2 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>3 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>4 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>5 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>6 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>7 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>8 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>10 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>11 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>2 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>2 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>2 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>2 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>4 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>4 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>4 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>4 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>5 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>6 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>7 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>8 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>10 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>11 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>5 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>6 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>7 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>8 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>9 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>10 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>11 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>5 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>6 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>7 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>8 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>9 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>10 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Black</ObjectName>
+				<Position>11 1</Position>
+			</Object>
+			<Object>
+				<ObjectType>Item</ObjectType>
+				<ObjectName>Bow</ObjectName>
+				<Position>6 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>1 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>8 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>11 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>5 4</Position>
+			</Object>
+		</Room18>>
 	</Asset>
 </XnaContent>
 
