@@ -5,20 +5,20 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class BlueArrow : IItems
+    class BoomerangItem : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
 
-        public BlueArrow(Vector2 position)
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
+        public BoomerangItem(Vector2 position)
         {
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 1);
+            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 0);
 
         }
-
-        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch)
         {

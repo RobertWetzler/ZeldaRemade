@@ -5,14 +5,14 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class WhiteSword : IItems
+    class WhiteSwordItem : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public WhiteSword(Vector2 position)
+        public WhiteSwordItem(Vector2 position)
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 10);
