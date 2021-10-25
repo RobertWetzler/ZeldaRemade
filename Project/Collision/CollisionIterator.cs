@@ -7,17 +7,13 @@ namespace Project.Collision
 {
     public class CollisionIterator
     {
-        private List<ICollidable> dynamics;
-        private List<ICollidable> statics;
         private AllCollisionHandler collisionHandler;
-        public CollisionIterator(List<ICollidable> dynamics, List<ICollidable> statics)
+        public CollisionIterator()
         {
-            this.dynamics = dynamics;
-            this.statics = statics;
             collisionHandler = new AllCollisionHandler();
         }
 
-        public void UpdateCollisions()
+        public void UpdateCollisions(List<ICollidable> dynamics, List<ICollidable> statics)
         {
             foreach (ICollidable dynamic in dynamics)
             {
