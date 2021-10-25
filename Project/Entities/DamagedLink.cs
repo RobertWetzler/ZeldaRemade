@@ -9,7 +9,7 @@ namespace Project.Entities
     public class DamagedLink : PlayerDecorator
     {
         private double totalFlashTime = 1000;
-        private double totalKnockbackTime = 500;
+        private double totalKnockbackTime = 100;
         private double remainingFlashTime;
         private double remainingKnockbackTime;
         private double knockbackVelocity = 300;
