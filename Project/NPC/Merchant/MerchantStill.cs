@@ -7,7 +7,7 @@ namespace Project.NPC.Merchant
     class MerchantStill : INPCState
     {
         private Merchant merchant;
-        private IEnemySprite sprite;
+        private ISprite sprite;
 
 
         public MerchantStill(Merchant merchant)
@@ -15,12 +15,10 @@ namespace Project.NPC.Merchant
             this.merchant = merchant;
             sprite = NPCSpriteFactory.Instance.CreateMerchantSprite();
         }
-
-        public IEnemySprite Sprite => sprite;
-
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public ISprite Sprite => sprite;
+        public void Draw(SpriteBatch spriteBatch, Vector2 pos)
         {
-            sprite.Draw(spriteBatch, xPos, yPos);
+            sprite.Draw(spriteBatch, pos);
         }
         public void Update(GameTime gameTime)
         {

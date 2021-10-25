@@ -31,7 +31,7 @@ namespace Project.Factory
             merchantSpriteSheet = content.Load<Texture2D>("EnemySprites/merchant");
             flameSpriteSheet = content.Load<Texture2D>("EnemySprites/flame");
         }
-        public IEnemySprite CreateOldManSprite()
+        public ISprite CreateOldManSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
@@ -39,7 +39,7 @@ namespace Project.Factory
             return new StillNPCSprite(oldManSpriteSheet);
         }
 
-        public IEnemySprite CreateMerchantSprite()
+        public ISprite CreateMerchantSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));
@@ -47,7 +47,7 @@ namespace Project.Factory
             return new StillNPCSprite(merchantSpriteSheet);
         }
 
-        public IEnemySprite CreateEnemyFlameSprite()
+        public ISprite CreateEnemyFlameSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 16, 16));

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    class GoriyaWalkUpDownSprite : IEnemySprite
+    class GoriyaWalkUpDownSprite : ISprite
     {
         private Texture2D goriyaSpriteSheet;
         private Rectangle sourceFrame;
@@ -18,10 +18,10 @@ namespace Project
             this.sourceFrame = sourceFrame;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             destRectangle = new Rectangle(
-                (int)xPos, (int)yPos,
+                (int)position.X, (int)position.Y,
                 sourceFrame.Width * 4, sourceFrame.Height * 4);
             if (flipSprite)
             {

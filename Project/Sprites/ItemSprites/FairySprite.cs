@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.ItemSprites
 {
-    class FairySprite : IItemSprite
+    class FairySprite : ISprite
     {
         private int sheetRows;
         private int sheetColumns;
@@ -24,7 +24,7 @@ namespace Project.Sprites.ItemSprites
             spriteRow = 0;
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
@@ -37,7 +37,11 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
-            frame = (int)(gameTime.TotalGameTime.TotalSeconds * 2) % 2;
+            frame = (int)(gameTime.TotalGameTime.TotalSeconds * 10) % 2;
+
+            
+
+
         }
     }
 }

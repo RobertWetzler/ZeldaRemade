@@ -8,7 +8,7 @@ namespace Project.NPC.Flame
     class FlameStatic : INPCState
     {
        
-        private IEnemySprite sprite;
+        private ISprite sprite;
 
         public FlameStatic(Flame flame)
         {
@@ -16,12 +16,10 @@ namespace Project.NPC.Flame
             sprite = NPCSpriteFactory.Instance.CreateEnemyFlameSprite();
 
         }
-
-        public IEnemySprite Sprite => sprite;
-
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public ISprite Sprite => sprite;
+        public void Draw(SpriteBatch spriteBatch, Vector2 pos)
         {
-            sprite.Draw(spriteBatch, xPos, yPos);
+            sprite.Draw(spriteBatch, pos);
         }
 
         public void Update(GameTime gameTime)

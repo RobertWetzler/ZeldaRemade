@@ -8,8 +8,14 @@ namespace Project.Items
     class Candle : IItem
     {
 
+<<<<<<< HEAD
         private IItemSprite sprite;
         private Vector2 position;
+=======
+        private ISprite sprite;
+        private Vector2 position;
+
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public Rectangle BoundingBox => sprite.DestRectangle;
 
         public Candle(Vector2 position)

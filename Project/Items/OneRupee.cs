@@ -8,7 +8,11 @@ namespace Project.Items
     class OneRupee : IItem
     {
 
+<<<<<<< HEAD
         private IItemSprite sprite;
+=======
+        private ISprite sprite;
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
 

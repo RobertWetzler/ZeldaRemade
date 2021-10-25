@@ -70,7 +70,10 @@ namespace Project.Sprites.ItemSprites
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
+          
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
+        
+          
 
         }
 
@@ -81,6 +84,7 @@ namespace Project.Sprites.ItemSprites
 
         public void Update(GameTime gameTime)
         {
+            isFin = timer > 3000 ? true : false;
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
             flipped = timer > 1500;

@@ -17,7 +17,6 @@ namespace Project
         void MoveLeft();
         void MoveRight();
         void StopMoving();
-        void UseSword();
         void UseWeapon(WeaponTypes weaponType);
 
     }

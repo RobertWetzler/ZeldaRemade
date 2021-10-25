@@ -1,13 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
+using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
+using Project.Utilities;
 using System;
 using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink : IPlayer
+    public class GreenLink : IPlayer, ICollidable
     {
         private LinkStateMachine stateMachine;
 
@@ -64,18 +67,14 @@ namespace Project.Entities
         {
             sprite = stateMachine.StopMoving();
         }
-        public void UseSword()
-        {
-            sprite = stateMachine.UseSword();
-        }
 
         public void UseWeapon(WeaponTypes weaponType)
         {
-            IWeaponSprite potentialWeapon = WeaponSpriteSelector.GetWeaponSprite(weaponType, stateMachine.facing, position);
+            IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
             if (potentialWeapon != null)
             {
-                weaponSprites.Add(potentialWeapon);
+                RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
             }
         }
         public void BecomeDamaged()

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.ItemSprites
 {
-    class ItemSprite : IItemSprite
+    class ItemSprite : ISprite
     {
 
         private int spriteWidth;
@@ -27,7 +27,7 @@ namespace Project.Sprites.ItemSprites
             this.spriteColumn = spriteColumn;
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int width = spriteWidth;
             int height = spriteHeight;

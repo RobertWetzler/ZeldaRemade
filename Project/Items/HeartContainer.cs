@@ -8,8 +8,14 @@ namespace Project.Items
     class HeartContainer : IItem
     {
 
+<<<<<<< HEAD
         private IItemSprite sprite;
         private Vector2 position;
+=======
+        private ISprite sprite;
+        private Vector2 position;
+
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public Rectangle BoundingBox => sprite.DestRectangle;
 
         public HeartContainer(Vector2 position)
@@ -18,6 +24,10 @@ namespace Project.Items
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 6);
 
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);

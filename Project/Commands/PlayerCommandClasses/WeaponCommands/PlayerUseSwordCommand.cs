@@ -1,4 +1,5 @@
-﻿namespace Project
+﻿using Project.Entities;
+namespace Project
 {
     class PlayerUseSwordCommand : ICommand
     {
@@ -11,7 +12,8 @@
 
         public void Execute()
         {
-            this.game.Player.UseSword();
+            this.game.Player.UseWeapon(WeaponTypes.Sword);
+         
         }
     }
 }

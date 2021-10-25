@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Blocks;
+using Project.Blocks.MovableBlock;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.BlockSprites;
-using Project.Sprites.ItemSprites;
-using System;
+using Project.Utilities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Project
 {
@@ -18,20 +19,16 @@ namespace Project
         public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
 
+<<<<<<< HEAD
         //List of sprites to cycle thru
         private List<IItem> items;
         private List<IBlockSprite> blocks;
         private List<INPC> npcsList;
         private IEnemy enemy;
 
+=======
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public CollisionIterator collisionIterator;
-
-        public int ItemsListLength => items.Count;
-        public int BlocksListLength => blocks.Count;
-        public int NPCSListLength => npcsList.Count;
-        public int CurrentBlockSpriteIndex { get; set; }
-        public int CurrentItemIndex { get; set; }
-        public int CurrentNPCIndex { get; set; }
 
         public Game1()
         {
@@ -39,35 +36,27 @@ namespace Project
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
-
         protected override void Initialize()
         {
+            _graphics.PreferredBackBufferWidth = 1024;
+            _graphics.PreferredBackBufferHeight = 700;
+            _graphics.ApplyChanges();
             controllers = new List<IController>();
-            Utilities.Sprint2Utilities.SetKeyboardControllers(controllers, this);
-
+            Sprint2Utilities.SetKeyboardControllers(controllers, this);
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            //Load Link Sprites
+            BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            player = new GreenLink(this); // must be done AFTER LinkSpriteFactory load
-
-            //Load block sprites
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-
-            //Load item sprites
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
-
-            //Load NPC sprites
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
-
-            //Load Enemy sprites
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
+<<<<<<< HEAD
             //Set List for blocks, items, and NPCs
             blocks = new List<IBlockSprite>();
             Utilities.Sprint2Utilities.SetBlockList(blocks);
@@ -83,32 +72,41 @@ namespace Project
 
             enemy = new Goriya(400, 100, Facing.Left);
             collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
+=======
+            player = new GreenLink(this);
+            string currentRoom = "Room17";
+            List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+            List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
+            List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+            List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+            Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+                                items,
+                                blocks,
+                                npcs,
+                                enemies);
+            RoomManager.Instance.SetCurrentRoom(room);
+            collisionIterator = new CollisionIterator();       
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         }
 
         protected override void Update(GameTime gameTime)
         {
-            collisionIterator.UpdateCollisions();
+            collisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-
-            npcsList[CurrentNPCIndex].Update(gameTime);
-            enemy.Update(new Rectangle(200, 50, 400, 200), gameTime);
-
-            items[CurrentItemIndex].Update(gameTime);
-
-            player.Update(_graphics.GraphicsDevice.Viewport.Bounds, gameTime);
+            RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+            player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Tan);
-
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp); // PointClamp fixes sprite blurriness
-            blocks[CurrentBlockSpriteIndex].Draw(_spriteBatch, new Vector2(200, 100));
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
+<<<<<<< HEAD
 
             items[CurrentItemIndex].Draw(_spriteBatch);
             npcsList[CurrentNPCIndex].Draw(_spriteBatch);
@@ -116,6 +114,9 @@ namespace Project
 
             _spriteBatch.End();
 
+=======
+           _spriteBatch.End();
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
             base.Draw(gameTime);
         }
 

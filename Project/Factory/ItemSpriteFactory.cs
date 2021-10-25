@@ -21,6 +21,7 @@ namespace Project.Factory
         private Texture2D rupeeSpriteSheet;
         private Texture2D triforceSpriteSheet;
         private Texture2D fireballSpriteSheet;
+        private Texture2D swordSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
 
@@ -51,14 +52,15 @@ namespace Project.Factory
             rupeeSpriteSheet = content.Load<Texture2D>("ItemSprites/rupee");
             fireballSpriteSheet = content.Load<Texture2D>("EnemySprites/dragon-fireballs");
             triforceSpriteSheet = content.Load<Texture2D>("ItemSprites/triforce");
+            swordSpriteSheet = content.Load<Texture2D>("ItemSprites/sword_throw");
 
         }
 
-        public IItemSprite CreateItemSprite(int spriteRow, int spriteColumn)
+        public ISprite CreateItemSprite(int spriteRow, int spriteColumn)
         {
             return new ItemSprite(itemSpriteSheet, 28, 25, spriteRow, spriteColumn);
         }
-        public IItemSprite CreateFairySprite()
+        public ISprite CreateFairySprite()
         {
             return new FairySprite(fairySpriteSheet, 1, 2);
         }
@@ -89,6 +91,10 @@ namespace Project.Factory
         public IWeaponSprite CreateFlameSprite(Facing facing, Vector2 position)
         {
             return new FlameSprite(flameSpriteSheet, 1, 1, facing, position);
+        }
+        public IWeaponSprite CreateSwordSprite(Facing facing, Vector2 position)
+        {
+            return new SwordThrowSprite(swordSpriteSheet, 1, 5, facing, position);
         }
 
         public IWeaponSprite CreateLeftUpFireballSprite(Vector2 position)
@@ -121,16 +127,16 @@ namespace Project.Factory
             return new LeftDownFireballSprite(fireballSpriteSheet, sourceFrames, position);
         }
 
-        public IItemSprite CreateRupeeSprite()
+        public ISprite CreateRupeeSprite()
         {
             return new RupeeSprite(rupeeSpriteSheet, 1, 2);
         }
 
-        public IItemSprite CreateHeartSprite()
+        public ISprite CreateHeartSprite()
         {
             return new HeartSprite(heartSpriteSheet, 1, 2);
         }
-        public IItemSprite CreateTriforceSprite()
+        public ISprite CreateTriforceSprite()
         {
             return new TriforceSprite(triforceSpriteSheet, 1, 2);
         }

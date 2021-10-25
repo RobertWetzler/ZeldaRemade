@@ -1,20 +1,24 @@
 ﻿using Microsoft.Xna.Framework.Input;
+<<<<<<< HEAD
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+=======
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
-using Project.Sprites.BlockSprites;
-using Project.Sprites.ItemSprites;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Project.Items;
+using Project.Blocks;
 
 namespace Project.Utilities
 {
+    
     public static class Sprint2Utilities
     {
        
+<<<<<<< HEAD
         public static void SetBlockList(List<IBlockSprite> blocks)
         {
             blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
@@ -58,6 +62,8 @@ namespace Project.Utilities
             items.Add(new FiveRupee(new Vector2(200, 300)));
             items.Add(new OneRupee(new Vector2(200, 300)));
         }
+=======
+>>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
@@ -101,21 +107,7 @@ namespace Project.Utilities
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
-            //Cycle thru sprites commands
-            keyboardController.RegisterCommand(Keys.T, new GetPreviousBlockCommand(game));
-            keyboardController.RegisterCommand(Keys.Y, new GetNextBlockCommand(game));
-            keyboardController.RegisterCommand(Keys.O, new GetPreviousEnemyCommand(game));
-            keyboardController.RegisterCommand(Keys.P, new GetNextEnemyCommand(game));
-            keyboardController.RegisterCommand(Keys.I, new GetPreviousItemCommand(game));
-            keyboardController.RegisterCommand(Keys.U, new GetNextItemCommand(game));
-
             controllers.Add(keyboardController);
-        }
-        public static void SetNPCList(List<INPC> npcsList)
-        {
-            npcsList.Add(new Flame());
-            npcsList.Add(new OldMan());
-            npcsList.Add(new Merchant());
         }
     }
 }
