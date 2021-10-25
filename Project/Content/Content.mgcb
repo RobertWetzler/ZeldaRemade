@@ -469,6 +469,13 @@
 /processorParam:TextureFormat=Color
 /build:Level1.png
 
+#begin Message.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Message.spritefont
+
 #begin PlayerSprites/link-pickup-item.png
 /importer:TextureImporter
 /processor:TextureProcessor

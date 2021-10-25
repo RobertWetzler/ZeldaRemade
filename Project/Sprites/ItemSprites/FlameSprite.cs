@@ -79,7 +79,8 @@ namespace Project.Sprites.ItemSprites
             flipped = spriteFrame == 0;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 2;
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
+            if(timer > 500 && timer < 1000)
+                spriteFrame = 4;
 
             switch (directionHolder)
             {
@@ -106,7 +107,7 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         {
-            return isFin = timer > 7000 ? true : false;
+            return isFin = timer > 1000 ? true : false;
         }
     }
 }
