@@ -7,6 +7,7 @@ using Project.Entities;
 using Project.Factory;
 using Project.Utilities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Project
 {
@@ -18,12 +19,7 @@ namespace Project
         public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
 
-        private List<IItems> items;
-        private List<IBlock> blocks;
-        private List<IEnemy> enemies;
-        private List<INPC> npcs;
         public CollisionIterator collisionIterator;
-        private Room room;
 
         public Game1()
         {
@@ -31,7 +27,6 @@ namespace Project
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
-
         protected override void Initialize()
         {
             _graphics.PreferredBackBufferWidth = 1024;
@@ -53,30 +48,28 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            string currentRoom = "Room1";
-            enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
-            npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
-            items = XMLParser.instance.GetItemsFromRoom(currentRoom);
-            blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-            room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+            string currentRoom = "Room17";
+            List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+            List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
+            List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+            List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+            Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
                                 items,
                                 blocks,
                                 npcs,
                                 enemies);
-            List<ICollidable> dynamics = new List<ICollidable>(enemies);
-            dynamics.AddRange(blocks.FindAll(b => b is MovableBlock));
-            dynamics.Add(player);
-            collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks.FindAll(b => !(b is MovableBlock))));       
+            RoomManager.Instance.SetCurrentRoom(room);
+            collisionIterator = new CollisionIterator();       
         }
 
         protected override void Update(GameTime gameTime)
         {
-            collisionIterator.UpdateCollisions();
+            collisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-            room.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+            RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
             base.Update(gameTime);
         }
@@ -84,7 +77,7 @@ namespace Project
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            room.Draw(_spriteBatch, gameTime, _graphics);
+            RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
            _spriteBatch.End();
             base.Draw(gameTime);

@@ -1,7 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Blocks.MovableBlock;
+using Project.Collision;
+using Project.Projectiles;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Project
@@ -13,8 +17,10 @@ namespace Project
         private List<IBlock> blocks;
         private List<INPC> npcs;
         private List<IEnemy> enemies;
-        
+        private List<IProjectile> projectiles;
 
+        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
+        public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public Room(Background background, List<IItems> items, List<IBlock> blocks,
                     List<INPC> npcs, List<IEnemy> enemies)
         {
@@ -23,9 +29,32 @@ namespace Project
             this.blocks = blocks;
             this.npcs = npcs;
             this.enemies = enemies;
+            this.projectiles = new List<IProjectile>();
         }
-
-        
+        public void AddItem(IItems item)
+        {
+            items.Add(item);
+        }
+        public void RemoveItem(IItems item)
+        {
+            items.Remove(item);
+        }
+        public void AddProjectile(IProjectile projectile)
+        {
+            projectiles.Add(projectile);
+        }
+        public void RemoveProjectile(IProjectile projectile)
+        {
+            projectiles.Remove(projectile);
+        }
+        public void AddEnemy(IEnemy enemy)
+        {
+            enemies.Add(enemy);
+        }
+        public void RemoveEnemy(IEnemy enemy)
+        {
+            enemies.Remove(enemy);
+        }
         public void Update(Rectangle rectangle, GameTime gameTime)
         {
             foreach (IBlock blocks in blocks)
@@ -44,7 +73,11 @@ namespace Project
             {
                 enemies.Update(rectangle, gameTime);
             }
-
+            foreach (IProjectile projectile in projectiles)
+            {
+                projectile.Update(gameTime);
+            }
+            projectiles.RemoveAll(p => p.IsFinished);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
         {
@@ -65,8 +98,10 @@ namespace Project
             {
                 enemy.Draw(spriteBatch, gameTime);
             }
+            foreach (IProjectile projectile in projectiles)
+            {
+                projectile.Draw(spriteBatch);
+            }
         }
-
-
     }
 }

@@ -1,0 +1,11 @@
+Author: Maggie Feng
+Date: Oct. 25, 2021
+Sprint 3
+File reviewed: CollisionIterator.cs
+Author of file being reviewed: Robert W
+Number of minutes to complete review: 15 
+Readability comments:
+- Class is readable. Uses descriptive class and function names.
+- No unnecessary comments
+- Can improve some variable names (dynamic2) to make more descriptive
+- Methods only do 1 thing. High cohesion.

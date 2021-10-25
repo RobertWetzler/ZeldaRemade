@@ -5,20 +5,19 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class BlueBoomerang : IItems
+    class SwordItem : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public BlueBoomerang(Vector2 position)
+        public SwordItem(Vector2 position)
         {
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 1);
+            sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 10);
 
         }
-
-        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public void Draw(SpriteBatch spriteBatch)
         {
