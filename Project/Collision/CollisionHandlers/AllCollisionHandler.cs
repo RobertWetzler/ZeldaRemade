@@ -8,13 +8,15 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Project.NPC;
+using Project.NPC.Flame;
+using Project.NPC.OldMan;
 using Project.Items;
 using Project.Collision.CollisionHandlers;
 using Project.Sprites.BlockSprites;
 using Project.Blocks;
 using Project.Projectiles;
 using Project.Blocks.MovableBlock;
+
 
 namespace Project.Collision
 {
@@ -43,7 +45,7 @@ namespace Project.Collision
 
             // Projectile Types (not including bombs)
             Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang),
-                typeof(Flame), typeof(Sword), typeof(Fireball)};
+                typeof(Projectiles.Flame), typeof(Sword), typeof(Fireball)};
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
@@ -54,7 +56,36 @@ namespace Project.Collision
             Type keyType = typeof(Key);
             Type fairyType = typeof(Fairy);
             Type triforceType = typeof(Triforce);
-            Type[] itemTypes = { keyType, fairyType, triforceType };
+            Type boomerangType = typeof(BoomerangItem);
+            Type arrowType = typeof(ArrowItem);
+            Type heartType = typeof(Heart);
+            Type mapType = typeof(Map);
+            Type ringType = typeof(Ring);
+            Type bowType = typeof(Bow);
+            Type heartcontainerType = typeof(HeartContainer);
+            Type fluteType = typeof(Flute);
+            Type meatType = typeof(Meat);
+            Type onerupeeType = typeof(OneRupee);
+            Type fiverupeeType = typeof(FiveRupee);
+            Type bombitemType = typeof(BombItem);
+            Type bluearrowType = typeof(BlueArrowItem);
+            Type blueboomerangType = typeof(BlueBoomerangItem);
+            Type bluebottleType = typeof(BlueBottle);
+            Type bluecandleType = typeof(BlueCandle);
+            Type blueringType = typeof(BlueRing);
+            Type bottleType = typeof(Bottle);
+            Type clockType = typeof(Clock);
+            Type compassType = typeof(Compass);
+            Type swordType = typeof(SwordItem);
+            Type whiteswordType = typeof(WhiteSwordItem);
+
+            Type[] itemTypes = { keyType, fairyType, triforceType, boomerangType, arrowType, heartType, mapType, ringType, bowType,
+            heartcontainerType, fluteType, meatType, onerupeeType, fiverupeeType, bombitemType, bluearrowType, blueboomerangType,
+            bluebottleType, bluecandleType, blueringType, bottleType, clockType, compassType, swordType, whiteswordType };
+
+            Type oldmanType = typeof(OldMan);
+            Type flameType = typeof(NPC.Flame.Flame);
+            Type[] npcTypes = { oldmanType, flameType };
 
 
             foreach (Type blockType in blockTypes)
@@ -70,6 +101,12 @@ namespace Project.Collision
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
+        
+            }
+
+            foreach (Type npcType in npcTypes)
+            {
+                commandMap.Add(new Tuple<Type, Type>(playerType, npcType), new PlayerNPCCollisionHandler());
             }
             foreach (Type projectileType in projectileTypes)
             {
