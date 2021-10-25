@@ -12,6 +12,8 @@ namespace Project
 {
     class Goriya : IEnemy
     {
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private ISprite sprite;
         private float velocity;
@@ -30,11 +32,10 @@ namespace Project
             this.position = position;
             this.velocity = 50f;
             this.facingDirection = Facing.Down;
+            startTime = 0;
+            timeToSpawn = 600;
             movement = new EnemyMovement(this);
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new GoriyaWalkSouth(this);
-
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -61,6 +62,28 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    switch (this.facingDirection)
+                    {
+                        case Facing.Down:
+                            currentState = new GoriyaWalkSouth(this);
+                            break;
+                        case Facing.Left:
+                            currentState = new GoriyaWalkWest(this);
+                            break;
+                        case Facing.Right:
+                            currentState = new GoriyaWalkEast(this);
+                            break;
+                        case Facing.Up:
+                            currentState = new GoriyaWalkNorth(this);
+                            break;
+                    }
+                }
+            }
             if (!(currentState is GoriyaUseItem))
             {
                 movement.MoveWASDOrAttack(windowBounds, gameTime);

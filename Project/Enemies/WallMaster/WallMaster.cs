@@ -10,6 +10,8 @@ namespace Project
 {
     class WallMaster : IEnemy
     {
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private Vector2 pos;
         private ISprite sprite;
@@ -23,11 +25,11 @@ namespace Project
         {
             this.pos = pos;
             this.velocity = 50f;
+            startTime = 0;
+            timeToSpawn = 600;
             movement = new EnemyMovement(this);
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new WallMasterWalkEast(this);
-
+            currentState = new EnemySpawning(this);
+            
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -53,6 +55,15 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    currentState = new WallMasterWalkEast(this);
+                }
+            }
+            
             movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
         }

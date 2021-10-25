@@ -10,6 +10,8 @@ namespace Project
 {
     class Skeleton : IEnemy
     {
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private ISprite sprite;
         private float velocity;
@@ -24,11 +26,10 @@ namespace Project
             this.position = pos;
             this.velocity = 50f;
             this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
+            startTime = 0;
+            timeToSpawn = 600;
             movement = new EnemyMovement(this);
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new EnemyWalkEast(this);
-
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -54,6 +55,16 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
+                    currentState = new EnemyWalkEast(this);
+                }
+            }
+            
             movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
         }

@@ -10,6 +10,8 @@ namespace Project
 {
     class BigJelly : IEnemy
     {
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -23,11 +25,10 @@ namespace Project
         {
             this.position = position;
             this.velocity = 50f;
-            this.sprite = EnemySpriteFactory.Instance.CreateBigJellySprite();
             movement = new EnemyMovement(this);
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new EnemyWalkEast(this);
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new EnemySpawning(this);
 
         }
 
@@ -54,6 +55,16 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    this.sprite = EnemySpriteFactory.Instance.CreateBigJellySprite();
+                    currentState = new EnemyWalkEast(this);
+                }
+            }
+            
             movement.MoveWASDAndDiagonal(windowBounds, gameTime);
             currentState.Update(gameTime);
         }

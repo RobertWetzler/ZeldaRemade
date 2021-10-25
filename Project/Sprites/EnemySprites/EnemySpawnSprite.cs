@@ -4,32 +4,31 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class DragonSprite : ISprite
+    class EnemySpawnSprite : ISprite
     {
-        private Texture2D dragonSpriteSheet;
+        private Texture2D bombSpriteSheet;
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
-        private int animationCounter;
-        private int animationDelay;
-        public bool oneCycleFinished { get; private set; }
-
+        private int animationCounter = 0;
+        private int animationDelay = 200;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
-        public DragonSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames)
+
+        public EnemySpawnSprite(Texture2D bombSpriteSheet, List<Rectangle> sourceFrames)
         {
-            this.dragonSpriteSheet = dragonSpriteSheet;
+            this.bombSpriteSheet = bombSpriteSheet;
             this.sourceFrames = sourceFrames;
-            this.animationCounter = 0;
-            this.animationDelay = 150;
-            oneCycleFinished = false;
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
+            destRectangle = new Rectangle(
+                (int)position.X, (int)position.Y,
+                source.Width * 3, source.Height * 3);
+            spriteBatch.Draw(bombSpriteSheet, destRectangle, source, Color.White);
         }
+
         public void Update(GameTime gameTime)
         {
             animationCounter += gameTime.ElapsedGameTime.Milliseconds;
@@ -37,13 +36,8 @@ namespace Project
             {
                 animationCounter -= animationDelay;
                 currentFrame++;
-                if (currentFrame >= 2 && !oneCycleFinished)
-                {
-                    oneCycleFinished = true;
-                }
                 currentFrame %= sourceFrames.Count;
             }
-
         }
     }
 }
