@@ -12,6 +12,8 @@ namespace Project
     {
         private int timeToChangeDirection; //time to randomly change direction
         private int changeDirectionCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private Vector2 pos;
         private ISprite sprite;
@@ -28,9 +30,9 @@ namespace Project
             this.rand = new Random();
             timeToChangeDirection = 1000;
             changeDirectionCounter = 0;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new WallMasterWalkEast(this);
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new EnemySpawning(this);
 
         }
 
@@ -57,6 +59,14 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    currentState = new WallMasterWalkEast(this);
+                }
+            }
             changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (changeDirectionCounter > timeToChangeDirection)
             {
