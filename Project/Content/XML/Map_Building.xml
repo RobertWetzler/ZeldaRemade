@@ -1120,32 +1120,12 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>WallMaster</ObjectName>
-				<Position>3 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Enemy</ObjectType>
-				<ObjectName>WallMaster</ObjectName>
 				<Position>9 0</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>WallMaster</ObjectName>
-				<Position>11 0</Position>
-			</Object>
-			<Object>
-				<ObjectType>Enemy</ObjectType>
-				<ObjectName>WallMaster</ObjectName>
-				<Position>0 3</Position>
-			</Object>
-			<Object>
-				<ObjectType>Enemy</ObjectType>
-				<ObjectName>WallMaster</ObjectName>
 				<Position>0 5</Position>
-			</Object>
-			<Object>
-				<ObjectType>Enemy</ObjectType>
-				<ObjectName>WallMaster</ObjectName>
-				<Position>11 4</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
