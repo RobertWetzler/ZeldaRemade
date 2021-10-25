@@ -16,7 +16,7 @@ using Project.Sprites.BlockSprites;
 using Project.Blocks;
 using Project.Projectiles;
 using Project.Blocks.MovableBlock;
-
+using Project.Collision.CollisionHandlers.Enemies;
 
 namespace Project.Collision
 {
@@ -101,7 +101,6 @@ namespace Project.Collision
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
-        
             }
 
             foreach (Type npcType in npcTypes)
@@ -115,6 +114,7 @@ namespace Project.Collision
                 foreach (Type enemyType in enemyTypes)
                 {
                     commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileEnemyCollisionHandler());
+                    commandMap.Add(new Tuple<Type, Type>(enemyType, projectileType), new EnemyProjectileCollisionHandler());
                 }
                 foreach (Type blockType in blockTypes)
                 {
