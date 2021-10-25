@@ -11,7 +11,7 @@ namespace Project.Projectiles
     {
 
         private IWeaponSprite sprite;
-        public bool IsFinished => sprite.isFinished();
+        public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
         public Bomb (Facing facing, Vector2 position, bool isFriendly = true)
@@ -21,6 +21,7 @@ namespace Project.Projectiles
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public bool IsActive { get; set; } = true;
 
         public void Draw(SpriteBatch spriteBatch)
         {

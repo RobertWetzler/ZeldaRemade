@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Utilities;
 using System;
@@ -22,7 +23,7 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
 
-        public List<IWeaponSprite> fireballs { get; private set; }
+        public List<IProjectile> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
@@ -33,7 +34,7 @@ namespace Project
         {
             this.position = position;
             this.velocity = 50f;
-            this.fireballs = new List<IWeaponSprite>();
+            this.fireballs = new List<IProjectile>();
             timeToAttack = 3000;
             attackCounter = 0;
             startTime = 0;
@@ -83,7 +84,7 @@ namespace Project
             sprite.Update(gameTime);
             currentState.Update(gameTime);
             
-            foreach (IWeaponSprite fireball in fireballs)
+            foreach (IProjectile fireball in fireballs)
             {
                 fireball.Update(gameTime);
             }
@@ -93,7 +94,7 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, position);
-            foreach (IWeaponSprite fireball in fireballs)
+            foreach (IProjectile fireball in fireballs)
             {
                 fireball.Draw(spriteBatch);
             }

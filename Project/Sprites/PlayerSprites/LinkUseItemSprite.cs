@@ -12,7 +12,7 @@ namespace Project.Sprites.PlayerSprites
         private List<(int spriteW, int totalW)> frameWidth;
         private bool facingLeft;
         private int timeSinceLastFrame = 0;
-        private int millisecondPerFrame = 100;     //frequency of animation
+        private int millisecondPerFrame = 150;     //frequency of animation
         private int currentSheet = 1;
         private bool cycleOnce; 
         private Rectangle destRectangle;

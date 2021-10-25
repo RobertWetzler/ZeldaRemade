@@ -10,6 +10,9 @@ namespace Project.Entities
         public Move move;
         private LinkColor color;
 
+        private IPlayerSprite oldSprite;
+        public Move oldMove;
+
         private LinkSpriteSelector spriteSelector;
         private IPlayer link;
 
@@ -85,6 +88,8 @@ namespace Project.Entities
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
             {
+                this.oldSprite = sprite;
+                this.oldMove = move;
                 this.move = Move.UsingSword;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
@@ -100,6 +105,8 @@ namespace Project.Entities
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
             {
+                this.oldSprite = sprite;
+                this.oldMove = move;
                 this.move = Move.UsingItem;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
@@ -123,7 +130,8 @@ namespace Project.Entities
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (IsInActionState() && this.link.PlayerSprite.IsFinished) //If in an action state but action is done, go idle
             {
-                sprite = StopMoving();
+                move = oldMove;
+                sprite = oldSprite;
             }
             return sprite;
         }

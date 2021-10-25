@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Utilities;
 using System;
@@ -17,6 +18,8 @@ namespace Project
         private IEnemyState currentState;
         private ISprite sprite;
         private float velocity;
+        private Random rand;
+        private IProjectile boomerang;
         private EnemyMovement movement;
         private IWeaponSprite boomerang;
         private Facing facingDirection;
@@ -24,7 +27,7 @@ namespace Project
         public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
-        public IWeaponSprite WeaponSprite { get => this.boomerang; set => this.boomerang = value; }
+        public IProjectile Weapon { get => this.boomerang; set => this.boomerang = value; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public Goriya(Vector2 position)
@@ -96,10 +99,6 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, position);
-            if (currentState is GoriyaUseItem)
-            {
-                boomerang.Draw(spriteBatch);
-            }
         }
 
        
