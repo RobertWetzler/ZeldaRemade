@@ -43,7 +43,7 @@ namespace Project.Collision
 
             // Projectile Types
             Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang), 
-                typeof(Bomb), typeof(Flame), typeof(Sword)};
+                typeof(Bomb), typeof(Flame), typeof(Sword), typeof(Fireball)};
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
@@ -70,7 +70,7 @@ namespace Project.Collision
                 commandMap.Add(new Tuple<Type, Type>(projectileType, playerType), new ProjectileAnyCollisionHandler());
                 foreach (Type enemyType in enemyTypes)
                 {
-                    commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileAnyCollisionHandler());
+                    commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileEnemyCollisionHandler());
                 }
                 foreach (Type blockType in blockTypes)
                 {
