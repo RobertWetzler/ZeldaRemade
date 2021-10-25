@@ -31,7 +31,7 @@ namespace Project
         {
             this.position = position;
             this.velocity = 50f;
-            this.facingDirection = Facing.Down;
+            this.facingDirection = Facing.Right;
             startTime = 0;
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
