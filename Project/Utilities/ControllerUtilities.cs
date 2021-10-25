@@ -8,13 +8,15 @@ using Project.Blocks;
 
 namespace Project.Utilities
 {
-    
-    public static class Sprint2Utilities
+
+    public static class ControllerUtilities
     {
-       
+
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
+            
+            //Register player damage command
             keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
 
             //Register both WASD and Arrows
@@ -54,6 +56,11 @@ namespace Project.Utilities
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
             controllers.Add(keyboardController);
+        }
+        public static void SetMouseControllers(List<IController> controllers, Game1 game)
+        {
+            MouseController mouseController = new MouseController(game);
+            controllers.Add(mouseController);
         }
     }
 }
