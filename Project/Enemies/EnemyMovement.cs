@@ -11,6 +11,17 @@ namespace Project
         private int changeDirectionCounter;
         private Random rand;
         private IEnemy enemy;
+        private static List<EnemyDirections> DIRECTIONS = new List<EnemyDirections>()
+        {
+            EnemyDirections.East,
+            EnemyDirections.West,
+            EnemyDirections.North,
+            EnemyDirections.South,
+            EnemyDirections.Northeast,
+            EnemyDirections.Southwest,
+            EnemyDirections.Northwest,
+            EnemyDirections.Southeast,
+        };
         
         public EnemyMovement(IEnemy enemy)
         {
@@ -27,34 +38,9 @@ namespace Project
             {
                 changeDirectionCounter -= timeToChangeDirection;
                 int changeDirection = rand.Next(0, 16); 
-                switch (changeDirection)
+                if (changeDirection < DIRECTIONS.Count)
                 {
-                    case 0:
-                        enemy.ChangeDirection(EnemyDirections.North);
-                        break;
-                    case 1:
-                        enemy.ChangeDirection(EnemyDirections.East);
-                        break;
-                    case 2:
-                        enemy.ChangeDirection(EnemyDirections.South);
-                        break;
-                    case 3:
-                        enemy.ChangeDirection(EnemyDirections.West);
-                        break;
-                    case 4:
-                        enemy.ChangeDirection(EnemyDirections.Northeast);
-                        break;
-                    case 5:
-                        enemy.ChangeDirection(EnemyDirections.Southeast);
-                        break;
-                    case 6:
-                        enemy.ChangeDirection(EnemyDirections.Southwest);
-                        break;
-                    case 7:
-                        enemy.ChangeDirection(EnemyDirections.Northwest);
-                        break;
-                    default:
-                        break;
+                    enemy.ChangeDirection(DIRECTIONS[changeDirection]);
                 }
             }
             CheckIfAtEdge(bounds);
@@ -66,29 +52,34 @@ namespace Project
             if (changeDirectionCounter > timeToChangeDirection)
             {
                 changeDirectionCounter -= timeToChangeDirection;
-                int changeDirection = rand.Next(0, 8); 
-                switch (changeDirection)
+                int changeDirection = rand.Next(0, 8);
+                if (changeDirection < 4)
                 {
-                    case 0:
-                        enemy.ChangeDirection(EnemyDirections.North);
-                        break;
-                    case 1:
-                        enemy.ChangeDirection(EnemyDirections.East);
-                        break;
-                    case 2:
-                        enemy.ChangeDirection(EnemyDirections.South);
-                        break;
-                    case 3:
-                        enemy.ChangeDirection(EnemyDirections.West);
-                        break;
-                    default:
-                        break;
+                    enemy.ChangeDirection(DIRECTIONS[changeDirection]);
                 }
             }
             CheckIfAtEdge(bounds);
         }
 
-        private void CheckIfAtEdge(Rectangle bounds)
+        public void MoveWASDOrAttack(Rectangle bounds, GameTime gameTime)
+        {
+            changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (changeDirectionCounter > timeToChangeDirection)
+            {
+                changeDirectionCounter -= timeToChangeDirection;
+                int changeDirection = rand.Next(0, 9);
+                if (changeDirection < 4)
+                {
+                    enemy.ChangeDirection(DIRECTIONS[changeDirection]);
+                }else if(changeDirection >= 4 && changeDirection < 6)
+                {
+                    enemy.UseWeapon();
+                }
+            }
+            CheckIfAtEdge(bounds);
+        }
+
+        public void CheckIfAtEdge(Rectangle bounds)
         {
             if ((int)enemy.Position.X <= bounds.Left)
             {

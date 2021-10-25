@@ -18,6 +18,8 @@ namespace Project
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
+        private EnemyMovement movement;
+
         public List<IWeaponSprite> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -32,6 +34,7 @@ namespace Project
             this.fireballs = new List<IWeaponSprite>();
             timeToAttack = 3000;
             attackCounter = 0;
+            movement = new EnemyMovement(this);
             //TODO
             //Should start at a spawning state that has the spawning enemies animation
             currentState = new DragonWalkLeft(this);
@@ -60,26 +63,17 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
-
-            if ((int)position.X < windowBounds.Left)
-            {
-                ChangeDirection(EnemyDirections.East);
-            }
-            else if ((int)position.X > windowBounds.Right)
-            {
-                ChangeDirection(EnemyDirections.West);
-            }
-
+            movement.CheckIfAtEdge(windowBounds);
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (attackCounter > timeToAttack)
             {
-                attackCounter -= (2 * timeToAttack);
+                attackCounter -= (3 * timeToAttack);
                 currentState = new DragonAttack(this);
                 UseWeapon();
             }
-
             sprite.Update(gameTime);
             currentState.Update(gameTime);
+            
             foreach (IWeaponSprite fireball in fireballs)
             {
                 fireball.Update(gameTime);

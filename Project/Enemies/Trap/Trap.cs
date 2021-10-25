@@ -10,7 +10,6 @@ namespace Project
 {
     class Trap : IEnemy
     {
-
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;

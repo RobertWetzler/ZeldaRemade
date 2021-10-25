@@ -40,7 +40,7 @@ namespace Project.Entities
             // Update knockback position if timer is still runnning, else do normal update
             if (remainingKnockbackTime > 0)
             {
-                UpdateKnockback(gameTime);
+                UpdateKnockback(gameTime, windowBounds);
             }
             else
             {
@@ -59,7 +59,7 @@ namespace Project.Entities
             int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
             color = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
-        private void UpdateKnockback(GameTime gameTime)
+        private void UpdateKnockback(GameTime gameTime, Rectangle windowBounds)
         {
             int x_dir = 0, y_dir = 0;
             switch (this.decoratedPlayer.StateMachine.facing)
@@ -79,7 +79,24 @@ namespace Project.Entities
             }
             float newX = this.decoratedPlayer.Position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
             float newY = this.decoratedPlayer.Position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
+            if (x_dir == 1)
+            {
+                newX = (int)(newX + BoundingBox.Width * 2) < windowBounds.Right ? newX : windowBounds.Right - (BoundingBox.Width * 2);
+            }
+            else if (x_dir == -1)
+            {
+                newX = (int)newX > windowBounds.Left ? newX : windowBounds.Left;
+            }
+            else if (y_dir == 1)
+            {
+                newY = (int)(newY + BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - (BoundingBox.Height);
+            }
+            else
+            {
+                newY = (int)(newY) > windowBounds.Top ? newY : windowBounds.Top;
+            }
             this.decoratedPlayer.Position = new Vector2(newX, newY);
+
         }
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
