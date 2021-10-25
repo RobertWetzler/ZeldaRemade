@@ -52,3 +52,5 @@ Developers:
 ## Known Bugs
 - When Link attacks with his sword facing upwards, he moves slightly downwards instead of staying in the same position
 - When Link takes damage, he ignores collision with blocks. 
+- Link's bounding box is too large so he his head intersects with blocks causing clunky collision. 
+- Enemies do not collide with moveable blocks.
