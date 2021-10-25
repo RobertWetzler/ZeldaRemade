@@ -1318,7 +1318,7 @@
 		<Room18 Type="MyDataTypes.Room18ObjectData[]">
 			<Object>
 				<ObjectType>Background</ObjectType>
-				<ObjectName>Room16</ObjectName>
+				<ObjectName>Room18</ObjectName>
 				<Position>0 0</Position>
 			</Object>
 			<Object>
