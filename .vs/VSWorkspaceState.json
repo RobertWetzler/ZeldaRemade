@@ -2,12 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Project",
-    "\\Project\\Commands",
-    "\\Project\\Controller",
+    "\\Project\\Content",
     "\\Project\\Factory",
-    "\\Project\\Sprites",
-    "\\Project\\Sprites\\PlayerSprites"
+    "\\Project\\NPC",
+    "\\Project\\NPC\\OldMan"
   ],
-  "SelectedNode": "\\Project\\Project.csproj",
   "PreviewInSolutionExplorer": false
 }

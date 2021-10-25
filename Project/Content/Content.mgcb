@@ -469,6 +469,13 @@
 /processorParam:TextureFormat=Color
 /build:Level1.png
 
+#begin OldMan_Message.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:OldMan_Message.spritefont
+
 #begin PlayerSprites/link-pickup-item.png
 /importer:TextureImporter
 /processor:TextureProcessor

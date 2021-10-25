@@ -13,6 +13,7 @@ namespace Project
 {
     public class Game1 : Game
     {
+        private SpriteFont font;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
@@ -46,9 +47,10 @@ namespace Project
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            FontFactory.Instance.LoadContent(Content);
 
             player = new GreenLink(this);
-            string currentRoom = "Room17";
+            string currentRoom = "Room1";
             List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
             List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
             List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
