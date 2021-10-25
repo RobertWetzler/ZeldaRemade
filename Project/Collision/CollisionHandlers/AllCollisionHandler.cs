@@ -13,6 +13,7 @@ using Project.Items;
 using Project.Collision.CollisionHandlers;
 using Project.Sprites.BlockSprites;
 using Project.Blocks;
+using Project.Blocks.MovableBlock;
 
 namespace Project.Collision
 {
@@ -48,12 +49,13 @@ namespace Project.Collision
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
-            typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), typeof(MoveableBlock), 
+            typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), 
             typeof(PlainBlock), typeof(PyramidBlock), typeof(Rectangle1), typeof(Rectangle2), typeof(RightFacingDragonBlock)};
             foreach (var blockType in blockTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
             }
+            commandMap.Add(new Tuple<Type, Type>(typeof(MovableBlock), playerType), new MovableBlockPlayerCollisionHandler());
             
             foreach (Type enemyType in enemyTypes)
             {

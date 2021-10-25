@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Blocks;
+using Project.Blocks.MovableBlock;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
@@ -51,18 +53,20 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            enemies = XMLParser.instance.GetEnemiesFromRoom("Room17");
-            npcs = XMLParser.instance.GetNPCSFromRoom("Room17");
-            items = XMLParser.instance.GetItemsFromRoom("Room17");
-            blocks = XMLParser.instance.GetBlocksFromRoom("Room17");
-            room = new Room(XMLParser.instance.GetBackgroundFromRoom("Room17"),
+            string currentRoom = "Room17";
+            enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+            npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
+            items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+            blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+            room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
                                 items,
                                 blocks,
                                 npcs,
                                 enemies);
             List<ICollidable> dynamics = new List<ICollidable>(enemies);
+            dynamics.AddRange(blocks.FindAll(b => b is MovableBlock));
             dynamics.Add(player);
-            collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks));       
+            collisionIterator = new CollisionIterator(dynamics, new List<ICollidable>(blocks.FindAll(b => !(b is MovableBlock))));       
         }
 
         protected override void Update(GameTime gameTime)
