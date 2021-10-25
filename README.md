@@ -56,7 +56,6 @@ Developers:
 - Click the left side of room walls
 
 ## Known Bugs
-- When Link attacks with his sword facing upwards, he moves slightly downwards instead of staying in the same position
 - The animation of throwing sword sometimes shown abnormally (flash then disappear)
 - When Link attacked by fireballs by Dragons, sometimes the fireballs will be accitentally frozen for a while
 - Bombs do not damage anything
