@@ -16,9 +16,6 @@ namespace Project.Utilities
         {
             KeyboardController keyboardController = new KeyboardController();
 
-            //Register player damage command
-            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
-
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(game);
             keyboardController.RegisterCommand(Keys.W, upCommand);
