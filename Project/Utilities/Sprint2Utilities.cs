@@ -1,10 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Input;
-<<<<<<< HEAD
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
-=======
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
 using Project.NPC.Merchant;
 using Project.NPC.OldMan;
 using Project.NPC.Flame;
@@ -14,56 +8,10 @@ using Project.Blocks;
 
 namespace Project.Utilities
 {
-    
+
     public static class Sprint2Utilities
     {
-       
-<<<<<<< HEAD
-        public static void SetBlockList(List<IBlockSprite> blocks)
-        {
-            blocks.Add(BlockSpriteFactory.Instance.CreatePlainBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreatePyramidBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateRightFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLeftFacingDragonBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBlackBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDottedBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateStairBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateBrickBlockSprite());
-            blocks.Add(BlockSpriteFactory.Instance.CreateLayeredBlockSprite());
-        }
 
-        public static void SetItemList(List<IItem> items)
-        {
-            items.Add(new Arrow(new Vector2(200, 300)));
-            items.Add(new BlueArrow(new Vector2(200, 300)));
-            items.Add(new BlueBoomerang(new Vector2(200, 300)));
-            items.Add(new Boomerang(new Vector2(200, 300)));
-            items.Add(new Sword(new Vector2(200, 300)));
-            items.Add(new WhiteSword(new Vector2(200, 300)));
-            items.Add(new Bow(new Vector2(200, 300)));
-            items.Add(new Bomb(new Vector2(200, 300)));
-            items.Add(new Flute(new Vector2(200, 300)));
-            items.Add(new Clock(new Vector2(200, 300)));
-            items.Add(new Meat(new Vector2(200, 300)));
-            items.Add(new Map(new Vector2(200, 300)));
-            items.Add(new Key(new Vector2(200, 300)));
-            items.Add(new Ring(new Vector2(200, 300)));
-            items.Add(new BlueRing(new Vector2(200, 300)));
-            items.Add(new Bottle(new Vector2(200, 300)));
-            items.Add(new BlueBottle(new Vector2(200, 300)));
-            items.Add(new Compass(new Vector2(200, 300)));
-            items.Add(new Candle(new Vector2(200, 300)));
-            items.Add(new BlueCandle(new Vector2(200, 300)));
-            items.Add(new Heart(new Vector2(200, 300)));
-            items.Add(new HeartContainer(new Vector2(200, 300)));
-            items.Add(new Fairy(new Vector2(200, 300)));
-            items.Add(new Triforce(new Vector2(200, 300)));
-            items.Add(new FiveRupee(new Vector2(200, 300)));
-            items.Add(new OneRupee(new Vector2(200, 300)));
-        }
-=======
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();

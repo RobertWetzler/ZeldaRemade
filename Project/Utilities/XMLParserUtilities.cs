@@ -55,9 +55,9 @@ namespace Project.Utilities
             return npc;
         }
 
-        public static IItems GetItem(string itemStr, Vector2 pos)
+        public static IItem GetItem(string itemStr, Vector2 pos)
         {
-            IItems item = null;
+            IItem item = null;
             switch (itemStr)
             {
                 case "Key":

@@ -5,23 +5,15 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-<<<<<<< HEAD:Project/Items/BlueArrow.cs
-    class BlueArrow : IItem
-    {
-
-        private IItemSprite sprite;
-        private Vector2 position;
-
-        public BlueArrow(Vector2 position)
-=======
-    class BlueArrowItem : IItems
+  
+    class BlueArrowItem : IItem
     {
 
         private ISprite sprite;
         private Vector2 position;
 
         public BlueArrowItem(Vector2 position)
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678:Project/Items/BlueArrowItem.cs
+
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 1);

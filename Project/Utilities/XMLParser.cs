@@ -97,10 +97,10 @@ namespace Project.Utilities
             return npcs;
         }
 
-        public List<IItems> GetItemsFromRoom(string room)
+        public List<IItem> GetItemsFromRoom(string room)
         {
-            List<IItems> items = new List<IItems>();
-            IItems item;
+            List<IItem> items = new List<IItem>();
+            IItem item;
 
             using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
             {

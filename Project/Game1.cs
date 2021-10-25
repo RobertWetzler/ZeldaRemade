@@ -19,15 +19,6 @@ namespace Project
         public IPlayer Player { get => player; set => player = value; }
         private List<IController> controllers;
 
-<<<<<<< HEAD
-        //List of sprites to cycle thru
-        private List<IItem> items;
-        private List<IBlockSprite> blocks;
-        private List<INPC> npcsList;
-        private IEnemy enemy;
-
-=======
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
         public CollisionIterator collisionIterator;
 
         public Game1()
@@ -56,28 +47,11 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
-<<<<<<< HEAD
-            //Set List for blocks, items, and NPCs
-            blocks = new List<IBlockSprite>();
-            Utilities.Sprint2Utilities.SetBlockList(blocks);
-            CurrentBlockSpriteIndex = 0;
-
-            items = new List<IItem>();
-            Utilities.Sprint2Utilities.SetItemList(items);
-            CurrentItemIndex = 0;
-
-            npcsList = new List<INPC>();
-            Utilities.Sprint2Utilities.SetNPCList(npcsList);
-            CurrentNPCIndex = 0;
-
-            enemy = new Goriya(400, 100, Facing.Left);
-            collisionIterator = new CollisionIterator(new List<ICollidable> { player, enemy }, new List<ICollidable>(blocks));
-=======
             player = new GreenLink(this);
             string currentRoom = "Room17";
             List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
             List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
-            List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+            List<IItem> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
             List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
             Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
                                 items,
@@ -85,8 +59,7 @@ namespace Project
                                 npcs,
                                 enemies);
             RoomManager.Instance.SetCurrentRoom(room);
-            collisionIterator = new CollisionIterator();       
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
+            collisionIterator = new CollisionIterator();
         }
 
         protected override void Update(GameTime gameTime)
@@ -106,17 +79,7 @@ namespace Project
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
-<<<<<<< HEAD
-
-            items[CurrentItemIndex].Draw(_spriteBatch);
-            npcsList[CurrentNPCIndex].Draw(_spriteBatch);
-            enemy.Draw(_spriteBatch, gameTime);
-
             _spriteBatch.End();
-
-=======
-           _spriteBatch.End();
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678
             base.Draw(gameTime);
         }
 

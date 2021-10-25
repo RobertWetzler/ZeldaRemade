@@ -5,17 +5,8 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-<<<<<<< HEAD:Project/Items/Sword.cs
-    class Sword : IItem
-    {
 
-        private IItemSprite sprite;
-        private Vector2 position;
-        public Rectangle BoundingBox => sprite.DestRectangle;
-
-        public Sword(Vector2 position)
-=======
-    class SwordItem : IItems
+    class SwordItem : IItem
     {
 
         private ISprite sprite;
@@ -23,7 +14,7 @@ namespace Project.Items
         public Rectangle BoundingBox => sprite.DestRectangle;
 
         public SwordItem(Vector2 position)
->>>>>>> 692d792898b0b47dcf927cb0960b724b996cd678:Project/Items/SwordItem.cs
+
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 10);

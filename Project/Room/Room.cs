@@ -13,7 +13,7 @@ namespace Project
     public class Room
     {
         private Background background;
-        private List<IItems> items;
+        private List<IItem> items;
         private List<IBlock> blocks;
         private List<INPC> npcs;
         private List<IEnemy> enemies;
@@ -21,7 +21,7 @@ namespace Project
 
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
-        public Room(Background background, List<IItems> items, List<IBlock> blocks,
+        public Room(Background background, List<IItem> items, List<IBlock> blocks,
                     List<INPC> npcs, List<IEnemy> enemies)
         {
             this.background = background;
@@ -31,11 +31,11 @@ namespace Project
             this.enemies = enemies;
             this.projectiles = new List<IProjectile>();
         }
-        public void AddItem(IItems item)
+        public void AddItem(IItem item)
         {
             items.Add(item);
         }
-        public void RemoveItem(IItems item)
+        public void RemoveItem(IItem item)
         {
             items.Remove(item);
         }
@@ -65,7 +65,7 @@ namespace Project
             {
                 npcs.Update(gameTime);
             }
-            foreach (IItems item in items)
+            foreach (IItem item in items)
             {
                 item.Update(gameTime);
             }
@@ -90,7 +90,7 @@ namespace Project
             {
                 npc.Draw(spriteBatch);
             }
-            foreach (IItems item in items)
+            foreach (IItem item in items)
             {
                 item.Draw(spriteBatch);
             }
