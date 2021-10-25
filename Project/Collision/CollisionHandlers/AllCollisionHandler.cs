@@ -54,6 +54,10 @@ namespace Project.Collision
             foreach (var blockType in blockTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
+                foreach(Type enemyType in enemyTypes)
+                {
+                    commandMap.Add(new Tuple<Type, Type>(enemyType, blockType), new EnemyBlockCollisionHandler());
+                }
             }
             commandMap.Add(new Tuple<Type, Type>(typeof(MovableBlock), playerType), new MovableBlockPlayerCollisionHandler());
             
