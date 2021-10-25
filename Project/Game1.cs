@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Blocks;
+using Project.Blocks.MovableBlock;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
@@ -46,11 +48,12 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom("Room17");
-            List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom("Room17");
-            List<IItems> items = XMLParser.instance.GetItemsFromRoom("Room17");
-            List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom("Room17");
-            Room room = new Room(XMLParser.instance.GetBackgroundFromRoom("Room17"),
+            string currentRoom = "Room17";
+            List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+            List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
+            List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
+            List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+            Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
                                 items,
                                 blocks,
                                 npcs,

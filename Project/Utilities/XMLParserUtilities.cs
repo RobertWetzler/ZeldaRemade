@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Blocks;
+using Project.Blocks.MovableBlock;
 using Project.Items;
 using Project.NPC.Flame;
 using Project.NPC.OldMan;
@@ -93,7 +94,7 @@ namespace Project.Utilities
                     block = new StairBlock(pos);
                     break;
                 case "Moveable":
-                    block = new MoveableBlock(pos);
+                    block = new MovableBlock(pos);
                     break;
                 case "LeftDragon":
                     block = new LeftFacingDragonBlock(pos);
