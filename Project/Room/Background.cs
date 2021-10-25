@@ -62,6 +62,9 @@ namespace Project
                 case "Room17":
                     backgroundSprite = BackgroundSpriteFactory.Instance.CreateFinalRoomBackgroundSprite();
                     break;
+                case "Room18":
+                    backgroundSprite = BackgroundSpriteFactory.Instance.CreateHiddenRoomBackgroundSprite();
+                    break;
             }
         }
 
