@@ -54,7 +54,32 @@ namespace Project.Collision
             Type keyType = typeof(Key);
             Type fairyType = typeof(Fairy);
             Type triforceType = typeof(Triforce);
-            Type[] itemTypes = { keyType, fairyType, triforceType };
+            Type boomerangType = typeof(BoomerangItem);
+            Type arrowType = typeof(ArrowItem);
+            Type heartType = typeof(Heart);
+            Type mapType = typeof(Map);
+            Type ringType = typeof(Ring);
+            Type bowType = typeof(Bow);
+            Type heartcontainerType = typeof(HeartContainer);
+            Type fluteType = typeof(Flute);
+            Type meatType = typeof(Meat);
+            Type onerupeeType = typeof(OneRupee);
+            Type fiverupeeType = typeof(FiveRupee);
+            Type bombitemType = typeof(BombItem);
+            Type bluearrowType = typeof(BlueArrowItem);
+            Type blueboomerangType = typeof(BlueBoomerangItem);
+            Type bluebottleType = typeof(BlueBottle);
+            Type bluecandleType = typeof(BlueCandle);
+            Type blueringType = typeof(BlueRing);
+            Type bottleType = typeof(Bottle);
+            Type clockType = typeof(Clock);
+            Type compassType = typeof(Compass);
+            Type swordType = typeof(SwordItem);
+            Type whiteswordType = typeof(WhiteSwordItem);
+
+            Type[] itemTypes = { keyType, fairyType, triforceType, boomerangType, arrowType, heartType, mapType, ringType, bowType,
+            heartcontainerType, fluteType, meatType, onerupeeType, fiverupeeType, bombitemType, bluearrowType, blueboomerangType,
+            bluebottleType, bluecandleType, blueringType, bottleType, clockType, compassType, swordType, whiteswordType };
 
 
             foreach (Type blockType in blockTypes)
