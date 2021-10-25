@@ -17,7 +17,8 @@ namespace Project.Sprites.PlayerSprites
         private int millisecondPerFrame = 500;
         private int totalFrame;
         private bool cycleOnce;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public LinkPickupItemSprite(Texture2D playerSpriteSheet)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -62,15 +63,15 @@ namespace Project.Sprites.PlayerSprites
             {
                 int width = frameWidth[spriteColumn].spriteW;
                 Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-                Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+                destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
             }
             else
             {
                 int width = frameWidth[0].spriteW;
                 Rectangle source = new Rectangle(frameWidth[0].totalW, spriteRow * height, width, height);
-                Rectangle dest = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
-                spriteBatch.Draw(playerSpriteSheet, dest, source, color);
+                destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
             }
         }
     }

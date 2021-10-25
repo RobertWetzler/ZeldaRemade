@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class GenericEnemySprite : IEnemySprite
+    class GenericEnemySprite : ISprite
     {
         private int animationDelay; //animation speed
         private int animationCounter;
         private Texture2D spriteSheet;
         private List<Rectangle> sourceFrames;
         private int my_frame_index = 0;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public GenericEnemySprite(Texture2D spriteSheet, List<Rectangle> sourceFrames)
         {
             this.spriteSheet = spriteSheet;
@@ -19,14 +20,14 @@ namespace Project
             animationCounter = 0;
             animationDelay = 100;
         }
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
 
             Rectangle source = sourceFrames[my_frame_index];
-            Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
+            destRectangle = new Rectangle(
+                (int)position.X, (int)position.Y,
                 source.Width * 3, source.Height * 3);
-            spriteBatch.Draw(spriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(spriteSheet, destRectangle, source, Color.White);
         }
 
         public void Update(GameTime gameTime)

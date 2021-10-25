@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Project.Collision;
 using Project.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,13 @@ namespace Project
      * Enemy can move and take damage (extends IEntity),
      * has a sprite and position, and can use a weapon
      */
-    public interface IEnemy : IEntity
+    public interface IEnemy : IEntity, ICollidable
     {
-        public float XPos { get; set; }
-        public float YPos { get; set; }
-        public IEnemySprite EnemySprite { get; set; }
+        public Vector2 Position { get; set; }
+        public ISprite EnemySprite { get; set; }
         public float Velocity { get; }
         void ChangeDirection(EnemyDirections direction);
         void SetState(IEnemyState state);
         void UseWeapon();
-
     }
 }

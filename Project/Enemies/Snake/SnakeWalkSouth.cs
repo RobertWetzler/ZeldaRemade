@@ -32,7 +32,7 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            snake.YPos += (float)(gameTime.ElapsedGameTime.TotalSeconds * snake.Velocity);
+            snake.Position = new Vector2(snake.Position.X, snake.Position.Y + (float)(gameTime.ElapsedGameTime.TotalSeconds * snake.Velocity));
         }
 
         public void UseWeapon()

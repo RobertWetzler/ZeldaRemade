@@ -8,19 +8,21 @@ namespace Project.Items
     class BlueArrow : IItems
     {
 
-        private IItemSprite sprite;
+        private ISprite sprite;
+        private Vector2 position;
 
-
-        public BlueArrow()
+        public BlueArrow(Vector2 position)
         {
-
+            this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 1);
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, position);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)

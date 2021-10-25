@@ -4,21 +4,23 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    class StillNPCSprite : IEnemySprite
+    class StillNPCSprite : ISprite
     {
-        private Texture2D spriteSheet;
+        private Texture2D spriteSheet; 
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
 
         public StillNPCSprite(Texture2D spriteSheet)
         {
             this.spriteSheet = spriteSheet;
         }
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = new Rectangle(0, 0, spriteSheet.Width, spriteSheet.Height);
-            Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
-                spriteSheet.Width * 3, spriteSheet.Height * 3);
-            spriteBatch.Draw(spriteSheet, destination, source, Color.White);
+            destRectangle = new Rectangle(
+                (int)position.X, (int)position.Y,
+                spriteSheet.Width * 4, spriteSheet.Height * 4);
+            spriteBatch.Draw(spriteSheet, destRectangle, source, Color.White);
         }
         public void Update(GameTime gameTime)
         {

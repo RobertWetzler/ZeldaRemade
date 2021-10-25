@@ -10,8 +10,9 @@ namespace Project.Entities
         protected IPlayer decoratedPlayer;
         protected Game1 game;
         public Vector2 Position { get => decoratedPlayer.Position; set => decoratedPlayer.Position = value; }
-        public IPlayerSprite PlayerSprite { get => this.decoratedPlayer.PlayerSprite; }
-        public LinkStateMachine StateMachine { get => this.decoratedPlayer.StateMachine; }
+        public IPlayerSprite PlayerSprite => decoratedPlayer.PlayerSprite;
+        public LinkStateMachine StateMachine => decoratedPlayer.StateMachine;
+        public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
 
         public void RemoveDecorator()
         {
@@ -68,9 +69,9 @@ namespace Project.Entities
             decoratedPlayer.Update(windowBounds, gameTime);
         }
 
-        public virtual void UseSword()
+        public virtual void UseSword(WeaponTypes weaponType)
         {
-            decoratedPlayer.UseSword();
+            decoratedPlayer.UseSword(weaponType);
         }
 
         public virtual void UseWeapon(WeaponTypes weaponType)

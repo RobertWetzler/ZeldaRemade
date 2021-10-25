@@ -8,19 +8,20 @@ namespace Project.Items
     class BlueCandle : IItems
     {
 
-        private IItemSprite sprite;
-
-
-        public BlueCandle()
+        private ISprite sprite;
+        private Vector2 position;
+        public BlueCandle(Vector2 position)
         {
-
+            this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 3);
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public Rectangle BoundingBox => sprite.DestRectangle;
+
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, position);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)

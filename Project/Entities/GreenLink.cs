@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink : IPlayer
+    public class GreenLink : IPlayer, ICollidable
     {
         private LinkStateMachine stateMachine;
 
@@ -29,6 +30,8 @@ namespace Project.Entities
         {
             get => this.stateMachine;
         }
+
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public GreenLink(Game1 game)
         {
@@ -62,9 +65,15 @@ namespace Project.Entities
         {
             sprite = stateMachine.StopMoving();
         }
-        public void UseSword()
+        public void UseSword(WeaponTypes weaponType)
         {
-            sprite = stateMachine.UseSword();
+            IWeaponSprite weapon = WeaponSpriteSelector.GetWeaponSprite(weaponType, stateMachine.facing, position);
+            (sprite, weapon) = stateMachine.UseSword(weapon); // only sets this.weaponSprite if the state machine allows it
+            if (weapon != null)
+            {
+                weaponSprites.Add(weapon);
+            }
+          
         }
 
         public void UseWeapon(WeaponTypes weaponType)

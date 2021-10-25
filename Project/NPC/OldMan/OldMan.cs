@@ -1,24 +1,26 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 
 namespace Project.NPC.OldMan
 {
     class OldMan : INPC
     {
         public INPCState currentState;
-        public float xPos, yPos;
+        public Vector2 pos;
 
-        public OldMan()
+        public OldMan(Vector2 pos)
         {
+            this.pos = pos;
             currentState = new OldManStill(this);
-            this.xPos = 400;
-            this.yPos = 100;
 
         }
 
+        public Rectangle BoundingBox => currentState.Sprite.DestRectangle;
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            currentState.Draw(spriteBatch, xPos, yPos);
+            currentState.Draw(spriteBatch, pos);
         }
 
 

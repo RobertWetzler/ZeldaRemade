@@ -3,32 +3,33 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    class GoriyaWalkUpDownSprite : IEnemySprite
+    class GoriyaWalkUpDownSprite : ISprite
     {
         private Texture2D goriyaSpriteSheet;
         private Rectangle sourceFrame;
         private bool flipSprite = false;
         private int animationCounter = 0;
         private int animationDelay = 100;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public GoriyaWalkUpDownSprite(Texture2D goriyaSpriteSheet, Rectangle sourceFrame)
         {
             this.goriyaSpriteSheet = goriyaSpriteSheet;
             this.sourceFrame = sourceFrame;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
+            destRectangle = new Rectangle(
+                (int)position.X, (int)position.Y,
                 sourceFrame.Width * 4, sourceFrame.Height * 4);
             if (flipSprite)
             {
-                spriteBatch.Draw(goriyaSpriteSheet, destination, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(goriyaSpriteSheet, destRectangle, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                spriteBatch.Draw(goriyaSpriteSheet, destination, sourceFrame, Color.White);
+                spriteBatch.Draw(goriyaSpriteSheet, destRectangle, sourceFrame, Color.White);
             }
         }
 

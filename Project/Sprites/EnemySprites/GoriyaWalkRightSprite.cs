@@ -4,27 +4,28 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class GoriyaWalkRightSprite : IEnemySprite
+    class GoriyaWalkRightSprite : ISprite
     {
         private Texture2D goriyaSpriteSheet;
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
         private int animationDelay = 100;
         private int animationCounter = 0;
-
+        private Rectangle destRectangle;
+        public Rectangle DestRectangle => destRectangle;
         public GoriyaWalkRightSprite(Texture2D goriyaSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.goriyaSpriteSheet = goriyaSpriteSheet;
             this.sourceFrames = sourceFrames;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float xPos, float yPos)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            Rectangle destination = new Rectangle(
-                (int)xPos, (int)yPos,
+            destRectangle = new Rectangle(
+                (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(goriyaSpriteSheet, destRectangle, source, Color.White);
         }
 
         public void Update(GameTime gameTime)
