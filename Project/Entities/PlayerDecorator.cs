@@ -69,11 +69,6 @@ namespace Project.Entities
             decoratedPlayer.Update(windowBounds, gameTime);
         }
 
-        public virtual void UseSword(WeaponTypes weaponType)
-        {
-            decoratedPlayer.UseSword(weaponType);
-        }
-
         public virtual void UseWeapon(WeaponTypes weaponType)
         {
             decoratedPlayer.UseWeapon(weaponType);

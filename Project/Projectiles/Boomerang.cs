@@ -7,15 +7,17 @@ using Project.Entities;
 
 namespace Project.Projectiles
 {
-    class Boomerang : ICollidable
+    class Boomerang : IProjectile
     {
 
         private IWeaponSprite sprite;
-
-        public Boomerang(Facing facing, Vector2 position)
+        public bool IsFinished => sprite.isFinished();
+        private bool isFriendly;
+        public bool IsFriendly => isFriendly;
+        public Boomerang(Facing facing, Vector2 position, bool isFriendly = true)
         {
-
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(facing, position);
+            this.isFriendly = isFriendly;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;

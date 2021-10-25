@@ -5,24 +5,23 @@ using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Boomerang : IItems
+    class BombItem : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
-
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public Boomerang(Vector2 position)
+        public BombItem(Vector2 position)
         {
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 0);
+            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 4);
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, position);
         }
 
         public void Update(GameTime gameTime)

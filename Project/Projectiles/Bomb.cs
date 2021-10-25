@@ -7,15 +7,17 @@ using Project.Entities;
 
 namespace Project.Projectiles
 {
-    class Bomb : ICollidable
+    class Bomb : IProjectile
     {
 
         private IWeaponSprite sprite;
-
-        public Bomb (Facing facing, Vector2 position)
+        public bool IsFinished => sprite.isFinished();
+        private bool isFriendly;
+        public bool IsFriendly => isFriendly;
+        public Bomb (Facing facing, Vector2 position, bool isFriendly = true)
         {
-
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(facing, position);
+            this.isFriendly = isFriendly;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;

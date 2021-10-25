@@ -7,15 +7,17 @@ using Project.Entities;
 
 namespace Project.Projectiles
 {
-    class Sword : ICollidable
+    class Sword : IProjectile
     {
 
         private IWeaponSprite sprite;
-
-        public Sword(Facing facing, Vector2 position)
+        public bool IsFinished => sprite.isFinished();
+        private bool isFriendly;
+        public bool IsFriendly => isFriendly;
+        public Sword(Facing facing, Vector2 position, bool isFriendly = true)
         {
-
             sprite = ItemSpriteFactory.Instance.CreateSwordSprite(facing, position);
+            this.isFriendly = isFriendly;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;

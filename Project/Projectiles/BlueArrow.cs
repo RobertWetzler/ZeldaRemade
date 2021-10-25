@@ -7,15 +7,18 @@ using Project.Entities;
 
 namespace Project.Projectiles
 {
-    class BlueArrow : ICollidable
+    class BlueArrow : IProjectile
     {
-
+        
         private IWeaponSprite sprite;
+        public bool IsFinished => sprite.isFinished();
+        private bool isFriendly;
+        public bool IsFriendly => isFriendly;
 
-        public BlueArrow(Facing facing, Vector2 position)
+        public BlueArrow(Facing facing, Vector2 position, bool isFriendly = true)
         {
-
             sprite = ItemSpriteFactory.Instance.CreateBlueArrowSprite(facing, position);
+            this.isFriendly = isFriendly;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;

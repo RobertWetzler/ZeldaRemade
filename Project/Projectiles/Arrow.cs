@@ -7,15 +7,16 @@ using Project.Collision;
 
 namespace Project.Projectiles
 {
-    class Arrow : ICollidable
+    class Arrow : IProjectile
     {
-
         private IWeaponSprite sprite;
-
-        public Arrow(Facing facing, Vector2 position)
+        public bool IsFinished => sprite.isFinished();
+        private bool isFriendly;
+        public bool IsFriendly => isFriendly;
+        public Arrow(Facing facing, Vector2 position, bool isFriendly = true)
         {
-            
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite(facing, position);
+            this.isFriendly = isFriendly;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;

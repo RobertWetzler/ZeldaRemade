@@ -72,7 +72,7 @@ namespace Project.Utilities
                     item = new Map(pos);
                     break;
                 case "Boomerang":
-                    item = new Boomerang(pos);
+                    item = new BoomerangItem(pos);
                     break;
                 case "Compass":
                     item = new Compass(pos);
