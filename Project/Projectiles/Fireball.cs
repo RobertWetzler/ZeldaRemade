@@ -1,22 +1,28 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using Project.Entities;
 using Project.Sprites.ItemSprites;
 using Project.Collision;
-using Project.Entities;
+using System;
 
 namespace Project.Projectiles
 {
-    class BlueArrow : IProjectile
+    class Fireball : IProjectile
     {
         private IWeaponSprite sprite;
         public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-
-        public BlueArrow(Facing facing, Vector2 position, bool isFriendly = true)
+        public Fireball(Facing facing, Vector2 position, bool isFriendly = true)
         {
-            sprite = ItemSpriteFactory.Instance.CreateBlueArrowSprite(facing, position);
+            sprite = facing switch
+            {
+                Facing.Up => ItemSpriteFactory.Instance.CreateLeftUpFireballSprite(position),
+                Facing.Left => ItemSpriteFactory.Instance.CreateLeftFireballSprite(position),
+                Facing.Down => ItemSpriteFactory.Instance.CreateLeftDownFireballSprite(position),
+                _ => throw new NotImplementedException()
+            };
             this.isFriendly = isFriendly;
         }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Collision;
 using Project.Entities;
+using Project.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,5 +21,9 @@ namespace Project
         void ChangeDirection(EnemyDirections direction);
         void SetState(IEnemyState state);
         void UseWeapon();
+        public void Despawn()
+        {
+            RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
+        }
     }
 }

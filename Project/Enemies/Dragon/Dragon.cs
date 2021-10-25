@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Utilities;
 using System;
@@ -20,14 +21,14 @@ namespace Project
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
-        private IWeaponSprite topFireball;
-        private IWeaponSprite middleFireball;
-        private IWeaponSprite bottomFireball;
+        private IProjectile topFireball;
+        private IProjectile middleFireball;
+        private IProjectile bottomFireball;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
-        public IWeaponSprite TopFireball { get => this.topFireball; set => this.topFireball = value; }
-        public IWeaponSprite MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
-        public IWeaponSprite BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
+        public IProjectile TopFireball { get => this.topFireball; set => this.topFireball = value; }
+        public IProjectile MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
+        public IProjectile BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public Vector2 Position { get => position; set => position = value; }
 

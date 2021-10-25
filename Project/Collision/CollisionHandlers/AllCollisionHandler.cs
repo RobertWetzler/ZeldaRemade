@@ -16,7 +16,7 @@ using Project.Sprites.BlockSprites;
 using Project.Blocks;
 using Project.Projectiles;
 using Project.Blocks.MovableBlock;
-
+using Project.Collision.CollisionHandlers.Enemies;
 
 namespace Project.Collision
 {
@@ -43,9 +43,9 @@ namespace Project.Collision
             Type trapType = typeof(Trap);
             Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType, wallmasterType, trapType };
 
-            // Projectile Types
-            Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang), 
-                typeof(Bomb), typeof(Projectiles.Flame), typeof(Sword)};
+            // Projectile Types (not including bombs)
+            Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang),
+                typeof(Projectiles.Flame), typeof(Sword), typeof(Fireball)};
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
@@ -101,26 +101,27 @@ namespace Project.Collision
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
-        
             }
 
             foreach (Type npcType in npcTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, npcType), new PlayerNPCCollisionHandler());
             }
-
-
             foreach (Type projectileType in projectileTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, projectileType), new PlayerProjectileCollisionHandler());
-                commandMap.Add(new Tuple<Type, Type>(projectileType, playerType), new ProjectileAnyCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(projectileType, playerType), new ProjectilePlayerCollisionHandler());
                 foreach (Type enemyType in enemyTypes)
                 {
-                    commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileAnyCollisionHandler());
+                    commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileEnemyCollisionHandler());
+                    commandMap.Add(new Tuple<Type, Type>(enemyType, projectileType), new EnemyProjectileCollisionHandler());
                 }
                 foreach (Type blockType in blockTypes)
                 {
-                    commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
+                    if(blockType != typeof(BlueBlock))
+                    {
+                        commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
+                    }
                 }
             }
             foreach(Type itemType in itemTypes)
