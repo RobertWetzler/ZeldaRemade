@@ -81,7 +81,7 @@ namespace Project.Entities
             float newY = this.decoratedPlayer.Position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
             if (x_dir == 1)
             {
-                newX = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - (BoundingBox.Width);
+                newX = (int)(newX + decoratedPlayer.BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - (decoratedPlayer.BoundingBox.Width);
             }
             else if (x_dir == -1)
             {
@@ -89,7 +89,7 @@ namespace Project.Entities
             }
             else if (y_dir == 1)
             {
-                newY = (int)(newY + BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - (BoundingBox.Height);
+                newY = (int)(newY + decoratedPlayer.BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - (decoratedPlayer.BoundingBox.Height);
             }
             else
             {

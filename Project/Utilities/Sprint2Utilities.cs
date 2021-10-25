@@ -15,6 +15,7 @@ namespace Project.Utilities
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
+            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
 
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(game);
