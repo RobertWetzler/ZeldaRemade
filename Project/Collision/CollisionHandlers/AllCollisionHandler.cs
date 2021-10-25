@@ -36,7 +36,8 @@ namespace Project.Collision
             Type gelType = typeof(SmallJelly);
             Type goriyaType = typeof(Goriya);
             Type skeletonType = typeof(Skeleton);
-            Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType };
+            Type wallmasterType = typeof(WallMaster);
+            Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType, wallmasterType };
 
             //Object Types
             Type boomerangType = typeof(Boomerang);
@@ -51,7 +52,7 @@ namespace Project.Collision
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
             typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), 
             typeof(PlainBlock), typeof(PyramidBlock), typeof(Rectangle1), typeof(Rectangle2), typeof(RightFacingDragonBlock)};
-            foreach (var blockType in blockTypes)
+            foreach (Type blockType in blockTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
                 foreach(Type enemyType in enemyTypes)
