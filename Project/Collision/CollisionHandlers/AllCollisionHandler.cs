@@ -8,13 +8,15 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Project.NPC;
+using Project.NPC.Flame;
+using Project.NPC.OldMan;
 using Project.Items;
 using Project.Collision.CollisionHandlers;
 using Project.Sprites.BlockSprites;
 using Project.Blocks;
 using Project.Projectiles;
 using Project.Blocks.MovableBlock;
+
 
 namespace Project.Collision
 {
@@ -43,7 +45,7 @@ namespace Project.Collision
 
             // Projectile Types
             Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang), 
-                typeof(Bomb), typeof(Flame), typeof(Sword)};
+                typeof(Bomb), typeof(Projectiles.Flame), typeof(Sword)};
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
@@ -55,6 +57,10 @@ namespace Project.Collision
             Type fairyType = typeof(Fairy);
             Type triforceType = typeof(Triforce);
             Type[] itemTypes = { keyType, fairyType, triforceType };
+
+            Type oldmanType = typeof(OldMan);
+            Type flameType = typeof(NPC.Flame.Flame);
+            Type[] npcTypes = { oldmanType, flameType };
 
 
             foreach (Type blockType in blockTypes)
@@ -70,8 +76,14 @@ namespace Project.Collision
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
-                commandMap.Add(new Tuple<Type, Type>(enemyType, enemyType), new EnemyEnemyCollisionHandler());
+        
             }
+
+            foreach (Type npcType in npcTypes)
+            {
+                commandMap.Add(new Tuple<Type, Type>(playerType, npcType), new PlayerNPCCollisionHandler());
+            }
+
 
             foreach (Type projectileType in projectileTypes)
             {
