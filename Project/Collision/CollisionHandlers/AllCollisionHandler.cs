@@ -49,6 +49,14 @@ namespace Project.Collision
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
             typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), 
             typeof(PlainBlock), typeof(PyramidBlock), typeof(Rectangle1), typeof(Rectangle2), typeof(RightFacingDragonBlock)};
+
+            //Item Types
+            Type keyType = typeof(Key);
+            Type fairyType = typeof(Fairy);
+            Type triforceType = typeof(Triforce);
+            Type[] itemTypes = { keyType, fairyType, triforceType };
+
+
             foreach (Type blockType in blockTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
@@ -76,6 +84,10 @@ namespace Project.Collision
                 {
                     commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
                 }
+            }
+            foreach(Type itemType in itemTypes)
+            {
+                commandMap.Add(new Tuple<Type, Type>(itemType, playerType), new ItemPlayerCollisionHandler());
             }
         }
 
