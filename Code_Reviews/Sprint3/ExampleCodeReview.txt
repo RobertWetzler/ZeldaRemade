@@ -1,0 +1,9 @@
+Author of Review: Person Personson
+Date of Review: 10/25/21
+Sprint Number: 3
+Name of .cs file being reviewed: Project/Game1.cs
+Author of .cs file being reviewed: Author McAuthorson
+
+Comments on Code Quality (or Code maintainability, write one review for each):
+This class is very readable because the variable names are good and the code is divided into smaller methods etc. etc. etc. (except write like a paragraph or two).
+[Include hypothetical change to the game related to the file, how the file's current implementation could/couldn't easily support that change]
