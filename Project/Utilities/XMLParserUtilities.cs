@@ -78,6 +78,9 @@ namespace Project.Utilities
                 case "Compass":
                     item = new Compass(pos);
                     break;
+                case "Bow":
+                    item = new Bow(pos);
+                    break;
             }
             return item;
         }
@@ -110,6 +113,12 @@ namespace Project.Utilities
                     break;
                 case "Blue":
                     block = new BlueBlock(pos);
+                    break;
+                case "Black":
+                    block = new BlackBlock(pos);
+                    break;
+                case "Brick":
+                    block = new BrickBlock(pos);
                     break;
             }
             return block;

@@ -11,12 +11,15 @@ namespace Project.NPC.OldMan
         public Vector2 pos;
         private SpriteFont font;
         private string message = "EASTMOST PENNINSULA IS THE SECRET";
+        private int timeToSpawn, startTime;
 
         public OldMan(Vector2 pos)
         {
             font = FontFactory.Instance.GetOldManMessage();
             this.pos = pos;
-            currentState = new OldManStill(this);
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new NPCSpawning();
 
         }
 
@@ -34,6 +37,14 @@ namespace Project.NPC.OldMan
         public void Update(GameTime gameTime)
         {
             currentState.Update(gameTime);
+            if (currentState is NPCSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    currentState = new OldManStill(this);
+                }
+            }
         }
     }
 
