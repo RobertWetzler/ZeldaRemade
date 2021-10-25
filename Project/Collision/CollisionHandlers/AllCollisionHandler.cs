@@ -87,7 +87,7 @@ namespace Project.Collision
             }
             foreach(Type itemType in itemTypes)
             {
-                commandMap.Add(new Tuple<Type, Type>(itemType, playerType), new PlayerItemCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(itemType, playerType), new ItemPlayerCollisionHandler());
             }
         }
 
