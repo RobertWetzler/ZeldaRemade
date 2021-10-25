@@ -1,4 +1,5 @@
-﻿using Project.Sprites.ItemSprites;
+﻿using Project.Projectiles;
+using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
@@ -94,7 +95,7 @@ namespace Project.Entities
             return (sprite, weaponSprite);
         }
 
-        public (IPlayerSprite, IWeaponSprite) UseWeapon(IWeaponSprite weaponSprite)
+        public (IPlayerSprite, IProjectile) UseWeapon(IProjectile weapon)
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
@@ -104,9 +105,9 @@ namespace Project.Entities
             }
             else
             {
-                weaponSprite = null; //If weapon can't be used right now, set it to null
+                weapon = null; //If weapon can't be used right now, set it to null
             }
-            return (sprite, weaponSprite);
+            return (sprite, weapon);
         }
         private bool IsInActionState()
         {
