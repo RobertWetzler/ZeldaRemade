@@ -51,3 +51,4 @@ Developers:
 
 ## Known Bugs
 - When Link attacks with his sword facing upwards, he moves slightly downwards instead of staying in the same position
+- When Link takes damage, he ignore collision with blocks. 
