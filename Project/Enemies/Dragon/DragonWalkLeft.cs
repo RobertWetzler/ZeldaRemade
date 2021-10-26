@@ -28,7 +28,6 @@ namespace Project
 
         public void UseWeapon()
         {
-            this.dragon.SetState(new DragonAttack(dragon));
         }
     }
 }

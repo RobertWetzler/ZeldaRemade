@@ -21,26 +21,25 @@ namespace Project
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
-        private IProjectile topFireball;
-        private IProjectile middleFireball;
-        private IProjectile bottomFireball;
+        private EnemyMovement movement;
+
+        public List<IProjectile> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
-        public IProjectile TopFireball { get => this.topFireball; set => this.topFireball = value; }
-        public IProjectile MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
-        public IProjectile BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
-        public Rectangle BoundingBox => sprite.DestRectangle;
         public Vector2 Position { get => position; set => position = value; }
+
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public Dragon(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
-
+            this.fireballs = new List<IProjectile>();
             timeToAttack = 3000;
             attackCounter = 0;
             startTime = 0;
             timeToSpawn = 600;
+            movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
         }
 
@@ -74,29 +73,32 @@ namespace Project
                 if (startTime > timeToSpawn)
                     currentState = new DragonWalkLeft(this);
             }
+            movement.CheckIfAtEdge(windowBounds);
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (attackCounter > timeToAttack)
             {
-                attackCounter -= timeToAttack;
+                attackCounter -= (3 * timeToAttack);
+                currentState = new DragonAttack(this);
                 UseWeapon();
             }
-            
+            sprite.Update(gameTime);
             currentState.Update(gameTime);
             
-
+            foreach (IProjectile fireball in fireballs)
+            {
+                fireball.Update(gameTime);
+            }
+            this.fireballs.RemoveAll(fireball => fireball.IsFinished);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, position);
-            if (currentState is DragonAttack)
+            foreach (IProjectile fireball in fireballs)
             {
-                topFireball.Draw(spriteBatch);
-                middleFireball.Draw(spriteBatch);
-                bottomFireball.Draw(spriteBatch);
+                fireball.Draw(spriteBatch);
             }
         }
-
 
     }
 

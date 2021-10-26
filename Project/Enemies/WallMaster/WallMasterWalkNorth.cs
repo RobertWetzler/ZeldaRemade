@@ -4,14 +4,14 @@ using Project.Factory;
 
 namespace Project
 {
-    class WallMasterWalkEast : IEnemyState
+    class WallMasterWalkNorth : IEnemyState
     {
         private WallMaster wallMaster;
 
-        public WallMasterWalkEast(WallMaster wallMaster)
+        public WallMasterWalkNorth(WallMaster wallMaster)
         {
             this.wallMaster = wallMaster;
-            this.wallMaster.EnemySprite = EnemySpriteFactory.Instance.CreateWallMasterSprite(Entities.Facing.Right);
+            this.wallMaster.EnemySprite = EnemySpriteFactory.Instance.CreateWallMasterSprite(Entities.Facing.Up);
 
         }
 
@@ -22,19 +22,19 @@ namespace Project
                 case EnemyDirections.West:
                     wallMaster.SetState(new WallMasterWalkWest(wallMaster));
                     break;
-                case EnemyDirections.North:
-                    wallMaster.SetState(new WallMasterWalkNorth(wallMaster));
-                    break;
                 case EnemyDirections.South:
                     wallMaster.SetState(new WallMasterWalkSouth(wallMaster));
+                    break;
+                case EnemyDirections.East:
+                    wallMaster.SetState(new WallMasterWalkEast(wallMaster));
                     break;
             }
         }
 
         public void Update(GameTime gameTime)
         {
-            wallMaster.Position = new Vector2(wallMaster.Position.X + (float)(gameTime.ElapsedGameTime.TotalSeconds * wallMaster.Velocity),
-                                            wallMaster.Position.Y);
+            wallMaster.Position = new Vector2(wallMaster.Position.X,
+                                            (float)(-1 * gameTime.ElapsedGameTime.TotalSeconds * wallMaster.Velocity) + wallMaster.Position.Y);
         }
 
         public void UseWeapon()
