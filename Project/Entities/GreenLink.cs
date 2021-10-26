@@ -17,7 +17,7 @@ namespace Project.Entities
         private Vector2 position;
         private IPlayerSprite sprite;
         private List<IWeaponSprite> weaponSprites;
-        private double velocity = 200;
+        private double velocity = 250;
         private Game1 game;
         public Vector2 Position
         {

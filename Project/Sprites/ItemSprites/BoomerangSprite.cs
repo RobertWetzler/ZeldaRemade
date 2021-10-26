@@ -35,7 +35,7 @@ namespace Project.Sprites.ItemSprites
 
 
             spriteRow = 0;
-            velocity = 200;
+            velocity = 300;
 
             switch (facing)
             {
