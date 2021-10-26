@@ -10,15 +10,14 @@ namespace Project
 {
     class Dinosaur : IEnemy
     {
-        private int timeToChangeDirection; //time to randomly change direction
-        private int changeDirectionCounter;
+
         private int timeToSpawn;
         private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
-        private Random rand;
+        private EnemyMovement movement;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
@@ -27,9 +26,7 @@ namespace Project
         {
             this.position = position;
             this.velocity = 50f;
-            this.rand = new Random();
-            timeToChangeDirection = 1000;
-            changeDirectionCounter = 0;
+            movement = new EnemyMovement(this);
             startTime = 0;
             timeToSpawn = 600;
             currentState = new EnemySpawning(this);
@@ -67,28 +64,9 @@ namespace Project
                     currentState = new DinosaurWalkEast(this);
                 }
             }
-            changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
-            if (changeDirectionCounter > timeToChangeDirection)
-            {
-                changeDirectionCounter -= timeToChangeDirection;
-                int changeDirection = rand.Next(0, 9); //Random number b/w 0 and 8
-                switch (changeDirection)
-                {
-                    case 1:
-                        ChangeDirection(EnemyDirections.East);
-                        break;
-                    case 3:
-                        ChangeDirection(EnemyDirections.West);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
- 
+            
+            movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

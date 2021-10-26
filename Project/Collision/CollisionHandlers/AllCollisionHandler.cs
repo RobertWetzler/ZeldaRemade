@@ -8,17 +8,19 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Project.NPC;
+using Project.NPC.Flame;
+using Project.NPC.OldMan;
 using Project.Items;
 using Project.Collision.CollisionHandlers;
 using Project.Sprites.BlockSprites;
 using Project.Blocks;
 using Project.Projectiles;
 using Project.Blocks.MovableBlock;
+using Project.Collision.CollisionHandlers.Enemies;
 
 namespace Project.Collision
 {
-    class AllCollisionHandler
+    class AllCollisionHandler: ICollisionHandler
     {
         private Dictionary<Tuple<Type, Type>, ICollisionHandler> commandMap;
         public AllCollisionHandler()
@@ -41,9 +43,9 @@ namespace Project.Collision
             Type trapType = typeof(Trap);
             Type[] enemyTypes = { batType, bossType, gelType, goriyaType, skeletonType, wallmasterType, trapType };
 
-            // Projectile Types
-            Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang), 
-                typeof(Bomb), typeof(Flame), typeof(Sword)};
+            // Projectile Types (not including bombs)
+            Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang),
+                typeof(Projectiles.Flame), typeof(Sword), typeof(Fireball)};
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
@@ -81,6 +83,10 @@ namespace Project.Collision
             heartcontainerType, fluteType, meatType, onerupeeType, fiverupeeType, bombitemType, bluearrowType, blueboomerangType,
             bluebottleType, bluecandleType, blueringType, bottleType, clockType, compassType, swordType, whiteswordType };
 
+            Type oldmanType = typeof(OldMan);
+            Type flameType = typeof(NPC.Flame.Flame);
+            Type[] npcTypes = { oldmanType, flameType };
+
 
             foreach (Type blockType in blockTypes)
             {
@@ -97,17 +103,25 @@ namespace Project.Collision
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
             }
 
+            foreach (Type npcType in npcTypes)
+            {
+                commandMap.Add(new Tuple<Type, Type>(playerType, npcType), new PlayerNPCCollisionHandler());
+            }
             foreach (Type projectileType in projectileTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, projectileType), new PlayerProjectileCollisionHandler());
-                commandMap.Add(new Tuple<Type, Type>(projectileType, playerType), new ProjectileAnyCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(projectileType, playerType), new ProjectilePlayerCollisionHandler());
                 foreach (Type enemyType in enemyTypes)
                 {
-                    commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileAnyCollisionHandler());
+                    commandMap.Add(new Tuple<Type, Type>(projectileType, enemyType), new ProjectileEnemyCollisionHandler());
+                    commandMap.Add(new Tuple<Type, Type>(enemyType, projectileType), new EnemyProjectileCollisionHandler());
                 }
                 foreach (Type blockType in blockTypes)
                 {
-                    commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
+                    if(blockType != typeof(BlueBlock))
+                    {
+                        commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
+                    }
                 }
             }
             foreach(Type itemType in itemTypes)
@@ -117,13 +131,13 @@ namespace Project.Collision
         }
 
 
-        public void HandleCollision(ICollidable subject, ICollidable target, CollisionSide side)
+        public void HandleCollision(ICollidable collidee, ICollidable collider, CollisionSide side)
         {
-            Tuple<Type, Type> key = new Tuple<Type, Type>(subject.GetType(), target.GetType());
+            Tuple<Type, Type> key = new Tuple<Type, Type>(collidee.GetType(), collider.GetType());
             if (commandMap.ContainsKey(key))
             {
                 ICollisionHandler handler = commandMap[key];
-                handler.HandleCollision(subject, target, side);
+                handler.HandleCollision(collidee, collider, side);
             }
         }
     }

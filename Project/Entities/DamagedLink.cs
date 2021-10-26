@@ -9,7 +9,7 @@ namespace Project.Entities
     public class DamagedLink : PlayerDecorator
     {
         private double totalFlashTime = 1000;
-        private double totalKnockbackTime = 500;
+        private double totalKnockbackTime = 100;
         private double remainingFlashTime;
         private double remainingKnockbackTime;
         private double knockbackVelocity = 300;
@@ -40,7 +40,7 @@ namespace Project.Entities
             // Update knockback position if timer is still runnning, else do normal update
             if (remainingKnockbackTime > 0)
             {
-                UpdateKnockback(gameTime);
+                UpdateKnockback(gameTime, windowBounds);
             }
             else
             {
@@ -59,7 +59,7 @@ namespace Project.Entities
             int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
             color = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
-        private void UpdateKnockback(GameTime gameTime)
+        private void UpdateKnockback(GameTime gameTime, Rectangle windowBounds)
         {
             int x_dir = 0, y_dir = 0;
             switch (this.decoratedPlayer.StateMachine.facing)
@@ -79,7 +79,24 @@ namespace Project.Entities
             }
             float newX = this.decoratedPlayer.Position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
             float newY = this.decoratedPlayer.Position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * knockbackVelocity);
+            if (x_dir == 1)
+            {
+                newX = (int)(newX + decoratedPlayer.BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - (decoratedPlayer.BoundingBox.Width);
+            }
+            else if (x_dir == -1)
+            {
+                newX = (int)newX > windowBounds.Left ? newX : windowBounds.Left;
+            }
+            else if (y_dir == 1)
+            {
+                newY = (int)(newY + decoratedPlayer.BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - (decoratedPlayer.BoundingBox.Height);
+            }
+            else
+            {
+                newY = (int)(newY) > windowBounds.Top ? newY : windowBounds.Top;
+            }
             this.decoratedPlayer.Position = new Vector2(newX, newY);
+
         }
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
