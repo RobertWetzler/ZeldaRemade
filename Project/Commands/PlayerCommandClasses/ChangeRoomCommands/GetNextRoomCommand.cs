@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Factory;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,7 +18,14 @@ namespace Project {
             this.game.RoomIdx++;
             if (this.game.RoomIdx >= this.game.RoomNum)
                 this.game.RoomIdx = 0;
-         
+            if (this.game.RoomIdx == this.game.RoomNum - 1)
+            {
+                game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 400);
+            }
+            else
+            {
+                game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 500);
+            }
         }
     }
 }
