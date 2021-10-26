@@ -1,0 +1,11 @@
+Author of Review: Yuting Yang
+Date of Review: 10/25/21
+Sprint Number: 3
+Name of .cs file being reviewed: Project/Sprites/BlockSprites/Rectangle1Sprite.cs
+Author of .cs file being reviewed: Jena Fogarty
+Number of minutes taken to complete the review: 10 mins
+Comments on Code Quality (or Code maintainability, write one review for each):
+This class is readable with descriptive variable names such as blockSpriteSheet and destRectangle. 
+The Rectangle1 is a type of block assembling and its definition is relatively vague, but the class name here is acceptable. 
+The sprite class has proper line length, consistent identation and naming scheme to improve readability. 
+It also does not have unecessary comment.
