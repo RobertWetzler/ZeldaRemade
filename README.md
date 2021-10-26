@@ -59,3 +59,5 @@ Developers:
 
 ## Missing Features
 - Traps target link for movement, so currently our traps do not move.
+- No room transitions.
+- OldMan does not have any text. 
