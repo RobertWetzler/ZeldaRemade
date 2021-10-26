@@ -1,0 +1,12 @@
+Author: Edwin Pallithanam
+Date: October 25, 2021
+Sprint #3
+AllCollisionHandler.cs
+Jacob Batt
+Number of Minutes
+High coupling becasue it needs numerous types of 
+items, enemies, npc's, and blocks.
+Some large branching with the for-each loops.
+As it's current implementation it may change drastically 
+in the future because our current collision isn't fully
+developed as it has some collision bugs
