@@ -1,9 +1,9 @@
 Author of Review: Yuting Yang
 Date of Review: 10/25/21
 Sprint Number: 3
-Name of .cs file being reviewed: Project/Sprites/ItemSprites/Rectangle1Sprite.cs
+Name of .cs file being reviewed: Project/Sprites/ItemSprites/SwordThrowSprite.cs
 Author of .cs file being reviewed: Jena Fogarty
-
-High cohesion as a class implemented ISprite and it only handles drawing sword throw sprite. 
-Loose coupling (little dependency on other modules).
-High cohesion and loose coupling could easily support a change. However, the magic numbers used in the class may reduce the maintainability.
+Comments on code maintainability:
+- High cohesion as a class implemented ISprite and it only handles drawing sword throw sprite. 
+- Loose coupling (little dependency on other modules).
+- High cohesion and loose coupling could easily support a change. However, the magic numbers used in the class may reduce the maintainability.
