@@ -33,17 +33,8 @@ Developers:
 - Boomerang: ```4```
 - Blue Boomerang: ```5```
 - Flame: ```6```
-### Damage Link
-- ```E```
-### Cycle Blocks
-- ```T```
-- ```Y```
-### Cycle Enemies/NPCs
-- ```O```
-- ```P```
-### Cycle Items
-- ```U```
-- ```I```
+### Cycle Rooms
+-```Left Mouse Button```
 ### Quit Game
 - ```Q```
 ### Reset Level
