@@ -180,6 +180,6 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(66, 0, 32, 16));
             return new DinosaurWalkLeftRightSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
         }
-       
+
     }
 }

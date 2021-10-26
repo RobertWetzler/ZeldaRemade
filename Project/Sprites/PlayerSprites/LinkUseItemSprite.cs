@@ -14,7 +14,7 @@ namespace Project.Sprites.PlayerSprites
         private int timeSinceLastFrame = 0;
         private int millisecondPerFrame = 150;     //frequency of animation
         private int currentSheet = 1;
-        private bool cycleOnce; 
+        private bool cycleOnce;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
 

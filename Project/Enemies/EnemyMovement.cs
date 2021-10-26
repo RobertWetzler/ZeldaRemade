@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {
@@ -22,7 +21,7 @@ namespace Project
             EnemyDirections.Northwest,
             EnemyDirections.Southeast,
         };
-        
+
         public EnemyMovement(IEnemy enemy)
         {
             this.enemy = enemy;
@@ -37,7 +36,7 @@ namespace Project
             if (changeDirectionCounter > timeToChangeDirection)
             {
                 changeDirectionCounter -= timeToChangeDirection;
-                int changeDirection = rand.Next(0, 16); 
+                int changeDirection = rand.Next(0, 16);
                 if (changeDirection < DIRECTIONS.Count)
                 {
                     enemy.ChangeDirection(DIRECTIONS[changeDirection]);
@@ -71,7 +70,8 @@ namespace Project
                 if (changeDirection < 4)
                 {
                     enemy.ChangeDirection(DIRECTIONS[changeDirection]);
-                }else if(changeDirection >= 4 && changeDirection < 6)
+                }
+                else if (changeDirection >= 4 && changeDirection < 6)
                 {
                     enemy.UseWeapon();
                 }

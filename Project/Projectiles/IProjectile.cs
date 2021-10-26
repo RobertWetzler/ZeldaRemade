@@ -2,13 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Projectiles
 {
-    public interface IProjectile: ICollidable
+    public interface IProjectile : ICollidable
     {
         public bool IsActive { get; set; }
         public bool IsFriendly { get; }

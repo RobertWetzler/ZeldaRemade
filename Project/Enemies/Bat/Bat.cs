@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
-using Project.Entities;
 using Project.Factory;
-using System;
-using System.Collections.Generic;
 
 namespace Project
 {
@@ -63,7 +59,7 @@ namespace Project
                     this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
                     currentState = new EnemyWalkEast(this);
                 }
-            }    
+            }
             movement.MoveWASDAndDiagonal(windowBounds, gameTime);
             currentState.Update(gameTime);
         }

@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {
@@ -74,9 +70,9 @@ namespace Project
             backgroundSprite.Draw(spriteBatch, graphics);
         }
 
-       
-        
 
-            
+
+
+
     }
 }

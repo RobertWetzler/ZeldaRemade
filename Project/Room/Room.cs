@@ -3,10 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Blocks.MovableBlock;
 using Project.Collision;
 using Project.Projectiles;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Project
 {

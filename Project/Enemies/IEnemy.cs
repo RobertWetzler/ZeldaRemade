@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Collision;
-using Project.Entities;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {

@@ -6,7 +6,7 @@ namespace Project
 {
     class StillNPCSprite : ISprite
     {
-        private Texture2D spriteSheet; 
+        private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
 

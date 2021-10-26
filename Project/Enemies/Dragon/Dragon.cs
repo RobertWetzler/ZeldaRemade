@@ -1,19 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
-using Project.Entities;
-using Project.Factory;
 using Project.Projectiles;
-using Project.Sprites.ItemSprites;
-using Project.Utilities;
-using System;
 using System.Collections.Generic;
 
 namespace Project
 {
     class Dragon : IEnemy
     {
-        private int timeToAttack; 
+        private int timeToAttack;
         private int attackCounter;
         private int timeToSpawn;
         private int startTime;
@@ -83,7 +77,7 @@ namespace Project
             }
             sprite.Update(gameTime);
             currentState.Update(gameTime);
-            
+
             foreach (IProjectile fireball in fireballs)
             {
                 fireball.Update(gameTime);

@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
-using Project.Collision;
-using Project.Entities;
 
 namespace Project.Projectiles
 {

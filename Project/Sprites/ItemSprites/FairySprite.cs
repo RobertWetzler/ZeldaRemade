@@ -39,7 +39,7 @@ namespace Project.Sprites.ItemSprites
         {
             frame = (int)(gameTime.TotalGameTime.TotalSeconds * 10) % 2;
 
-            
+
 
 
         }
