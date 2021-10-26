@@ -55,11 +55,11 @@ Developers:
 ### Go To Previous Room
 - Click the left side of room walls
 
+
 ## Known Bugs
-- When Link attacks with his sword facing upwards, he moves slightly downwards instead of staying in the same position
 - When Link takes damage, he ignores collision with blocks. 
 - Link's bounding box is too large so he his head intersects with blocks above causing clunky collision. 
 - Enemies do not collide with moveable blocks.
-- The animation of throwing sword sometimes shown abnormally (flash then disappear)
-- When Link attacked by fireballs by Dragons, sometimes the fireballs will be accitentally frozen for a while
-- Bombs do not damage anything
+- The animation of throwing sword sometimes shown abnormally (flash then disappear).
+- Bombs do not damage anything nor collide with anything.
+- When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
