@@ -1,0 +1,9 @@
+Author of Review: Jacob Batt
+Date of Review: 10/25/21
+Sprint Number: 3
+Name of .cs file being reviewed: Project/Collision/CollisionIterator.cs
+Author of .cs file being reviewed: Robert Wetzler
+
+The CollisionIterator.cs file has very good code readability.  It uses dynamic and static objects which passes through to a handler and clearly defines them. 
+Based off of what type of collision the handler can then choose whichever collision file it needs to execute that certain collision. This is good because it breaks
+it into smaller methods and allows for easier readability.
