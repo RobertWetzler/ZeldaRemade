@@ -54,7 +54,7 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
-            for (int i = 1; i <= 17; i++)
+            for (int i = 1; i <= 18; i++)
             {
                 string currentRoom = "Room" + i;
                 List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);

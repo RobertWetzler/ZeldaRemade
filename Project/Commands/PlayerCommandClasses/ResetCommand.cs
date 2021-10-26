@@ -14,10 +14,7 @@ namespace Project
 
         public void Execute()
         {
-            //Reset player position
-            game.Player.StopMoving();
-            game.Player.Position = Vector2.Zero;
-            game.Player.SetSprite(LinkSpriteFactory.Instance.CreateLinkIdleSprite(Entities.Facing.Right));
+            //TODO: Reset Player after death
         }
     }
 }
