@@ -50,6 +50,7 @@ Developers:
 - ```R```
 
 ## Mouse Controls
+![alt text](https://imgur.com/IJZEgDC)
 ### Go To Next Room
 - Click the right side of room walls
 ### Go To Previous Room
@@ -60,6 +61,7 @@ Developers:
 - When Link takes damage, he ignores collision with blocks & wall collision. 
 - Link's bounding box is too large so he his head intersects with blocks above causing clunky collision. 
 - Enemies do not collide with moveable blocks.
+- Link can rapidly fire items. 
 - The animation of throwing sword sometimes shown abnormally (flash then disappear).
 - Bombs do not damage anything nor collide with anything.
 - When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
