@@ -57,7 +57,7 @@ Developers:
 
 
 ## Known Bugs
-- When Link takes damage, he ignores collision with blocks. 
+- When Link takes damage, he ignores collision with blocks & wall collision. 
 - Link's bounding box is too large so he his head intersects with blocks above causing clunky collision. 
 - Enemies do not collide with moveable blocks.
 - The animation of throwing sword sometimes shown abnormally (flash then disappear).
