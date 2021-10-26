@@ -34,7 +34,7 @@ Developers:
 - Blue Boomerang: ```5```
 - Flame: ```6```
 ### Cycle Rooms
--```Left Mouse Button```
+- ```Left Mouse Button```
 ### Quit Game
 - ```Q```
 ### Reset Level
