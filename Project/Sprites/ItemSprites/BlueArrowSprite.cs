@@ -35,7 +35,7 @@ namespace Project.Sprites.ItemSprites
 
             spriteRow = 0;
             isFin = false;
-            velocity = 200;
+            velocity = 400;
 
 
             switch (facing)
@@ -83,7 +83,7 @@ namespace Project.Sprites.ItemSprites
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 2500 && timer < 3000)
+            if (timer > 1500 && timer < 2000)
                 spriteFrame = 4;
 
             switch (spriteFrame)
@@ -115,7 +115,7 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         { 
-            return isFin = timer > 3000 ? true : false;
+            return isFin = timer > 2000 ? true : false;
         }
     }
 }
