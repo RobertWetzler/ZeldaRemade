@@ -4,7 +4,7 @@ using Project.Collision;
 
 namespace Project
 {
-    public interface INPC: ICollidable
+    public interface INPC : ICollidable
     {
         void Draw(SpriteBatch spriteBatch);
         void Update(GameTime gameTime);

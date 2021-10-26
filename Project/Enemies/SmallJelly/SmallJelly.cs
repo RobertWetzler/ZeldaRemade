@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
-using Project.Entities;
 using Project.Factory;
-using System;
-using System.Collections.Generic;
 
 namespace Project
 {
@@ -28,7 +24,7 @@ namespace Project
             startTime = 0;
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
-            currentState = new EnemySpawning(this);          
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -62,7 +58,7 @@ namespace Project
                     currentState = new EnemyWalkEast(this);
                 }
             }
-            
+
             movement.MoveWASDAndDiagonal(windowBounds, gameTime);
 
             currentState.Update(gameTime);

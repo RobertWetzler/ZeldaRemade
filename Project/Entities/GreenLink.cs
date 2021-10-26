@@ -117,10 +117,11 @@ namespace Project.Entities
             {
                 position.X = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - BoundingBox.Width;
             }
-            else if(x_dir == -1)
+            else if (x_dir == -1)
             {
                 position.X = (int)newX > windowBounds.Left ? newX : windowBounds.Left;
-            }else if(y_dir == 1)
+            }
+            else if (y_dir == 1)
             {
                 position.Y = (int)(newY + BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - BoundingBox.Height;
             }

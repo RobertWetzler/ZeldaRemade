@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 
 namespace Project
@@ -33,7 +32,7 @@ namespace Project
 
         public void UseWeapon()
         {
-            
+
         }
     }
 }

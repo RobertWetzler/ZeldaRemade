@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project { 
+﻿namespace Project
+{
     class GetPreviousRoomCommand : ICommand
     {
         private Game1 game;
@@ -14,8 +11,8 @@ namespace Project {
 
         public void Execute()
         {
-            
-            
+
+
             if (this.game.RoomIdx <= 0)
                 this.game.RoomIdx = this.game.RoomNum;
             this.game.RoomIdx--;

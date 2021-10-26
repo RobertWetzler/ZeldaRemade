@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Project.Factory;
-
-namespace Project
+﻿namespace Project
 {
     class ResetCommand : ICommand
     {

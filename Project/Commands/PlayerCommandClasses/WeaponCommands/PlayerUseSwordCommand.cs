@@ -13,7 +13,7 @@ namespace Project
         public void Execute()
         {
             this.game.Player.UseWeapon(WeaponTypes.Sword);
-         
+
         }
     }
 }

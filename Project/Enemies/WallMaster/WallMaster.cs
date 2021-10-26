@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
-using Project.Entities;
-using Project.Factory;
-using System;
-using System.Collections.Generic;
 
 namespace Project
 {
@@ -29,7 +24,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
-            
+
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -63,14 +58,14 @@ namespace Project
                     currentState = new WallMasterWalkEast(this);
                 }
             }
-            
+
             movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch,pos);
+            sprite.Draw(spriteBatch, pos);
         }
     }
 
