@@ -5,7 +5,7 @@ using Project.Utilities;
 
 namespace Project
 {
-    public interface IItems: ICollidable
+    public interface IItems : ICollidable
     {
         void Draw(SpriteBatch spriteBatch);
         void Update(GameTime gameTime);

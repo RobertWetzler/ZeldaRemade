@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
@@ -9,7 +8,7 @@ namespace Project.Blocks
     {
         private ISprite sprite;
         private Vector2 position;
-    
+
 
         public BrickBlock(Vector2 position)
         {

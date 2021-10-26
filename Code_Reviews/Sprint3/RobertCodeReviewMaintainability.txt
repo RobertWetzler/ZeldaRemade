@@ -1,0 +1,12 @@
+Author: Robert Wetzler
+Date: Oct. 25, 2021
+Sprint 3
+File reviewed: XMLParser.cs
+Author of file being reviewed: Maggie F
+Number of minutes to complete review: 15 
+Maintainability comments:
+- High Cohesion within each method. Each method only interacts with it's specific type
+- The methods all reuse a fair amount of code, perhaps a helper method could be used.
+- The file is more than 150 lines, perhaps each method could be it's own class and share a common interface.
+- Hypothetically, consider that another item needed to be parsed from the XML. It wouldn't be difficult to create another method for this, 
+but also it would make the file a decent amount longer (could possibly be addressed by above comment). 

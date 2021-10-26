@@ -1,13 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 
 namespace Project
 {
     class TrapStill : IEnemyState
     {
         private Trap trap;
-        
+
         public TrapStill(Trap trap)
         {
             this.trap = trap;

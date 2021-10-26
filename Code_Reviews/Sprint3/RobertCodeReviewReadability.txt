@@ -1,0 +1,10 @@
+Author: Robert Wetzler
+Date: Oct. 25, 2021
+Sprint 3
+File reviewed: CollisionDetectpr.cs
+Author of file being reviewed: Jacob B
+Number of minutes to complete review: 15 
+Readability comments:
+- GetCollisionSide is somewhat hard to read. Although there are no unnecessary comments in the method, I think this method is an exception and could benefit
+from comments explaining what variables like "xGap" and "xOverlap" mean. Alternatively, perhaps better variable names could be used in this method.
+- Consider that this method needed to be modified such that "subject" has a triangle bounding box instead of a rectangle. Given the way the method was written, it would be difficult to redo. The entire method would likely need to be re-written from it's original.

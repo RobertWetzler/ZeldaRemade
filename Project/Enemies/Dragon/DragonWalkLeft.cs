@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 
 namespace Project
@@ -22,13 +21,12 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            this.dragon.Position = new Vector2((float)(-1 * gameTime.ElapsedGameTime.TotalSeconds * this.dragon.Velocity) + dragon.Position.X, 
+            this.dragon.Position = new Vector2((float)(-1 * gameTime.ElapsedGameTime.TotalSeconds * this.dragon.Velocity) + dragon.Position.X,
                                                 dragon.Position.Y);
         }
 
         public void UseWeapon()
         {
-            this.dragon.SetState(new DragonAttack(dragon));
         }
     }
 }

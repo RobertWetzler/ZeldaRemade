@@ -1,12 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Project.Sprites.BlockSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Collision.CollisionHandlers
 {
-    class PlayerBlockCollisionHandler: ICollisionHandler
+    class PlayerBlockCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable playerCollidable, ICollidable block, CollisionSide side)
         {
@@ -17,7 +13,7 @@ namespace Project.Collision.CollisionHandlers
             {
                 case CollisionSide.Up:
                     //Collided with top, move down
-                    dy = block.BoundingBox.Bottom -player.BoundingBox.Top;
+                    dy = block.BoundingBox.Bottom - player.BoundingBox.Top;
                     break;
                 case CollisionSide.Down:
                     //Collided with bottom, move up

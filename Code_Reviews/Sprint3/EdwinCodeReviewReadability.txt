@@ -1,0 +1,9 @@
+Author: Edwin Pallithanam
+Date: October 25, 2021
+Sprint #3
+BackgroundSprite.cs
+Maggie Feng
+Number of Minutes: 8
+Code is very readable and most easy to follow, 
+some calls are from other variables from other classes 
+but aren't confusing to understand

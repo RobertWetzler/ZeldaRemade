@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Projectiles;
+using Project.Utilities;
 
 namespace Project
 {
@@ -25,8 +25,8 @@ namespace Project
                     weaponPos = new Vector2(goriya.Position.X, goriya.Position.Y);
                     break;
             }
-            this.goriya.WeaponSprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(goriya.FacingDirection, weaponPos);
-
+            this.goriya.Weapon = new Boomerang(goriya.FacingDirection, weaponPos, isFriendly: false);
+            RoomManager.Instance.CurrentRoom.AddProjectile(this.goriya.Weapon);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -50,7 +50,7 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            if (goriya.WeaponSprite.isFinished())
+            if (goriya.Weapon.IsFinished)
             {
                 switch (goriya.FacingDirection)
                 {
@@ -69,7 +69,6 @@ namespace Project
                 }
                 return;
             }
-            goriya.WeaponSprite.Update(gameTime);
         }
 
         public void UseWeapon()

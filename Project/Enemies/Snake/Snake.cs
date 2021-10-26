@@ -1,22 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
 using Project.Entities;
-using Project.Factory;
-using System;
-using System.Collections.Generic;
+using Project.Utilities;
+
 
 namespace Project
 {
     class Snake : IEnemy
     {
-        private int timeToChangeDirection; //time to randomly change direction
-        private int changeDirectionCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
+        private Facing facingDirection;
         private Vector2 pos;
         private ISprite sprite;
         private float velocity;
-        private Random rand;
+        private EnemyMovement movement;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -26,18 +25,17 @@ namespace Project
         {
             this.pos = pos;
             this.velocity = 50f;
-            this.rand = new Random();
-            timeToChangeDirection = 1000;
-            changeDirectionCounter = 0;
-
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new SnakeWalkWest(this);
+            this.facingDirection = Facing.Down;
+            startTime = 0;
+            timeToSpawn = 600;
+            movement = new EnemyMovement(this);
+            currentState = new EnemySpawning(this);
 
         }
 
         public void ChangeDirection(EnemyDirections direction)
         {
+            facingDirection = EnemyUtilities.GetFacingFromEnemyDirection(direction);
             currentState.ChangeDirection(direction);
         }
 
@@ -59,33 +57,31 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
-            if (changeDirectionCounter > timeToChangeDirection)
+            if (currentState is EnemySpawning)
             {
-                changeDirectionCounter -= timeToChangeDirection;
-                int changeDirection = rand.Next(0, 16); //Random number b/w 0 and 15
-                switch (changeDirection)
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
                 {
-                    case 0:
-                        ChangeDirection(EnemyDirections.North);
-                        break;
-                    case 1:
-                        ChangeDirection(EnemyDirections.East);
-                        break;
-                    case 2:
-                        ChangeDirection(EnemyDirections.South);
-                        break;
-                    case 3:
-                        ChangeDirection(EnemyDirections.West);
-                        break;
-                    default:
-                        break;
+                    switch (this.facingDirection)
+                    {
+                        case Facing.Down:
+                            currentState = new SnakeWalkSouth(this);
+                            break;
+                        case Facing.Left:
+                            currentState = new SnakeWalkWest(this);
+                            break;
+                        case Facing.Right:
+                            currentState = new SnakeWalkEast(this);
+                            break;
+                        case Facing.Up:
+                            currentState = new SnakeWalkNorth(this);
+                            break;
+                    }
                 }
             }
 
+            movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

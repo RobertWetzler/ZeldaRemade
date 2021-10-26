@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 
 namespace Project
@@ -21,6 +20,12 @@ namespace Project
             {
                 case EnemyDirections.East:
                     wallMaster.SetState(new WallMasterWalkEast(wallMaster));
+                    break;
+                case EnemyDirections.North:
+                    wallMaster.SetState(new WallMasterWalkNorth(wallMaster));
+                    break;
+                case EnemyDirections.South:
+                    wallMaster.SetState(new WallMasterWalkSouth(wallMaster));
                     break;
             }
         }

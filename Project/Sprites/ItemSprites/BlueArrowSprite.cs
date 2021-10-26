@@ -31,11 +31,11 @@ namespace Project.Sprites.ItemSprites
 
             this.facing = facing;
             this.position = position;
-            
+
 
             spriteRow = 0;
             isFin = false;
-            velocity = 200;
+            velocity = 400;
 
 
             switch (facing)
@@ -59,8 +59,8 @@ namespace Project.Sprites.ItemSprites
                 default:
                     break;
             }
-            
-         
+
+
 
         }
 
@@ -71,7 +71,7 @@ namespace Project.Sprites.ItemSprites
             int height = spriteSheet.Height / sheetRows;
             int scale = 3;
 
-            
+
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
@@ -83,7 +83,7 @@ namespace Project.Sprites.ItemSprites
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 2500 && timer < 3000)
+            if (timer > 1500 && timer < 2000)
                 spriteFrame = 4;
 
             switch (spriteFrame)
@@ -115,7 +115,7 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         { 
-            return isFin = timer > 3000 ? true : false;
+            return isFin = timer > 2000 ? true : false;
         }
     }
 }

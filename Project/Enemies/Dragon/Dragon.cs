@@ -1,45 +1,40 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
-using Project.Entities;
-using Project.Factory;
-using Project.Sprites.ItemSprites;
-using Project.Utilities;
-using System;
+using Project.Projectiles;
 using System.Collections.Generic;
 
 namespace Project
 {
     class Dragon : IEnemy
     {
-        private int timeToAttack; 
+        private int timeToAttack;
         private int attackCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
-        private IWeaponSprite topFireball;
-        private IWeaponSprite middleFireball;
-        private IWeaponSprite bottomFireball;
+        private EnemyMovement movement;
+
+        public List<IProjectile> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
-        public IWeaponSprite TopFireball { get => this.topFireball; set => this.topFireball = value; }
-        public IWeaponSprite MiddleFireball { get => this.middleFireball; set => this.middleFireball = value; }
-        public IWeaponSprite BottomFireball { get => this.bottomFireball; set => this.bottomFireball = value; }
-        public Rectangle BoundingBox => sprite.DestRectangle;
         public Vector2 Position { get => position; set => position = value; }
+
+        public Rectangle BoundingBox => sprite.DestRectangle;
 
         public Dragon(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
-
+            this.fireballs = new List<IProjectile>();
             timeToAttack = 3000;
             attackCounter = 0;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new DragonWalkLeft(this);
-
+            startTime = 0;
+            timeToSpawn = 600;
+            movement = new EnemyMovement(this);
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -66,29 +61,38 @@ namespace Project
         {
 
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                    currentState = new DragonWalkLeft(this);
+            }
+            movement.CheckIfAtEdge(windowBounds);
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (attackCounter > timeToAttack)
             {
-                attackCounter -= timeToAttack;
+                attackCounter -= (3 * timeToAttack);
+                currentState = new DragonAttack(this);
                 UseWeapon();
             }
-            
+            sprite.Update(gameTime);
             currentState.Update(gameTime);
-            
 
+            foreach (IProjectile fireball in fireballs)
+            {
+                fireball.Update(gameTime);
+            }
+            this.fireballs.RemoveAll(fireball => fireball.IsFinished);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, position);
-            if (currentState is DragonAttack)
+            foreach (IProjectile fireball in fireballs)
             {
-                topFireball.Draw(spriteBatch);
-                middleFireball.Draw(spriteBatch);
-                bottomFireball.Draw(spriteBatch);
+                fireball.Draw(spriteBatch);
             }
         }
-
 
     }
 

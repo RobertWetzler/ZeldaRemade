@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Project.Collision
 {
@@ -21,20 +18,16 @@ namespace Project.Collision
                 {
                     if (CollisionDetector.IsColliding(dynamic, staticObj))
                     {
-                        Debug.WriteLine("static-dynamic collision!");
-                        CollisionSide side = CollisionDetector.GetCollisionSide(dynamic, staticObj);
-                        collisionHandler.HandleCollision(dynamic, staticObj, side);
-                        collisionHandler.HandleCollision(staticObj, dynamic, side);
+                        collisionHandler.HandleCollision(dynamic, staticObj, CollisionDetector.GetCollisionSide(dynamic, staticObj));
+                        collisionHandler.HandleCollision(staticObj, dynamic, CollisionDetector.GetCollisionSide(staticObj, dynamic));
                     }
                 }
                 foreach (ICollidable dynamic2 in dynamics)
                 {
                     if (dynamic != dynamic2 && CollisionDetector.IsColliding(dynamic, dynamic2))
                     {
-                        Debug.WriteLine("dynamic-dynamic collision!");
-                        CollisionSide side = CollisionDetector.GetCollisionSide(dynamic, dynamic2);
-                        collisionHandler.HandleCollision(dynamic, dynamic2, side);
-                        collisionHandler.HandleCollision(dynamic2, dynamic, side);
+                        collisionHandler.HandleCollision(dynamic, dynamic2, CollisionDetector.GetCollisionSide(dynamic, dynamic2));
+                        collisionHandler.HandleCollision(dynamic2, dynamic, CollisionDetector.GetCollisionSide(dynamic2, dynamic));
                     }
                 }
             }

@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
-using Project.Collision;
-using Project.Entities;
 
 namespace Project.Projectiles
 {
     class BlueArrow : IProjectile
     {
-        
         private IWeaponSprite sprite;
-        public bool IsFinished => sprite.isFinished();
+        public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
 
@@ -22,6 +20,7 @@ namespace Project.Projectiles
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public bool IsActive { get; set; } = true;
 
         public void Draw(SpriteBatch spriteBatch)
         {

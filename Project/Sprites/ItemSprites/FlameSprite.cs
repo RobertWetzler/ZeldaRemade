@@ -106,7 +106,7 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         {
-            return isFin = timer > 7000 ? true : false;
+            return isFin = timer > 1000 ? true : false;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
@@ -10,7 +9,7 @@ namespace Project.Blocks
         private ISprite sprite;
         private Vector2 position;
 
-        public  BlueBlock(Vector2 position)
+        public BlueBlock(Vector2 position)
         {
             this.position = position;
             sprite = BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite();

@@ -1,16 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
-using Project.Entities;
 using Project.Factory;
-using System;
-using System.Collections.Generic;
 
 namespace Project
 {
     class Trap : IEnemy
     {
-
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -24,11 +21,9 @@ namespace Project
         {
             this.position = pos;
             this.velocity = 50f;
-            this.sprite = EnemySpriteFactory.Instance.CreateTrapSprite();
-
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new TrapStill(this);
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new EnemySpawning(this);
 
         }
 
@@ -54,6 +49,16 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    this.sprite = EnemySpriteFactory.Instance.CreateTrapSprite();
+                    currentState = new TrapStill(this);
+                }
+            }
             currentState.Update(gameTime);
         }
 
