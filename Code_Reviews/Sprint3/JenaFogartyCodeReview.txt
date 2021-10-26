@@ -1,0 +1,16 @@
+Author of Review: Jena Fogarty
+Date of Review: 10/25/21
+Sprint Number: 3
+Name of .cs file being reviewed: NPCSpawning.cs
+Author of .cs file being reviewed: Yuting
+Number of minutes to complete review: 30
+
+Comments on Code Maintainability:
+
+High cohesion: as the class only creates the sprite & the method do a singular task.
+Loose coupling: IEnemySprite 
+Hypothetical change: A significantly larger enemy that would require a larger sprite for spawn. This could be refactored through passing a int scale parameter. 
+
+Comments on Code Readability:
+Uses effective naming convention for both class & functions
+High cohesion (see above): Makes class readable 
