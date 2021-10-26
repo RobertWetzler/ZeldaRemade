@@ -36,7 +36,7 @@ namespace Project.Sprites.ItemSprites
 
 
             spriteRow = 0;
-            velocity = 200;
+            velocity = 300;
 
             switch (facing)
             {
@@ -77,14 +77,14 @@ namespace Project.Sprites.ItemSprites
 
         public bool isFinished()
         {
-            return isFin = timer > 6000 ? true : false;
+            return isFin = timer > 4000 ? true : false;
         }
 
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
-            flipped = timer > 3000;
+            flipped = timer > 2000;
 
 
                 switch (directionHolder)
