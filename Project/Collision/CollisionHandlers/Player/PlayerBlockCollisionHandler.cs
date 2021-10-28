@@ -1,12 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Project.Sprites.BlockSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Collision.CollisionHandlers
 {
-    class PlayerBlockCollisionHandler: ICollisionHandler
+    class PlayerBlockCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable playerCollidable, ICollidable block, CollisionSide side)
         {

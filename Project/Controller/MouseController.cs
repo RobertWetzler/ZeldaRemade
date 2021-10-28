@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
 
 
 namespace Project
-{ 
+{
     class MouseController : IController
     {
         private MouseState oldMouseState = Mouse.GetState();

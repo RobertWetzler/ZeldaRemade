@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project.Collision.CollisionHandlers
+﻿namespace Project.Collision.CollisionHandlers
 {
-    class PlayerEnemyCollisionHandler: ICollisionHandler
+    class PlayerEnemyCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable playerCollidable, ICollidable enemy, CollisionSide side)
         {

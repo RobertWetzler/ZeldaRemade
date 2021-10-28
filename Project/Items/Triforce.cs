@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Triforce: IItems
+    class Triforce : IItems
     {
 
         private ISprite sprite;

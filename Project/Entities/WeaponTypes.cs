@@ -7,7 +7,7 @@
         Bomb,
         Boomerang,
         BlueBoomerang,
-        Flame, 
+        Flame,
         Sword,
     }
 }

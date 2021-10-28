@@ -1,7 +1,4 @@
 ﻿using Project.Projectiles;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Collision.CollisionHandlers.Enemies
 {
@@ -11,7 +8,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
         {
             IEnemy enemy = enemyCollidable as IEnemy;
             IProjectile projectile = projectileCollidable as IProjectile;
-            if(projectile.IsFriendly)
+            if (projectile.IsFriendly)
             {
                 enemy.Despawn();
             }

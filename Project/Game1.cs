@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Blocks;
-using Project.Blocks.MovableBlock;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
@@ -22,7 +20,7 @@ namespace Project
         private int roomIdx = 0;
 
         public IPlayer Player { get => player; set => player = value; }
-        public int RoomIdx { get => roomIdx; set => roomIdx = value; } 
+        public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
 
         public Game1()
@@ -69,7 +67,7 @@ namespace Project
                 roomList.Add(room);
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            collisionIterator = new CollisionIterator();       
+            collisionIterator = new CollisionIterator();
         }
 
         protected override void Update(GameTime gameTime)
@@ -90,7 +88,7 @@ namespace Project
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
             player.Draw(_spriteBatch, gameTime);
-           _spriteBatch.End();
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }

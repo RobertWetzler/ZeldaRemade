@@ -1,5 +1,4 @@
-﻿using System;
-namespace Project.Entities
+﻿namespace Project.Entities
 {
     public enum ItemTypes
     {

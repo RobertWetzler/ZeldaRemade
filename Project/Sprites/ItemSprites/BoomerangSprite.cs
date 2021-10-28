@@ -35,7 +35,7 @@ namespace Project.Sprites.ItemSprites
 
 
             spriteRow = 0;
-            velocity = 200;
+            velocity = 300;
 
             switch (facing)
             {
@@ -70,16 +70,16 @@ namespace Project.Sprites.ItemSprites
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
-          
+
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
-        
-          
+
+
 
         }
 
         public bool isFinished()
         {
-            return isFin = timer > 3000? true : false;
+            return isFin = timer > 3000 ? true : false;
         }
 
         public void Update(GameTime gameTime)

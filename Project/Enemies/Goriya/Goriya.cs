@@ -1,13 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Collision;
 using Project.Entities;
-using Project.Factory;
 using Project.Projectiles;
-using Project.Sprites.ItemSprites;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
 
 namespace Project
 {
@@ -89,7 +84,7 @@ namespace Project
             {
                 movement.MoveWASDOrAttack(windowBounds, gameTime);
             }
-            
+
             currentState.Update(gameTime);
 
         }
@@ -99,7 +94,7 @@ namespace Project
             sprite.Draw(spriteBatch, position);
         }
 
-       
+
     }
 
 }

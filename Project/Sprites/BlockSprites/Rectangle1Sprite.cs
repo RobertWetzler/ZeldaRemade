@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites.BlockSprites
 {
@@ -12,12 +9,12 @@ namespace Project.Sprites.BlockSprites
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
 
-       
+
 
         public Rectangle1Sprite(Texture2D blockSpriteSheet)
         {
             this.blockSpriteSheet = blockSpriteSheet;
-            
+
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Entities;
 using System.Collections.Generic;
 
 namespace Project.Factory
@@ -54,6 +53,6 @@ namespace Project.Factory
 
             return new FlameEnemySprite(flameSpriteSheet, sourceFrames);
         }
-       
+
     }
 }

@@ -1,12 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Project.Sprites.BlockSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Collision.CollisionHandlers
 {
-    class EnemyBlockCollisionHandler: ICollisionHandler
+    class EnemyBlockCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable enemyCollidable, ICollidable block, CollisionSide side)
         {
@@ -17,7 +13,7 @@ namespace Project.Collision.CollisionHandlers
             {
                 case CollisionSide.Up:
                     //Collided with top, move down
-                    dy = block.BoundingBox.Bottom -enemy.BoundingBox.Top;
+                    dy = block.BoundingBox.Bottom - enemy.BoundingBox.Top;
                     enemy.ChangeDirection(EnemyDirections.South);
                     break;
                 case CollisionSide.Down:

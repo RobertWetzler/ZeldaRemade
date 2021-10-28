@@ -12,7 +12,7 @@ namespace Project.Sprites.ItemSprites
         private float xPos, yPos;
         private int velocity;
 
-      
+
         private bool isFin;
 
         private float timer;
@@ -34,7 +34,7 @@ namespace Project.Sprites.ItemSprites
             isFin = false;
             velocity = 400;
 
-       
+
 
             switch (facing)
             {
@@ -72,15 +72,15 @@ namespace Project.Sprites.ItemSprites
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, 0, width, height);
             destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
-            
-            if(!isFin)
+
+            if (!isFin)
                 spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
 
         }
 
         public void Update(GameTime gameTime)
         {
-      
+
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (timer > 1000)

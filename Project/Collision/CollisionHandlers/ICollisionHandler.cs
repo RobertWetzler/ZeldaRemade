@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project.Collision.CollisionHandlers
+﻿namespace Project.Collision.CollisionHandlers
 {
     public interface ICollisionHandler
     {

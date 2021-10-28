@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using Project.Factory;
 using Project.Projectiles;
-using Project.Sprites.ItemSprites;
 using Project.Utilities;
 
 namespace Project

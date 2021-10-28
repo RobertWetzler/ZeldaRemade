@@ -1,13 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System;
 
 namespace Project.NPC.Flame
 {
     class FlameStatic : INPCState
     {
-       
+
         private ISprite sprite;
 
         public FlameStatic(Flame flame)
@@ -25,7 +24,7 @@ namespace Project.NPC.Flame
         public void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);
-            
+
         }
     }
 }

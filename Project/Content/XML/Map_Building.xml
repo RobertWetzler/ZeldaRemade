@@ -1492,7 +1492,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Dragon</ObjectName>
-				<Position>8 3</Position>
+				<Position>8 2</Position>
 			</Object>
 		</Room15>
 		<Room16 Type="MyDataTypes.Room16ObjectData[]">
@@ -1904,12 +1904,12 @@
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Black</ObjectName>
-				<Position>8 4</Position>
+				<Position>7.5 4</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Black</ObjectName>
-				<Position>10 4</Position>
+				<Position>10.5 4</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -2057,6 +2057,66 @@
 				<Position>11 1</Position>
 			</Object>
 			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>0 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>1 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>2 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>3 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>4 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>5 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>6 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>7 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>8 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>9 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>10 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Brick</ObjectName>
+				<Position>11 6</Position>
+			</Object>
+			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Bow</ObjectName>
 				<Position>6 2</Position>
@@ -2069,17 +2129,12 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>8 2</Position>
-			</Object>
-			<Object>
-				<ObjectType>Enemy</ObjectType>
-				<ObjectName>Bat</ObjectName>
 				<Position>11 2</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
-				<Position>5 4</Position>
+				<Position>4 5</Position>
 			</Object>
 		</Room18>>
 	</Asset>

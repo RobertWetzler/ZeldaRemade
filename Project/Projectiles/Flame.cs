@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
-using Project.Collision;
-using Project.Entities;
 
 namespace Project.Projectiles
 {
@@ -15,7 +14,7 @@ namespace Project.Projectiles
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
 
-        public Flame (Facing facing, Vector2 position, bool isFriendly = true)
+        public Flame(Facing facing, Vector2 position, bool isFriendly = true)
         {
             sprite = ItemSpriteFactory.Instance.CreateFlameSprite(facing, position);
             this.isFriendly = isFriendly;

@@ -17,7 +17,7 @@ namespace Project.Entities
         private Vector2 position;
         private IPlayerSprite sprite;
         private List<IWeaponSprite> weaponSprites;
-        private double velocity = 200;
+        private double velocity = 250;
         private Game1 game;
         public Vector2 Position
         {
@@ -117,10 +117,11 @@ namespace Project.Entities
             {
                 position.X = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - BoundingBox.Width;
             }
-            else if(x_dir == -1)
+            else if (x_dir == -1)
             {
                 position.X = (int)newX > windowBounds.Left ? newX : windowBounds.Left;
-            }else if(y_dir == 1)
+            }
+            else if (y_dir == 1)
             {
                 position.Y = (int)(newY + BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - BoundingBox.Height;
             }

@@ -1,9 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Project.Blocks.MovableBlock;
+﻿using Project.Blocks.MovableBlock;
 
 namespace Project.Collision.CollisionHandlers
 {
-    class MovableBlockPlayerCollisionHandler: ICollisionHandler
+    class MovableBlockPlayerCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable blockCollidable, ICollidable player, CollisionSide side)
         {

@@ -1,0 +1,8 @@
+Author of Review: Jacob Batt
+Date of Review: 10/25/21
+Sprint Number: 3
+Name of .cs file being reviewed: Project/Collision/CollisionHandlers/PlayerNPCCollisionHandler.cs
+Author of .cs file being reviewed: Robert Wetzler
+
+This code is very maintainable due to the nature of its abstraction. It also implements an interface which is very easy to fix and maintain.
+You can pass through any player and NPC and it will execute a collision or action that is supposed to occur.

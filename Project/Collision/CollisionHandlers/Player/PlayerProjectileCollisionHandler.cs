@@ -1,7 +1,4 @@
 ﻿using Project.Projectiles;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Collision.CollisionHandlers
 {

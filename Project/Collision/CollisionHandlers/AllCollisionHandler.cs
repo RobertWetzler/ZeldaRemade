@@ -1,26 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Project.Entities;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using Project.NPC.Flame;
-using Project.NPC.OldMan;
-using Project.Items;
-using Project.Collision.CollisionHandlers;
-using Project.Sprites.BlockSprites;
-using Project.Blocks;
-using Project.Projectiles;
+﻿using Project.Blocks;
 using Project.Blocks.MovableBlock;
+using Project.Collision.CollisionHandlers;
 using Project.Collision.CollisionHandlers.Enemies;
+using Project.Entities;
+using Project.Items;
+using Project.NPC.OldMan;
+using Project.Projectiles;
+using System;
+using System.Collections.Generic;
 
 namespace Project.Collision
 {
-    class AllCollisionHandler: ICollisionHandler
+    class AllCollisionHandler : ICollisionHandler
     {
         private Dictionary<Tuple<Type, Type>, ICollisionHandler> commandMap;
         public AllCollisionHandler()
@@ -48,8 +39,8 @@ namespace Project.Collision
                 typeof(Projectiles.Flame), typeof(Sword), typeof(Fireball)};
 
             //Block Types
-            Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock), 
-            typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock), 
+            Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock),
+            typeof(DottedBlock), typeof(LayeredBlock), typeof(LeftFacingDragonBlock),
             typeof(PlainBlock), typeof(PyramidBlock), typeof(Rectangle1), typeof(Rectangle2), typeof(RightFacingDragonBlock)};
 
             //Item Types
@@ -91,13 +82,13 @@ namespace Project.Collision
             foreach (Type blockType in blockTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, blockType), new PlayerBlockCollisionHandler());
-                foreach(Type enemyType in enemyTypes)
+                foreach (Type enemyType in enemyTypes)
                 {
                     commandMap.Add(new Tuple<Type, Type>(enemyType, blockType), new EnemyBlockCollisionHandler());
                 }
             }
             commandMap.Add(new Tuple<Type, Type>(typeof(MovableBlock), playerType), new MovableBlockPlayerCollisionHandler());
-            
+
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
@@ -118,13 +109,13 @@ namespace Project.Collision
                 }
                 foreach (Type blockType in blockTypes)
                 {
-                    if(blockType != typeof(BlueBlock))
+                    if (blockType != typeof(BlueBlock))
                     {
                         commandMap.Add(new Tuple<Type, Type>(projectileType, blockType), new ProjectileAnyCollisionHandler());
                     }
                 }
             }
-            foreach(Type itemType in itemTypes)
+            foreach (Type itemType in itemTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(itemType, playerType), new ItemPlayerCollisionHandler());
             }

@@ -1,9 +1,5 @@
-﻿using Project.Factory;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project { 
+﻿namespace Project
+{
     class GetNextRoomCommand : ICommand
     {
         private Game1 game;

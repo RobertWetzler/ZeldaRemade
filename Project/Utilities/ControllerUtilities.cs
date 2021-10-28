@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using Project.NPC.Merchant;
-using Project.NPC.OldMan;
-using Project.NPC.Flame;
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Project.Blocks;
 
 namespace Project.Utilities
 {
@@ -15,7 +10,7 @@ namespace Project.Utilities
         public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
-            
+
             //Register player damage command
             keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
 
