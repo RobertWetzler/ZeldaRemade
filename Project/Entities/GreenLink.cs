@@ -33,7 +33,7 @@ namespace Project.Entities
             get => this.stateMachine;
         }
 
-        public Rectangle BoundingBox => sprite.DestRectangle;
+        public Rectangle BoundingBox => BoundingBoxUtilities.ShrinkLinkBoundingBox(sprite.DestRectangle);
 
         public GreenLink(Game1 game)
         {
