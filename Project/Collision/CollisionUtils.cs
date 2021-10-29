@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Project.Collision
 {
@@ -9,9 +10,12 @@ namespace Project.Collision
         Right,
         Down
     }
-
     public static class CollisionUtils
     {
+        private static HashSet<Type> enemies = new HashSet<Type>
+        {
+            typeof(Bat)
+        };
         public static CollisionSide Opposite(CollisionSide side)
         {
             switch (side)
