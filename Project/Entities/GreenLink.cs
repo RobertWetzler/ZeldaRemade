@@ -19,6 +19,28 @@ namespace Project.Entities
         private List<IWeaponSprite> weaponSprites;
         private double velocity = 250;
         private Game1 game;
+
+        /**
+        * Shrinks the bounding box for link
+        * 16x16 -> 14x14 bounding box before scaling
+        * Leave some space at top of link head. Decrease width of link by a bit
+        * for easier movement between blocks
+        */
+        private Rectangle SetBoundingBox()
+        {
+            const float BOUNDINGBOX_OFFSET = 0.125f;
+            if (!(sprite is LinkUseSwordUpwardsSprite) && !(sprite is LinkUseSwordSidewaysSprite) 
+                && !(sprite is LinkUseSwordDownwardsSprite))
+            {
+                float width = sprite.DestRectangle.Width * (1 - BOUNDINGBOX_OFFSET);
+                float height = sprite.DestRectangle.Height * (1 - BOUNDINGBOX_OFFSET);
+                int x = sprite.DestRectangle.X + ((sprite.DestRectangle.Width - (int)width) / 2);
+                int y = sprite.DestRectangle.Y + (sprite.DestRectangle.Height - (int)height);
+                return new Rectangle(x, y, (int)width, (int)height);
+            }
+            return sprite.DestRectangle;
+            
+        }
         public Vector2 Position
         {
             get { return position; }
@@ -33,7 +55,7 @@ namespace Project.Entities
             get => this.stateMachine;
         }
 
-        public Rectangle BoundingBox => BoundingBoxUtilities.ShrinkLinkBoundingBox(sprite.DestRectangle);
+        public Rectangle BoundingBox => SetBoundingBox();
 
         public GreenLink(Game1 game)
         {
