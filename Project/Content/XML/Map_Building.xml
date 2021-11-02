@@ -12,6 +12,31 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room3</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>NPC</ObjectType>
 				<ObjectName>OldMan</ObjectName>
 				<Position>5.5 2</Position>
@@ -32,6 +57,36 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room2</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room6</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room18</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -106,6 +161,41 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Bordering</ObjectType>
+				<ObjectName>Room8</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Bordering</ObjectType>
+				<ObjectName>Room1</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Bordering</ObjectType>
+				<ObjectName>Room4</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Closed</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
 				<Position>5 2</Position>
@@ -131,6 +221,36 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room4</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room9</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room3</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Closed</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -175,6 +295,31 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room11</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
 				<Position>1 1</Position>
@@ -200,6 +345,36 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room6</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room2</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room7</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -347,6 +522,31 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room7</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room8</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -601,6 +801,46 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room3</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room7</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room12</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room9</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Bomb</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle1</ObjectName>
 				<Position>1 1</Position>
@@ -663,6 +903,46 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room8</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room13</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room10</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room4</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Bomb</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
 				<Position>2 2</Position>
@@ -720,6 +1000,36 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room9</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room11</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle2</ObjectName>
 				<Position>5 2</Position>
@@ -745,6 +1055,41 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room11</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room10</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room14</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room5</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -814,6 +1159,41 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room8</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room16</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room13</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Bomb</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Boomerang</ObjectName>
 				<Position>6 1</Position>
@@ -859,6 +1239,36 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room13</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room12</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room9</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Bomb</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
@@ -933,6 +1343,31 @@
 				<Position>X Y</Position>
 			</Object>
 			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room11</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle2</ObjectName>
 				<Position>2 2</Position>
@@ -973,6 +1408,36 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room15</ObjectName>
 				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room16</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room17</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Closed</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1035,6 +1500,36 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room16</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room15</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room12</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1143,6 +1638,31 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room17</ObjectName>
 				<Position>X Y</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room15</ObjectName>
+				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1295,6 +1815,31 @@
 				<ObjectType>Background</ObjectType>
 				<ObjectName>Room18</ObjectName>
 				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Adjacent</ObjectType>
+				<ObjectName>Room2</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>North</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Locked</ObjectName>
+				<Position>East</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>South</Position>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Empty</ObjectName>
+				<Position>West</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
