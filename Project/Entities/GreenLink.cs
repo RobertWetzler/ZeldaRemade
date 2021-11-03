@@ -34,6 +34,8 @@ namespace Project.Entities
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Player;
+
 
         public GreenLink(Game1 game)
         {
