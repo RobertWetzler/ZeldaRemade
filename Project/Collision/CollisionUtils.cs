@@ -12,10 +12,6 @@ namespace Project.Collision
     }
     public static class CollisionUtils
     {
-        private static HashSet<Type> enemies = new HashSet<Type>
-        {
-            typeof(Bat)
-        };
         public static CollisionSide Opposite(CollisionSide side)
         {
             switch (side)
