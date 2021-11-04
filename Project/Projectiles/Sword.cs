@@ -10,6 +10,8 @@ namespace Project.Projectiles
     {
 
         private IWeaponSprite sprite;
+        private Facing facing;
+
         public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
@@ -17,9 +19,10 @@ namespace Project.Projectiles
         {
             sprite = ItemSpriteFactory.Instance.CreateSwordSprite(facing, position);
             this.isFriendly = isFriendly;
+            this.facing = facing;
         }
 
-        public Rectangle BoundingBox => sprite.DestRectangle;
+        public Rectangle BoundingBox => SetBoundingBox();
         public bool IsActive { get; set; } = true;
 
         public void Draw(SpriteBatch spriteBatch)
@@ -30,6 +33,32 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);
+        }
+
+        /**
+         * Shrink sword bounding box from 16x16 to be 16x3 or 3x16 (before scaling)
+         */
+        private Rectangle SetBoundingBox()
+        {
+            const float BOUNDINGBOX_OFFSET = 0.8125f;
+            int width = sprite.DestRectangle.Width;
+            int height = sprite.DestRectangle.Height;
+            int x = sprite.DestRectangle.X;
+            int y = sprite.DestRectangle.Y;
+            switch (facing)
+            {
+                case Facing.Down:
+                case Facing.Up:
+                    width = (int)(sprite.DestRectangle.Width * (1 - BOUNDINGBOX_OFFSET));
+                    x = sprite.DestRectangle.X + ((sprite.DestRectangle.Width - width) / 2);
+                    break;
+                case Facing.Left:
+                case Facing.Right:
+                    height = (int)(sprite.DestRectangle.Height * (1 - BOUNDINGBOX_OFFSET));
+                    y = sprite.DestRectangle.Y + ((sprite.DestRectangle.Height - height) / 2);
+                    break;
+            }
+            return new Rectangle(x, y, width, height);
         }
     }
 }

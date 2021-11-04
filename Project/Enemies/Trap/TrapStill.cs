@@ -13,7 +13,6 @@ namespace Project
 
         public void ChangeDirection(EnemyDirections direction)
         {
-            //Use method to change to a moving state in some direction
         }
 
         public void Update(GameTime gameTime)
