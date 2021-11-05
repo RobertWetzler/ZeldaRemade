@@ -59,7 +59,7 @@ namespace Project
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-                Room room = new Room(XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom),
                                 items,
                                 blocks,
                                 npcs,
