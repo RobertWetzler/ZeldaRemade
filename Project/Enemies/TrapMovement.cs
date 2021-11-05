@@ -20,7 +20,6 @@ namespace Project
         }
 
 
-
         public bool ShouldTrapMoveRight(Rectangle bounds, Vector2 playerPos)
         {
             int upperBound = bounds.Width / 2 + 100;

@@ -31,7 +31,7 @@ namespace Project
             startTime = 0;
             timeToSpawn = 600;
             movement = new TrapMovement(this, player);
-            movingDirection = EnemyDirections.Southwest;
+            movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
 
 
@@ -74,27 +74,27 @@ namespace Project
             {
                 int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
                 int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128;
-                const int Y_DIFF = 5;
-                const int X_DIFF = 5;
+                const int Y_DIFF = 10;
+                const int X_DIFF = 10;
 
-                if ((int)startPos.X < (int)player.Position.X && (int)player.Position.X < middleOfWidth
+                if (movingDirection == EnemyDirections.None && (int)startPos.X < (int)player.Position.X && (int)player.Position.X < middleOfWidth
                     && (int)(Math.Abs(player.Position.Y - startPos.Y)) < Y_DIFF)
                 {
                     SetState(new TrapMoveRight(this));
                     movingDirection = EnemyDirections.East;
                     
-                }else if ((int)player.Position.X < (int)startPos.X && (int)player.Position.X > middleOfWidth 
+                }else if (movingDirection == EnemyDirections.None && (int)player.Position.X < (int)startPos.X && (int)player.Position.X > middleOfWidth 
                     && (int)(Math.Abs(player.Position.Y - startPos.Y)) < Y_DIFF)
                 {
                     SetState(new TrapMoveLeft(this));
                     movingDirection = EnemyDirections.West;
 
-                }else if((int)startPos.Y < (int)player.Position.Y && (int)player.Position.Y < middleOfHeight
+                }else if(movingDirection == EnemyDirections.None &&  (int)startPos.Y < (int)player.Position.Y && (int)player.Position.Y < middleOfHeight
                     && (int)(Math.Abs(player.Position.X - startPos.X)) < X_DIFF)
                 {
                     SetState(new TrapMoveDown(this));
                     movingDirection = EnemyDirections.South;
-                }else if ((int)player.Position.Y < (int)startPos.Y  && (int)player.Position.Y > middleOfHeight
+                }else if (movingDirection == EnemyDirections.None && (int)player.Position.Y < (int)startPos.Y  && (int)player.Position.Y > middleOfHeight
                     && (int)(Math.Abs(player.Position.X - startPos.X)) < X_DIFF)
                 {
                     SetState(new TrapMoveUp(this));
@@ -111,7 +111,7 @@ namespace Project
                     {
                         position = startPos;
                         SetState(new TrapStill(this));
-                        movingDirection = EnemyDirections.Southwest;
+                        movingDirection = EnemyDirections.None;
                     }
                 
                 }
@@ -125,7 +125,7 @@ namespace Project
                     {
                         position = startPos;
                         SetState(new TrapStill(this));
-                        movingDirection = EnemyDirections.Southwest;
+                        movingDirection = EnemyDirections.None;
                     }
                 }
                 if (movingDirection == EnemyDirections.South)
@@ -138,7 +138,7 @@ namespace Project
                     {
                         position = startPos;
                         SetState(new TrapStill(this));
-                        movingDirection = EnemyDirections.Southwest;
+                        movingDirection = EnemyDirections.None;
                     }
                 }
                 if (movingDirection == EnemyDirections.North)
@@ -151,7 +151,7 @@ namespace Project
                     {
                         position = startPos;
                         SetState(new TrapStill(this));
-                        movingDirection = EnemyDirections.Southwest;
+                        movingDirection = EnemyDirections.None;
                     }
                 }
                 
