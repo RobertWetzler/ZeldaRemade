@@ -19,7 +19,7 @@ namespace Project.Projectiles
             this.isFriendly = isFriendly;
         }
 
-        public Rectangle BoundingBox => sprite.DestRectangle;
+        public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Projectile;
         public bool IsActive { get; set; } = true;
 
@@ -31,6 +31,20 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);
+        }
+
+        /**
+         * Decrease height of bounding box by about half
+         */
+        private Rectangle SetBoundingBox()
+        {
+            const float BOUNDINGBOX_OFFSET = 0.5f;
+
+            float width = sprite.DestRectangle.Width;
+            float height = sprite.DestRectangle.Height * (1 - BOUNDINGBOX_OFFSET);
+            int x = sprite.DestRectangle.X;
+            int y = sprite.DestRectangle.Y + ((sprite.DestRectangle.Height - (int)height) / 2);
+            return new Rectangle(x, y, (int)width, (int)height);
         }
     }
 }
