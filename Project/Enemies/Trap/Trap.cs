@@ -13,7 +13,6 @@ namespace Project
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
-        private TrapMovement movement;
         private IPlayer player;
         private Vector2 startPos;
         private EnemyDirections movingDirection;
@@ -30,7 +29,6 @@ namespace Project
             this.player = player;
             startTime = 0;
             timeToSpawn = 600;
-            movement = new TrapMovement(this, player);
             movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
 
@@ -59,6 +57,9 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
+            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128;
+
             sprite.Update(gameTime);
             currentState.Update(gameTime);
             if (currentState is EnemySpawning)
@@ -70,37 +71,34 @@ namespace Project
                     currentState = new TrapStill(this);
                 }
             }
-            else
+            else if (movingDirection == EnemyDirections.None)
             {
-                int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
-                int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128;
-                const int Y_DIFF = 10;
-                const int X_DIFF = 10;
 
-                if (movingDirection == EnemyDirections.None && (int)startPos.X < (int)player.Position.X && (int)player.Position.X < middleOfWidth
-                    && (int)(Math.Abs(player.Position.Y - startPos.Y)) < Y_DIFF)
+                if (TrapMovementUtilities.ShouldTrapMoveRight(startPos, middleOfWidth, player.Position))
                 {
                     SetState(new TrapMoveRight(this));
                     movingDirection = EnemyDirections.East;
                     
-                }else if (movingDirection == EnemyDirections.None && (int)player.Position.X < (int)startPos.X && (int)player.Position.X > middleOfWidth 
-                    && (int)(Math.Abs(player.Position.Y - startPos.Y)) < Y_DIFF)
+                }
+                else if (TrapMovementUtilities.ShouldTrapMoveLeft(startPos, middleOfWidth, player.Position))
                 {
                     SetState(new TrapMoveLeft(this));
                     movingDirection = EnemyDirections.West;
 
-                }else if(movingDirection == EnemyDirections.None &&  (int)startPos.Y < (int)player.Position.Y && (int)player.Position.Y < middleOfHeight
-                    && (int)(Math.Abs(player.Position.X - startPos.X)) < X_DIFF)
+                }
+                else if(TrapMovementUtilities.ShouldTrapMoveDown(startPos, middleOfHeight, player.Position))
                 {
                     SetState(new TrapMoveDown(this));
                     movingDirection = EnemyDirections.South;
-                }else if (movingDirection == EnemyDirections.None && (int)player.Position.Y < (int)startPos.Y  && (int)player.Position.Y > middleOfHeight
-                    && (int)(Math.Abs(player.Position.X - startPos.X)) < X_DIFF)
+                }
+                else if (TrapMovementUtilities.ShouldTrapMoveUp(startPos, middleOfHeight, player.Position))
                 {
                     SetState(new TrapMoveUp(this));
                     movingDirection = EnemyDirections.North;
                 }
-
+            }
+            else
+            {
                 if (movingDirection == EnemyDirections.East)
                 {
                     if ((int)position.X >= middleOfWidth)
@@ -113,7 +111,7 @@ namespace Project
                         SetState(new TrapStill(this));
                         movingDirection = EnemyDirections.None;
                     }
-                
+
                 }
                 if (movingDirection == EnemyDirections.West)
                 {
@@ -154,13 +152,7 @@ namespace Project
                         movingDirection = EnemyDirections.None;
                     }
                 }
-                
-
-
-            }
-
-            
-            
+            }          
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
