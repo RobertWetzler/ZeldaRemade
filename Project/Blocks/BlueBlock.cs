@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
 
 namespace Project.Blocks
@@ -13,11 +14,10 @@ namespace Project.Blocks
         {
             this.position = position;
             sprite = BlockSpriteFactory.Instance.CreateDarkBlueBlockSprite();
-
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
-
+        public CollisionType CollisionType => CollisionType.BlueBlock;
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);

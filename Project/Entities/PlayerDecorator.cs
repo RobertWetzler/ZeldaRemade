@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites.PlayerSprites;
+using Project.Collision;
 
 namespace Project.Entities
 {
@@ -13,6 +14,8 @@ namespace Project.Entities
         public IPlayerSprite PlayerSprite => decoratedPlayer.PlayerSprite;
         public LinkStateMachine StateMachine => decoratedPlayer.StateMachine;
         public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
+        public CollisionType CollisionType => decoratedPlayer.CollisionType;
+
 
         public void RemoveDecorator()
         {

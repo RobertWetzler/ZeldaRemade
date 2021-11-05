@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using Project.Factory;
+using Project.Collision;
 using Project.Sprites.ItemSprites;
 
 namespace Project.Projectiles
@@ -21,6 +22,7 @@ namespace Project.Projectiles
         }
 
         public Rectangle BoundingBox => SetBoundingBox();
+        public CollisionType CollisionType => CollisionType.Projectile;
 
         public bool IsActive { get; set; } = true;
 

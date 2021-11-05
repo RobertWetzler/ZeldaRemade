@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
 
 namespace Project.Blocks.MovableBlock
@@ -21,6 +22,7 @@ namespace Project.Blocks.MovableBlock
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public Vector2 Position { get => position; set => position = value; }
+        public CollisionType CollisionType => CollisionType.MovableBlock;
 
         public void MoveBlock(MovingDir dir)
         {

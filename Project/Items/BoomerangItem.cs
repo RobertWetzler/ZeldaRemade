@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using Project.Collision;
+
 
 namespace Project.Items
 {
@@ -11,6 +13,7 @@ namespace Project.Items
         private Vector2 position;
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Item;
 
         public BoomerangItem(Vector2 position)
         {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
 
 namespace Project.Items
@@ -18,6 +19,8 @@ namespace Project.Items
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Item;
+
 
         public void Draw(SpriteBatch spriteBatch)
         {

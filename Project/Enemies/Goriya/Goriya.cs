@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Projectiles;
 using Project.Utilities;
@@ -23,6 +24,7 @@ namespace Project
         public IProjectile Weapon { get => this.boomerang; set => this.boomerang = value; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Enemy;
         public Goriya(Vector2 position)
         {
             this.position = position;
