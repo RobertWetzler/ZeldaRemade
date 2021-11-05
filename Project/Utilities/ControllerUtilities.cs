@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using Project.Commands;
 using System.Collections.Generic;
 
 namespace Project.Utilities
@@ -49,6 +50,9 @@ namespace Project.Utilities
 
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
+
+            //Key to start game
+            keyboardController.RegisterCommand(Keys.Enter, new StartGameCommand(game));
 
             controllers.Add(keyboardController);
         }
