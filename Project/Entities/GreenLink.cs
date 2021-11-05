@@ -56,6 +56,7 @@ namespace Project.Entities
         }
 
         public Rectangle BoundingBox => SetBoundingBox();
+        public CollisionType CollisionType => CollisionType.Player;
 
         public GreenLink(Game1 game)
         {
