@@ -37,7 +37,7 @@ namespace Project
                 currentFrame++;
                 currentFrame %= sourceFrames.Count;
             }
-                
+
         }
     }
 }

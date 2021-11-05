@@ -1,13 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 
 namespace Project
 {
     class TrapStill : IEnemyState
     {
         private Trap trap;
-        
+
         public TrapStill(Trap trap)
         {
             this.trap = trap;
@@ -15,7 +13,6 @@ namespace Project
 
         public void ChangeDirection(EnemyDirections direction)
         {
-            //Use method to change to a moving state in some direction
         }
 
         public void Update(GameTime gameTime)

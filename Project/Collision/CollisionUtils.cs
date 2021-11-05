@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project.Collision
 {
@@ -13,7 +10,6 @@ namespace Project.Collision
         Right,
         Down
     }
-
     public static class CollisionUtils
     {
         public static CollisionSide Opposite(CollisionSide side)

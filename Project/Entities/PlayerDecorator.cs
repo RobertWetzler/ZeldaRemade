@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites.PlayerSprites;
+using Project.Collision;
 
 namespace Project.Entities
 {
@@ -13,6 +14,8 @@ namespace Project.Entities
         public IPlayerSprite PlayerSprite => decoratedPlayer.PlayerSprite;
         public LinkStateMachine StateMachine => decoratedPlayer.StateMachine;
         public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
+        public CollisionType CollisionType => decoratedPlayer.CollisionType;
+
 
         public void RemoveDecorator()
         {
@@ -67,11 +70,6 @@ namespace Project.Entities
         public virtual void Update(Rectangle windowBounds, GameTime gameTime)
         {
             decoratedPlayer.Update(windowBounds, gameTime);
-        }
-
-        public virtual void UseSword(WeaponTypes weaponType)
-        {
-            decoratedPlayer.UseSword(weaponType);
         }
 
         public virtual void UseWeapon(WeaponTypes weaponType)

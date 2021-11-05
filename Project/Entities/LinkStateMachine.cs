@@ -1,4 +1,5 @@
-﻿using Project.Sprites.ItemSprites;
+﻿using Project.Projectiles;
+using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
@@ -8,6 +9,9 @@ namespace Project.Entities
         public Facing facing;
         public Move move;
         private LinkColor color;
+
+        private IPlayerSprite oldSprite;
+        public Move oldMove;
 
         private LinkSpriteSelector spriteSelector;
         private IPlayer link;
@@ -84,6 +88,8 @@ namespace Project.Entities
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
             {
+                this.oldSprite = sprite;
+                this.oldMove = move;
                 this.move = Move.UsingSword;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
@@ -94,19 +100,21 @@ namespace Project.Entities
             return (sprite, weaponSprite);
         }
 
-        public (IPlayerSprite, IWeaponSprite) UseWeapon(IWeaponSprite weaponSprite)
+        public (IPlayerSprite, IProjectile) UseWeapon(IProjectile weapon)
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
             {
+                this.oldSprite = sprite;
+                this.oldMove = move;
                 this.move = Move.UsingItem;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
             else
             {
-                weaponSprite = null; //If weapon can't be used right now, set it to null
+                weapon = null; //If weapon can't be used right now, set it to null
             }
-            return (sprite, weaponSprite);
+            return (sprite, weapon);
         }
         private bool IsInActionState()
         {
@@ -122,7 +130,8 @@ namespace Project.Entities
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (IsInActionState() && this.link.PlayerSprite.IsFinished) //If in an action state but action is done, go idle
             {
-                sprite = StopMoving();
+                move = oldMove;
+                sprite = oldSprite;
             }
             return sprite;
         }

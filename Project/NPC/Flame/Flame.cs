@@ -8,15 +8,18 @@ namespace Project.NPC.Flame
     {
         public INPCState currentState;
         public Vector2 pos;
+        private int timeToSpawn, startTime;
 
         public Flame(Vector2 pos)
         {
             this.pos = pos;
-            currentState = new FlameStatic(this);
-
+            startTime = 0;
+            timeToSpawn = 600;
+            currentState = new NPCSpawning();
         }
 
         public Rectangle BoundingBox => currentState.Sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.NPC;
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -26,6 +29,14 @@ namespace Project.NPC.Flame
         public void Update(GameTime gameTime)
         {
             currentState.Update(gameTime);
+            if (currentState is NPCSpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    currentState = new FlameStatic(this);
+                }
+            }
         }
     }
 }

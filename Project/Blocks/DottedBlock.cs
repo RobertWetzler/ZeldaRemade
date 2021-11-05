@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
-using Project.Sprites.BlockSprites;
 
 namespace Project.Blocks
 {
@@ -18,6 +18,8 @@ namespace Project.Blocks
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Block;
+
 
         public void Draw(SpriteBatch spriteBatch)
         {

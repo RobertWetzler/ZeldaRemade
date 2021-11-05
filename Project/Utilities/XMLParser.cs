@@ -1,13 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Project.Blocks;
-using Project.Items;
-using Project.NPC.Flame;
-using Project.NPC.OldMan;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
 using System.Xml;
 
 namespace Project.Utilities
@@ -92,7 +84,7 @@ namespace Project.Utilities
                     }
                 }
             }
-                
+
 
             return npcs;
         }

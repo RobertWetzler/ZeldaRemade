@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System;
 
 namespace Project
 {
@@ -32,10 +31,10 @@ namespace Project
 
             Rectangle source = sourceFrames[currentFrame];
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * scale, source.Height * scale);
-            
-            SpriteEffects effects = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;    
+
+            SpriteEffects effects = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(flameSpriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, effects, 0f);
-         
+
 
 
         }

@@ -12,8 +12,8 @@ namespace Project
 
         public void Execute()
         {
-            this.game.Player.UseSword(WeaponTypes.Sword);
-         
+            this.game.Player.UseWeapon(WeaponTypes.Sword);
+
         }
     }
 }

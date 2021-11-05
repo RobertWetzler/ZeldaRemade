@@ -1,28 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Collision;
+
 
 namespace Project.Items
 {
-    class BlueArrow : IItems
+    class BombItem : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
+        public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Item;
 
-        public BlueArrow(Vector2 position)
+        public BombItem(Vector2 position)
         {
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 1);
+            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 4);
 
         }
 
-        public Rectangle BoundingBox => sprite.DestRectangle;
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, position);
         }
 
         public void Update(GameTime gameTime)

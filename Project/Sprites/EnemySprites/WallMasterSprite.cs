@@ -13,7 +13,7 @@ namespace Project
         SpriteEffects spriteEffects;
         private int animationCounter = 0;
         private int animationDelay = 100;
-                private Rectangle destRectangle;
+        private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
         public WallMasterSprite(Texture2D spriteSheet, List<Rectangle> sourceFrames, Facing dir)
         {

@@ -1,24 +1,26 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 
 namespace Project.Items
 {
-    class Boomerang : IItems
+    class ArrowItem : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
 
-        public Rectangle BoundingBox => sprite.DestRectangle;
-
-        public Boomerang(Vector2 position)
+        public ArrowItem(Vector2 position)
         {
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 0);
+            sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 0);
 
         }
+
+        public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Item;
+
 
         public void Draw(SpriteBatch spriteBatch)
         {

@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Project.Collision
 {
     public class CollisionIterator
     {
-        private List<ICollidable> dynamics;
-        private List<ICollidable> statics;
         private AllCollisionHandler collisionHandler;
-        public CollisionIterator(List<ICollidable> dynamics, List<ICollidable> statics)
+        public CollisionIterator()
         {
-            this.dynamics = dynamics;
-            this.statics = statics;
             collisionHandler = new AllCollisionHandler();
         }
 
-        public void UpdateCollisions()
+        public void UpdateCollisions(List<ICollidable> dynamics, List<ICollidable> statics)
         {
             foreach (ICollidable dynamic in dynamics)
             {
@@ -25,18 +18,16 @@ namespace Project.Collision
                 {
                     if (CollisionDetector.IsColliding(dynamic, staticObj))
                     {
-                        Debug.WriteLine("static-dynamic collision!");
-                        CollisionSide side = CollisionDetector.GetCollisionSide(dynamic, staticObj);
-                        collisionHandler.HandleCollision(dynamic, staticObj, side);
+                        collisionHandler.HandleCollision(dynamic, staticObj, CollisionDetector.GetCollisionSide(dynamic, staticObj));
+                        collisionHandler.HandleCollision(staticObj, dynamic, CollisionDetector.GetCollisionSide(staticObj, dynamic));
                     }
                 }
                 foreach (ICollidable dynamic2 in dynamics)
                 {
                     if (dynamic != dynamic2 && CollisionDetector.IsColliding(dynamic, dynamic2))
                     {
-                        Debug.WriteLine("dynamic-dynamic collision!");
-                        CollisionSide side = CollisionDetector.GetCollisionSide(dynamic, dynamic2);
-                        collisionHandler.HandleCollision(dynamic, dynamic2, side);
+                        collisionHandler.HandleCollision(dynamic, dynamic2, CollisionDetector.GetCollisionSide(dynamic, dynamic2));
+                        collisionHandler.HandleCollision(dynamic2, dynamic, CollisionDetector.GetCollisionSide(dynamic2, dynamic));
                     }
                 }
             }

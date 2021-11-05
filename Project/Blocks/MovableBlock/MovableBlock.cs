@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
 
 namespace Project.Blocks.MovableBlock
 {
-    class MovableBlock: IBlock
+    class MovableBlock : IBlock
     {
         private ISprite sprite;
         private Vector2 position;
@@ -21,10 +22,11 @@ namespace Project.Blocks.MovableBlock
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public Vector2 Position { get => position; set => position = value; }
+        public CollisionType CollisionType => CollisionType.MovableBlock;
 
         public void MoveBlock(MovingDir dir)
         {
-            if(this.currentState is null)
+            if (this.currentState is null)
             {
                 this.currentState = new MovingBlockState(this, dir);
             }

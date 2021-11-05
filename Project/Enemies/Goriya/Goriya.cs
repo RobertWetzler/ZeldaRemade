@@ -2,43 +2,38 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
-using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Projectiles;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
 
 namespace Project
 {
     class Goriya : IEnemy
     {
-        private int timeToChangeDirection; //time to randomly change direction
-        private int changeDirectionCounter;
+        private int timeToSpawn;
+        private int startTime;
         private IEnemyState currentState;
         private ISprite sprite;
         private float velocity;
-        private Random rand;
-        private IWeaponSprite boomerang;
+        private IProjectile boomerang;
+        private EnemyMovement movement;
         private Facing facingDirection;
         private Vector2 position;
         public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
-        public IWeaponSprite WeaponSprite { get => this.boomerang; set => this.boomerang = value; }
+        public IProjectile Weapon { get => this.boomerang; set => this.boomerang = value; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Enemy;
         public Goriya(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
-            this.rand = new Random();
-            this.facingDirection = Facing.Down;
-            timeToChangeDirection = 1000;
-            changeDirectionCounter = 0;
-            //TODO
-            //Should start at a spawning state that has the spawning enemies animation
-            currentState = new GoriyaWalkSouth(this);
-
+            this.facingDirection = Facing.Right;
+            startTime = 0;
+            timeToSpawn = 600;
+            movement = new EnemyMovement(this);
+            currentState = new EnemySpawning(this);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -65,37 +60,33 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (!(currentState is GoriyaUseItem))
+            if (currentState is EnemySpawning)
             {
-                changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
-                if (changeDirectionCounter > timeToChangeDirection)
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
                 {
-                    changeDirectionCounter -= timeToChangeDirection;
-                    int changeDirection = rand.Next(0, 10); //Random number b/w 0 and 9
-                    switch (changeDirection)
+                    switch (this.facingDirection)
                     {
-                        case 0:
-                            ChangeDirection(EnemyDirections.North);
+                        case Facing.Down:
+                            currentState = new GoriyaWalkSouth(this);
                             break;
-                        case 1:
-                            ChangeDirection(EnemyDirections.East);
+                        case Facing.Left:
+                            currentState = new GoriyaWalkWest(this);
                             break;
-                        case 2:
-                            ChangeDirection(EnemyDirections.South);
+                        case Facing.Right:
+                            currentState = new GoriyaWalkEast(this);
                             break;
-                        case 3:
-                            ChangeDirection(EnemyDirections.West);
-                            break;
-                        case 4:
-                        case 5:
-                            UseWeapon();
-                            break;
-                        default:
+                        case Facing.Up:
+                            currentState = new GoriyaWalkNorth(this);
                             break;
                     }
                 }
             }
-            
+            if (!(currentState is GoriyaUseItem))
+            {
+                movement.MoveWASDOrAttack(windowBounds, gameTime);
+            }
+
             currentState.Update(gameTime);
 
         }
@@ -103,13 +94,9 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, position);
-            if (currentState is GoriyaUseItem)
-            {
-                boomerang.Draw(spriteBatch);
-            }
         }
 
-       
+
     }
 
 }

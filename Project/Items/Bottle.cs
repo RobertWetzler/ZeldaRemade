@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Collision;
 
 namespace Project.Items
 {
@@ -11,6 +11,8 @@ namespace Project.Items
         private ISprite sprite;
         private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Item;
+
 
         public Bottle(Vector2 position)
         {

@@ -41,7 +41,7 @@ namespace Project
                 animationCounter -= animationDelay;
                 flipSprite = !flipSprite;
             }
-         
+
         }
     }
 }

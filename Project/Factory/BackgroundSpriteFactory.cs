@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Factory
 {
@@ -102,6 +99,11 @@ namespace Project.Factory
         public BackgroundSprite CreateTwo6BlockRoomBackgroundSprite()
         {
             return new BackgroundSprite(backgroundSpriteSheet, 5, 3, 6, 6);
+        }
+
+        public BackgroundSprite CreateHiddenRoomBackgroundSprite()
+        {
+            return new BackgroundSprite(backgroundSpriteSheet, 0, 0, 6, 6);
         }
 
     }

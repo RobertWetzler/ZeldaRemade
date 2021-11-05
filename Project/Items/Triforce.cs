@@ -1,16 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
+using Project.Collision;
 
 namespace Project.Items
 {
-    class Triforce: IItems
+    class Triforce : IItems
     {
 
         private ISprite sprite;
         private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Item;
 
         public Triforce(Vector2 position)
         {
