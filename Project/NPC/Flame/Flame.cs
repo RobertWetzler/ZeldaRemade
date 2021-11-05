@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 
 namespace Project.NPC.Flame
 {
@@ -18,6 +19,7 @@ namespace Project.NPC.Flame
         }
 
         public Rectangle BoundingBox => currentState.Sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.NPC;
 
         public void Draw(SpriteBatch spriteBatch)
         {
