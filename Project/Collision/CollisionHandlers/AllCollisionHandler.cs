@@ -33,6 +33,8 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.MovableBlock, CollisionType.Player), new MovableBlockPlayerCollisionHandler());
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Enemy), new PlayerEnemyCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Bat), new PlayerEnemyCollisionHandler());
+
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.NPC), new PlayerNPCCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Projectile), new PlayerProjectileCollisionHandler());
 
@@ -40,7 +42,10 @@ namespace Project.Collision
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.Player), new ProjectilePlayerCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.Enemy), new ProjectileEnemyCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.Bat), new ProjectileEnemyCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Bat, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
+
         }
 
 

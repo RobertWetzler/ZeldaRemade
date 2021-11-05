@@ -19,7 +19,7 @@ namespace Project
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Rectangle BoundingBox => sprite.DestRectangle;
-        public CollisionType CollisionType => CollisionType.Enemy;
+        public CollisionType CollisionType => CollisionType.Bat;
 
         public Bat(Vector2 position)
         {

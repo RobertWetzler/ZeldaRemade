@@ -6,6 +6,7 @@ namespace Project.Collision
     {
         Block,
         Enemy,
+        Bat,
         Item,
         NPC,
         Player,
