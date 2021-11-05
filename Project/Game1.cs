@@ -55,7 +55,7 @@ namespace Project
             for (int i = 1; i <= 18; i++)
             {
                 string currentRoom = "Room" + i;
-                List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom);
+                List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom, player);
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);

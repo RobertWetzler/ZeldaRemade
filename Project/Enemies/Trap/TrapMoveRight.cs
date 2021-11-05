@@ -5,35 +5,33 @@ using System.Text;
 
 namespace Project
 {
-    class TrapMove : IEnemyState
+    class TrapMoveRight : IEnemyState
     {
         private Trap trap;
-        private EnemyDirections direction;
-        private Vector2 startPos;
 
-        public TrapMove(Trap trap, EnemyDirections direction)
+        public TrapMoveRight(Trap trap)
         {
             this.trap = trap;
-            this.direction = direction;
-            startPos = trap.Position;
         }
         public void ChangeDirection(EnemyDirections direction)
-        {
-        }
-
-        public void Update(GameTime gameTime)
         {
             switch (direction)
             {
                 case EnemyDirections.North:
+                    trap.SetState(new TrapMoveUp(trap));
                     break;
                 case EnemyDirections.West:
+                    trap.SetState(new TrapMoveLeft(trap));
                     break;
                 case EnemyDirections.South:
-                    break;
-                case EnemyDirections.East:
+                    trap.SetState(new TrapMoveDown(trap));
                     break;
             }
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            trap.Position = new Vector2(trap.Position.X + (float)(gameTime.ElapsedGameTime.TotalSeconds * trap.Velocity), trap.Position.Y);
         }
 
         public void UseWeapon()
