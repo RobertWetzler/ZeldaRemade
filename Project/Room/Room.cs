@@ -16,6 +16,7 @@ namespace Project
         private List<INPC> npcs;
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
+        private IProjectile oldProjectile;
 
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
@@ -97,8 +98,11 @@ namespace Project
                 enemy.Draw(spriteBatch, gameTime);
             }
             foreach (IProjectile projectile in projectiles)
-            {
+            {               
+                
                 projectile.Draw(spriteBatch);
+
+                oldProjectile = projectile;
             }
         }
     }

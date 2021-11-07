@@ -16,9 +16,10 @@ namespace Project.Entities
 
         private Vector2 position;
         private IPlayerSprite sprite;
-        private List<IWeaponSprite> weaponSprites;
+        private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
+        private IProjectile oldWeapon;
         public Vector2 Position
         {
             get { return position; }
@@ -41,7 +42,7 @@ namespace Project.Entities
             position = new Vector2(500, 500);
             stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
-            weaponSprites = new List<IWeaponSprite>();
+            projectiles = new List<IProjectile>();
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -71,13 +72,17 @@ namespace Project.Entities
 
         public void UseWeapon(WeaponTypes weaponType)
         {
+          
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
+            
             if (potentialWeapon != null)
             {
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
             }
         }
+        
+   
         public void BecomeDamaged()
         {
             throw new NotImplementedException();
@@ -131,20 +136,26 @@ namespace Project.Entities
             }
 
             sprite.Update(gameTime);
-            foreach (IWeaponSprite weaponSprite in weaponSprites)
+            foreach (IProjectile projectile in projectiles)
             {
-                weaponSprite.Update(gameTime);
+                projectile.Update(gameTime);
             }
-            weaponSprites.RemoveAll(weaponSprite => weaponSprite.isFinished());
+            projectiles.RemoveAll(projectile => !projectile.IsActive);
+            
+          
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);
-            foreach (IWeaponSprite weaponSprite in weaponSprites)
+            
+            foreach (IProjectileSprite projectile in projectiles)
             {
-                weaponSprite.Draw(spriteBatch);
+                projectile.Update(gameTime);
             }
+            
+         
+            
         }
     }
 }

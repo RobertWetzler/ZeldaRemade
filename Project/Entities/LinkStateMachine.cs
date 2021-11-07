@@ -83,7 +83,7 @@ namespace Project.Entities
             return sprite;
         }
 
-        public (IPlayerSprite, IWeaponSprite) UseSword(IWeaponSprite weaponSprite)
+        public (IPlayerSprite, IProjectileSprite) UseSword(IProjectileSprite projectileSprite)
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
             if (!IsPerformingAction())
@@ -95,9 +95,9 @@ namespace Project.Entities
             }
             else
             {
-                weaponSprite = null; //If weapon can't be used right now, set it to null
+                projectileSprite = null; //If weapon can't be used right now, set it to null
             }
-            return (sprite, weaponSprite);
+            return (sprite, projectileSprite);
         }
 
         public (IPlayerSprite, IProjectile) UseWeapon(IProjectile weapon)

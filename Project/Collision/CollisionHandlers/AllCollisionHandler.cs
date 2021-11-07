@@ -36,7 +36,7 @@ namespace Project.Collision
 
             // Projectile Types (not including bombs)
             Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang),
-                typeof(Projectiles.Flame), typeof(Sword), typeof(Fireball)};
+                typeof(Projectiles.Flame), typeof(SwordBeam), typeof(Fireball)};
 
             //Block Types
             Type[] blockTypes = { typeof(BlackBlock), typeof(BlueBlock), typeof(BrickBlock),
