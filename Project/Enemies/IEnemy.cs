@@ -26,15 +26,5 @@ namespace Project
         {
             RoomManager.Instance.CurrentRoom.AddItem(item);
         }
-/*
-        public void DropDesignatedItem(IItems item)
-        {
-            RoomManager.Instance.CurrentRoom.AddItem(item);
-        }
-
-        public void ShowDesignatedItem(IItems item)
-        {
-            RoomManager.Instance.CurrentRoom.AddItem(item);
-        }*/
     }
 }
