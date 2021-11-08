@@ -11,7 +11,6 @@ namespace Project.Collision.CollisionHandlers.Enemies
         public void HandleCollision(ICollidable blockCollidable, ICollidable enemy, CollisionSide side)
         {
             MovableBlock block = blockCollidable as MovableBlock;
-        
 
                 (new EnemyBlockCollisionHandler()).HandleCollision(enemy, blockCollidable, CollisionUtils.Opposite(side));
            
