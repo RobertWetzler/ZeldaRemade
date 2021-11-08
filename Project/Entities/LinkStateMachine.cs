@@ -88,7 +88,7 @@ namespace Project.Entities
         public (IPlayerSprite, IWeaponSprite) UseSword(IWeaponSprite weaponSprite)
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
-            if (!IsPerformingAction() && weaponSprite.isFinished())
+            if (!IsPerformingAction())
             {
                 this.oldSprite = sprite;
                 this.oldMove = move;
