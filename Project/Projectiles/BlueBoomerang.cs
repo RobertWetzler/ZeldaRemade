@@ -17,7 +17,6 @@ namespace Project.Projectiles
         private bool flipped;
         private int yPos, xPos;
         private int velocity;
-
         private int offset = 50;
 
         private Facing facing;

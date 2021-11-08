@@ -19,7 +19,7 @@ namespace Project.Entities
         private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
-        private IProjectile oldWeapon;
+     
         public Vector2 Position
         {
             get { return position; }
@@ -153,8 +153,8 @@ namespace Project.Entities
             {
                 projectile.Update(gameTime);
             }
-            
-         
+
+            projectiles.RemoveAll(projectile => projectile.IsFinished);
             
         }
     }
