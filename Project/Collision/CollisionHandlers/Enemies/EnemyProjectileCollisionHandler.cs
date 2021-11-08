@@ -10,27 +10,24 @@ namespace Project.Collision.CollisionHandlers.Enemies
         private IItems item;
         private Vector2 enemyPos;
         private Random rand = new Random();
-        // private DroppingItems itemsBySkeleton, itemsByGoriya;
+        private double randDouble;
 
         public void HandleCollision(ICollidable enemyCollidable, ICollidable projectileCollidable, CollisionSide side)
         {
             IEnemy enemy = enemyCollidable as IEnemy;
             IProjectile projectile = projectileCollidable as IProjectile;
             enemyPos = new Vector2(enemyCollidable.BoundingBox.X, enemyCollidable.BoundingBox.Y);
-
-            // generate random item
-            // itemsBySkeleton.ItemsDroppedBySkeleton(item, enemyPos);
-            //itemsByGoriya.ItemsDroppedByGoriya(item, enemyPos);
-            //itemsBySkeleton = new DroppingItems();
-            //itemsByGoriya = new DroppingItems();
-            //item = new Fairy(enemyPos);
             
-            double randDouble = rand.NextDouble();
-            if (randDouble < 0.1)
-                item = new Fairy(enemyPos);
-            else if (randDouble < 0.2)
+            randDouble = rand.NextDouble();
+            if (randDouble < 0.05)
+                item = new BombItem(enemyPos);
+            else if (randDouble < 0.07)
+                item = new Compass(enemyPos);
+            else if (randDouble < 0.12)
                 item = new Key(enemyPos);
-            else if (randDouble < 0.6)
+            else if (randDouble < 0.18)
+                item = new Fairy(enemyPos);
+            else if (randDouble < 0.42)
                 item = new Heart(enemyPos);
             else
                 item = new OneRupee(enemyPos);
@@ -40,21 +37,12 @@ namespace Project.Collision.CollisionHandlers.Enemies
                 if (!(enemy is Trap))
                 {
                     enemy.Despawn();
-                    /*if (enemy is Skeleton || enemy is WallMaster)
+                    if (enemy is Goriya|| enemy is Skeleton || enemy is WallMaster)
                     {
-                        itemsBySkeleton.ItemsDroppedBySkeleton(item, enemyPos);
-                        enemy.DropItem(item);
-                    }*/
-                    if (enemy is Goriya)
-                    {
-                        //DroppingItems.ItemsDroppedByGoriya(item, enemyPos, rand);
-                        enemy.DropItem(item);
+                        randDouble = rand.NextDouble();
+                        if (randDouble>0.65)
+                            enemy.DropItem(item);
                     }
-
-                    /*switch (enemy) {
-                        case Skeleton:
-                            break;
-                            }*/
                 }
 
             }
