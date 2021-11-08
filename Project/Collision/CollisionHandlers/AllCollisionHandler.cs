@@ -92,7 +92,7 @@ namespace Project.Collision
             foreach (Type enemyType in enemyTypes)
             {
                 commandMap.Add(new Tuple<Type, Type>(playerType, enemyType), new PlayerEnemyCollisionHandler());
-                commandMap.Add(new Tuple<Type, Type>(typeof(MovableBlock), enemyType), new MovableBlockEnemyCollisionHandler());
+                commandMap.Add(new Tuple<Type, Type>(typeof(MovableBlock), enemyType), new EnemyMovableBlockCollisionHandler());
             }
 
             foreach (Type npcType in npcTypes)
