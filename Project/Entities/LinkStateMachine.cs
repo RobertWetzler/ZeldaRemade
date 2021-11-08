@@ -16,6 +16,7 @@ namespace Project.Entities
         private LinkSpriteSelector spriteSelector;
         private IPlayer link;
 
+        private IProjectile oldWeapon;
         public LinkStateMachine(IPlayer link, Facing facing, Move move, LinkColor color)
         {
             this.link = link;
@@ -103,11 +104,12 @@ namespace Project.Entities
         public (IPlayerSprite, IProjectile) UseWeapon(IProjectile weapon)
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
-            if (!IsPerformingAction())
+            if (!IsPerformingAction() && (oldWeapon == null || oldWeapon.IsFinished))
             {
                 this.oldSprite = sprite;
                 this.oldMove = move;
                 this.move = Move.UsingItem;
+                this.oldWeapon = weapon;
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
             }
             else
