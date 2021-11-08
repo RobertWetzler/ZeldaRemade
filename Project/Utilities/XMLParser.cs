@@ -15,7 +15,7 @@ namespace Project.Utilities
         {
         }
         public static XMLParser instance = new XMLParser();
-        public List<IEnemy> GetEnemiesFromRoom(string room)
+        public List<IEnemy> GetEnemiesFromRoom(string room, IPlayer player)
         {
             List<IEnemy> enemies = new List<IEnemy>();
             IEnemy enemy;
@@ -38,7 +38,7 @@ namespace Project.Utilities
                         float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
                         yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
-                        enemy = XMLParserUtilities.GetEnemy(enemyType, new Vector2(xPos, yPos));
+                        enemy = XMLParserUtilities.GetEnemy(enemyType, new Vector2(xPos, yPos), player);
                         enemies.Add(enemy);
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)

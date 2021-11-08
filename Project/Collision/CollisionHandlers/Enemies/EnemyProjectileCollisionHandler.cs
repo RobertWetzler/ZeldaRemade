@@ -10,7 +10,11 @@ namespace Project.Collision.CollisionHandlers.Enemies
             IProjectile projectile = projectileCollidable as IProjectile;
             if (projectile.IsFriendly)
             {
-                enemy.Despawn();
+                if (!(enemy is Trap))
+                {
+                    enemy.Despawn();
+                }
+                
             }
         }
     }
