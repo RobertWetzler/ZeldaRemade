@@ -50,6 +50,7 @@ namespace Project
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            SoundFactory.Instance.LoadAllTextures(Content);
 
             player = new GreenLink(this);
             for (int i = 1; i <= 18; i++)

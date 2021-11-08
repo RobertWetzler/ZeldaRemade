@@ -18,11 +18,13 @@ namespace Project.Projectiles
         {
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(facing, position);
             this.isFriendly = isFriendly;
+            SoundFactory.Instance.CreateBombDrop();
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bomb;
         public bool IsActive { get; set; } = true;
+        
 
         public void Draw(SpriteBatch spriteBatch)
         {

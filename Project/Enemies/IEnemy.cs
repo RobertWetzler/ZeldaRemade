@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Collision;
+using Project.Factory;
 using Project.Utilities;
 
 namespace Project
@@ -20,6 +21,7 @@ namespace Project
         public void Despawn()
         {
             RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
+            SoundFactory.Instance.CreateEnemyDeath();
         }
     }
 }

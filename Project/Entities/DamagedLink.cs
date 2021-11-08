@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Project.Entities
             this.game = game;
             remainingFlashTime = totalFlashTime;
             remainingKnockbackTime = totalKnockbackTime;
+            SoundFactory.Instance.CreateLinkHurt();
         }
         public override void TakeDamage(int damage)
         {

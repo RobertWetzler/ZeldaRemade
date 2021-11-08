@@ -20,6 +20,7 @@ namespace Project.Projectiles
             sprite = ItemSpriteFactory.Instance.CreateBlueArrowSprite(facing, position);
             this.isFriendly = isFriendly;
             this.facing = facing;
+            SoundFactory.Instance.CreateArrowBoomerang();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

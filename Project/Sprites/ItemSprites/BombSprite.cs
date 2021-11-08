@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
+using Project.Factory;
 
 namespace Project.Sprites.ItemSprites
 {
@@ -32,6 +33,7 @@ namespace Project.Sprites.ItemSprites
 
             spriteRow = 0;
             isFin = false;
+            
 
 
 
@@ -52,7 +54,7 @@ namespace Project.Sprites.ItemSprites
                 default:
                     break;
             }
-
+           
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -73,13 +75,15 @@ namespace Project.Sprites.ItemSprites
 
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 3000 && timer < 4000)
+            if (timer > 3000 && timer < 4000) { 
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
+            }
 
         }
-
+        
         public bool isFinished()
         {
+            
             return isFin = timer > 3500 ? true : false;
         }
     }

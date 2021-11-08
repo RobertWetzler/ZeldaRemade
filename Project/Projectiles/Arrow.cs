@@ -19,6 +19,7 @@ namespace Project.Projectiles
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite(facing, position);
             this.isFriendly = isFriendly;
             this.facing = facing;
+            SoundFactory.Instance.CreateArrowBoomerang();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();
@@ -34,6 +35,8 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);
+            
+
         }
 
         /**
