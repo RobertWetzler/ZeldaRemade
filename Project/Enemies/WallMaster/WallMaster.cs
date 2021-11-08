@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 
 namespace Project
 {
@@ -16,6 +17,8 @@ namespace Project
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => pos; set => pos = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Enemy;
+
         public WallMaster(Vector2 pos)
         {
             this.pos = pos;

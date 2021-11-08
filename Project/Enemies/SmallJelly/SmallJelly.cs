@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Factory;
 
 namespace Project
@@ -17,6 +18,8 @@ namespace Project
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Enemy;
+
         public SmallJelly(Vector2 pos)
         {
             this.position = pos;
@@ -49,6 +52,7 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            sprite.Update(gameTime);
             if (currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;

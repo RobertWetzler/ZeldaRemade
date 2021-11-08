@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Projectiles;
 using System.Collections.Generic;
 
@@ -23,6 +24,7 @@ namespace Project
         public Vector2 Position { get => position; set => position = value; }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
+        public CollisionType CollisionType => CollisionType.Enemy;
 
         public Dragon(Vector2 position)
         {

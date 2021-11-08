@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using Project.Sprites;
 
 namespace Project
 {
     public class Background
     {
-        private BackgroundSprite backgroundSprite;
+        private IBackgroundSprite backgroundSprite;
         public Background(string room)
         {
             switch (room)
