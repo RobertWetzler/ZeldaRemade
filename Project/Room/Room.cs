@@ -98,7 +98,10 @@ namespace Project
             }
             foreach (IProjectile projectile in projectiles)
             {
+               
                 projectile.Draw(spriteBatch);
+
+               
             }
         }
     }

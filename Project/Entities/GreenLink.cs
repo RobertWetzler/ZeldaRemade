@@ -96,6 +96,7 @@ namespace Project.Entities
         {
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
+           
             if (potentialWeapon != null)
             {
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
@@ -157,8 +158,10 @@ namespace Project.Entities
             foreach (IWeaponSprite weaponSprite in weaponSprites)
             {
                 weaponSprite.Update(gameTime);
+              
             }
             weaponSprites.RemoveAll(weaponSprite => weaponSprite.isFinished());
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
@@ -168,6 +171,8 @@ namespace Project.Entities
             {
                 weaponSprite.Draw(spriteBatch);
             }
+
+            
         }
     }
 }
