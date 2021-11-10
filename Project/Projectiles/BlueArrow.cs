@@ -14,6 +14,7 @@ namespace Project.Projectiles
         public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
+        public bool IsExploding => sprite.IsExploding();
 
         public BlueArrow(Facing facing, Vector2 position, bool isFriendly = true)
         {

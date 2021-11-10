@@ -60,6 +60,7 @@ namespace Project.Sprites.ItemSprites
             }
 
         }
+        
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -110,6 +111,11 @@ namespace Project.Sprites.ItemSprites
             this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
+        }
+
+        public bool IsExploding()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Project.Projectiles
         public bool IsActive { get; set; }
         public bool IsFriendly { get; }
         public bool IsFinished { get; }
+
+        public bool IsExploding { get; }
         public void Draw(SpriteBatch spriteBatch);
         public void Update(GameTime gameTime);
         public void Despawn()

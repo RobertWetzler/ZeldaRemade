@@ -23,6 +23,7 @@ namespace Project.Sprites.ItemSprites
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
+
         //Texture, Rows, Columns
         public BlueBoomerangSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
         {
@@ -108,6 +109,10 @@ namespace Project.Sprites.ItemSprites
             this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
+        }
+        public bool IsExploding()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

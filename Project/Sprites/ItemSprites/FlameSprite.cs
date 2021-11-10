@@ -57,6 +57,7 @@ namespace Project.Sprites.ItemSprites
             }
 
         }
+       
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -107,6 +108,10 @@ namespace Project.Sprites.ItemSprites
         public bool isFinished()
         {
             return isFin = timer > 1000 ? true : false;
+        }
+        public bool IsExploding()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

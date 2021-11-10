@@ -11,7 +11,7 @@ namespace Project.Projectiles
     {
 
         private IWeaponSprite sprite;
-
+        public bool IsExploding => sprite.IsExploding();
         public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
