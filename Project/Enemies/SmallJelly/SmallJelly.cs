@@ -52,6 +52,7 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            sprite.Update(gameTime);
             if (currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;

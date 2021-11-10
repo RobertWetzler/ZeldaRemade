@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using System;
 
 namespace Project
 {
@@ -13,6 +14,9 @@ namespace Project
         private Vector2 position;
         private ISprite sprite;
         private float velocity;
+        private IPlayer player;
+        private Vector2 startPos;
+        private EnemyDirections movingDirection;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -20,13 +24,17 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
 
-        public Trap(Vector2 pos)
+        public Trap(Vector2 pos, IPlayer player)
         {
             this.position = pos;
-            this.velocity = 50f;
+            this.startPos = pos;
+            this.velocity = 350f;
+            this.player = player;
             startTime = 0;
             timeToSpawn = 600;
+            movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
+
 
         }
 
@@ -52,7 +60,11 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
+            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128;
+
             sprite.Update(gameTime);
+            currentState.Update(gameTime);
             if (currentState is EnemySpawning)
             {
                 startTime += gameTime.ElapsedGameTime.Milliseconds;
@@ -62,7 +74,88 @@ namespace Project
                     currentState = new TrapStill(this);
                 }
             }
-            currentState.Update(gameTime);
+            else if (movingDirection == EnemyDirections.None)
+            {
+
+                if (TrapMovementUtilities.ShouldTrapMoveRight(startPos, middleOfWidth, player.Position))
+                {
+                    SetState(new TrapMoveRight(this));
+                    movingDirection = EnemyDirections.East;
+                    
+                }
+                else if (TrapMovementUtilities.ShouldTrapMoveLeft(startPos, middleOfWidth, player.Position))
+                {
+                    SetState(new TrapMoveLeft(this));
+                    movingDirection = EnemyDirections.West;
+
+                }
+                else if(TrapMovementUtilities.ShouldTrapMoveDown(startPos, middleOfHeight, player.Position))
+                {
+                    SetState(new TrapMoveDown(this));
+                    movingDirection = EnemyDirections.South;
+                }
+                else if (TrapMovementUtilities.ShouldTrapMoveUp(startPos, middleOfHeight, player.Position))
+                {
+                    SetState(new TrapMoveUp(this));
+                    movingDirection = EnemyDirections.North;
+                }
+            }
+            else
+            {
+                if (movingDirection == EnemyDirections.East)
+                {
+                    if ((int)position.X >= middleOfWidth)
+                    {
+                        ChangeDirection(EnemyDirections.West);
+                    }
+                    else if ((int)position.X < (int)startPos.X)
+                    {
+                        position = startPos;
+                        SetState(new TrapStill(this));
+                        movingDirection = EnemyDirections.None;
+                    }
+
+                }
+                if (movingDirection == EnemyDirections.West)
+                {
+                    if ((int)position.X < middleOfWidth)
+                    {
+                        ChangeDirection(EnemyDirections.East);
+                    }
+                    else if ((int)position.X > (int)startPos.X)
+                    {
+                        position = startPos;
+                        SetState(new TrapStill(this));
+                        movingDirection = EnemyDirections.None;
+                    }
+                }
+                if (movingDirection == EnemyDirections.South)
+                {
+                    if ((int)position.Y >= middleOfHeight)
+                    {
+                        ChangeDirection(EnemyDirections.North);
+                    }
+                    else if ((int)position.Y < (int)startPos.Y)
+                    {
+                        position = startPos;
+                        SetState(new TrapStill(this));
+                        movingDirection = EnemyDirections.None;
+                    }
+                }
+                if (movingDirection == EnemyDirections.North)
+                {
+                    if ((int)position.Y <= middleOfHeight)
+                    {
+                        ChangeDirection(EnemyDirections.South);
+                    }
+                    else if ((int)position.Y > (int)startPos.Y)
+                    {
+                        position = startPos;
+                        SetState(new TrapStill(this));
+                        movingDirection = EnemyDirections.None;
+                    }
+                }
+            }          
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
