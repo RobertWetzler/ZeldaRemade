@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.GameState;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,14 @@ namespace Project
         private IPlayer player;
         private List<IController> controllers;
         private List<Room> roomList;
-        public CollisionIterator collisionIterator;
+        private GameStateMachine gameStateMachine;
+        private CollisionIterator collisionIterator;
         private int roomIdx = 0;
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
-
+        public CollisionIterator CollisionIterator { get => collisionIterator; }
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -38,6 +40,7 @@ namespace Project
             controllers = new List<IController>();
             ControllerUtilities.SetKeyboardControllers(controllers, this);
             ControllerUtilities.SetMouseControllers(controllers, this);
+            gameStateMachine = new GameStateMachine(this);
             base.Initialize();
         }
 
@@ -72,22 +75,19 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            collisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
-            player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+            gameStateMachine.Update(gameTime, _graphics);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
-            player.Draw(_spriteBatch, gameTime);
+            gameStateMachine.Draw(_spriteBatch, gameTime, _graphics);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

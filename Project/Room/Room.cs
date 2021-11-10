@@ -53,7 +53,7 @@ namespace Project
         {
             enemies.Remove(enemy);
         }
-        public void Update(Rectangle rectangle, GameTime gameTime)
+        public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             foreach (IBlock blocks in blocks)
             {
@@ -69,7 +69,7 @@ namespace Project
             }
             foreach (IEnemy enemies in enemies)
             {
-                enemies.Update(rectangle, gameTime);
+                enemies.Update(windowBounds, gameTime);
             }
             foreach (IProjectile projectile in projectiles)
             {
