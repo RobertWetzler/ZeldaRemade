@@ -6,6 +6,7 @@ using Project.Factory;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
+using Project.Text;
 
 namespace Project
 {
@@ -20,6 +21,7 @@ namespace Project
         private int roomIdx = 0;
         private TitleScreen titleScreen;
         private bool showTitleScreen;
+        private IText text;     //Testing
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
@@ -54,7 +56,9 @@ namespace Project
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
-
+            TextSpriteFactory.Instance.LoadAllTextures(Content);    //Testing
+            text = new OldManText(this);    // Testing
+            
             titleScreen = new TitleScreen();
             player = new GreenLink(this);
             for (int i = 1; i <= 18; i++)
@@ -110,6 +114,8 @@ namespace Project
             {
                 RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
                 player.Draw(_spriteBatch, gameTime);
+                text.Draw(_spriteBatch, gameTime);      //Testing
+
             }
 
 
