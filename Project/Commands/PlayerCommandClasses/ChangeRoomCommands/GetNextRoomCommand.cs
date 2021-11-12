@@ -16,11 +16,11 @@
                 this.game.RoomIdx = 0;
             if (this.game.RoomIdx == this.game.RoomNum - 1)
             {
-                game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 400);
+                game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 650);
             }
             else
             {
-                game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 500);
+                game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 750);
             }
         }
     }
