@@ -7,6 +7,7 @@ namespace Project.Collision.CollisionHandlers
         public void HandleCollision(ICollidable playerCollidable, ICollidable block, CollisionSide side)
         {
             IPlayer player = playerCollidable as IPlayer;
+            player.TakeDamage(1);
 
             int dx = 0;
             int dy = 0;

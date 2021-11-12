@@ -14,6 +14,7 @@ namespace Project.Entities
         private double remainingKnockbackTime;
         private double knockbackVelocity = 300;
         private Color color;
+        private ISprite spriteHealth;
         public DamagedLink(IPlayer decoratedPlayer, Game1 game)
         {
             // inherited from PlayerDecorator
@@ -24,7 +25,7 @@ namespace Project.Entities
         }
         public override void TakeDamage(int damage)
         {
-            // No damage is taken
+           spriteHealth = spriteHealth.
         }
 
         public override void Update(Rectangle windowBounds, GameTime gameTime)
