@@ -8,7 +8,7 @@ namespace Project.Utilities
     public static class ControllerUtilities
     {
 
-        public static void SetKeyboardControllers(List<IController> controllers, Game1 game)
+        public static KeyboardController GetKeyboardController(Game1 game)
         {
             KeyboardController keyboardController = new KeyboardController();
 
@@ -51,15 +51,15 @@ namespace Project.Utilities
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
-            //Key to start game
-            keyboardController.RegisterCommand(Keys.Enter, new StartGameCommand(game));
+            //Key to pause game
+            keyboardController.RegisterCommand(Keys.Escape, new PauseGameCommand(game));
 
-            controllers.Add(keyboardController);
+            return keyboardController;
         }
-        public static void SetMouseControllers(List<IController> controllers, Game1 game)
+        public static MouseController GetMouseController(Game1 game)
         {
             MouseController mouseController = new MouseController(game);
-            controllers.Add(mouseController);
+            return mouseController;
         }
     }
 }
