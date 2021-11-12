@@ -7,13 +7,13 @@ using Project.Sprites.PlayerSprites;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Project.Entities
 {
     public class GreenLink : IPlayer, ICollidable
     {
         private LinkStateMachine stateMachine;
-
         private Vector2 position;
         private IPlayerSprite sprite;
         private List<IWeaponSprite> weaponSprites;
@@ -116,6 +116,7 @@ namespace Project.Entities
             this.sprite = this.stateMachine.Update();
             int x_dir = 0;
             int y_dir = 0;
+
             if (stateMachine.move == Move.Moving)
             {
                 switch (stateMachine.facing)
@@ -134,8 +135,10 @@ namespace Project.Entities
                         break;
                 }
             }
+
             float newX = position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             float newY = position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+
             if (x_dir == 1)
             {
                 position.X = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - BoundingBox.Width;
@@ -153,6 +156,7 @@ namespace Project.Entities
                 position.Y = (int)(newY) > windowBounds.Top ? newY : windowBounds.Top;
             }
 
+          
             sprite.Update(gameTime);
             foreach (IWeaponSprite weaponSprite in weaponSprites)
             {
