@@ -5,7 +5,6 @@ using Project.Collision;
 using Project.Projectiles;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Text;
 
 namespace Project
 {
@@ -18,7 +17,6 @@ namespace Project
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
         private int roomID;
-        private IText text;
 
         public int RoomID { get => roomID;  }
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
@@ -33,7 +31,6 @@ namespace Project
             this.npcs = npcs;
             this.enemies = enemies;
             this.projectiles = new List<IProjectile>();
-            this.text = new OldManText();   // Testing
         }
         public void AddItem(IItems item)
         {
@@ -59,8 +56,7 @@ namespace Project
         {
             enemies.Remove(enemy);
         }
-
-        public void Update(Rectangle rectangle, GameTime gameTime)
+        public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             foreach (IBlock blocks in blocks)
             {
@@ -76,14 +72,12 @@ namespace Project
             }
             foreach (IEnemy enemies in enemies)
             {
-                enemies.Update(rectangle, gameTime);
+                enemies.Update(windowBounds, gameTime);
             }
             foreach (IProjectile projectile in projectiles)
             {
                 projectile.Update(gameTime);
             }
-            if (roomID == 1)    // Text only shows up in the first room
-                text.Update(gameTime);
             projectiles.RemoveAll(p => p.IsFinished);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
@@ -109,8 +103,6 @@ namespace Project
             {
                 projectile.Draw(spriteBatch);
             }
-            if (roomID == 1)    // Text only shows up in the first room
-                text.Draw(spriteBatch, gameTime);
         }
     }
 }
