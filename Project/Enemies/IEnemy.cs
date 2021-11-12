@@ -21,5 +21,10 @@ namespace Project
         {
             RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
         }
+
+        public void DropItem (IItems item)
+        {
+            RoomManager.Instance.CurrentRoom.AddItem(item);
+        }
     }
 }

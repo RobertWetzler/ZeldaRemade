@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class KeyboardController : IController
+    public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> commandMapping;
         private KeyboardState oldState;
@@ -34,7 +34,7 @@ namespace Project
                     commandMapping[key].Execute();
                 }
             }
-            if (newState.GetPressedKeyCount() == 0)
+            if (defaultCommand != null && newState.GetPressedKeyCount() == 0)
             {
                 defaultCommand.Execute();
             }
