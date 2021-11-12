@@ -15,7 +15,7 @@ namespace Project.Projectiles
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
         public bool IsExploding => timer > 3000;
-        private int timer;
+        private float timer;
         
         public Bomb(Facing facing, Vector2 position, bool isFriendly = true)
         {
@@ -34,6 +34,8 @@ namespace Project.Projectiles
 
         public void Update(GameTime gameTime)
         {
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
             sprite.Update(gameTime);
         }
     }

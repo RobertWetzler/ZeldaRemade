@@ -19,7 +19,6 @@ namespace Project.Collision
                 {
                     if (CollisionDetector.IsColliding(dynamic, staticObj))
                     {
-                        Debug.WriteLine("C");
                         collisionHandler.HandleCollision(dynamic, staticObj, CollisionDetector.GetCollisionSide(dynamic, staticObj));
                         collisionHandler.HandleCollision(staticObj, dynamic, CollisionDetector.GetCollisionSide(staticObj, dynamic));
                     }
@@ -28,7 +27,6 @@ namespace Project.Collision
                 {
                     if (dynamic != dynamic2 && CollisionDetector.IsColliding(dynamic, dynamic2))
                     {
-                        Debug.WriteLine("C2");
                         collisionHandler.HandleCollision(dynamic, dynamic2, CollisionDetector.GetCollisionSide(dynamic, dynamic2));
                         collisionHandler.HandleCollision(dynamic2, dynamic, CollisionDetector.GetCollisionSide(dynamic2, dynamic));
                     }
