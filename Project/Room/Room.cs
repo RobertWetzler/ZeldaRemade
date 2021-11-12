@@ -17,6 +17,7 @@ namespace Project
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
         private int roomID;
+        private bool noEnemies;
 
         public int RoomID { get => roomID;  }
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
@@ -31,6 +32,7 @@ namespace Project
             this.npcs = npcs;
             this.enemies = enemies;
             this.projectiles = new List<IProjectile>();
+            this.noEnemies = false;
         }
         public void AddItem(IItems item)
         {
@@ -79,6 +81,10 @@ namespace Project
                 projectile.Update(gameTime);
             }
             projectiles.RemoveAll(p => p.IsFinished);
+            if (this.enemies.Count == 0)
+            {
+                noEnemies = true;
+            }
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
         {
@@ -91,10 +97,6 @@ namespace Project
             {
                 npc.Draw(spriteBatch);
             }
-            foreach (IItems item in items)
-            {
-                item.Draw(spriteBatch);
-            }
             foreach (IEnemy enemy in enemies)
             {
                 enemy.Draw(spriteBatch, gameTime);
@@ -102,6 +104,13 @@ namespace Project
             foreach (IProjectile projectile in projectiles)
             {
                 projectile.Draw(spriteBatch);
+            }
+            if (noEnemies)
+            {
+                foreach (IItems item in items)
+                {
+                    item.Draw(spriteBatch);
+                }
             }
         }
     }
