@@ -93,6 +93,7 @@ namespace Project
                 noEnemies = true;
             }
         }
+
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
         {
             this.background.Draw(spriteBatch, graphics);
