@@ -136,6 +136,7 @@ namespace Project.Entities
             }
             float newX = position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             float newY = position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+
             if (x_dir == 1)
             {
                 position.X = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - BoundingBox.Width;

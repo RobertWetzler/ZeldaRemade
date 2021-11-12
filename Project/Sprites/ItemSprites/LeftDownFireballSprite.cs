@@ -24,6 +24,8 @@ namespace Project.Sprites.ItemSprites
             delay_frame_index = 0;
         }
 
+        
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle source = sourceFrames[currentFrame];
@@ -53,5 +55,6 @@ namespace Project.Sprites.ItemSprites
                 currentFrame %= sourceFrames.Count;
             }
         }
+   
     }
 }

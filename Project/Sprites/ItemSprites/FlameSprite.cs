@@ -57,6 +57,7 @@ namespace Project.Sprites.ItemSprites
             }
 
         }
+       
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -108,5 +109,6 @@ namespace Project.Sprites.ItemSprites
         {
             return isFin = timer > 1000 ? true : false;
         }
+  
     }
 }

@@ -14,7 +14,9 @@ namespace Project.Items
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Item;
 
+        
         public BombItem(Vector2 position)
+
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 4);
