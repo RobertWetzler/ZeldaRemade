@@ -11,7 +11,7 @@ namespace Project.GameState
         private KeyboardController keyboardController;
         public TitleScreenState(Game1 game)
         {
-            this.titleScreen = new TitleScreen(game);
+            this.titleScreen = new TitleScreen();
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
         }

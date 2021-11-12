@@ -9,7 +9,7 @@ namespace Project
     {
         private IBackgroundSprite sprite;
 
-        public TitleScreen(Game1 game)
+        public TitleScreen()
         {
             sprite = BackgroundSpriteFactory.Instance.CreateTitleScreen();
         }
