@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
+using Project.Projectiles;
 
 namespace Project.Sprites.ItemSprites
 {
@@ -20,8 +22,6 @@ namespace Project.Sprites.ItemSprites
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
-
-      
 
         //Texture, Rows, Columns
         public BombSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
@@ -86,10 +86,7 @@ namespace Project.Sprites.ItemSprites
             return isFin = timer > 3500 ? true : false;
         }
 
-        public bool IsExploding()
-        {
-            return timer > 3000;
-        }
+        
 
     }
 }

@@ -15,7 +15,6 @@ namespace Project.Projectiles
         public bool IsFinished => sprite.isFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-        public bool IsExploding => sprite.IsExploding();
         public Boomerang(Facing facing, Vector2 position, bool isFriendly = true)
         {
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(facing, position);

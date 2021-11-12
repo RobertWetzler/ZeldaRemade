@@ -119,9 +119,6 @@ namespace Project.Sprites.ItemSprites
             return isFin = timer > 2000 ? true : false;
         }
 
-        public bool IsExploding()
-        {
-            throw new System.NotImplementedException();
-        }
+   
     }
 }

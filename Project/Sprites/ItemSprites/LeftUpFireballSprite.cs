@@ -56,9 +56,5 @@ namespace Project.Sprites.ItemSprites
             }
         }
 
-        public bool IsExploding()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

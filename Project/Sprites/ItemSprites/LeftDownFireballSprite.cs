@@ -55,9 +55,6 @@ namespace Project.Sprites.ItemSprites
                 currentFrame %= sourceFrames.Count;
             }
         }
-        public bool IsExploding()
-        {
-            throw new System.NotImplementedException();
-        }
+   
     }
 }

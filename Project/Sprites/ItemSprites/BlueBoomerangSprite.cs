@@ -110,9 +110,6 @@ namespace Project.Sprites.ItemSprites
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
         }
-        public bool IsExploding()
-        {
-            throw new System.NotImplementedException();
-        }
+      
     }
 }
