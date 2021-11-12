@@ -23,6 +23,7 @@ namespace Project.Collision
         private void BuildDictionary()
         {
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Block), new PlayerBlockCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Block), new PlayerDamagedBlockCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Block), new EnemyBlockCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.BlueBlock), new PlayerBlockCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.BlueBlock), new EnemyBlockCollisionHandler());
