@@ -56,8 +56,8 @@ namespace Project
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            TextSpriteFactory.Instance.LoadAllTextures(Content);    //Testing
-            text = new OldManText();    // Testing
+            TextSpriteFactory.Instance.LoadAllTextures(Content);    
+            text = new OldManText(); 
             
             titleScreen = new TitleScreen();
             player = new GreenLink(this);
