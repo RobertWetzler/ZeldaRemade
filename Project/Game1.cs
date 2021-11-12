@@ -21,7 +21,7 @@ namespace Project
         private int roomIdx = 0;
         private TitleScreen titleScreen;
         private bool showTitleScreen;
-        private IText text;     //Testing
+        private IText text; 
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
@@ -57,7 +57,7 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);    //Testing
-            text = new OldManText(this);    // Testing
+            text = new OldManText();    // Testing
             
             titleScreen = new TitleScreen();
             player = new GreenLink(this);
@@ -97,8 +97,11 @@ namespace Project
                 RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
                 RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
                 player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+                if (RoomIdx == 0)
+                {
+                    text.Update(gameTime);
+                }
             }
-            
             
             base.Update(gameTime);
         }
@@ -114,11 +117,11 @@ namespace Project
             {
                 RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
                 player.Draw(_spriteBatch, gameTime);
-                text.Draw(_spriteBatch, gameTime);      //Testing
-
+                if (RoomIdx == 0)
+                {
+                    text.Draw(_spriteBatch, gameTime);
+                }
             }
-
-
             _spriteBatch.End();
             base.Draw(gameTime);
         }

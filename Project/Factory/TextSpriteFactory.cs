@@ -140,5 +140,9 @@ namespace Project.Factory
         {
             return new TextSprite(fontSpriteSheet, 51, 35);
         }
+        public ISprite CreateBlankSprite()
+        {
+            return new TextSprite(fontSpriteSheet, 10, 19);
+        }
     }
 }

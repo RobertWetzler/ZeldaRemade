@@ -56,6 +56,7 @@ namespace Project
         {
             enemies.Remove(enemy);
         }
+
         public void Update(Rectangle rectangle, GameTime gameTime)
         {
             foreach (IBlock blocks in blocks)
