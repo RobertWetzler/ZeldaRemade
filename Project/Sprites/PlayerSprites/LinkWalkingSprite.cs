@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Project.Sprites.PlayerSprites
 {
