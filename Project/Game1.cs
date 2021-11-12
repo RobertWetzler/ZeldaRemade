@@ -15,18 +15,16 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-        private List<IController> controllers;
         private List<Room> roomList;
         private GameStateMachine gameStateMachine;
         private CollisionIterator collisionIterator;
         private int roomIdx = 0;
-        private TitleScreen titleScreen;
-        private bool showTitleScreen;
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
-        public bool ShowTitleScreen { get => showTitleScreen; set => showTitleScreen = value; }
+        public CollisionIterator CollisionIterator { get => collisionIterator; }
+        public GameStateMachine GameStateMachine { get => gameStateMachine; }
 
         public Game1()
         {
@@ -40,11 +38,7 @@ namespace Project
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 700;
             _graphics.ApplyChanges();
-            showTitleScreen = true;
-            controllers = new List<IController>();
-            ControllerUtilities.SetKeyboardControllers(controllers, this);
-            ControllerUtilities.SetMouseControllers(controllers, this);
-            gameStateMachine = new GameStateMachine(this);
+            
             base.Initialize();
         }
 
@@ -58,7 +52,7 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
-            titleScreen = new TitleScreen();
+            gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
             for (int i = 1; i <= 18; i++)
             {
@@ -80,43 +74,15 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IController controller in controllers)
-            {
-                controller.Update();
-            }
-
-            if (showTitleScreen)
-            {
-                titleScreen.Update(gameTime);
-            }
-            else
-            {
-                collisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
-                RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-                RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
-                player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
-            }
-            
-            
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            gameStateMachine.Update(gameTime, _graphics);
+            gameStateMachine.CurrentState.Update(gameTime, _graphics);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            if (showTitleScreen)
-            {
-                titleScreen.Draw(_spriteBatch, _graphics);
-            }
-            else
-            {
-                RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
-                player.Draw(_spriteBatch, gameTime);
-            }
-
-
+            gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime, _graphics);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

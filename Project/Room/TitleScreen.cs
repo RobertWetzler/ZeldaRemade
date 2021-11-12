@@ -2,9 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Sprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {
@@ -12,7 +9,7 @@ namespace Project
     {
         private IBackgroundSprite sprite;
 
-        public TitleScreen()
+        public TitleScreen(Game1 game)
         {
             sprite = BackgroundSpriteFactory.Instance.CreateTitleScreen();
         }
