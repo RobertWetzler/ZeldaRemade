@@ -145,6 +145,7 @@ namespace Project.Text
                 }
             }
         }
+
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             int i = 0;
@@ -165,3 +166,4 @@ namespace Project.Text
         }
     }
 }
+
