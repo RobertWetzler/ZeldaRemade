@@ -3,7 +3,7 @@
 
 namespace Project
 {
-    class MouseController : IController
+    public class MouseController : IController
     {
         private MouseState oldMouseState = Mouse.GetState();
         private GetNextRoomCommand nextRoomCommand;
