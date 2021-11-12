@@ -10,7 +10,7 @@ namespace Project.Utilities
 {
     static class XMLParserUtilities
     {
-        public static IEnemy GetEnemy(string enemyStr, Vector2 pos)
+        public static IEnemy GetEnemy(string enemyStr, Vector2 pos, IPlayer player)
         {
             IEnemy enemy = null;
             switch (enemyStr)
@@ -31,7 +31,7 @@ namespace Project.Utilities
                     enemy = new SmallJelly(pos);
                     break;
                 case "Trap":
-                    enemy = new Trap(pos);
+                    enemy = new Trap(pos, player);
                     break;
                 case "WallMaster":
                     enemy = new WallMaster(pos);
