@@ -50,14 +50,12 @@ Developers:
 
 ## Known Bugs
 - When Link takes damage, he ignores collision with blocks & wall collision. 
-- Link's bounding box is too large so he his head intersects with blocks above causing clunky collision. 
 - Enemies do not collide with moveable blocks.
-- Link can rapidly fire items. 
-- The animation of throwing sword sometimes shown abnormally (flash then disappear).
 - Bombs do not damage anything nor collide with anything.
 - When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
+- When Link is not moving, he ignores all collision. 
 
 ## Missing Features
-- Traps target link for movement, so currently our traps do not move.
 - No room transitions.
 - OldMan does not have any text. 
+- SwordBeam animation
