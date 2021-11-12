@@ -2,12 +2,12 @@
 
 namespace Project.Collision.CollisionHandlers
 {
-    class PlayerBlockCollisionHandler : ICollisionHandler
+    class PlayerDamagedBlockCollisionHandler : ICollisionHandler
     {
         public void HandleCollision(ICollidable playerCollidable, ICollidable block, CollisionSide side)
         {
             IPlayer player = playerCollidable as IPlayer;
-           
+
             int dx = 0;
             int dy = 0;
             switch (side)
