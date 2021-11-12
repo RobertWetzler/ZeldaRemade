@@ -8,6 +8,6 @@ namespace Project.HUD
     public interface IHUD
     {
         void Update();
-        void Draw(SpriteBatch spriteBatch)
+        void Draw(SpriteBatch spriteBatch);
     }
 }
