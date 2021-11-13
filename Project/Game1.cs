@@ -18,10 +18,13 @@ namespace Project
         private List<Room> roomList;
         public CollisionIterator collisionIterator;
         private int roomIdx = 0;
+        private TitleScreen titleScreen;
+        private bool showTitleScreen;
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
+        public bool ShowTitleScreen { get => showTitleScreen; set => showTitleScreen = value; }
 
         public Game1()
         {
@@ -35,6 +38,7 @@ namespace Project
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 700;
             _graphics.ApplyChanges();
+            showTitleScreen = true;
             controllers = new List<IController>();
             ControllerUtilities.SetKeyboardControllers(controllers, this);
             ControllerUtilities.SetMouseControllers(controllers, this);
@@ -52,6 +56,7 @@ namespace Project
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             SoundFactory.Instance.LoadAllTextures(Content);
 
+            titleScreen = new TitleScreen();
             player = new GreenLink(this);
             for (int i = 1; i <= 18; i++)
             {
@@ -73,22 +78,42 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            collisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
+            
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
-            RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
-            player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+
+            if (showTitleScreen)
+            {
+                titleScreen.Update(gameTime);
+            }
+            else
+            {
+                collisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
+                RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
+                RoomManager.Instance.CurrentRoom.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+                player.Update(new Rectangle(128, 128, _graphics.PreferredBackBufferWidth - 256, _graphics.PreferredBackBufferHeight - 256), gameTime);
+            }
+            
+            
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
-            player.Draw(_spriteBatch, gameTime);
+            if (showTitleScreen)
+            {
+                titleScreen.Draw(_spriteBatch, _graphics);
+            }
+            else
+            {
+                RoomManager.Instance.CurrentRoom.Draw(_spriteBatch, gameTime, _graphics);
+                player.Draw(_spriteBatch, gameTime);
+            }
+
+
             _spriteBatch.End();
             base.Draw(gameTime);
         }
