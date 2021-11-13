@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Sprites
+namespace Project
 {
-    class SmallHudSprite : ISprite
+    class BlueMapSprite : ISprite
     {
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         private Rectangle sourceRectangle;
-        
-        public SmallHudSprite(Texture2D texture)
+
+        public BlueMapSprite(Texture2D texture)
         {
             this.spriteSheet = texture;
             sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
@@ -20,7 +20,7 @@ namespace Project.Sprites
         }
 
         public Rectangle DestRectangle => destRectangle;
-        
+
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             const int scale = 4;
