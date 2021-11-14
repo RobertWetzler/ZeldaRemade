@@ -67,15 +67,13 @@ namespace Project.Sprites.PlayerSprites
         {
             int width = frameWidth[spriteColumn].spriteW;
             int height = playerSpriteSheet.Height / sheetRows;
-            int scale = 4;
 
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * 4);
             if (facingLeft)
-                spriteBatch.Draw(playerSpriteSheet, destRectangle, source,color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(playerSpriteSheet, this.destRectangle, source,color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
             else
-                spriteBatch.Draw(playerSpriteSheet, destRectangle, source, color);
+                spriteBatch.Draw(playerSpriteSheet, this.destRectangle, source, color);
             
         }
 
