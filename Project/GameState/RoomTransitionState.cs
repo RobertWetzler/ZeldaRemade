@@ -22,10 +22,9 @@ namespace Project.GameState
         private Direction dir;
         private Vector2 dir_vect;
         private Vector2 offset;
+        private Vector2 nextRoomOffset;
         private float transitionSpeed = 700f;
         private IHUD smallHUD;
-        //difference between offset and desired to be considered done
-        private const float transitionEpsilon = 2f; 
         public RoomTransitionState(Game1 game, Room nextRoom, Direction dir)
         {
             this.game = game;
@@ -33,10 +32,10 @@ namespace Project.GameState
             this.dir = dir;
             this.dir_vect = dir switch
             {
-                Direction.Up => new Vector2(0, -1),
-                Direction.Down => new Vector2(0, 1),
-                Direction.Left => new Vector2(-1, 0),
-                Direction.Right => new Vector2(1, 0),
+                Direction.Up => new Vector2(0, 1),
+                Direction.Down => new Vector2(0, -1),
+                Direction.Left => new Vector2(1, 0),
+                Direction.Right => new Vector2(-1, 0),
                 _ => throw new NotImplementedException()
             };
             smallHUD = new SmallHUD();
@@ -60,7 +59,9 @@ namespace Project.GameState
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
+            Rectangle roomBounds = RoomManager.Instance.CurrentRoom.Background.Bounds;
             offset += dir_vect * (float)gameTime.ElapsedGameTime.TotalSeconds * transitionSpeed;
+            nextRoomOffset = offset - (new Vector2(roomBounds.Width, roomBounds.Height)) * dir_vect;
             if(IsTransitionDone())
             {
                 this.game.GameStateMachine.Play();
@@ -70,6 +71,7 @@ namespace Project.GameState
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, offset);
+            RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, nextRoomOffset);
             this.smallHUD.Draw(spriteBatch);
         }
     }
