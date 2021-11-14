@@ -6,6 +6,7 @@ using Project.Factory;
 using Project.GameState;
 using Project.Utilities;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Project
@@ -16,6 +17,11 @@ namespace Project
         private SpriteBatch _spriteBatch;
         private IPlayer player;
         private List<Room> roomList;
+        private Dictionary<Room, Room> northRoom;
+        private Dictionary<Room, Room> westRoom;
+        private Dictionary<Room, Room> eastRoom;
+        private Dictionary<Room, Room> southRoom;
+
         private GameStateMachine gameStateMachine;
         private CollisionIterator collisionIterator;
         private int roomIdx = 0;
@@ -31,6 +37,10 @@ namespace Project
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            northRoom = new Dictionary <Room, Room>();
+            southRoom = new Dictionary<Room, Room>();
+            eastRoom = new Dictionary<Room, Room>();
+            westRoom = new Dictionary<Room, Room>();
         }
         protected override void Initialize()
         {
@@ -63,23 +73,31 @@ namespace Project
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
                 Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom), 
-                                XMLParser.instance.GetNorthRoomFromRoom(currentRoom),
-                                XMLParser.instance.GetSouthRoomFromRoom(currentRoom),
-                                XMLParser.instance.GetEastRoomFromRoom(currentRoom),
-                                XMLParser.instance.GetWestRoomFromRoom(currentRoom),
+                                XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom),
+                                XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom),
+                                XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom),
+                                XMLAdjacentRoomParser.instance.GetWestRoomFromRoom(currentRoom),
                                 items,
                                 blocks,
                                 npcs,
                                 enemies);
 
+                northRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom), player));
+                southRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom), player));
+                eastRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom), player));
+                westRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetWestRoomFromRoom(currentRoom), player));
                 roomList.Add(room);
             }
+
+            Debug.WriteLine(northRoom.ElementAt(3));
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             collisionIterator = new CollisionIterator();
         }
             
         protected override void Update(GameTime gameTime)
         {
+            
+
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             gameStateMachine.CurrentState.Update(gameTime, _graphics);
             base.Update(gameTime);

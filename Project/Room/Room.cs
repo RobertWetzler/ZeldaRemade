@@ -6,6 +6,7 @@ using Project.Projectiles;
 using System.Collections.Generic;
 using System.Linq;
 using Project.Text;
+using Project.Utilities;
 
 namespace Project
 {
@@ -17,20 +18,20 @@ namespace Project
         private List<INPC> npcs;
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
-        private int northRoom;
-        private int southRoom;
-        private int eastRoom;
-        private int westRoom;
+        private Room northRoom;
+        private Room southRoom;
+        private Room eastRoom;
+        private Room westRoom;
         private int roomID;
         private IText text;
         private bool noEnemies;
+        private int southRoomID;
+        private int northRoomID;
+        private int eastRoomID;
+        private int westRoomID;
     
 
         public int RoomID { get => roomID;  }
-        public int NorthRoomID { get => northRoom; }
-        public int SouthRoomID { get => southRoom; }
-        public int EastRoomID { get => eastRoom; }
-        public int WestRoomID { get => westRoom; }
 
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
@@ -46,12 +47,28 @@ namespace Project
             this.projectiles = new List<IProjectile>();
             this.text = new OldManText();
             this.noEnemies = false;
-            this.northRoom = northRoom;
-            this.southRoom = southRoom;
-            this.westRoom = westRoom;
-            this.eastRoom = eastRoom;
+            this.northRoomID = northRoom;
+            this.southRoomID = southRoom;
+            this.westRoomID = westRoom;
+            this.eastRoomID = eastRoom;
         }
 
+        public Room NorthRoom(IPlayer player)
+        {
+            return northRoom = AdjacentRoomUtilities.NorthRoom(northRoomID, player);
+        }
+        public Room SouthRoom(IPlayer player)
+        {
+            return southRoom = AdjacentRoomUtilities.SouthRoom(southRoomID, player);
+        }
+        public Room EastRoom(IPlayer player)
+        {
+            return eastRoom = AdjacentRoomUtilities.EastRoom(eastRoomID, player);
+        }
+        public Room WestRoom(IPlayer player)
+        {
+            return westRoom = AdjacentRoomUtilities.WestRoom(westRoomID, player);
+        }
         public void AddItem(IItems item)
         {
             items.Add(item);
