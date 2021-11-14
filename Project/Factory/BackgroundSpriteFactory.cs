@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites;
+using Project.Sprites.BackgroundSprites;
 
 namespace Project.Factory
 {

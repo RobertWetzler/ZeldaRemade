@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Sprites;
+using Project.Sprites.BackgroundSprites;
 
 namespace Project
 {
@@ -71,6 +72,10 @@ namespace Project
             backgroundSprite.Draw(spriteBatch, graphics);
         }
 
+        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Vector2 offset)
+        {
+            backgroundSprite.Draw(spriteBatch, graphics, offset);
+        }
 
 
 

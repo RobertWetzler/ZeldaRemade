@@ -18,9 +18,12 @@ namespace Project
         private List<IProjectile> projectiles;
         private int roomID;
 
-        public int RoomID { get => roomID;  }
+        public int RoomID { get => roomID; }
+        public Background Background { get => background; }
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
+
+        
         public Room(int id, Background background, List<IItems> items, List<IBlock> blocks,
                     List<INPC> npcs, List<IEnemy> enemies)
         {

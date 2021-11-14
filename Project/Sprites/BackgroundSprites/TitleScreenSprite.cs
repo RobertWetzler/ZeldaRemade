@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Sprites
+namespace Project.Sprites.BackgroundSprites
 {
     class TitleScreenSprite : IBackgroundSprite
     {
@@ -27,13 +27,18 @@ namespace Project.Sprites
         }
         public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
         {
+            Draw(spriteBatch, graphics, Vector2.Zero);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Vector2 offset)
+        {
             int width = texture.Width / totalCols;
             int height = texture.Height / totalRows;
             int indexRow = width * spriteCol;
             int indexCol = height * spriteRow;
 
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
-            Rectangle dest = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            Rectangle dest = new Rectangle((int)offset.X, (int)offset.Y, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             spriteBatch.Draw(texture, dest, source, Color.White);
         }
 
