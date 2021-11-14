@@ -12,9 +12,8 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room3</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>3</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -59,14 +58,12 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room6</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>6</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room18</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>18</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -161,19 +158,16 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Bordering</ObjectType>
-				<ObjectName>Room8</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>8</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Bordering</ObjectType>
-				<ObjectName>Room1</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>1</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Bordering</ObjectType>
-				<ObjectName>Room4</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>4</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -223,14 +217,12 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room9</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>9</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room3</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>3</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -295,9 +287,8 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room11</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>11</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -347,14 +338,12 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room2</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>2</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room7</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>7</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -524,9 +513,8 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room8</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>8</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -593,11 +581,11 @@
 				<ObjectName>Blue</ObjectName>
 				<Position>2 0</Position>
 			</Object>
-      <Object>
-        <ObjectType>Block</ObjectType>
-        <ObjectName>Blue</ObjectName>
-        <Position>2 2</Position>
-      </Object>
+			<Object>
+				<ObjectType>Block</ObjectType>
+				<ObjectName>Blue</ObjectName>
+				<Position>2 2</Position>
+			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Blue</ObjectName>
@@ -801,24 +789,20 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room3</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>3</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room7</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>7</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room12</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>12</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room9</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>9</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -903,24 +887,20 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room8</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>8</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room13</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>13</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room10</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>10</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room4</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>4</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1000,14 +980,12 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room9</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>9</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room11</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>11</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1057,19 +1035,16 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room10</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>10</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room14</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>14</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room5</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>5</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1159,19 +1134,16 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room8</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>8</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room16</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>16</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room13</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>13</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1241,14 +1213,12 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room12</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>12</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room9</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>9</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1343,9 +1313,8 @@
 				<Position>X Y</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room11</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>11</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1410,14 +1379,12 @@
 				<Position>X Y</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room16</ObjectName>
-				<Position>South</Position>
+				<ObjectType>SouthRoom</ObjectType>
+				<ObjectName>16</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room17</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>17</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1502,14 +1469,12 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room15</ObjectName>
-				<Position>North</Position>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>15</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room12</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>12</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1640,9 +1605,8 @@
 				<Position>X Y</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room15</ObjectName>
-				<Position>West</Position>
+				<ObjectType>WestRoom</ObjectType>
+				<ObjectName>15</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1817,9 +1781,8 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>Adjacent</ObjectType>
-				<ObjectName>Room2</ObjectName>
-				<Position>East</Position>
+				<ObjectType>EastRoom</ObjectType>
+				<ObjectName>2</ObjectName>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>

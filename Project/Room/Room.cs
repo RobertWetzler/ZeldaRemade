@@ -17,14 +17,21 @@ namespace Project
         private List<INPC> npcs;
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
+        private int northRoom;
+        private int southRoom;
+        private int eastRoom;
+        private int westRoom;
         private int roomID;
         private IText text;
         private bool noEnemies;
+    
 
         public int RoomID { get => roomID;  }
+        public int NorthRoomID { get => northRoom; }
+
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
-        public Room(int id, Background background, List<IItems> items, List<IBlock> blocks,
+        public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
                     List<INPC> npcs, List<IEnemy> enemies)
         {
             this.roomID = id;
@@ -36,7 +43,12 @@ namespace Project
             this.projectiles = new List<IProjectile>();
             this.text = new OldManText();
             this.noEnemies = false;
+            this.northRoom = northRoom;
+            this.southRoom = southRoom;
+            this.westRoom = westRoom;
+            this.eastRoom = eastRoom;
         }
+
         public void AddItem(IItems item)
         {
             items.Add(item);

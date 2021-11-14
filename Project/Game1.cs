@@ -6,6 +6,7 @@ using Project.Factory;
 using Project.GameState;
 using Project.Utilities;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Project
@@ -62,12 +63,18 @@ namespace Project
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom), 
+                                XMLParser.instance.GetNorthRoomFromRoom(currentRoom),
+                                XMLParser.instance.GetSouthRoomFromRoom(currentRoom),
+                                XMLParser.instance.GetEastRoomFromRoom(currentRoom),
+                                XMLParser.instance.GetWestRoomFromRoom(currentRoom),
                                 items,
                                 blocks,
                                 npcs,
                                 enemies);
                 roomList.Add(room);
+
+                Debug.WriteLine(XMLParser.instance.GetNorthRoomFromRoom(currentRoom));
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             collisionIterator = new CollisionIterator();
