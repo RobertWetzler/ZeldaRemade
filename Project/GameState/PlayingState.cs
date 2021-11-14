@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Project.GameState
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
             controllers.Add(ControllerUtilities.GetMouseController(this.game));
+            SoundManager.Instance.CreateBackgroundMusic();
         }
         public void Update(GameTime gameTime, GraphicsDeviceManager graphics)
         {

@@ -21,7 +21,7 @@ namespace Project.Projectiles
         {
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(facing, position);
             this.isFriendly = isFriendly;
-            SoundFactory.Instance.CreateBombDrop();
+            SoundManager.Instance.CreateBombDropSound();
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
@@ -39,6 +39,9 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             sprite.Update(gameTime);
+            
         }
+       
+            
     }
 }

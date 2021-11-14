@@ -19,7 +19,7 @@ namespace Project.Projectiles
         {
             sprite = ItemSpriteFactory.Instance.CreateFlameSprite(facing, position);
             this.isFriendly = isFriendly;
-            SoundFactory.Instance.CreateCandle();
+            SoundManager.Instance.CreateCandleSound();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

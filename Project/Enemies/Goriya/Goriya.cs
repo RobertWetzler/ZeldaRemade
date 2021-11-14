@@ -46,7 +46,7 @@ namespace Project
         public void UseWeapon()
         {
             currentState.UseWeapon();
-            SoundFactory.Instance.CreateArrowBoomerang();
+            SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
         public void SetState(IEnemyState state)

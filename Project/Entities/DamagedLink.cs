@@ -22,7 +22,7 @@ namespace Project.Entities
             this.game = game;
             remainingFlashTime = totalFlashTime;
             remainingKnockbackTime = totalKnockbackTime;
-            SoundFactory.Instance.CreateLinkHurt();
+            SoundManager.Instance.CreateLinkHurtSound();
         }
         public override void TakeDamage(int damage)
         {

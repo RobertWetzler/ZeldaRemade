@@ -21,7 +21,7 @@ namespace Project
         public void Despawn()
         {
             RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
-            SoundFactory.Instance.CreateEnemyDeath();
+            SoundManager.Instance.CreateEnemyDeathSound();
         }
 
         public void DropItem (IItems item)

@@ -20,7 +20,7 @@ namespace Project.Projectiles
             sprite = ItemSpriteFactory.Instance.CreateSwordSprite(facing, position);
             this.isFriendly = isFriendly;
             this.facing = facing;
-            SoundFactory.Instance.CreateSwordShoot();
+            SoundManager.Instance.CreateSwordShootSound();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

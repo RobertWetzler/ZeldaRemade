@@ -17,7 +17,7 @@ namespace Project.Projectiles
         {
             sprite = ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(facing, position);
             this.isFriendly = isFriendly;
-            SoundFactory.Instance.CreateArrowBoomerang();
+            SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

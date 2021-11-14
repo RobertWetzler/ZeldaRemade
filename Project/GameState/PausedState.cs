@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
 using Project.Utilities;
+using Project.Factory;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,7 @@ namespace Project.GameState
             this.game = game;
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
+            
         }
         public void Update(GameTime gameTime, GraphicsDeviceManager graphics)
         {

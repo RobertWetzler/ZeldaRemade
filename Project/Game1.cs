@@ -52,7 +52,7 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
-            SoundFactory.Instance.LoadAllTextures(Content);
+            SoundManager.Instance.LoadAllSounds(Content);
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);

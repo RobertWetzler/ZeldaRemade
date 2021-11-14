@@ -54,93 +54,122 @@ namespace Project.Text
                 {
                     case 1:
                         textList1.Add(spriteA);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 2:
                         textList1.Add(spriteS);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 3:
                         textList1.Add(spriteT);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 4:
                         textList1.Add(spriteM);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 5:
                         textList1.Add(spriteO);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 6:
                         textList1.Add(spriteS);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 7:
                         textList1.Add(spriteT);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 8:
                         textList1.Add(spriteBlank);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 9:
                         textList1.Add(spriteP);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 10:
                         textList1.Add(spriteE);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 11:
                         textList1.Add(spriteN);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 12:
                         textList1.Add(spriteI);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 13:
                         textList1.Add(spriteN);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 14:
                         textList1.Add(spriteS);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 15:
                         textList1.Add(spriteU);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 16:
                         textList1.Add(spriteL);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 17:
                         textList1.Add(spriteA);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 18:
                         textList2.Add(spriteI);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 19:
                         textList2.Add(spriteS);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 20:
                         textList2.Add(spriteBlank);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 21:
                         textList2.Add(spriteT);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 22:
                         textList2.Add(spriteH);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 23:
                         textList2.Add(spriteE);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 24:
                         textList2.Add(spriteBlank);
                         break;
                     case 25:
                         textList2.Add(spriteS);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 26:
                         textList2.Add(spriteE);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 27:
                         textList2.Add(spriteC);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 28:
                         textList2.Add(spriteR);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 29:
                         textList2.Add(spriteE);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                     case 30:
                         textList2.Add(spriteT);
+                        SoundManager.Instance.CreateTextSound();
                         break;
                 }
             }
@@ -159,6 +188,7 @@ namespace Project.Text
                 i = 0;
                 foreach (var text in textList2)
                 {
+                    
                     text.Draw(spriteBatch, new Vector2(secondLinePosX + i, secondLinePosY));
                     i += shift;
                 }
