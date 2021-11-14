@@ -8,7 +8,7 @@ namespace Project.GameState
 {
     public interface IGameState
     {
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics);
-        public void Update(GameTime gameTime, GraphicsDeviceManager graphics);
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        public void Update(GameTime gameTime, Rectangle bounds);
     }
 }
