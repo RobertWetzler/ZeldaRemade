@@ -55,19 +55,19 @@ namespace Project
 
         public Room NorthRoom(IPlayer player)
         {
-            return northRoom = AdjacentRoomUtilities.NorthRoom(northRoomID, player);
+            return northRoom = AdjacentRoomUtilities.GetRoom(northRoomID, player);
         }
         public Room SouthRoom(IPlayer player)
         {
-            return southRoom = AdjacentRoomUtilities.SouthRoom(southRoomID, player);
+            return southRoom = AdjacentRoomUtilities.GetRoom(southRoomID, player);
         }
         public Room EastRoom(IPlayer player)
         {
-            return eastRoom = AdjacentRoomUtilities.EastRoom(eastRoomID, player);
+            return eastRoom = AdjacentRoomUtilities.GetRoom(eastRoomID, player);
         }
         public Room WestRoom(IPlayer player)
         {
-            return westRoom = AdjacentRoomUtilities.WestRoom(westRoomID, player);
+            return westRoom = AdjacentRoomUtilities.GetRoom(westRoomID, player);
         }
         public void AddItem(IItems item)
         {

@@ -82,14 +82,13 @@ namespace Project
                                 npcs,
                                 enemies);
 
-                northRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom), player));
-                southRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom), player));
-                eastRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom), player));
-                westRoom.Add(room, AdjacentRoomUtilities.NorthRoom(XMLAdjacentRoomParser.instance.GetWestRoomFromRoom(currentRoom), player));
+                northRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom), player));
+                southRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom), player));
+                eastRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom), player));
+                westRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetWestRoomFromRoom(currentRoom), player));
                 roomList.Add(room);
             }
 
-            Debug.WriteLine(northRoom.ElementAt(3));
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             collisionIterator = new CollisionIterator();
         }
