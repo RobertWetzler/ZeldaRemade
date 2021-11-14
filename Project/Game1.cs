@@ -59,7 +59,7 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
-            HUDSpriteFactory.Instance.LoadAllTextures(Content);
+            HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
