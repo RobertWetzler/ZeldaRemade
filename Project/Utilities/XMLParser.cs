@@ -8,7 +8,7 @@ namespace Project.Utilities
     {
 
         private static int X_OFFSET = 128;
-        private static int Y_OFFSET = 126;
+        private static int Y_OFFSET = 350;
         private static int BLOCK_WIDTH = 64;
         private static int BLOCK_HEIGHT = 64;
         private XMLParser()
@@ -159,7 +159,7 @@ namespace Project.Utilities
             return blocks;
         }
 
-        public Background GetBackgroundFromRoom(string room)
+        public Background GetBackgroundFromRoom(string room, GraphicsDeviceManager graphics)
         {
             Background background = null;
 
@@ -175,7 +175,7 @@ namespace Project.Utilities
                     {
                         reader.Read();
                         string roomNumber = reader.ReadElementContentAsString();
-                        background = new Background(roomNumber);
+                        background = new Background(roomNumber, graphics);
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
                     {

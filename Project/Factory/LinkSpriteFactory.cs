@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using Project.Sprites.PlayerSprites;
@@ -39,9 +40,9 @@ namespace Project.Factory
             linkUseSwordUpwardsSpriteSheet = content.Load<Texture2D>("PlayerSprites/link-use-sword-upwards");
         }
 
-        public IPlayerSprite CreateLinkIdleSprite(Facing facing)
+        public IPlayerSprite CreateLinkIdleSprite(Facing facing, Vector2 position)
         {
-            return new LinkIdleSprite(linkWalkingSpriteSheet, facing);
+            return new LinkIdleSprite(linkWalkingSpriteSheet, facing, position);
         }
 
         public IPlayerSprite CreateLinkWalkingSprite(Facing facing)

@@ -21,7 +21,7 @@ namespace Project.Sprites.BackgroundSprites
             this.totalRows = totalRows;
         }
 
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch, Rectangle destRect)
         {
             Draw(spriteBatch, graphics, Vector2.Zero);
         }
@@ -32,6 +32,7 @@ namespace Project.Sprites.BackgroundSprites
             int height = texture.Height / totalRows;
             int indexRow = width * spriteCol;
             int indexCol = height * spriteRow;
+
             if (spriteCol > 0)
             {
                 indexRow += spriteCol;
@@ -41,8 +42,7 @@ namespace Project.Sprites.BackgroundSprites
                 indexCol += spriteRow;
             }
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
-            Rectangle dest = new Rectangle((int)offset.X, (int)offset.Y, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-            spriteBatch.Draw(texture, dest, source, Color.White);
+            spriteBatch.Draw(texture, destRect, source, Color.White);
         }
 
         public void Update(GameTime gameTime)

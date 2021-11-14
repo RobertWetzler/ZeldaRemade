@@ -25,12 +25,7 @@ namespace Project.Sprites.BackgroundSprites
             this.totalRows = totalRows;
             time = 0;
         }
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
-        {
-            Draw(spriteBatch, graphics, Vector2.Zero);
-        }
-
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Vector2 offset)
+        public void Draw(SpriteBatch spriteBatch, Rectangle destRect)
         {
             int width = texture.Width / totalCols;
             int height = texture.Height / totalRows;
@@ -38,8 +33,7 @@ namespace Project.Sprites.BackgroundSprites
             int indexCol = height * spriteRow;
 
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
-            Rectangle dest = new Rectangle((int)offset.X, (int)offset.Y, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-            spriteBatch.Draw(texture, dest, source, Color.White);
+            spriteBatch.Draw(texture, destRect, source, Color.White);
         }
 
         public void Update(GameTime gameTime)

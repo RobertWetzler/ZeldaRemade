@@ -9,10 +9,10 @@ namespace Project.Sprites.BackgroundSprites
     interface IBackgroundSprite
     {
         void Update(GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        void Draw(SpriteBatch spriteBatch, Rectangle destRect);
+        void Draw(SpriteBatch spriteBatch, Rectangle destRect, Vector2 offset)
         {
-            this.Draw(spriteBatch, graphics, Vector2.Zero);
+            Draw(spriteBatch, destRect);
         }
-        void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Vector2 offset);
     }
 }

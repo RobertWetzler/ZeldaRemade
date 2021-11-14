@@ -12,6 +12,7 @@ namespace Project.GameState
         public IGameState currentState;
         private Game1 game;
         public IGameState CurrentState { get => currentState; }
+
         public GameStateMachine(Game1 game)
         {
             this.currentState = new TitleScreenState(game);
