@@ -23,5 +23,10 @@ namespace Project
             RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
             SoundFactory.Instance.CreateEnemyDeath();
         }
+
+        public void DropItem (IItems item)
+        {
+            RoomManager.Instance.CurrentRoom.AddItem(item);
+        }
     }
 }

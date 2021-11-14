@@ -64,6 +64,8 @@ namespace Project.Sprites.ItemSprites
 
         }
 
+
+
         public void Draw(SpriteBatch spriteBatch)
         {
             int width = spriteSheet.Width / sheetColumns;
@@ -117,6 +119,8 @@ namespace Project.Sprites.ItemSprites
         {
             return isFin = timer > 1250 ? true : false;
         }
+
+ 
     }
 }
 

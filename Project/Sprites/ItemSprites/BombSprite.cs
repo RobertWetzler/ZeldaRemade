@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Projectiles;
 
 namespace Project.Sprites.ItemSprites
 {
@@ -13,7 +15,7 @@ namespace Project.Sprites.ItemSprites
         private int spriteFrame;
         private float timer;
         private bool isFin;
-
+       
 
         private Vector2 position;
         private Facing facing;
@@ -21,6 +23,7 @@ namespace Project.Sprites.ItemSprites
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
+
         //Texture, Rows, Columns
         public BombSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
         {
@@ -33,7 +36,6 @@ namespace Project.Sprites.ItemSprites
 
             spriteRow = 0;
             isFin = false;
-            
 
 
 
@@ -77,14 +79,15 @@ namespace Project.Sprites.ItemSprites
 
             if (timer > 3000 && timer < 4000) { 
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
-            }
 
         }
-        
+
         public bool isFinished()
         {
-            
             return isFin = timer > 3500 ? true : false;
         }
+
+        
+
     }
 }
