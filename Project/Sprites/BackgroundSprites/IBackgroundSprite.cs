@@ -12,7 +12,8 @@ namespace Project.Sprites.BackgroundSprites
         void Draw(SpriteBatch spriteBatch, Rectangle destRect);
         void Draw(SpriteBatch spriteBatch, Rectangle destRect, Vector2 offset)
         {
-            Draw(spriteBatch, destRect);
+            Rectangle offsetRect = new Rectangle(destRect.X + (int)offset.X, destRect.Y + (int)offset.Y, destRect.Width, destRect.Height);
+            Draw(spriteBatch, offsetRect);
         }
     }
 }

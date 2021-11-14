@@ -10,6 +10,7 @@ namespace Project
     {
         private IBackgroundSprite backgroundSprite;
         private Rectangle bounds;
+        public Rectangle Bounds => bounds;
 
         public Background(string room, GraphicsDeviceManager graphics)
         {
@@ -77,9 +78,9 @@ namespace Project
             backgroundSprite.Draw(spriteBatch, bounds);
         }
 
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Vector2 offset)
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
-            backgroundSprite.Draw(spriteBatch, graphics, offset);
+            backgroundSprite.Draw(spriteBatch, bounds, offset);
         }
 
 

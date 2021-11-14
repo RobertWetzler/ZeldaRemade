@@ -15,7 +15,7 @@ namespace Project.GameState
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
         }
-        public void Update(GameTime gameTime, Rectangle gameRect)
+        public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             keyboardController.Update();
             titleScreen.Update(gameTime);

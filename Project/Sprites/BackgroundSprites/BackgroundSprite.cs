@@ -23,11 +23,6 @@ namespace Project.Sprites.BackgroundSprites
 
         public void Draw(SpriteBatch spriteBatch, Rectangle destRect)
         {
-            Draw(spriteBatch, graphics, Vector2.Zero);
-        }
-
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Vector2 offset)
-        {
             int width = texture.Width / totalCols;
             int height = texture.Height / totalRows;
             int indexRow = width * spriteCol;
