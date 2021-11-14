@@ -6,7 +6,6 @@ using Project.Factory;
 using Project.GameState;
 using Project.Utilities;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace Project
@@ -73,8 +72,6 @@ namespace Project
                                 npcs,
                                 enemies);
                 roomList.Add(room);
-
-                Debug.WriteLine(XMLParser.instance.GetNorthRoomFromRoom(currentRoom));
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             collisionIterator = new CollisionIterator();

@@ -28,6 +28,9 @@ namespace Project
 
         public int RoomID { get => roomID;  }
         public int NorthRoomID { get => northRoom; }
+        public int SouthRoomID { get => southRoom; }
+        public int EastRoomID { get => eastRoom; }
+        public int WestRoomID { get => westRoom; }
 
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
