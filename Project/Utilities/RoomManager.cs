@@ -1,4 +1,6 @@
-﻿namespace Project.Utilities
+﻿using System.Collections.Generic;
+
+namespace Project.Utilities
 {
     class RoomManager
     {

@@ -71,6 +71,7 @@ namespace Project
                                 blocks,
                                 npcs,
                                 enemies);
+
                 roomList.Add(room);
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
