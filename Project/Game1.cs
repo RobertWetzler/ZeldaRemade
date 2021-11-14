@@ -76,7 +76,7 @@ namespace Project
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             collisionIterator = new CollisionIterator();
         }
-
+            
         protected override void Update(GameTime gameTime)
         {
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
