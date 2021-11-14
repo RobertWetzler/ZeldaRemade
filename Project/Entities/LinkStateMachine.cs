@@ -1,4 +1,5 @@
-﻿using Project.Projectiles;
+﻿using Microsoft.Xna.Framework;
+using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 
@@ -24,6 +25,7 @@ namespace Project.Entities
             this.move = move;
             this.color = color;
 
+
             this.spriteSelector = new LinkSpriteSelector();
         }
 
@@ -34,7 +36,7 @@ namespace Project.Entities
             {
                 this.facing = Facing.Up;
                 this.move = Move.Moving;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             return sprite;
         }
@@ -45,7 +47,7 @@ namespace Project.Entities
             {
                 this.facing = Facing.Down;
                 this.move = Move.Moving;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             return sprite;
 
@@ -57,7 +59,7 @@ namespace Project.Entities
             {
                 this.facing = Facing.Left;
                 this.move = Move.Moving;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             return sprite;
         }
@@ -68,7 +70,7 @@ namespace Project.Entities
             {
                 this.facing = Facing.Right;
                 this.move = Move.Moving;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             return sprite;
 
@@ -79,7 +81,7 @@ namespace Project.Entities
             if (!IsPerformingAction())
             {
                 this.move = Move.Idle;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             return sprite;
         }
@@ -92,7 +94,7 @@ namespace Project.Entities
                 this.oldSprite = sprite;
                 this.oldMove = move;
                 this.move = Move.UsingSword;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             else
             {
@@ -109,8 +111,9 @@ namespace Project.Entities
                 this.oldSprite = sprite;
                 this.oldMove = move;
                 this.move = Move.UsingItem;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
                 this.oldWeapon = weapon;
-                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color);
+
             }
             else
             {

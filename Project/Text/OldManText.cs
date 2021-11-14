@@ -13,9 +13,9 @@ namespace Project.Text
         private int timeToText = 150;    // Time interval between each character showing up
         // The start position of each line
         private int firstLinePosX = 220;
-        private int firstLinePosY = 180;
+        private int firstLinePosY = 404;
         private int secondLinePosX = 280;
-        private int secondLinePosY = 212;
+        private int secondLinePosY = 436;
         // Word count
         int textNum = 0;
 

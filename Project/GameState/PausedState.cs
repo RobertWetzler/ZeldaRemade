@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
+using Project.HUD;
 using Project.Utilities;
 using Project.Factory;
 using System;
@@ -14,20 +15,22 @@ namespace Project.GameState
     {
         private Game1 game;
         private KeyboardController keyboardController;
+        private IHUD smallHUD;
         public PausedState(Game1 game)
         {
             this.game = game;
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            
+            smallHUD = new SmallHUD();
         }
-        public void Update(GameTime gameTime, GraphicsDeviceManager graphics)
+        public void Update(GameTime gameTime, Rectangle bounds)
         {
             keyboardController.Update();
         }
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime, graphics);
+            smallHUD.Draw(spriteBatch);
+            RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
         }
 
