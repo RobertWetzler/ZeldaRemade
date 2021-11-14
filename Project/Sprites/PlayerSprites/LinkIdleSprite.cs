@@ -71,7 +71,7 @@ namespace Project.Sprites.PlayerSprites
 
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
-            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * 4);
+            Rectangle destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             if (facingLeft)
                 spriteBatch.Draw(playerSpriteSheet, destRectangle, source,color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
             else
