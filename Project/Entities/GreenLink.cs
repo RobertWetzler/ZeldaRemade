@@ -20,7 +20,7 @@ namespace Project.Entities
         private List<IWeaponSprite> weaponSprites;
         private double velocity = 250;
         private Game1 game;
-        private double health = 100;
+        private double health = 2;
         private SmallHUD smallHUD;
 
         /**
@@ -119,7 +119,7 @@ namespace Project.Entities
             else if (health == 0 && smallHUD.GetLives() > 0)
             {
                 smallHUD.Death();
-                health = 100;
+                health = 2;
             }
             else
             {
