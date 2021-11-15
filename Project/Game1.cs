@@ -6,7 +6,6 @@ using Project.Factory;
 using Project.GameState;
 using Project.Utilities;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace Project
@@ -67,8 +66,6 @@ namespace Project
             
         protected override void Update(GameTime gameTime)
         {
-
-            Debug.WriteLine(RoomIdx);
             RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
             gameStateMachine.CurrentState.Update(gameTime, _graphics);
             base.Update(gameTime);
