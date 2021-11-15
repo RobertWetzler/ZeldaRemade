@@ -52,7 +52,6 @@ namespace Project
         protected override void LoadContent()
         {
              _spriteBatch = new SpriteBatch(GraphicsDevice);
-            HUDSpriteFactory.Instance.LoadAllTextures(Content);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
