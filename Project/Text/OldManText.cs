@@ -146,7 +146,7 @@ namespace Project.Text
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch)
         {
             int i = 0;
             foreach (var text in textList1)

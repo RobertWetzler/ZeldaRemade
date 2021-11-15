@@ -6,6 +6,9 @@ namespace Project.Utilities
     class RoomManager
     {
         public static Dictionary<int, Room> IdToRoom = new Dictionary<int, Room>();
+      
+        private RoomManager() { }
+
         private static RoomManager instance = new RoomManager();
         public static RoomManager Instance => instance;
         private Room currentRoom;

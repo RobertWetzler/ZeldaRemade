@@ -143,7 +143,7 @@ namespace Project
             }
             if (roomID == 1)
             {
-                text.Draw(spriteBatch, gameTime);
+                text.Draw(spriteBatch);
             }
         }
     }
