@@ -38,5 +38,7 @@ namespace Project.Projectiles
 
             sprite.Update(gameTime);
         }
+
+       
     }
 }
