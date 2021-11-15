@@ -17,6 +17,7 @@ namespace Project
         private List<INPC> npcs;
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
+        private List<IDoor> doors;
         private int roomID;
         private IText text;
         private bool noEnemies;
@@ -25,7 +26,7 @@ namespace Project
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public Room(int id, Background background, List<IItems> items, List<IBlock> blocks,
-                    List<INPC> npcs, List<IEnemy> enemies)
+                    List<INPC> npcs, List<IEnemy> enemies, List<IDoor> doors)
         {
             this.roomID = id;
             this.background = background;
@@ -36,6 +37,7 @@ namespace Project
             this.projectiles = new List<IProjectile>();
             this.text = new OldManText();
             this.noEnemies = false;
+            this.doors = doors;
         }
         public void AddItem(IItems item)
         {
@@ -96,6 +98,10 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             this.background.Draw(spriteBatch);
+            foreach(IDoor door in doors)
+            {
+                door.Draw(spriteBatch);
+            }
             foreach (IBlock block in blocks)
             {
                 block.Draw(spriteBatch);
