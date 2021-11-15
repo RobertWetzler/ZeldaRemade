@@ -12,7 +12,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
         {
             MovableBlock block = blockCollidable as MovableBlock;
 
-            (new EnemyBlockCollisionHandler()).HandleCollision(enemy, blockCollidable, CollisionUtils.Opposite(side));
+            (new EnemyBlockCollisionHandler()).HandleCollision(enemy, blockCollidable, side);
 
         }
     }
