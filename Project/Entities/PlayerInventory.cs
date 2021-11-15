@@ -20,9 +20,12 @@ namespace Project
             inventory.Add(ItemType.Blue_Arrow, 10);
             inventory.Add(ItemType.Bow, 0);
             inventory.Add(ItemType.Blue_Candle, 1);
-            inventory.Add(ItemType.Boomerang, 1);
+            inventory.Add(ItemType.Boomerang, 0);
             inventory.Add(ItemType.Blue_Boomerang, 1);
             inventory.Add(ItemType.Heart, 3);
+            inventory.Add(ItemType.Map, 0);
+            inventory.Add(ItemType.Compass, 0);
+            inventory.Add(ItemType.Clock, 0);
         }
         public PlayerInventory()
         {
@@ -57,6 +60,9 @@ namespace Project
         Blue_Candle,
         Boomerang,
         Blue_Boomerang,
-        Heart
+        Heart,
+        Map,
+        Compass,
+        Clock
     }
 }
