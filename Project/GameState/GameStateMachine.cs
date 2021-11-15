@@ -20,6 +20,7 @@ namespace Project.GameState
         }
         public void Play()
         {
+            if(!(this.currentState is PlayingState))
             this.currentState = new PlayingState(game);
         }
         public void Pause()
@@ -36,7 +37,10 @@ namespace Project.GameState
 
         public void ItemSelectionScreen()
         {
-            this.currentState = new ItemSelectionState(game);
+            if (this.currentState is PlayingState)
+            {
+                this.currentState = new ItemSelectionState(game);
+            }
         }
     }
 }

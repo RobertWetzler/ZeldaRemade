@@ -22,7 +22,7 @@ namespace Project.GameState
             this.game = game;
             this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
             keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
+            keyboardController.RegisterCommand(Keys.V, new PlayGameCommand(this.game));
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile3 = MapTileSpriteFactory.Instance.CreateBRDoorTileSprite();

@@ -53,7 +53,7 @@ namespace Project.Utilities
 
             //Key to pause game
             keyboardController.RegisterCommand(Keys.Escape, new PauseGameCommand(game));
-            keyboardController.RegisterCommand(Keys.B, new SelectItemCommand(game));
+            keyboardController.RegisterCommand(Keys.V, new SelectItemCommand(game));
 
             return keyboardController;
         }
