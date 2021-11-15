@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Projectiles;
 using Project.Sprites;
+using Project.Text;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace Project.HUD
         private ISprite backgroundHUDSprite;
         private ISprite blueMapSprite;
         private ISprite playerRectSprite;
+        private IText numCoinsText, numBombsText, numKeysText;
+        private int numCoins, numBombs, numKeys;
 
         private bool showMap;
         private Vector2 topLeftPos;
@@ -34,6 +37,12 @@ namespace Project.HUD
             topLeftPos = Vector2.Zero;
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
             showMap = false;
+            numCoins = 0; 
+            numBombs = 10; 
+            numKeys = 0;
+            numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
+            numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
+            numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -46,6 +55,9 @@ namespace Project.HUD
                 
             }
             playerRectSprite.Draw(spriteBatch, playerRectPos, Color.LightGreen);
+            numCoinsText.Draw(spriteBatch);
+            numKeysText.Draw(spriteBatch);
+            numBombsText.Draw(spriteBatch);
 
         }
 

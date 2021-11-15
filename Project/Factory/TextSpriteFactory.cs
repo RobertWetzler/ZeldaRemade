@@ -164,5 +164,48 @@ namespace Project.Factory
         {
             return new TextSprite(fontSpriteSheet, 10, 19);
         }
+
+        public ISprite Create0Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 3, 3);
+        }
+
+        public ISprite Create1Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 19, 3);
+        }
+
+        public ISprite Create2Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 35, 3);
+        }
+        public ISprite Create3Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 51, 3);
+        }
+        public ISprite Create4Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 67, 3);
+        }
+        public ISprite Create5Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 83, 3);
+        }
+        public ISprite Create6Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 99, 3);
+        }
+        public ISprite Create7Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 115, 3);
+        }
+        public ISprite Create8Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 131, 3);
+        }
+        public ISprite Create9Sprite()
+        {
+            return new TextSprite(fontSpriteSheet, 147, 3);
+        }
     }
 }
