@@ -513,6 +513,10 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
+				<ObjectType>NorthRoom</ObjectType>
+				<ObjectName>6</ObjectName>
+			</Object>
+			<Object>
 				<ObjectType>SouthRoom</ObjectType>
 				<ObjectName>8</ObjectName>
 			</Object>
