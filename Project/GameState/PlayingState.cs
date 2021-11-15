@@ -36,10 +36,11 @@ namespace Project.GameState
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-            smallHud.Draw(spriteBatch);
             game.Player.Draw(spriteBatch, gameTime);
+            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
+            smallHud.Draw(spriteBatch);
         }
 
-        
+
     }
 }

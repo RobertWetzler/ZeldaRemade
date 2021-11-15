@@ -87,8 +87,40 @@ namespace Project.GameState
             if(IsTransitionDone())
             {
                 RoomManager.Instance.SetCurrentRoom(nextRoom);
+                UpdateLinkPosition();
                 this.game.GameStateMachine.Play();
             }
+        }
+        private void UpdateLinkPosition()
+        {
+            IDoor door;
+            List<IDoor> doors = RoomManager.Instance.CurrentRoom.Doors;
+            switch (dir)
+            {
+                case Direction.Up:
+                    door = doors.Find(x => x is SouthDoor);
+                    break;
+                case Direction.Down:
+                    door = doors.Find(x => x is NorthDoor);
+                    break;
+                case Direction.Left:
+                    door = doors.Find(x => x is EastDoor);
+                    break;
+                case Direction.Right:
+                    door = doors.Find(x => x is WestDoor);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            Vector2 doorCenter = new Vector2(door.BoundingBox.Center.X, door.BoundingBox.Center.Y);
+            IPlayer player = Game1.Instance.Player;
+            if (door.IsClosed)
+            {
+                Vector2 playerOffset = dir_vect * new Vector2(door.BoundingBox.Width, door.BoundingBox.Height);
+                //playerOffset = playerOffset + dir_vect * new Vector2(door.)
+            }
+            player.Position = new Vector2(doorCenter.X - player.BoundingBox.Width / 2, doorCenter.Y - player.BoundingBox.Height / 2);
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

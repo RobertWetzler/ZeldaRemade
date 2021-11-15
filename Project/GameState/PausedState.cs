@@ -31,8 +31,9 @@ namespace Project.GameState
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             smallHUD.Draw(spriteBatch);
             game.Player.Draw(spriteBatch, gameTime);
+            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
         }
 
-        
+
     }
 }

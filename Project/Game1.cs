@@ -22,14 +22,16 @@ namespace Project
         private int roomIdx = 0;
         private Rectangle playerBounds; //Bounding window for player/enemy movement
 
-
+        public Rectangle PlayerBounds => playerBounds;
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => RoomManager.IdToRoom.Count; }
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }
-
+        
+        private static Game1 instance = new Game1();
+        public static Game1 Instance => instance;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
