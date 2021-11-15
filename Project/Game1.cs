@@ -16,10 +16,9 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-
+        private List<Room> roomList;
         private GameStateMachine gameStateMachine;
         private CollisionIterator collisionIterator;
-
         private int roomIdx = 0;
         private Rectangle playerBounds; //Bounding window for player/enemy movement
 
@@ -36,13 +35,12 @@ namespace Project
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
         }
         protected override void Initialize()
         {
             const int heightOffset = 224;
             const int playerBoundOffset = 128;
-
+            roomList = new List<Room>();
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 924;
             _graphics.ApplyChanges();
@@ -62,6 +60,8 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
+            HUDSpriteFactory.Instance.LoadAllTextures(Content);
+            DoorSpriteFactory.Instance.LoadAllTextures(Content);
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
@@ -78,7 +78,6 @@ namespace Project
         
             RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[RoomIdx]);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
-
             base.Update(gameTime);
         }
 

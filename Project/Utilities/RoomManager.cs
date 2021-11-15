@@ -25,6 +25,7 @@ namespace Project.Utilities
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+                List<IDoor> doors = XMLDoorParser.Instance.GetDoorsFromRoom(currentRoom);
                 Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom, graphics),
                                 XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom),
                                 XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom),
@@ -33,7 +34,8 @@ namespace Project.Utilities
                                 items,
                                 blocks,
                                 npcs,
-                                enemies);
+                                enemies,
+                                doors);
 
                 IdToRoom.Add(i - 1, room);
             }
