@@ -53,6 +53,8 @@ namespace Project.Sprites.PlayerSprites
                     cycleOnce = true;
                 }
             }
+
+          
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)

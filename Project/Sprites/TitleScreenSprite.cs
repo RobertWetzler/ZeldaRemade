@@ -25,7 +25,7 @@ namespace Project.Sprites
             this.totalRows = totalRows;
             time = 0;
         }
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch, Rectangle destRect)
         {
             int width = texture.Width / totalCols;
             int height = texture.Height / totalRows;
@@ -33,8 +33,7 @@ namespace Project.Sprites
             int indexCol = height * spriteRow;
 
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
-            Rectangle dest = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-            spriteBatch.Draw(texture, dest, source, Color.White);
+            spriteBatch.Draw(texture, destRect, source, Color.White);
         }
 
         public void Update(GameTime gameTime)

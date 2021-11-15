@@ -1,4 +1,5 @@
-﻿using Project.Factory;
+﻿using Microsoft.Xna.Framework;
+using Project.Factory;
 using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
@@ -8,7 +9,7 @@ namespace Project.Entities
         public LinkSpriteSelector()
         {
         }
-        public IPlayerSprite UpdateSprite(Facing facing, Move move, LinkColor color)
+        public IPlayerSprite UpdateSprite(Facing facing, Move move, LinkColor color, Vector2 position)
         {
             IPlayerSprite sprite;
             switch (move)
@@ -23,7 +24,7 @@ namespace Project.Entities
                     sprite = LinkSpriteFactory.Instance.CreateLinkUseItemSprite(facing);
                     break;
                 default:
-                    sprite = LinkSpriteFactory.Instance.CreateLinkIdleSprite(facing);
+                    sprite = LinkSpriteFactory.Instance.CreateLinkIdleSprite(facing, position);
                     break;
             }
             return sprite;

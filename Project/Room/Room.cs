@@ -109,10 +109,9 @@ namespace Project
                 noEnemies = true;
             }
         }
-
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            this.background.Draw(spriteBatch, graphics);
+            this.background.Draw(spriteBatch);
             foreach (IBlock block in blocks)
             {
                 block.Draw(spriteBatch);
