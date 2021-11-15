@@ -72,7 +72,7 @@ namespace Project.Utilities
                 while (reader.Read())
                 {
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
-                        && reader.ReadElementContentAsString() == "NorthRoom")
+                        && reader.ReadElementContentAsString() == "EastRoom")
                     {
                         reader.Read();
                         string roomNumber = reader.ReadElementContentAsString();
@@ -98,7 +98,7 @@ namespace Project.Utilities
                 while (reader.Read())
                 {
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
-                        && reader.ReadElementContentAsString() == "NorthRoom")
+                        && reader.ReadElementContentAsString() == "WestRoom")
                     {
                         reader.Read();
                         string roomNumber = reader.ReadElementContentAsString();
