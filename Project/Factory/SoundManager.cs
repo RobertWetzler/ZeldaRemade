@@ -72,14 +72,6 @@ namespace Project.Factory
             text = soundFile.Load<SoundEffect>("Sound/LOZ_Text");
             title = soundFile.Load<SoundEffect>("Sound/LOZ_Title");
 
-           /* if(music != null)
-            {
-                music.Stop();
-            }
-            music = background_music.CreateInstance();
-            music.IsLooped = true;
-            music.Play();
-           */
 
         }
 
@@ -221,9 +213,9 @@ namespace Project.Factory
         }
         public void CreateTitleSound()
         {
-            music = title.CreateInstance();
-            music.IsLooped = false;
-            music.Play();
+            soundInstance = title.CreateInstance();
+            soundInstance.IsLooped = false;
+            soundInstance.Play();
         }
 
 

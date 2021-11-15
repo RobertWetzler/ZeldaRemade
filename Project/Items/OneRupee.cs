@@ -17,6 +17,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 4);
+            
 
         }
 

@@ -38,7 +38,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
-            SoundManager.Instance.CreateBossScream();
+            
         }
 
         public void ChangeDirection(EnemyDirections direction)

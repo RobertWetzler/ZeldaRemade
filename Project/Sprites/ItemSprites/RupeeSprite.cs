@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 
 namespace Project.Sprites.ItemSprites
 {
@@ -22,6 +23,7 @@ namespace Project.Sprites.ItemSprites
             this.sheetRows = sheetRows;
 
             spriteRow = 0;
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)

@@ -12,6 +12,7 @@ namespace Project.GameState
     {
         public IGameState currentState;
         private Game1 game;
+        SpriteFont font;
         public IGameState CurrentState { get => currentState; }
 
         public GameStateMachine(Game1 game)
