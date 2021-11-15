@@ -5,6 +5,7 @@ namespace Project.Utilities
 {
     class RoomManager
     {
+        public static Dictionary<int, Room> IdToRoom = new Dictionary<int, Room>();
         private static RoomManager instance = new RoomManager();
         public static RoomManager Instance => instance;
         private Room currentRoom;
@@ -14,7 +15,7 @@ namespace Project.Utilities
             currentRoom = room;
         }
 
-        public static void GetRoom(IPlayer player, GraphicsDeviceManager graphics)
+        public static void LoadAllRooms(IPlayer player, GraphicsDeviceManager graphics)
         {
             
             for (int i = 1; i <= 18; i++)
@@ -24,6 +25,7 @@ namespace Project.Utilities
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+                List<IDoor> doors = XMLDoorParser.Instance.GetDoorsFromRoom(currentRoom);
                 Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom, graphics),
                                 XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom),
                                 XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom),
@@ -32,11 +34,21 @@ namespace Project.Utilities
                                 items,
                                 blocks,
                                 npcs,
-                                enemies);
+                                enemies,
+                                doors);
 
-                RoomUtilities.IdToRoom.Add(i - 1, room);
+                IdToRoom.Add(i - 1, room);
             }
+        }
 
+        public static Room GetRoom(int roomID)
+        {
+            Room room = null;
+            if(IdToRoom.ContainsKey(roomID))
+            {
+                room = IdToRoom[roomID];
+            }
+            return room;
         }
  
     }

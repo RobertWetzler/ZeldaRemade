@@ -1785,26 +1785,6 @@
 				<ObjectName>2</ObjectName>
 			</Object>
 			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
-			</Object>
-			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
-				<Position>East</Position>
-			</Object>
-			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
-			</Object>
-			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
-			</Object>
-			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Brick</ObjectName>
 				<Position>0 0</Position>

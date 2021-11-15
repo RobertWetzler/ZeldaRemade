@@ -4,9 +4,12 @@ using System.Text;
 
 namespace Project.Utilities
 {
-    class RoomUtilities
+    public enum DoorType
     {
-        public static Dictionary<int, Room> IdToRoom = new Dictionary<int, Room>();
- 
+        WALL,
+        OPEN,
+        CLOSED,
+        KEY_CLOSED,
+        BOMB_OPEN,
     }
 }
