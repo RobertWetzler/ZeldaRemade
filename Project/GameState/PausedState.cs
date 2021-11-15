@@ -20,7 +20,7 @@ namespace Project.GameState
             this.game = game;
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            smallHUD = new SmallHUD();
+            smallHUD = new SmallHUD(false);
         }
         public void Update(GameTime gameTime, Rectangle bounds)
         {

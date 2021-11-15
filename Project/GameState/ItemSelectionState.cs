@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Project.Factory;
+using Project.HUD;
 
 namespace Project.GameState
 {
@@ -16,13 +17,20 @@ namespace Project.GameState
         private KeyboardController keyboardController;
         private ItemSelectionScreen itemSelectionScreen;
         private ISprite mapTile1, mapTile2, mapTile3, mapTile4, mapTile5, mapTile6, mapTile7, mapTile8, mapTile9, mapTile10, mapTile11, mapTile12, mapTile13, mapTile14, mapTile15, mapTile16, mapTile17;
-        private const int heightOffset = 223;
+        private const int heightOffset = 0;
+        private IHUD smallHud;
+       // private Rectangle posDot = new Rectangle(100, 100, 10, 10);
+        //private ISprite blankDot;
+
         public ItemSelectionState(Game1 game)
         {
             this.game = game;
+            //blankDot = TextSpriteFactory.Instance.CreateBlankSprite();  //
             this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
             keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.V, new PlayGameCommand(this.game));
+            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
+            smallHud = new SmallHUD(true);
+            
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile3 = MapTileSpriteFactory.Instance.CreateBRDoorTileSprite();
@@ -49,7 +57,9 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            //blankDot.Draw(spriteBatch,)
             itemSelectionScreen.Draw(spriteBatch);
+            smallHud.Draw(spriteBatch);
             foreach (var room in game.PassedRoom)
             {
                 switch (room)

@@ -29,12 +29,19 @@ namespace Project.HUD
         public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
         public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
 
-        public SmallHUD()
+        public SmallHUD(bool HUDState)
         {
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
             blueMapSprite = HUDSpriteFactory.Instance.CreateBlueMapSprite();
             playerRectSprite = HUDSpriteFactory.Instance.CreatePlayerRectangleSprite();
-            topLeftPos = Vector2.Zero;
+            if (!HUDState)
+            {
+                topLeftPos = Vector2.Zero;
+            }
+            else
+            {
+                topLeftPos = new Vector2(0, 700);   // need to change
+            }
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
             showMap = false;
             numCoins = 0; 
@@ -58,7 +65,6 @@ namespace Project.HUD
             numCoinsText.Draw(spriteBatch);
             numKeysText.Draw(spriteBatch);
             numBombsText.Draw(spriteBatch);
-
         }
 
         public void Update()

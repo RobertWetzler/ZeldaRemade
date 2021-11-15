@@ -14,7 +14,7 @@ namespace Project
         {
             const int heightOffset = 223;
             sprite = BackgroundSpriteFactory.Instance.CreateItemSelectionScreen();
-            bounds = new Rectangle(0, heightOffset, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight-heightOffset);
+            bounds = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight-heightOffset);
         }
 
         public void Update(GameTime gameTime)

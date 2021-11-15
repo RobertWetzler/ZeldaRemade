@@ -21,7 +21,7 @@ namespace Project.GameState
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
             controllers.Add(ControllerUtilities.GetMouseController(this.game));
-            smallHud = new SmallHUD();
+            smallHud = new SmallHUD(false);
         }
         public void Update(GameTime gameTime, Rectangle bounds)
         {
@@ -38,8 +38,6 @@ namespace Project.GameState
             smallHud.Draw(spriteBatch);
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
-        }
-
-        
+        }    
     }
 }
