@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.HUD;
 using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
@@ -19,6 +20,8 @@ namespace Project.Entities
         private List<IWeaponSprite> weaponSprites;
         private double velocity = 250;
         private Game1 game;
+        private double health = 2;
+        private SmallHUD smallHUD;
 
         /**
         * Shrinks the bounding box for link
@@ -109,6 +112,20 @@ namespace Project.Entities
         public void TakeDamage(int damage)
         {
             this.game.Player = new DamagedLink(this, game);
+            if (health > 0)
+            {
+                health -= damage;
+            }
+            else if (health == 0 && smallHUD.GetLives() > 0)
+            {
+                smallHUD.Death();
+                health = 2;
+            }
+            else
+            {
+                //link death command
+            }
+          
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
