@@ -8,8 +8,13 @@ namespace Project
     public class Background
     {
         private IBackgroundSprite backgroundSprite;
-        public Background(string room)
+        private Rectangle bounds;
+
+        public Background(string room, GraphicsDeviceManager graphics)
         {
+            const int heightOffset = 224;
+            bounds = new Rectangle(0, heightOffset, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight - heightOffset);
+
             switch (room)
             {
                 case "Room1":
@@ -66,9 +71,9 @@ namespace Project
         }
 
 
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            backgroundSprite.Draw(spriteBatch, graphics);
+            backgroundSprite.Draw(spriteBatch, bounds);
         }
 
 
