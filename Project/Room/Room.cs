@@ -18,21 +18,24 @@ namespace Project
         private List<INPC> npcs;
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
-        public  Room northRoom;
-        public  Room southRoom;
-        public  Room eastRoom;
-        public  Room westRoom;
         private int roomID;
         private IText text;
         private bool noEnemies;
+        private int northRoomID;
+        private int southRoomID;
+        private int eastRoomID;
+        private int westRoomID;
     
 
-        public int RoomID { get => roomID;  }
-
+        public int RoomID { get => roomID; }
+        public Room NorthRoom => RoomUtilities.IdToRoom[northRoomID];
+        public Room SouthRoom => RoomUtilities.IdToRoom[southRoomID];
+        public Room EastRoom => RoomUtilities.IdToRoom[eastRoomID];
+        public Room WestRoom => RoomUtilities.IdToRoom[westRoomID];
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
-                    List<INPC> npcs, List<IEnemy> enemies, IPlayer player)
+                    List<INPC> npcs, List<IEnemy> enemies)
         {
             this.roomID = id;
             this.background = background;
@@ -43,10 +46,11 @@ namespace Project
             this.projectiles = new List<IProjectile>();
             this.text = new OldManText();
             this.noEnemies = false;
-            this.northRoom = AdjacentRoomUtilities.GetRoom(northRoom, player);
-            this.southRoom = AdjacentRoomUtilities.GetRoom(southRoom, player);
-            this.eastRoom = AdjacentRoomUtilities.GetRoom(eastRoom, player);
-            this.westRoom = AdjacentRoomUtilities.GetRoom(westRoom, player);
+            this.westRoomID = westRoom;
+            this.northRoomID = northRoom;
+            this.southRoomID = southRoom;
+            this.eastRoomID = eastRoom;
+       
         }
 
         public void AddItem(IItems item)

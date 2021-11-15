@@ -16,19 +16,15 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
-        private List<Room> roomList;
-        private Dictionary<Room, Room> northRoom;
-        private Dictionary<Room, Room> westRoom;
-        private Dictionary<Room, Room> eastRoom;
-        private Dictionary<Room, Room> southRoom;
 
         private GameStateMachine gameStateMachine;
         private CollisionIterator collisionIterator;
+
         private int roomIdx = 0;
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
-        public int RoomNum { get => roomList.Count; }
+        public int RoomNum { get => RoomUtilities.IdToRoom.Count; }
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
 
@@ -37,14 +33,11 @@ namespace Project
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            northRoom = new Dictionary <Room, Room>();
-            southRoom = new Dictionary<Room, Room>();
-            eastRoom = new Dictionary<Room, Room>();
-            westRoom = new Dictionary<Room, Room>();
+
         }
         protected override void Initialize()
         {
-            roomList = new List<Room>();
+          
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 700;
             _graphics.ApplyChanges();
@@ -65,39 +58,18 @@ namespace Project
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
-            for (int i = 1; i <= 18; i++)
-            {
-                string currentRoom = "Room" + i;
-                List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom, player);
-                List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
-                List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
-                List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom), 
-                                XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom),
-                                XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom),
-                                XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom),
-                                XMLAdjacentRoomParser.instance.GetWestRoomFromRoom(currentRoom),
-                                items,
-                                blocks,
-                                npcs,
-                                enemies);
 
-                northRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom), player));
-                southRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom), player));
-                eastRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom), player));
-                westRoom.Add(room, AdjacentRoomUtilities.GetRoom(XMLAdjacentRoomParser.instance.GetWestRoomFromRoom(currentRoom), player));
-                roomList.Add(room);
-            }
+            RoomManager.GetRoom(player);
 
-            RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
+            RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
             collisionIterator = new CollisionIterator();
         }
             
         protected override void Update(GameTime gameTime)
         {
-            
 
-            RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
+            Debug.WriteLine(RoomIdx);
+            RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
             gameStateMachine.CurrentState.Update(gameTime, _graphics);
             base.Update(gameTime);
         }

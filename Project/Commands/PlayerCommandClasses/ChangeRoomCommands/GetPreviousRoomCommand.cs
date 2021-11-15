@@ -13,7 +13,7 @@
         {
 
 
-            if (this.game.RoomIdx <= 0)
+            if (this.game.RoomIdx <= 1)
                 this.game.RoomIdx = this.game.RoomNum;
             this.game.RoomIdx--;
             if (this.game.RoomIdx == this.game.RoomNum - 1)

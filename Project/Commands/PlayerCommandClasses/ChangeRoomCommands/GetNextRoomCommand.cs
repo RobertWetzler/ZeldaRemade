@@ -13,7 +13,7 @@
         {
             this.game.RoomIdx++;
             if (this.game.RoomIdx >= this.game.RoomNum)
-                this.game.RoomIdx = 0;
+                this.game.RoomIdx = 1;
             if (this.game.RoomIdx == this.game.RoomNum - 1)
             {
                 game.Player.Position = new Microsoft.Xna.Framework.Vector2(500, 400);
