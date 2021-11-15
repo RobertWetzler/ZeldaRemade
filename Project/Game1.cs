@@ -59,7 +59,8 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
-            HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
+            HUDSpriteFactory.Instance.LoadAllTextures(Content);
+            DoorSpriteFactory.Instance.LoadAllTextures(Content);
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
@@ -70,11 +71,13 @@ namespace Project
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
+                List<IDoor> doors = XMLDoorParser.Instance.GetDoorsFromRoom(currentRoom);
                 Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom, _graphics),
                                 items,
                                 blocks,
                                 npcs,
-                                enemies);
+                                enemies,
+                                doors);
                 roomList.Add(room);
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
