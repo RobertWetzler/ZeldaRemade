@@ -48,6 +48,16 @@ namespace Project.HUD
           
         }
 
+        public int GetLives()
+        {
+            return lives;
+        }
+
+        public void Death()
+        {
+            lives--;
+        }
+
         public void Update()
         {
         }
