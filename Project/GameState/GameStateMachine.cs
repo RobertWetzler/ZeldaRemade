@@ -32,5 +32,10 @@ namespace Project.GameState
         {
             this.currentState = new TitleScreenState(game);
         }
+
+        public void ItemSelectionScreen()
+        {
+            this.currentState = new ItemSelectionState(game);
+        }
     }
 }

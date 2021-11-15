@@ -19,12 +19,14 @@ namespace Project
         private GameStateMachine gameStateMachine;
         private CollisionIterator collisionIterator;
         private int roomIdx = 0;
+        private List<int> passedRoom;
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
+        public List<int> PassedRoom { get => passedRoom; }
 
         public Game1()
         {
@@ -38,7 +40,9 @@ namespace Project
             _graphics.PreferredBackBufferWidth = 1024;
             _graphics.PreferredBackBufferHeight = 700;
             _graphics.ApplyChanges();
-            
+            //test
+            passedRoom = new List<int>();
+
             base.Initialize();
         }
 
@@ -52,6 +56,7 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
+            MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
@@ -76,6 +81,7 @@ namespace Project
         protected override void Update(GameTime gameTime)
         {
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
+            passedRoom.Add(roomIdx);
             gameStateMachine.CurrentState.Update(gameTime, _graphics);
             base.Update(gameTime);
         }

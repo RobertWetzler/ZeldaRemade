@@ -8,6 +8,7 @@ namespace Project.Factory
     {
         private Texture2D backgroundSpriteSheet;
         private Texture2D titleScreenSheet;
+        private Texture2D itemSelectionScreenSheet;
 
         private static BackgroundSpriteFactory instance = new BackgroundSpriteFactory();
         public static BackgroundSpriteFactory Instance
@@ -27,6 +28,7 @@ namespace Project.Factory
         {
             backgroundSpriteSheet = content.Load<Texture2D>("Level1");
             titleScreenSheet = content.Load<Texture2D>("titleScreen");
+            itemSelectionScreenSheet = content.Load<Texture2D>("HUD/main-hud-screen");
         }
 
         public IBackgroundSprite CreateOldManRoomBackgroundSprite()
@@ -114,5 +116,9 @@ namespace Project.Factory
             return new TitleScreenSprite(titleScreenSheet, 0, 0, 1, 3);
         }
 
+        public IBackgroundSprite CreateItemSelectionScreen()
+        {
+            return new ItemSelectionScreenSprite(itemSelectionScreenSheet, 0, 0, 1, 1);
+        }
     }
 }
