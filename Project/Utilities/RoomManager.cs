@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace Project.Utilities
 {
@@ -13,7 +14,7 @@ namespace Project.Utilities
             currentRoom = room;
         }
 
-        public static void GetRoom(IPlayer player)
+        public static void GetRoom(IPlayer player, GraphicsDeviceManager graphics)
         {
             
             for (int i = 1; i <= 18; i++)
@@ -23,7 +24,7 @@ namespace Project.Utilities
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom, graphics),
                                 XMLAdjacentRoomParser.instance.GetNorthRoomFromRoom(currentRoom),
                                 XMLAdjacentRoomParser.instance.GetSouthRoomFromRoom(currentRoom),
                                 XMLAdjacentRoomParser.instance.GetEastRoomFromRoom(currentRoom),

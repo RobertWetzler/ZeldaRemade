@@ -54,6 +54,7 @@ namespace Project
         protected override void LoadContent()
         {
              _spriteBatch = new SpriteBatch(GraphicsDevice);
+            HUDSpriteFactory.Instance.LoadAllTextures(Content);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -65,7 +66,7 @@ namespace Project
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
 
-            RoomManager.GetRoom(player);
+            RoomManager.GetRoom(player, _graphics);
 
             RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
             collisionIterator = new CollisionIterator();
@@ -76,7 +77,7 @@ namespace Project
         {
         
             RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
-            gameStateMachine.CurrentState.Update(gameTime, _graphics);
+            gameStateMachine.CurrentState.Update(gameTime, playerBounds);
 
             base.Update(gameTime);
         }
