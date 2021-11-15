@@ -10,6 +10,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Commands\HUDCommandClasses\**" />
+    <EmbeddedResource Remove="Commands\HUDCommandClasses\**" />
+    <None Remove="Commands\HUDCommandClasses\**" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Content\ItemSprites\items_blue_arrow_down_up.png" />
     <None Remove="Content\ItemSprites\items_blue_boomerang .png" />
     <None Remove="Content\ItemSprites\items_blue_bottle.png" />
@@ -53,7 +58,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\HUDCommandClasses\" />
     <Folder Include="Enemies\Dinosaur\" />
   </ItemGroup>
 </Project>

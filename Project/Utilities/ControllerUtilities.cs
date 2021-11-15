@@ -55,6 +55,9 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.Escape, new PauseGameCommand(game));
             keyboardController.RegisterCommand(Keys.B, new SelectItemCommand(game));
 
+            //Cycle through Items
+            keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(game));
+
             return keyboardController;
         }
         public static MouseController GetMouseController(Game1 game)

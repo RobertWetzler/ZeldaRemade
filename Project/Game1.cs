@@ -27,6 +27,8 @@ namespace Project
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
+        
+        public int ItemIdx = 0;
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }

@@ -64,8 +64,6 @@ namespace Project.Sprites.ItemSprites
 
         }
 
-        
-
         public void Draw(SpriteBatch spriteBatch)
         {
 
