@@ -18,17 +18,13 @@ namespace Project
         private List<INPC> npcs;
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
-        private Room northRoom;
-        private Room southRoom;
-        private Room eastRoom;
-        private Room westRoom;
+        public  Room northRoom;
+        public  Room southRoom;
+        public  Room eastRoom;
+        public  Room westRoom;
         private int roomID;
         private IText text;
         private bool noEnemies;
-        private int southRoomID;
-        private int northRoomID;
-        private int eastRoomID;
-        private int westRoomID;
     
 
         public int RoomID { get => roomID;  }
@@ -36,7 +32,7 @@ namespace Project
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
-                    List<INPC> npcs, List<IEnemy> enemies)
+                    List<INPC> npcs, List<IEnemy> enemies, IPlayer player)
         {
             this.roomID = id;
             this.background = background;
@@ -47,28 +43,12 @@ namespace Project
             this.projectiles = new List<IProjectile>();
             this.text = new OldManText();
             this.noEnemies = false;
-            this.northRoomID = northRoom;
-            this.southRoomID = southRoom;
-            this.westRoomID = westRoom;
-            this.eastRoomID = eastRoom;
+            this.northRoom = AdjacentRoomUtilities.GetRoom(northRoom, player);
+            this.southRoom = AdjacentRoomUtilities.GetRoom(southRoom, player);
+            this.eastRoom = AdjacentRoomUtilities.GetRoom(eastRoom, player);
+            this.westRoom = AdjacentRoomUtilities.GetRoom(westRoom, player);
         }
 
-        public Room NorthRoom(IPlayer player)
-        {
-            return northRoom = AdjacentRoomUtilities.GetRoom(northRoomID, player);
-        }
-        public Room SouthRoom(IPlayer player)
-        {
-            return southRoom = AdjacentRoomUtilities.GetRoom(southRoomID, player);
-        }
-        public Room EastRoom(IPlayer player)
-        {
-            return eastRoom = AdjacentRoomUtilities.GetRoom(eastRoomID, player);
-        }
-        public Room WestRoom(IPlayer player)
-        {
-            return westRoom = AdjacentRoomUtilities.GetRoom(westRoomID, player);
-        }
         public void AddItem(IItems item)
         {
             items.Add(item);
