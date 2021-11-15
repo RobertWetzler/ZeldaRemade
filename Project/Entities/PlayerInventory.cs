@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Project
 {
-    class PlayerInventory
+    public class PlayerInventory
     {
         private Dictionary<ItemType, int> inventory;
 
@@ -32,10 +32,17 @@ namespace Project
             inventory = new Dictionary<ItemType, int>();
             InitializeInventory();
         }
-
         public void AddItem(ItemType item)
         {
-            inventory[item]++;
+            if (inventory.ContainsKey(item))
+            {
+                inventory[item]++;
+            }
+            else
+            {
+                inventory.Add(item, 1);
+            }
+           
         }
 
         public void RemoveItem(ItemType item)
@@ -44,7 +51,9 @@ namespace Project
         }
         public int GetItemCount(ItemType item)
         {
-            return inventory[item];
+            if (inventory.ContainsKey(item))
+                return inventory[item];
+            return 0;
         }
     }
 
@@ -63,6 +72,18 @@ namespace Project
         Heart,
         Map,
         Compass,
-        Clock
+        Clock,
+        Blue_Bottle,
+        Blue_Ring,
+        Bottle,
+        Candle,
+        Fairy,
+        FiveRupee,
+        Flute,
+        HeartContainer,
+        Meat,
+        Ring,
+        Triforce,
+        WhiteSword
     }
 }

@@ -20,26 +20,26 @@ namespace Project.HUD
         private ISprite blueMapSprite;
         private ISprite playerRectSprite;
         private IText numCoinsText, numBombsText, numKeysText;
-        private int numCoins, numBombs, numKeys;
+        private IPlayer player;
+        private int numCoins, numKeys, numBombs;
 
-        private bool showMap;
         private Vector2 topLeftPos;
 
-        public bool ShowMap { set => showMap = value; }
         public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
         public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
 
-        public SmallHUD()
+        public SmallHUD(IPlayer player)
         {
+            this.player = player;
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
             blueMapSprite = HUDSpriteFactory.Instance.CreateBlueMapSprite();
             playerRectSprite = HUDSpriteFactory.Instance.CreatePlayerRectangleSprite();
             topLeftPos = Vector2.Zero;
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
-            showMap = false;
-            numCoins = 0; 
-            numBombs = 10; 
-            numKeys = 0;
+
+            numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
+            numKeys = player.Inventory.GetItemCount(ItemType.Key);
+            numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
             numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
             numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
             numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
@@ -49,7 +49,7 @@ namespace Project.HUD
         {
             playerRectPos = HUDUtilities.Instance.GetPlayerRectLocationSmallHUD(topLeftPos);
             backgroundHUDSprite.Draw(spriteBatch, topLeftPos);
-            if (showMap)
+            if (player.Inventory.GetItemCount(ItemType.Map) > 0)
             {
                 blueMapSprite.Draw(spriteBatch, mapPos);
                 
@@ -61,18 +61,14 @@ namespace Project.HUD
 
         }
 
-        public int GetLives()
-        {
-            return lives;
-        }
-
-        public void Death()
-        {
-            lives--;
-        }
-
         public void Update()
         {
+            numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
+            numKeys = player.Inventory.GetItemCount(ItemType.Key); 
+            numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
+            numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
+            numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
+            numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
         }
     }
 }

@@ -20,8 +20,8 @@ namespace Project.Entities
         private List<IWeaponSprite> weaponSprites;
         private double velocity = 250;
         private Game1 game;
-        private double health = 2;
-        private SmallHUD smallHUD;
+        private int health = 6;
+        private PlayerInventory inventory;
 
         /**
         * Shrinks the bounding box for link
@@ -61,6 +61,10 @@ namespace Project.Entities
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Player;
 
+        public PlayerInventory Inventory => inventory;
+
+        public int Health { get => health; set => health = value; }
+
         public GreenLink(Game1 game)
         {
             this.game = game;
@@ -68,6 +72,7 @@ namespace Project.Entities
             stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
             weaponSprites = new List<IWeaponSprite>();
+            inventory = new PlayerInventory();
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -116,14 +121,10 @@ namespace Project.Entities
             {
                 health -= damage;
             }
-            else if (health == 0 && smallHUD.GetLives() > 0)
-            {
-                smallHUD.Death();
-                health = 2;
-            }
             else
             {
                 //link death command
+                health = 6; //reset to full health
             }
           
         }
