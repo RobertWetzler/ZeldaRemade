@@ -28,10 +28,10 @@ namespace Project
     
 
         public int RoomID { get => roomID; }
-        public Room NorthRoom => RoomUtilities.IdToRoom[northRoomID];
-        public Room SouthRoom => RoomUtilities.IdToRoom[southRoomID];
-        public Room EastRoom => RoomUtilities.IdToRoom[eastRoomID];
-        public Room WestRoom => RoomUtilities.IdToRoom[westRoomID];
+        public Room NorthRoom => RoomManager.GetRoom(northRoomID);
+        public Room SouthRoom => RoomManager.GetRoom(southRoomID);
+        public Room EastRoom => RoomManager.GetRoom(eastRoomID);
+        public Room WestRoom => RoomManager.GetRoom(westRoomID);
         public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,

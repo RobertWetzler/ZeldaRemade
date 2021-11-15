@@ -26,7 +26,7 @@ namespace Project
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
-        public int RoomNum { get => RoomUtilities.IdToRoom.Count; }
+        public int RoomNum { get => RoomManager.IdToRoom.Count; }
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }
@@ -66,9 +66,9 @@ namespace Project
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
 
-            RoomManager.GetRoom(player, _graphics);
+            RoomManager.LoadAllRooms(player, _graphics);
 
-            RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
+            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[RoomIdx]);
             collisionIterator = new CollisionIterator();
             
         }
@@ -76,7 +76,7 @@ namespace Project
         protected override void Update(GameTime gameTime)
         {
         
-            RoomManager.Instance.SetCurrentRoom(RoomUtilities.IdToRoom[RoomIdx]);
+            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[RoomIdx]);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
 
             base.Update(gameTime);
