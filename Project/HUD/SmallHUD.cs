@@ -67,6 +67,16 @@ namespace Project.HUD
             numBombsText.Draw(spriteBatch);
         }
 
+        public int GetLives()
+        {
+            return lives;
+        }
+
+        public void Death()
+        {
+            lives--;
+        }
+
         public void Update()
         {
         }

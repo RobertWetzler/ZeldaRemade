@@ -6,6 +6,8 @@ using Project.Projectiles;
 using System.Collections.Generic;
 using System.Linq;
 using Project.Text;
+using Project.Utilities;
+using Project.Blocks.Walls;
 
 namespace Project
 {
@@ -21,11 +23,22 @@ namespace Project
         private int roomID;
         private IText text;
         private bool noEnemies;
+        private int northRoomID;
+        private int southRoomID;
+        private int eastRoomID;
+        private int westRoomID;
+    
 
-        public int RoomID { get => roomID;  }
-        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).ToList();
+        public int RoomID { get => roomID; }
+        public Room NorthRoom => RoomManager.GetRoom(northRoomID);
+        public Room SouthRoom => RoomManager.GetRoom(southRoomID);
+        public Room EastRoom => RoomManager.GetRoom(eastRoomID);
+        public Room WestRoom => RoomManager.GetRoom(westRoomID);
+        public Background Background => background;
+        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
-        public Room(int id, Background background, List<IItems> items, List<IBlock> blocks,
+        public List<IDoor> Doors => doors;
+        public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
                     List<INPC> npcs, List<IEnemy> enemies, List<IDoor> doors)
         {
             this.roomID = id;
@@ -37,8 +50,14 @@ namespace Project
             this.projectiles = new List<IProjectile>();
             this.text = new OldManText();
             this.noEnemies = false;
+            this.westRoomID = westRoom;
+            this.northRoomID = northRoom;
+            this.southRoomID = southRoom;
+            this.eastRoomID = eastRoom;
             this.doors = doors;
+            blocks.AddRange(WallCreator.CreateWalls(this.background.Bounds, this.doors));
         }
+
         public void AddItem(IItems item)
         {
             items.Add(item);
@@ -98,7 +117,7 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             this.background.Draw(spriteBatch);
-            foreach(IDoor door in doors)
+            foreach (IDoor door in doors)
             {
                 door.Draw(spriteBatch);
             }
@@ -114,16 +133,23 @@ namespace Project
             {
                 enemy.Draw(spriteBatch, gameTime);
             }
-            foreach (IProjectile projectile in projectiles)
-            {
-                projectile.Draw(spriteBatch);
-            }
             if (noEnemies)
             {
                 foreach (IItems item in items)
                 {
                     item.Draw(spriteBatch);
                 }
+            }
+        }
+        public void DrawForeground(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (IDoor door in doors)
+            {
+                door.DrawForeground(spriteBatch);
+            }
+            foreach (IProjectile projectile in projectiles)
+            {
+                projectile.Draw(spriteBatch);
             }
             if (roomID == 1)
             {

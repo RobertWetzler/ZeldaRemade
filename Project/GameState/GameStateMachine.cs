@@ -33,6 +33,13 @@ namespace Project.GameState
         {
             this.currentState = new TitleScreenState(game);
         }
+        public void RoomTransition(Direction dir)
+        {
+            if (this.currentState is PlayingState)
+            {
+                this.currentState = new RoomTransitionState(game, dir);
+            }
+        }
 
         public void ItemSelectionScreen()
         {
