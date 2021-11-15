@@ -24,13 +24,7 @@ namespace Project.Sprites.ItemSprites
             delay_frame_index = 0;
         }
 
-<<<<<<< HEAD:Project/Sprites/ItemSprites/LeftDownFireballSprite.cs
-        
-
-        public void Draw(SpriteBatch spriteBatch)
-=======
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558:Project/Sprites/ProjectileSprites/LeftDownFireballSprite.cs
         {
             Rectangle source = sourceFrames[currentFrame];
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);

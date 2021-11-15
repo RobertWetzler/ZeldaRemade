@@ -65,8 +65,7 @@ namespace Project.Sprites.ItemSprites
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
             flipped = timer > 1500;
 
-       
-
+     
         }
     }
 }

@@ -19,7 +19,6 @@ namespace Project.Entities
         private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
-<<<<<<< HEAD
 
         /**
         * Shrinks the bounding box for link
@@ -42,9 +41,7 @@ namespace Project.Entities
             return sprite.DestRectangle;
             
         }
-=======
-     
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
+
         public Vector2 Position
         {
             get { return position; }

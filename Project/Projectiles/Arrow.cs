@@ -10,14 +10,9 @@ namespace Project.Projectiles
 {
     class Arrow : IProjectile
     {
-<<<<<<< HEAD
-        private IWeaponSprite sprite;
-        private Facing facing;
-        public bool IsFinished => sprite.isFinished() || !IsActive;
-=======
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
+
         private bool isFriendly;
         private int yPos, xPos;
         private float timer;
@@ -32,9 +27,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite(this.facing);
             this.isFriendly = isFriendly;
-<<<<<<< HEAD
-            this.facing = facing;
-=======
+
             velocity = 400;
 
             direction = this.facing switch
@@ -45,7 +38,7 @@ namespace Project.Projectiles
                 Facing.Left => Direction.Left,
                 _ => throw new NotImplementedException()
             };
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
+
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

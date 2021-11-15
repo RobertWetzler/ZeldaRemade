@@ -72,7 +72,6 @@ namespace Project.Projectiles
             
         }
 
-<<<<<<< HEAD
         /**
          * Decrease height of bounding box by about half
          */
@@ -86,8 +85,6 @@ namespace Project.Projectiles
             int y = sprite.DestRectangle.Y + ((sprite.DestRectangle.Height - (int)height) / 2);
             return new Rectangle(x, y, (int)width, (int)height);
         }
-=======
-        
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
+
     }
 }

@@ -15,16 +15,13 @@ namespace Project.Projectiles
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-<<<<<<< HEAD
         public bool IsExploding => timer > 3000;
         private float timer;
-        
-=======
         private Vector2 position;
         private Facing facing;
         private Vector2 offset;
         private float offsetVal;
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
+
         public Bomb(Facing facing, Vector2 position, bool isFriendly = true)
         {
             this.facing = facing;

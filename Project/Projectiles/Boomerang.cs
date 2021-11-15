@@ -10,14 +10,8 @@ namespace Project.Projectiles
     class Boomerang : IProjectile
     {
 
-<<<<<<< HEAD
-        private IWeaponSprite sprite;
-
-        public bool IsFinished => sprite.isFinished() || !IsActive;
-=======
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
         private bool isFriendly;
         private Vector2 position;
         public bool IsFriendly => isFriendly;

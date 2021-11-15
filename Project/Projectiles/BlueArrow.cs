@@ -10,14 +10,9 @@ namespace Project.Projectiles
 {
     class BlueArrow : IProjectile
     {
-<<<<<<< HEAD
-        private IWeaponSprite sprite;
-        private Facing facing;
-        public bool IsFinished => sprite.isFinished() || !IsActive;
-=======
+
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
         private Vector2 position;
@@ -33,9 +28,6 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBlueArrowSprite(this.facing);
             this.isFriendly = isFriendly;
-<<<<<<< HEAD
-            this.facing = facing;
-=======
             velocity = 400;
 
             direction = this.facing switch
@@ -46,7 +38,6 @@ namespace Project.Projectiles
                 Facing.Left => Direction.Left,
                 _ => throw new NotImplementedException()
             };
->>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

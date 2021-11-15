@@ -12,16 +12,8 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-        private float xPos, yPos;
-        private int velocity;
-
-
         private float timer;
         private bool isFin;
-       
-
-      
-        private Facing facing;
 
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
@@ -33,14 +25,8 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-
-            
-           
-
-
             isFin = false;
             spriteRow = 0;
-            velocity = 400;
 
 
             switch (facing)
@@ -82,15 +68,12 @@ namespace Project.Sprites.ItemSprites
 
             if (timer > 1500)
                 spriteFrame = 4;
-
         }
 
         public bool IsFinished()
         {
             return isFin = timer > 2000 ? true : false;
         }
-
-        
 
     }
 }
