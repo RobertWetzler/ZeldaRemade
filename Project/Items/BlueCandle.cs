@@ -17,7 +17,7 @@ namespace Project.Items
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 3);
 
         }
-
+        public ItemType type => ItemType.Blue_Candle;
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Item;
 
