@@ -9,7 +9,7 @@ namespace Project.Sprites
     interface IBackgroundSprite
     {
         void Update(GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics);
+        void Draw(SpriteBatch spriteBatch, Rectangle destRect);
 
     }
 }

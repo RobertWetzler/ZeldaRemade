@@ -73,6 +73,7 @@ namespace Project.Sprites.PlayerSprites
                 currentSheet = 2;
                 cycleOnce = true;
             }
+
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
