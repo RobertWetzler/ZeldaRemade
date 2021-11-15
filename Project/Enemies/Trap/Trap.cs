@@ -61,7 +61,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
-            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128;
+            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128 + 224;
 
             sprite.Update(gameTime);
             currentState.Update(gameTime);

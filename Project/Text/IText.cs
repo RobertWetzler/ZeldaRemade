@@ -7,6 +7,6 @@ namespace Project
     public interface IText
     {
         public void Update(GameTime gameTime);
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        public void Draw(SpriteBatch spriteBatch);
     }
 }
