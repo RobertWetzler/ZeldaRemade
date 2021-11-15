@@ -24,6 +24,7 @@ namespace Project.GameState
             controllers.Add(ControllerUtilities.GetMouseController(this.game));
             smallHud = new SmallHUD();
             SoundManager.Instance.CreateBackgroundMusic();
+            SoundManager.Instance.soundInstance.Pause();
         }
         public void Update(GameTime gameTime, Rectangle bounds)
         {
