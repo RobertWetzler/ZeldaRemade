@@ -1,21 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites
 {
     class ItemSelectionScreenSprite : IBackgroundSprite
     {
-        private const int TOTAL_MS = 500;
         private Texture2D texture;
 
         private int spriteRow;
         private int spriteCol;
         private int totalRows;
         private int totalCols;
-        private int time;
 
         public ItemSelectionScreenSprite(Texture2D texture, int row, int col, int totalRows, int totalCols)
         {
@@ -24,9 +19,8 @@ namespace Project.Sprites
             spriteRow = row;
             this.totalCols = totalCols;
             this.totalRows = totalRows;
-            time = 0;
         }
-        public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch, Rectangle destRect)
         {
             int width = texture.Width / totalCols;
             int height = texture.Height / totalRows;
@@ -34,19 +28,11 @@ namespace Project.Sprites
             int indexCol = height * spriteRow;
 
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
-            Rectangle dest = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-            spriteBatch.Draw(texture, dest, source, Color.White);
+            spriteBatch.Draw(texture, destRect, source, Color.White);
         }
 
         public void Update(GameTime gameTime)
         {
-            /*
-            time += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (time > TOTAL_MS)
-            {
-                time -= TOTAL_MS;
-                spriteCol = (spriteCol + 1) % (totalCols - 1);
-            }*/
         }
     }
 }

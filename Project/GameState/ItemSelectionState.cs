@@ -16,11 +16,11 @@ namespace Project.GameState
         private KeyboardController keyboardController;
         private ItemSelectionScreen itemSelectionScreen;
         private ISprite mapTile1, mapTile2, mapTile3, mapTile4, mapTile5, mapTile6, mapTile7, mapTile8, mapTile9, mapTile10, mapTile11, mapTile12, mapTile13, mapTile14, mapTile15, mapTile16, mapTile17;
-
+        private const int heightOffset = 223;
         public ItemSelectionState(Game1 game)
         {
             this.game = game;
-            this.itemSelectionScreen = new ItemSelectionScreen();
+            this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
@@ -42,68 +42,68 @@ namespace Project.GameState
             mapTile17 = MapTileSpriteFactory.Instance.CreateLDoorTileSprite();
 
         }
-        public void Update(GameTime gameTime, GraphicsDeviceManager graphics)
+        public void Update(GameTime gameTime, Rectangle gameRect)
         {
             keyboardController.Update();
             itemSelectionScreen.Update(gameTime);
         }
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, GraphicsDeviceManager graphics)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            itemSelectionScreen.Draw(spriteBatch, graphics);
+            itemSelectionScreen.Draw(spriteBatch);
             foreach (var room in game.PassedRoom)
             {
                 switch (room)
                 {
                     case 0:
-                        mapTile1.Draw(spriteBatch, new Vector2(400, 464), Color.White);
+                        mapTile1.Draw(spriteBatch, new Vector2(400, 464 + heightOffset), Color.White);
                         break;
                     case 1:
-                        mapTile2.Draw(spriteBatch, new Vector2(500, 400), Color.White);
+                        mapTile2.Draw(spriteBatch, new Vector2(500, 400 + heightOffset), Color.White);
                         break;
                     case 2:
-                        mapTile3.Draw(spriteBatch, new Vector2(500, 464), Color.White);
+                        mapTile3.Draw(spriteBatch, new Vector2(500, 464 + heightOffset), Color.White);
                         break;
                     case 3:
-                        mapTile4.Draw(spriteBatch, new Vector2(500, 496), Color.White);
+                        mapTile4.Draw(spriteBatch, new Vector2(500, 496 + heightOffset), Color.White);
                         break;
                     case 4:
-                        mapTile5.Draw(spriteBatch, new Vector2(500, 560), Color.White);
+                        mapTile5.Draw(spriteBatch, new Vector2(500, 560 + heightOffset), Color.White);
                         break;
                     case 5:
-                        mapTile6.Draw(spriteBatch, new Vector2(532, 400), Color.White);
+                        mapTile6.Draw(spriteBatch, new Vector2(532, 400 + heightOffset), Color.White);
                         break;
                     case 6:
-                        mapTile7.Draw(spriteBatch, new Vector2(532, 432), Color.White);
+                        mapTile7.Draw(spriteBatch, new Vector2(532, 432 + heightOffset), Color.White);
                         break;
                     case 7:
-                        mapTile8.Draw(spriteBatch, new Vector2(532, 464), Color.White);
+                        mapTile8.Draw(spriteBatch, new Vector2(532, 464 + heightOffset), Color.White);
                         break;
                     case 8:
-                        mapTile9.Draw(spriteBatch, new Vector2(532, 496), Color.White);
+                        mapTile9.Draw(spriteBatch, new Vector2(532, 496 + heightOffset), Color.White);
                         break;
                     case 9:
-                        mapTile10.Draw(spriteBatch, new Vector2(532, 528), Color.White);
+                        mapTile10.Draw(spriteBatch, new Vector2(532, 528 + heightOffset), Color.White);
                         break;
                     case 10:
-                        mapTile11.Draw(spriteBatch, new Vector2(532, 560), Color.White);
+                        mapTile11.Draw(spriteBatch, new Vector2(532, 560 + heightOffset), Color.White);
                         break;
                     case 11:
-                        mapTile12.Draw(spriteBatch, new Vector2(564, 464), Color.White);
+                        mapTile12.Draw(spriteBatch, new Vector2(564, 464 + heightOffset), Color.White);
                         break;
                     case 12:
-                        mapTile13.Draw(spriteBatch, new Vector2(564, 496), Color.White);
+                        mapTile13.Draw(spriteBatch, new Vector2(564, 496 + heightOffset), Color.White);
                         break;
                     case 13:
-                        mapTile14.Draw(spriteBatch, new Vector2(564, 560), Color.White);
+                        mapTile14.Draw(spriteBatch, new Vector2(564, 560 + heightOffset), Color.White);
                         break;
                     case 14:
-                        mapTile15.Draw(spriteBatch, new Vector2(596, 432), Color.White);
+                        mapTile15.Draw(spriteBatch, new Vector2(596, 432 + heightOffset), Color.White);
                         break;
                     case 15:
-                        mapTile16.Draw(spriteBatch, new Vector2(596, 464), Color.White);
+                        mapTile16.Draw(spriteBatch, new Vector2(596, 464 + heightOffset), Color.White);
                         break;
                     case 16:
-                        mapTile17.Draw(spriteBatch, new Vector2(628, 432), Color.White);
+                        mapTile17.Draw(spriteBatch, new Vector2(628, 432 + heightOffset), Color.White);
                         break;
                 }
             }
