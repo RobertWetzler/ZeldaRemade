@@ -22,6 +22,7 @@ namespace Project.HUD
         private IText numCoinsText, numBombsText, numKeysText;
         private IPlayer player;
         private int numCoins, numKeys, numBombs;
+        private Lives healthBar;
 
         private Vector2 topLeftPos;
 
@@ -44,13 +45,14 @@ namespace Project.HUD
             numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
             numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
             numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
-            
+            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             playerRectPos = HUDUtilities.Instance.GetPlayerRectLocationSmallHUD(topLeftPos);
             triforcePos = HUDUtilities.Instance.GetTriforceRoomPos(topLeftPos);
+            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
             backgroundHUDSprite.Draw(spriteBatch, topLeftPos);
             if (player.Inventory.GetItemCount(ItemType.Map) > 0)
             {
@@ -65,6 +67,7 @@ namespace Project.HUD
             numCoinsText.Draw(spriteBatch);
             numKeysText.Draw(spriteBatch);
             numBombsText.Draw(spriteBatch);
+            healthBar.Draw(spriteBatch);
 
         }
 
@@ -76,6 +79,7 @@ namespace Project.HUD
             numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
             numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
             numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
+            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
         }
     }
 }

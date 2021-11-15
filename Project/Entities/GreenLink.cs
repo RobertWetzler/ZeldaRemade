@@ -124,7 +124,6 @@ namespace Project.Entities
             else
             {
                 //link death command
-                health = 6; //reset to full health
             }
           
         }
