@@ -21,6 +21,7 @@ namespace Project
         private CollisionIterator collisionIterator;
         private int roomIdx = 0;
         private Rectangle playerBounds; //Bounding window for player/enemy movement
+        private List<int> passedRoom;
 
 
         public IPlayer Player { get => player; set => player = value; }
@@ -29,6 +30,7 @@ namespace Project
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }
+        public List<int> PassedRoom { get => passedRoom; }
 
         public Game1()
         {
@@ -46,6 +48,8 @@ namespace Project
             _graphics.ApplyChanges();
             playerBounds = new Rectangle(playerBoundOffset, playerBoundOffset + heightOffset,
                     _graphics.PreferredBackBufferWidth - 2 * playerBoundOffset, _graphics.PreferredBackBufferHeight - heightOffset - 2 * playerBoundOffset);
+            passedRoom = new List<int>();
+
             base.Initialize();
         }
 
@@ -61,6 +65,7 @@ namespace Project
             TextSpriteFactory.Instance.LoadAllTextures(Content);
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
+            MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
@@ -87,6 +92,7 @@ namespace Project
         protected override void Update(GameTime gameTime)
         {
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
+            passedRoom.Add(roomIdx);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
             base.Update(gameTime);
         }
