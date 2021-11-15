@@ -14,6 +14,7 @@ namespace Project.Factory
         private Texture2D smallHudSpriteSheet;
         private Texture2D blueMapSpritesheet;
         private Texture2D playerRectTexture;
+        private Texture2D itemSelectionBoxSpriteSheet;
 
         private static HUDSpriteFactory instance = new HUDSpriteFactory();
         public static HUDSpriteFactory Instance
@@ -33,6 +34,8 @@ namespace Project.Factory
         {
             smallHudSpriteSheet = content.Load<Texture2D>("HUD/bottom-hud");
             blueMapSpritesheet = content.Load<Texture2D>("HUD/blue-map");
+            itemSelectionBoxSpriteSheet = content.Load<Texture2D>("HUD/item-selection-box");
+            itemSelectionBoxSpriteSheet = content.Load<Texture2D>("HUD/item-selection-box");
             playerRectTexture = new Texture2D(graphicsDevice, 1, 1);
             playerRectTexture.SetData(new[] { Color.White });
         }
@@ -48,6 +51,10 @@ namespace Project.Factory
         public ISprite CreatePlayerRectangleSprite()
         {
             return new PlayerRectangleSprite(playerRectTexture);
+        }
+        public ISprite CreateItemSelectionBoxSprite()
+        {
+            return new ItemSelectionBoxSprite(itemSelectionBoxSpriteSheet, 1, 2);
         }
 
     }

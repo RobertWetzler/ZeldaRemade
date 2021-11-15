@@ -1,21 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Project.Sprites.ItemSprites
+namespace Project.Sprites
 {
-    class FairySprite : ISprite
+    class ItemSelectionBoxSprite : ISprite
     {
         private int sheetRows;
         private int sheetColumns;
         private int spriteRow;
-        //private int spriteColumn;
         private int frame;
 
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
-        public FairySprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
+        public ItemSelectionBoxSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns)
         {
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
@@ -28,10 +27,10 @@ namespace Project.Sprites.ItemSprites
         {
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
-            int scale = 3;
+            const int scale = 16;
 
             Rectangle spriteRectangle = new Rectangle(frame * width, spriteRow * height, width, height);
-            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, scale, scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
         }
 
