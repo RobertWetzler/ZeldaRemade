@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.HUD
+namespace Project
 {
     class PlayerInventory
     {
