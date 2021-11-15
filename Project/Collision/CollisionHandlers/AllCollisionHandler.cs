@@ -32,8 +32,14 @@ namespace Project.Collision
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.MovableBlock, CollisionType.Player), new MovableBlockPlayerCollisionHandler());
 
+<<<<<<< HEAD
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Enemy), new PlayerEnemyCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Bat), new PlayerEnemyCollisionHandler());
+=======
+            // Projectile Types (not including bombs)
+            Type[] projectileTypes = { typeof(Arrow), typeof(BlueArrow), typeof(BlueBoomerang), typeof(Boomerang),
+                typeof(Projectiles.Flame), typeof(SwordBeam), typeof(Fireball)};
+>>>>>>> 86aa76cda95f737bbb5170b9db45d86de0376558
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.NPC), new PlayerNPCCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Projectile), new PlayerProjectileCollisionHandler());

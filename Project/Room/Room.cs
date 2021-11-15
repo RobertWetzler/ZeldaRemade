@@ -115,8 +115,9 @@ namespace Project
                 enemy.Draw(spriteBatch, gameTime);
             }
             foreach (IProjectile projectile in projectiles)
-            {
+            {                   
                 projectile.Draw(spriteBatch);
+
             }
             if (noEnemies)
             {

@@ -2,34 +2,37 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
+using System;
 
 namespace Project.Projectiles
 {
-    class Flame : IProjectile
+    class SwordBeam: IProjectile
     {
+
         private IProjectileSprite sprite;
+        private IProjectile projectile;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
         private Vector2 position;
         private Facing facing;
-        private float timer;
         private int xPos, yPos;
         private int velocity;
        
-        public Flame(Facing facing, Vector2 position, bool isFriendly = true)
+        public SwordBeam(Facing facing, Vector2 position, bool isFriendly = true)
         {
             this.facing = facing;
             this.position = position;
-            sprite = ItemSpriteFactory.Instance.CreateFlameSprite(this.facing);
             this.isFriendly = isFriendly;
-            velocity = 200;
-        }
 
-        public Rectangle BoundingBox => SetBoundingBox();
-        public CollisionType CollisionType => CollisionType.Projectile;
+            sprite = ItemSpriteFactory.Instance.CreateSwordSprite(this.facing);
+            
+
+            velocity = 500;
+
+        }
+        public Rectangle BoundingBox => sprite.DestRectangle;
         public bool IsActive { get; set; } = true;
 
         public void Draw(SpriteBatch spriteBatch)
@@ -39,9 +42,8 @@ namespace Project.Projectiles
 
         public void Update(GameTime gameTime)
         {
-            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            switch (this.facing)
+            switch (facing)
             {
                 case Facing.Up:
                     yPos = -1;
@@ -61,19 +63,6 @@ namespace Project.Projectiles
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
             sprite.Update(gameTime);
-        }
-
-        /**
-         * Shrink Bounding box by a little bit on each side
-         */
-        private Rectangle SetBoundingBox()
-        {
-            const float BOUNDINGBOX_OFFSET = 0.1f;
-            float width = sprite.DestRectangle.Width * (1 - BOUNDINGBOX_OFFSET);
-            float height = sprite.DestRectangle.Height * (1 - BOUNDINGBOX_OFFSET);
-            int x = sprite.DestRectangle.X + ((sprite.DestRectangle.Width - (int)width) / 2);
-            int y = sprite.DestRectangle.Y + ((sprite.DestRectangle.Height - (int)height) / 2);
-            return new Rectangle(x, y, (int)width, (int)height);
         }
     }
 }
