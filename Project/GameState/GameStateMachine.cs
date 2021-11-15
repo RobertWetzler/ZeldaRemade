@@ -13,6 +13,18 @@ namespace Project.GameState
         private Game1 game;
         public IGameState CurrentState { get => currentState; }
 
+        public void TogglePause()
+        {
+            if (this.currentState is PlayingState)
+            {
+                this.currentState = new PausedState(game);
+            }
+            else if (this.currentState is PausedState)
+            {
+                this.currentState = new PlayingState(game);
+            }
+        }
+
         public GameStateMachine(Game1 game)
         {
             this.currentState = new TitleScreenState(game);

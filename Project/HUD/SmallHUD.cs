@@ -63,12 +63,11 @@ namespace Project.HUD
 
         public int GetLives()
         {
-            return lives;
+            return 0;
         }
 
         public void Death()
         {
-            lives--;
         }
 
         public void Update()

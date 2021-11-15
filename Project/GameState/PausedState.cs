@@ -18,13 +18,11 @@ namespace Project.GameState
         public PausedState(Game1 game)
         {
             this.game = game;
-            keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
             smallHUD = new SmallHUD();
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
-            keyboardController.Update();
+            PauseController.controller.Update();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

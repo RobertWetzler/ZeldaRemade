@@ -29,6 +29,7 @@ namespace Project.GameState
             {
                 controller.Update();
             }
+            PauseController.controller.Update();
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
             game.Player.Update(playerBounds, gameTime);
