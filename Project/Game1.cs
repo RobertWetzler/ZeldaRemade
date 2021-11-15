@@ -68,15 +68,13 @@ namespace Project
 
             RoomManager.LoadAllRooms(player, _graphics);
 
-            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[RoomIdx]);
+            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
             collisionIterator = new CollisionIterator();
             
         }
             
         protected override void Update(GameTime gameTime)
         {
-        
-            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[RoomIdx]);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
             base.Update(gameTime);
         }

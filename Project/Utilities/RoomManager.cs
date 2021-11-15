@@ -37,7 +37,7 @@ namespace Project.Utilities
                                 enemies,
                                 doors);
 
-                IdToRoom.Add(i - 1, room);
+                IdToRoom.Add(i, room);
             }
         }
 

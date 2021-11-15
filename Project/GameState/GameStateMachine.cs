@@ -37,7 +37,7 @@ namespace Project.GameState
         {
             if (this.currentState is PlayingState)
             {
-                this.currentState = new RoomTransitionState(game, null, dir);
+                this.currentState = new RoomTransitionState(game, dir);
             }
         }
     }

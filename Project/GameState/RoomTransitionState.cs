@@ -25,20 +25,37 @@ namespace Project.GameState
         private Vector2 nextRoomOffset;
         private float transitionSpeed = 700f;
         private IHUD smallHUD;
-        public RoomTransitionState(Game1 game, Room nextRoom, Direction dir)
+        public RoomTransitionState(Game1 game, Direction dir)
         {
             this.game = game;
-            this.nextRoom = nextRoom;
             this.dir = dir;
-            this.dir_vect = dir switch
-            {
-                Direction.Up => new Vector2(0, 1),
-                Direction.Down => new Vector2(0, -1),
-                Direction.Left => new Vector2(1, 0),
-                Direction.Right => new Vector2(-1, 0),
-                _ => throw new NotImplementedException()
-            };
             smallHUD = new SmallHUD();
+            Room curRoom = RoomManager.Instance.CurrentRoom;
+            switch (dir)
+            {
+                case Direction.Up:
+                    this.dir_vect = new Vector2(0, 1);
+                    this.nextRoom = curRoom.NorthRoom;
+                    break;
+                case Direction.Down:
+                    this.dir_vect = new Vector2(0, -1);
+                    this.nextRoom = curRoom.SouthRoom;
+                    break;
+                case Direction.Left:
+                    this.dir_vect = new Vector2(1, 0);
+                    this.nextRoom = curRoom.WestRoom;
+                    break;
+                case Direction.Right:
+                    this.dir_vect = new Vector2(-1, 0);
+                    this.nextRoom = curRoom.EastRoom;
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            if(this.nextRoom is null)
+            {
+                this.game.GameStateMachine.Play();
+            }
         }
         private bool IsTransitionDone()
         {
@@ -59,19 +76,30 @@ namespace Project.GameState
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
+            if (this.nextRoom is null)
+            {
+                this.game.GameStateMachine.Play();
+                return;
+            }
             Rectangle roomBounds = RoomManager.Instance.CurrentRoom.Background.Bounds;
             offset += dir_vect * (float)gameTime.ElapsedGameTime.TotalSeconds * transitionSpeed;
             nextRoomOffset = offset - (new Vector2(roomBounds.Width, roomBounds.Height)) * dir_vect;
             if(IsTransitionDone())
             {
+                RoomManager.Instance.SetCurrentRoom(nextRoom);
                 this.game.GameStateMachine.Play();
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            if (this.nextRoom is null)
+            {
+                this.game.GameStateMachine.Play();
+                return;
+            }
+            nextRoom.Background.Draw(spriteBatch, nextRoomOffset);
             RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, offset);
-            RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, nextRoomOffset);
             this.smallHUD.Draw(spriteBatch);
         }
     }
