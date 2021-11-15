@@ -2,6 +2,7 @@
 {
     class RoomManager
     {
+        private RoomManager() { }
         private static RoomManager instance = new RoomManager();
         public static RoomManager Instance => instance;
         private Room currentRoom;

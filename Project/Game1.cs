@@ -4,6 +4,7 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.HUD;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,16 @@ namespace Project
         private GameStateMachine gameStateMachine;
         private CollisionIterator collisionIterator;
         private int roomIdx = 0;
+        private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
+
 
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => roomList.Count; }
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
+        public GraphicsDeviceManager Graphics { get => _graphics; }
         public List<int> PassedRoom { get => passedRoom; }
 
         public Game1()
@@ -36,11 +40,14 @@ namespace Project
         }
         protected override void Initialize()
         {
+            const int heightOffset = 224;
+            const int playerBoundOffset = 128;
             roomList = new List<Room>();
             _graphics.PreferredBackBufferWidth = 1024;
-            _graphics.PreferredBackBufferHeight = 700;
+            _graphics.PreferredBackBufferHeight = 924;
             _graphics.ApplyChanges();
-            //test
+            playerBounds = new Rectangle(playerBoundOffset, playerBoundOffset + heightOffset,
+                    _graphics.PreferredBackBufferWidth - 2 * playerBoundOffset, _graphics.PreferredBackBufferHeight - heightOffset - 2 * playerBoundOffset);
             passedRoom = new List<int>();
 
             base.Initialize();
@@ -56,6 +63,8 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
+            HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
+            DoorSpriteFactory.Instance.LoadAllTextures(Content);
             MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
 
             gameStateMachine = new GameStateMachine(this);
@@ -67,11 +76,13 @@ namespace Project
                 List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
                 List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
                 List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom),
+                List<IDoor> doors = XMLDoorParser.Instance.GetDoorsFromRoom(currentRoom);
+                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom, _graphics),
                                 items,
                                 blocks,
                                 npcs,
-                                enemies);
+                                enemies,
+                                doors);
                 roomList.Add(room);
             }
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
@@ -82,14 +93,14 @@ namespace Project
         {
             RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
             passedRoom.Add(roomIdx);
-            gameStateMachine.CurrentState.Update(gameTime, _graphics);
+            gameStateMachine.CurrentState.Update(gameTime, playerBounds);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime, _graphics);
+            gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
