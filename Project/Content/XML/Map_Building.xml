@@ -1273,7 +1273,7 @@
 			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Compass</ObjectName>
-				<Position>3 10</Position>
+				<Position>10 3</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>

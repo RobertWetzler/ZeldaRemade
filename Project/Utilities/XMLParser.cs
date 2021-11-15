@@ -113,6 +113,7 @@ namespace Project.Utilities
                         xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
                         yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
                         item = XMLParserUtilities.GetItem(itemType, new Vector2(xPos, yPos));
+                        System.Diagnostics.Debug.WriteLine(itemType);
                         items.Add(item);
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)

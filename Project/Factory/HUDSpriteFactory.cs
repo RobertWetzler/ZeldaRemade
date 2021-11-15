@@ -14,6 +14,7 @@ namespace Project.Factory
         private Texture2D smallHudSpriteSheet;
         private Texture2D blueMapSpritesheet;
         private Texture2D playerRectTexture;
+        private Texture2D triforceRectTexture;
 
         private static HUDSpriteFactory instance = new HUDSpriteFactory();
         public static HUDSpriteFactory Instance
@@ -35,6 +36,8 @@ namespace Project.Factory
             blueMapSpritesheet = content.Load<Texture2D>("HUD/blue-map");
             playerRectTexture = new Texture2D(graphicsDevice, 1, 1);
             playerRectTexture.SetData(new[] { Color.White });
+            triforceRectTexture = new Texture2D(graphicsDevice, 1, 1);
+            triforceRectTexture.SetData(new[] { Color.White });
         }
         public ISprite CreateSmallHUDSprite()
         {
@@ -48,6 +51,11 @@ namespace Project.Factory
         public ISprite CreatePlayerRectangleSprite()
         {
             return new PlayerRectangleSprite(playerRectTexture);
+        }
+
+        public ISprite CreateTriforceRectangleSprite()
+        {
+            return new PlayerRectangleSprite(triforceRectTexture);
         }
 
     }
