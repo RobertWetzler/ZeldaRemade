@@ -22,17 +22,18 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
             smallHUD = new SmallHUD(game.Player);
         }
-        public void Update(GameTime gameTime, Rectangle bounds)
+        public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             keyboardController.Update();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            smallHUD.Draw(spriteBatch);
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
+            smallHUD.Draw(spriteBatch);
             game.Player.Draw(spriteBatch, gameTime);
+            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
         }
 
-        
+
     }
 }

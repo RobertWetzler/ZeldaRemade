@@ -153,25 +153,8 @@ namespace Project.Entities
                 }
             }
 
-            float newX = position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-            float newY = position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-
-            if (x_dir == 1)
-            {
-                position.X = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - BoundingBox.Width;
-            }
-            else if (x_dir == -1)
-            {
-                position.X = (int)newX > windowBounds.Left ? newX : windowBounds.Left;
-            }
-            else if (y_dir == 1)
-            {
-                position.Y = (int)(newY + BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - BoundingBox.Height;
-            }
-            else
-            {
-                position.Y = (int)(newY) > windowBounds.Top ? newY : windowBounds.Top;
-            }
+            position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+            position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
           
             sprite.Update(gameTime);

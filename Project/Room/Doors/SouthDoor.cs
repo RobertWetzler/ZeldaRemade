@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Sprites;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -13,19 +14,18 @@ namespace Project
     {
         public bool IsClosed => isClosed;
         public Rectangle BoundingBox => southDoorSprite.DestRectangle;
-        public CollisionType CollisionType => throw new NotImplementedException();
+        public CollisionType CollisionType => CollisionType.Door;
         public DoorType DoorType => doorType;
 
         public bool CanBeBombed { get => canBeBombed; set => canBeBombed = value; }
-        private ISprite southDoorSprite;
+        private DoorSprite southDoorSprite;
         private Vector2 position;
         private bool isClosed;
         private bool canBeBombed;
         private DoorType doorType;
         public SouthDoor(DoorType doorType)
         {
-            southDoorSprite = DoorSpriteFactory.Instance.CreateSouthDoorSprite(doorType);
-            position = new Vector2(448, 797);
+            southDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateSouthDoorSprite(doorType, new Vector2(448, 797));
             canBeBombed = false;
             this.doorType = doorType;
 
@@ -50,7 +50,12 @@ namespace Project
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            southDoorSprite.Draw(spriteBatch, position);
+            southDoorSprite.Draw(spriteBatch, position, Color.White);
+        }
+
+        public void DrawForeground(SpriteBatch spriteBatch)
+        {
+            southDoorSprite.DrawForeground(spriteBatch, position, Color.White);
         }
     }
 }

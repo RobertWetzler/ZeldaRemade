@@ -23,24 +23,25 @@ namespace Project.GameState
             controllers.Add(ControllerUtilities.GetMouseController(this.game));
             smallHud = new SmallHUD(game.Player);
         }
-        public void Update(GameTime gameTime, Rectangle bounds)
+        public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             foreach (IController controller in controllers)
             {
                 controller.Update();
             }
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
-            RoomManager.Instance.CurrentRoom.Update(bounds, gameTime);
+            RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
             smallHud.Update();
             game.Player.Update(bounds, gameTime);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            smallHud.Draw(spriteBatch);
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
+            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
+            smallHud.Draw(spriteBatch);
         }
 
-        
+
     }
 }
