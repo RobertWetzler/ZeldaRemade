@@ -1,6 +1,7 @@
 ﻿using Project.Blocks;
 using Project.Blocks.MovableBlock;
 using Project.Collision.CollisionHandlers;
+using Project.Collision.CollisionHandlers.Doors;
 using Project.Collision.CollisionHandlers.Enemies;
 using Project.Entities;
 using Project.Items;
@@ -50,6 +51,7 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Bat, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
 
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Door, CollisionType.Player), new DoorPlayerCollisionHandler());
         }
 
 
