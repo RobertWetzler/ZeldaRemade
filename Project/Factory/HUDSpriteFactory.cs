@@ -35,6 +35,7 @@ namespace Project.Factory
             smallHudSpriteSheet = content.Load<Texture2D>("HUD/bottom-hud");
             blueMapSpritesheet = content.Load<Texture2D>("HUD/blue-map");
             itemSelectionBoxSpriteSheet = content.Load<Texture2D>("HUD/item-selection-box");
+            itemSelectionBoxSpriteSheet = content.Load<Texture2D>("HUD/item-selection-box");
             playerRectTexture = new Texture2D(graphicsDevice, 1, 1);
             playerRectTexture.SetData(new[] { Color.White });
         }
