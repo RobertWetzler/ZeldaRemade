@@ -40,5 +40,10 @@ namespace Project.GameState
                 this.currentState = new RoomTransitionState(game, dir);
             }
         }
+
+        public void ItemSelectionScreen()
+        {
+            this.currentState = new ItemSelectionState(game);
+        }
     }
 }
