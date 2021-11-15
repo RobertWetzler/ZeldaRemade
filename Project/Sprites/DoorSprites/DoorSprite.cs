@@ -10,19 +10,23 @@ namespace Project.Sprites
     public class DoorSprite : ISprite
     {
         private Texture2D texture;
+        private Texture2D maskTexture;
         private Rectangle sourceRect;
         private Rectangle destRectangle;
         private int width;
         private int height;
+        private const int scale = 4;
+        private Vector2 position;
 
         public Rectangle DestRectangle => destRectangle;
-        public DoorSprite(Texture2D texture, DoorType doorType, int row, int numColumns, int numRows)
+        public DoorSprite(Texture2D texture, Texture2D maskTexture, DoorType doorType, int row, int numColumns, int numRows, Vector2 position)
         {
             this.texture = texture;
-
+            this.maskTexture = maskTexture;
+            this.position = position;
             width = texture.Width / numColumns;
             height = texture.Height / numRows;
-
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             int offset = 0;
             if (row > 0)
             {
@@ -51,9 +55,12 @@ namespace Project.Sprites
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            const int scale = 4;
-            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(texture, destRectangle, sourceRect, color);
+        }
+
+        public void DrawForeground(SpriteBatch spriteBatch, Vector2 position, Color color)
+        {
+            spriteBatch.Draw(maskTexture, destRectangle, sourceRect, color);
         }
 
         public void Update(GameTime gameTime)

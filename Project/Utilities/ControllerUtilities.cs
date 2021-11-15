@@ -58,6 +58,11 @@ namespace Project.Utilities
             //Cycle through Items
             keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(game));
 
+            keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
+            keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
+            keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));
+            keyboardController.RegisterCommand(Keys.L, new TestRoomTransitionRightCommand(game));
+
             return keyboardController;
         }
         public static MouseController GetMouseController(Game1 game)

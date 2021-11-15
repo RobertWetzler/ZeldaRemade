@@ -23,15 +23,18 @@ namespace Project
         private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
 
-
+        public Rectangle PlayerBounds => playerBounds;
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
-        public int RoomNum { get => roomList.Count; }
+        public int RoomNum { get => RoomManager.IdToRoom.Count; }
         
         public int ItemIdx = 0;
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }
+        
+        private static Game1 instance = new Game1();
+        public static Game1 Instance => instance;
         public List<int> PassedRoom { get => passedRoom; }
 
         public Game1()
@@ -57,7 +60,8 @@ namespace Project
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            HUDSpriteFactory.Instance.LoadAllTextures(Content, GraphicsDevice);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
@@ -71,30 +75,16 @@ namespace Project
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
-            for (int i = 1; i <= 18; i++)
-            {
-                string currentRoom = "Room" + i;
-                List<IEnemy> enemies = XMLParser.instance.GetEnemiesFromRoom(currentRoom, player);
-                List<INPC> npcs = XMLParser.instance.GetNPCSFromRoom(currentRoom);
-                List<IItems> items = XMLParser.instance.GetItemsFromRoom(currentRoom);
-                List<IBlock> blocks = XMLParser.instance.GetBlocksFromRoom(currentRoom);
-                List<IDoor> doors = XMLDoorParser.Instance.GetDoorsFromRoom(currentRoom);
-                Room room = new Room(i, XMLParser.instance.GetBackgroundFromRoom(currentRoom, _graphics),
-                                items,
-                                blocks,
-                                npcs,
-                                enemies,
-                                doors);
-                roomList.Add(room);
-            }
-            RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            collisionIterator = new CollisionIterator();
-        }
 
+            RoomManager.LoadAllRooms(player, _graphics);
+
+            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
+            collisionIterator = new CollisionIterator();
+            
+        }
+            
         protected override void Update(GameTime gameTime)
         {
-            RoomManager.Instance.SetCurrentRoom(roomList[RoomIdx]);
-            passedRoom.Add(roomIdx);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
             base.Update(gameTime);
         }
