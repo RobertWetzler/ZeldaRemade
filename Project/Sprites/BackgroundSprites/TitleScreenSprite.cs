@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Sprites
+namespace Project.Sprites.BackgroundSprites
 {
     class TitleScreenSprite : IBackgroundSprite
     {

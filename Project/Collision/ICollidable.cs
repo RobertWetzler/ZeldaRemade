@@ -13,7 +13,8 @@ namespace Project.Collision
         Projectile,
         MovableBlock,
         BlueBlock,
-        Bomb
+        Bomb,
+        Door
     }
     public interface ICollidable
     {

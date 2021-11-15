@@ -13,5 +13,6 @@ namespace Project
         bool CanBeBombed { get; set; }
         DoorType DoorType { get; }
         void Draw(SpriteBatch spriteBatch);
+        void DrawForeground(SpriteBatch spriteBatch);
     }
 }

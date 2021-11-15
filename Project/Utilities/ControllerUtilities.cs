@@ -54,6 +54,11 @@ namespace Project.Utilities
             //Key to pause game
             keyboardController.RegisterCommand(Keys.Escape, new PauseGameCommand(game));
 
+            keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
+            keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
+            keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));
+            keyboardController.RegisterCommand(Keys.L, new TestRoomTransitionRightCommand(game));
+
             return keyboardController;
         }
         public static MouseController GetMouseController(Game1 game)

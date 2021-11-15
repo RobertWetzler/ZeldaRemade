@@ -24,7 +24,7 @@ namespace Project.GameState
             
 
         }
-        public void Update(GameTime gameTime, Rectangle gameRect)
+        public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             keyboardController.Update();
             titleScreen.Update(gameTime);
