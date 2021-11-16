@@ -337,6 +337,18 @@
 /processorParam:TextureFormat=Color
 /build:HUD/selectBoxes.png
 
+#begin HUD/white_square.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:HUD/white_square.png
+
 #begin ItemSprites/blue_weapon_boomerang.png
 /importer:TextureImporter
 /processor:TextureProcessor

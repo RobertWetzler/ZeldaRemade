@@ -83,7 +83,7 @@ namespace Project
             
         protected override void Update(GameTime gameTime)
         {
-            passedRoom.Add(roomIdx);
+            passedRoom.Add(RoomManager.Instance.CurrentRoom.RoomID);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
             base.Update(gameTime);
         }
