@@ -3,12 +3,19 @@ using Project.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using Project.Utilities;
 
 namespace Project
 {
     public class PlayerInventory
     {
         private Dictionary<ItemType, int> inventory;
+
+        private ItemType aItem = ItemType.Null;
+        private ItemType bItem = ItemType.Sword;
+        public ItemType AItem => aItem;
+        public ItemType BItem => bItem;
 
         private void InitializeInventory()
         {
@@ -42,7 +49,10 @@ namespace Project
             {
                 inventory.Add(item, 1);
             }
-           
+           if (aItem == ItemType.Null && HoldableItemUtilities.holdableItems.Contains(item))
+            {
+                aItem = item;
+            }
         }
 
         public void RemoveItem(ItemType item)
@@ -54,6 +64,20 @@ namespace Project
             if (inventory.ContainsKey(item))
                 return inventory[item];
             return 0;
+        }
+        public void SetAItem(ItemType item)
+        {
+            if (HoldableItemUtilities.holdableItems.Contains(item))
+            {
+                aItem = item;
+            }
+        }
+        public void SetBItem(ItemType item)
+        {
+            if (HoldableItemUtilities.holdableItems.Contains(item))
+            {
+                bItem = item;
+            }
         }
     }
 
@@ -84,6 +108,7 @@ namespace Project
         Meat,
         Ring,
         Triforce,
-        WhiteSword
+        WhiteSword,
+        Null
     }
 }

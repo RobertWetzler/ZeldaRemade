@@ -10,12 +10,14 @@ namespace Project.Projectiles
 {
     class Fireball : IProjectile
     {
-        private IWeaponSprite sprite;
-        public bool IsFinished => sprite.isFinished() || !IsActive;
+        private IProjectileSprite sprite;
+        public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
+        private Vector2 position;
         public bool IsFriendly => isFriendly;
         public Fireball(Facing facing, Vector2 position, bool isFriendly = true)
         {
+            this.position = position;
             sprite = facing switch
             {
                 Facing.Up => ItemSpriteFactory.Instance.CreateLeftUpFireballSprite(position),
@@ -32,7 +34,7 @@ namespace Project.Projectiles
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)
