@@ -52,8 +52,8 @@ namespace Project.HUD
             triforceRectSprite = HUDSpriteFactory.Instance.CreateTriforceRectangleSprite();
            
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
-            bItemPos = new Vector2(topLeftPos.X + 582, topLeftPos.Y + 100);
-            aItemPos = new Vector2(topLeftPos.X + 490, topLeftPos.Y + 100);
+            aItemPos = new Vector2(topLeftPos.X + 582, topLeftPos.Y + 100);
+            bItemPos = new Vector2(topLeftPos.X + 490, topLeftPos.Y + 100);
             aItemType = player.Inventory.AItem;
             bItemType = player.Inventory.BItem;
             aItem = HoldableItemUtilities.GetHoldableItem(aItemType, aItemPos);
