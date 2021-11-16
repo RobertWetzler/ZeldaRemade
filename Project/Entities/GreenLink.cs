@@ -129,6 +129,7 @@ namespace Project.Entities
             else
             {
                 game.GameStateMachine.TitleScreen();
+                health = 6;
             }
           
         }
