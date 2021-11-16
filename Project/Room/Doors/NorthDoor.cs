@@ -28,7 +28,8 @@ namespace Project
 
         public NorthDoor(DoorType doorType)
         {
-            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, new Vector2(448, 223));
+            position = new Vector2(448, 223);
+            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
             canBeBombed = false;
             this.doorType = doorType;
 
@@ -63,7 +64,9 @@ namespace Project
 
         public void Unlock()
         {
-            throw new NotImplementedException();
+            doorType = DoorType.OPEN;
+            isClosed = false;
+            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
         }
     }
 }

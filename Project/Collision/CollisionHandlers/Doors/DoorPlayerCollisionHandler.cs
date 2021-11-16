@@ -45,7 +45,8 @@ namespace Project.Collision.CollisionHandlers.Doors
         }
         private void HandleUnlock(IPlayer player, IDoor door)
         {
-            door.
+            door.Unlock();
+            player.Inventory.RemoveItem(ItemType.Key);
         }
     }
 }

@@ -25,7 +25,8 @@ namespace Project
         private DoorType doorType;
         public WestDoor(DoorType doorType)
         {
-            westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, new Vector2(0, 509));
+            position = new Vector2(0, 509);
+            westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, position);
             canBeBombed = false;
             this.doorType = doorType;
             switch (doorType)
@@ -55,6 +56,13 @@ namespace Project
         public void DrawForeground(SpriteBatch spriteBatch)
         {
             westDoorSprite.DrawForeground(spriteBatch, position, Color.White);
+        }
+
+        public void Unlock()
+        {
+            doorType = DoorType.OPEN;
+            isClosed = false;
+            westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, position);
         }
     }
 }
