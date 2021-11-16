@@ -18,7 +18,7 @@ namespace Project.GameState
         private ItemSelectionScreen itemSelectionScreen;
         private ItemSelectionBox itemSelector;
         private ISprite mapTile1, mapTile2, mapTile3, mapTile4, mapTile5, mapTile6, mapTile7, mapTile8, mapTile9, mapTile10, mapTile11, mapTile12, mapTile13, mapTile14, mapTile15, mapTile16, mapTile17;
-        private ISprite bomb, boomerang, sword, bow, blueCandle, map;
+        private ISprite bomb, boomerang, sword, bow, blueCandle, map, compass;
         private IPlayer player;
         private const int heightOffset = 223;
         private Vector2 itemSelectedPosition;
@@ -30,7 +30,7 @@ namespace Project.GameState
             this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
             itemSelector = new ItemSelectionBox(game);
             keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
+            keyboardController.RegisterCommand(Keys.B, new PlayGameCommand(this.game));
             keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(this.game));
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
@@ -56,6 +56,7 @@ namespace Project.GameState
             bow = ItemSpriteFactory.Instance.CreateItemSprite(0, 7);
             blueCandle = ItemSpriteFactory.Instance.CreateItemSprite(0, 3);
             map = ItemSpriteFactory.Instance.CreateItemSprite(1, 8);
+            compass = ItemSpriteFactory.Instance.CreateItemSprite(1, 9);
 
 
         }
@@ -108,8 +109,9 @@ namespace Project.GameState
             if (player.Inventory.GetItemCount(ItemType.Sword) > 0)
                 sword.Draw(spriteBatch, new Vector2(500, 470));
 
-          
 
+            if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
+                compass.Draw(spriteBatch, new Vector2(165, 800));
             
 
             if (player.Inventory.GetItemCount(ItemType.Map) > 0)
