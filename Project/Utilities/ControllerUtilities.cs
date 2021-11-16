@@ -61,10 +61,6 @@ namespace Project.Utilities
 
             return keyboardController;
         }
-        public static MouseController GetMouseController(Game1 game)
-        {
-            MouseController mouseController = new MouseController(game);
-            return mouseController;
-        }
+       
     }
 }
