@@ -53,6 +53,9 @@ namespace Project.Utilities
 
             //Key to show HUD
             keyboardController.RegisterCommand(Keys.V, new SelectItemCommand(game));
+           
+            //Cycle Items in the item selector box
+            keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(game));
 
             keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
             keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
