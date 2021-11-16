@@ -112,15 +112,25 @@ namespace Project.GameState
                 default:
                     throw new NotImplementedException();
             }
-            Vector2 doorCenter = new Vector2(door.BoundingBox.Center.X, door.BoundingBox.Center.Y);
-            IPlayer player = Game1.Instance.Player;
-            if (door.IsClosed)
+            if (door is null)
             {
-                Vector2 playerOffset = dir_vect * new Vector2(door.BoundingBox.Width, door.BoundingBox.Height);
-                //playerOffset = playerOffset + dir_vect * new Vector2(door.)
+                Rectangle playerBounds = Game1.Instance.PlayerBounds;
+                Game1.Instance.Player.Position = new Vector2(playerBounds.Center.X, playerBounds.Center.Y);
             }
-            player.Position = new Vector2(doorCenter.X - player.BoundingBox.Width / 2, doorCenter.Y - player.BoundingBox.Height / 2);
-            
+            else 
+            {
+                Vector2 doorCenter = new Vector2(door.BoundingBox.Center.X, door.BoundingBox.Center.Y);
+                IPlayer player = Game1.Instance.Player;
+                if (door.IsClosed)
+                {
+                    Vector2 doorOffset = doorCenter - dir_vect * new Vector2(door.BoundingBox.Width, door.BoundingBox.Height);
+                    player.Position = doorOffset - dir_vect * new Vector2(player.BoundingBox.Width, player.BoundingBox.Height);
+                }
+                else 
+                {
+                    player.Position = new Vector2(doorCenter.X - player.BoundingBox.Width / 2, doorCenter.Y - player.BoundingBox.Height / 2);
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

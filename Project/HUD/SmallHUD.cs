@@ -31,7 +31,7 @@ namespace Project.HUD
 
         public SmallHUD(IPlayer player, bool HUDState)
         {
-            this.player = player;
+            player = Game1.Instance.Player;
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
             blueMapSprite = HUDSpriteFactory.Instance.CreateBlueMapSprite();
             playerRectSprite = HUDSpriteFactory.Instance.CreatePlayerRectangleSprite();
@@ -65,7 +65,7 @@ namespace Project.HUD
             if (player.Inventory.GetItemCount(ItemType.Map) > 0)
             {
                 blueMapSprite.Draw(spriteBatch, mapPos);
-                
+
             }
             if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
             {
@@ -82,7 +82,7 @@ namespace Project.HUD
         public void Update()
         {
             numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
-            numKeys = player.Inventory.GetItemCount(ItemType.Key); 
+            numKeys = player.Inventory.GetItemCount(ItemType.Key);
             numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
             numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
             numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));

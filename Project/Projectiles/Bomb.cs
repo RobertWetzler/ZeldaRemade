@@ -21,11 +21,13 @@ namespace Project.Projectiles
         {
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(facing, position);
             this.isFriendly = isFriendly;
+            SoundManager.Instance.CreateBombDropSound();
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bomb;
         public bool IsActive { get; set; } = true;
+        
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -37,8 +39,9 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             sprite.Update(gameTime);
+            
         }
-
        
+            
     }
 }

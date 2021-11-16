@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +13,18 @@ namespace Project.GameState
         public IGameState currentState;
         private Game1 game;
         public IGameState CurrentState { get => currentState; }
+
+        public void TogglePause()
+        {
+            if (this.currentState is PlayingState)
+            {
+                this.currentState = new PausedState(game);
+            }
+            else if (this.currentState is PausedState)
+            {
+                this.currentState = new PlayingState(game);
+            }
+        }
 
         public GameStateMachine(Game1 game)
         {

@@ -53,6 +53,7 @@ namespace Project
                     _graphics.PreferredBackBufferWidth - 2 * playerBoundOffset, _graphics.PreferredBackBufferHeight - heightOffset - 2 * playerBoundOffset);
             passedRoom = new List<int>();
 
+            PauseController.RegisterPause();
             base.Initialize();
         }
 
@@ -67,6 +68,7 @@ namespace Project
             NPCSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             TextSpriteFactory.Instance.LoadAllTextures(Content);
+            SoundManager.Instance.LoadAllSounds(Content);
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
             MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing

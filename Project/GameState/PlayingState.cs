@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.HUD;
+using Project.Factory;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace Project.GameState
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
             controllers.Add(ControllerUtilities.GetMouseController(this.game));
+            SoundManager.Instance.CreateBackgroundMusic();
+            SoundManager.Instance.soundInstance.Pause();
             smallHud = new SmallHUD(game.Player, false);
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
@@ -29,6 +32,7 @@ namespace Project.GameState
             {
                 controller.Update();
             }
+            PauseController.controller.Update();
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
             smallHud.Update();
