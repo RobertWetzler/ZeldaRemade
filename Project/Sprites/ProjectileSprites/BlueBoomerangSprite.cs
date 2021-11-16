@@ -29,7 +29,7 @@ namespace Project.Sprites.ItemSprites
             this.sheetRows = sheetRows;
 
             this.facing = facing;
-          
+
 
             spriteRow = 0;
 

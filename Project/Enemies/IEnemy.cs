@@ -24,7 +24,7 @@ namespace Project
             SoundManager.Instance.CreateEnemyDeathSound();
         }
 
-        public void DropItem (IItems item)
+        public void DropItem(IItems item)
         {
             RoomManager.Instance.CurrentRoom.AddItem(item);
         }

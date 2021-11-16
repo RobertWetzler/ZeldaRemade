@@ -25,7 +25,7 @@ namespace Project.Sprites.MapTileSprites
             int height = 8;
             int scale = 4;
 
-            Rectangle source = new Rectangle(sourceX,sourceY,width,height);
+            Rectangle source = new Rectangle(sourceX, sourceY, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(mapTileSpriteSheet, destRectangle, source, Color.White);
         }

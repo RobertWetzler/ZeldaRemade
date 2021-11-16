@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
 using Project.Factory;
-using Project.Items;
-using System.Windows.Input;
 
 
 namespace Project.GameState
@@ -13,7 +11,7 @@ namespace Project.GameState
     {
         private TitleScreen titleScreen;
         private KeyboardController keyboardController;
-        
+
 
         public TitleScreenState(Game1 game)
         {
@@ -21,7 +19,7 @@ namespace Project.GameState
             this.titleScreen = new TitleScreen(game.Graphics);
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
-            
+
 
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
@@ -35,6 +33,6 @@ namespace Project.GameState
             titleScreen.Draw(spriteBatch);
         }
 
-        
+
     }
 }

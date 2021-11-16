@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites
 {

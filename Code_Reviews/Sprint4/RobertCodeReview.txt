@@ -1,0 +1,14 @@
+Author of Review: Robert Wetzler
+Date of Review: 11/15/21
+Sprint Number: 4
+Name of .cs file being reviewed: EnemyBombCollisionHandler
+Author of .cs file being reviewed: Jacob Batt
+
+Comments on Code Readability
+The code is very readable, almost reading as plain english in parts like "if(bomb.IsExploding)". The collidables are given descriptive names of their expected types, instead of using "collider and collidee" from the interface, which also benefits the readability of the file.
+I dont see how the readability could be improved.
+
+Comments on Code Maintainability
+(Im going to consider bomb.IsExploding as part of this file, since it was created for this handler)
+The code is straightforward. I like how a bomb.IsExploding property was created for this CollisionHandler, it abstracts the logic away to the bomb class and makes writing collision handlers using bombs very easy. 
+If I needed to create another collision handler using bombs, it would be very easy. For instance, when we eventually add a handler to make bombs blow up hidden doors, the bomb.IsExploding method will make it very easy to do so - I'd just check that property and then change the door's state.

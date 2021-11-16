@@ -1,9 +1,4 @@
-﻿using Project.Factory;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project.Commands
+﻿namespace Project.Commands
 {
     class PlayGameCommand : ICommand
     {

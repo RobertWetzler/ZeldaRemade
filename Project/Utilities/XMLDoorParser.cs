@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
 
 namespace Project.Utilities
@@ -31,7 +28,7 @@ namespace Project.Utilities
                         string doorType = reader.ReadElementContentAsString();
                         reader.Read();
                         string doorPos = reader.ReadElementContentAsString();
-                        
+
                         IDoor door = GetDoorFromType(doorType, doorPos);
                         doors.Add(door);
                     }

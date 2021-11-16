@@ -131,7 +131,7 @@ namespace Project.Factory
 
         public ISprite CreateUSprite()
         {
-         
+
             return new TextSprite(fontSpriteSheet, 227, 19);
         }
 

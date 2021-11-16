@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
-using Project.Factory;
 using Project.Projectiles;
 using System.Collections.Generic;
 
@@ -39,7 +38,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
-            
+
         }
 
         public void ChangeDirection(EnemyDirections direction)

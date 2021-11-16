@@ -10,7 +10,7 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-      
+
         private float timer;
         private bool isFin, flipped;
 
@@ -28,11 +28,11 @@ namespace Project.Sprites.ItemSprites
             this.sheetRows = sheetRows;
 
             this.facing = facing;
-         
+
 
 
             spriteRow = 0;
-         
+
 
 
         }
@@ -65,7 +65,7 @@ namespace Project.Sprites.ItemSprites
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
             flipped = timer > 1500;
 
-     
+
         }
     }
 }

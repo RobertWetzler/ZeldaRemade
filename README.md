@@ -57,6 +57,7 @@ These commands are only used for debugging and can potentially lead to bugs. The
 - When health is zero link doesn't die.
 - Link gains empty hearts when picking up hearts enemies drop.
 - When Link enters the hidden rooms via the stairs, he can become glitched in the walls of the hidden room. Also, he has no way of leaving the hidden room.
+- Game sometimes crashes when using certain items that aren't the sword.
 
 ## Missing Features
 - A & B Weapon

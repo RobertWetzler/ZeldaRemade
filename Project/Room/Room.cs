@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Blocks.MovableBlock;
+using Project.Blocks.Walls;
 using Project.Collision;
 using Project.Projectiles;
-using System.Collections.Generic;
-using System.Linq;
 using Project.Text;
 using Project.Utilities;
-using Project.Blocks.Walls;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Project
 {
@@ -27,7 +27,7 @@ namespace Project
         private int southRoomID;
         private int eastRoomID;
         private int westRoomID;
-    
+
 
         public int RoomID { get => roomID; }
         public Room NorthRoom => RoomManager.GetRoom(northRoomID);
