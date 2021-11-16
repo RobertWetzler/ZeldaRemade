@@ -48,6 +48,7 @@ namespace Project
             _graphics.ApplyChanges();
             playerBounds = new Rectangle(playerBoundOffset, playerBoundOffset + heightOffset,
                     _graphics.PreferredBackBufferWidth - 2 * playerBoundOffset, _graphics.PreferredBackBufferHeight - heightOffset - 2 * playerBoundOffset);
+            PauseController.RegisterPause();
             base.Initialize();
         }
 

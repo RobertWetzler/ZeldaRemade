@@ -26,8 +26,6 @@ namespace Project.GameState
         public PausedState(Game1 game)
         {
             this.game = game;
-            keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
             smallHUD = new SmallHUD();
             SoundManager.Instance.music.Pause();
             spriteBlank = TextSpriteFactory.Instance.CreateBlankSprite();
@@ -49,13 +47,12 @@ namespace Project.GameState
 
         public void Update(GameTime gameTime, Rectangle bounds)
         {
-            keyboardController.Update();
+            PauseController.controller.Update();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             int i = 0;
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-            smallHUD.Draw(spriteBatch);
             game.Player.Draw(spriteBatch, gameTime);
             foreach(var text in textList)
             {
@@ -64,6 +61,7 @@ namespace Project.GameState
             }
 
             RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
+            smallHUD.Draw(spriteBatch);
         }
 
 
