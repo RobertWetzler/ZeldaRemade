@@ -58,7 +58,7 @@ These commands are only used for debugging and can potentially lead to bugs. The
 - When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
 - Trap movement seems to save links old positions and keep moving even if link isn't standing in range. 
 - Link unlocks any doors with a key, this includes hidden doors.
-- When the health zero it is just in a state of empty.
+- When health is zero link doesn't die
 - Game will crash if you switch room a lot because there will be too many audio files playing at once. 
 
 ## Missing Features
