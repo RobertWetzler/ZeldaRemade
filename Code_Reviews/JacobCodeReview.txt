@@ -2,7 +2,7 @@ Author of Review: Jacob Batt
 Date of Review: 11/15/21
 Sprint Number: 4
 Name of .cs file being reviewed: Project/Text/OldManText.cs
-Author of .cs file being reviewed: Author McAuthorson
+Author of .cs file being reviewed: Yuting
 
 The code quality in this file is very good.  Each variable very clearly is defined for a specific need and the name suits it.  The methods are very organized and follow good structure.
 
@@ -11,9 +11,7 @@ The code quality in this file is very good.  Each variable very clearly is defin
 
 Date of Review: 11/15/21
 Sprint Number: 4
-Name of .cs file being reviewed: Project/Game1.cs
-Author of .cs file being reviewed: Author McAuthorson
+Name of .cs file being reviewed: Project/HUD/ItemSelectionBox.cs
+Author of .cs file being reviewed: Jena Fogerty
 
-Comments on Code Quality (or Code maintainability, write one review for each):
-This class is very readable because the variable names are good and the code is divided into smaller methods etc. etc. etc. (except write like a paragraph or two).
-[Include hypothetical change to the game related to the file, how the file's current implementation could/couldn't easily support that change]
+This file has great code maintainablity.  It calls in other methods and classes.  It uses these values to then produce what it needs for the final item selections.  This way when it updates the item counts in another class it will also update in this file as well.
