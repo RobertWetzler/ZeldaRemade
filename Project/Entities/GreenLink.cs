@@ -128,8 +128,11 @@ namespace Project.Entities
             }
             else
             {
+
                 game.GameStateMachine.TitleScreen();
                 health = 6;
+                RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
+                
             }
           
         }
