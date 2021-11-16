@@ -1,4 +1,6 @@
 ﻿using Project.Blocks.MovableBlock;
+using Project.Utilities;
+using System.Collections.Generic;
 
 namespace Project.Collision.CollisionHandlers
 {
@@ -23,6 +25,12 @@ namespace Project.Collision.CollisionHandlers
                     case CollisionSide.Right:
                         block.MoveBlock(MovingDir.Left);
                         break;
+                }
+                List<IDoor> doors = RoomManager.Instance.CurrentRoom.Doors;
+                IDoor closedDoor = doors.Find(x => x.DoorType == DoorType.CLOSED);
+                if (closedDoor != null)
+                {
+                    closedDoor.Unlock();
                 }
             }
             else

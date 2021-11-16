@@ -4,16 +4,16 @@ using System.Text;
 
 namespace Project.Commands
 {
-    class PauseGameCommand: ICommand
+    class SelectItemCommand : ICommand
     {
         private Game1 game;
-        public PauseGameCommand(Game1 game)
+        public SelectItemCommand(Game1 game)
         {
             this.game = game;
         }
         public void Execute()
         {
-            game.GameStateMachine.Pause();
+            game.GameStateMachine.ItemSelectionScreen();
         }
     }
 }

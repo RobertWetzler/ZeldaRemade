@@ -29,14 +29,22 @@ namespace Project.HUD
         public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
         public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
 
-        public SmallHUD()
+        public SmallHUD(bool HUDState)
         {
             player = Game1.Instance.Player;
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
             blueMapSprite = HUDSpriteFactory.Instance.CreateBlueMapSprite();
             playerRectSprite = HUDSpriteFactory.Instance.CreatePlayerRectangleSprite();
+            if (!HUDState)
+            {
+                topLeftPos = Vector2.Zero;
+            }
+            else
+            {
+                topLeftPos = new Vector2(0, RoomManager.Instance.CurrentRoom.Background.Bounds.Height);
+            }
             triforceRectSprite = HUDSpriteFactory.Instance.CreateTriforceRectangleSprite();
-            topLeftPos = Vector2.Zero;
+           
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
 
             numCoins = player.Inventory.GetItemCount(ItemType.Rupee);

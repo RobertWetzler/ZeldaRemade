@@ -21,11 +21,9 @@ namespace Project.GameState
             this.game = game;
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
-            controllers.Add(ControllerUtilities.GetMouseController(this.game));
-            smallHud = new SmallHUD();
             SoundManager.Instance.CreateBackgroundMusic();
             SoundManager.Instance.soundInstance.Pause();
-            smallHud = new SmallHUD();
+            smallHud = new SmallHUD(false);
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
@@ -33,6 +31,7 @@ namespace Project.GameState
             {
                 controller.Update();
             }
+            PauseController.controller.Update();
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
             smallHud.Update();
