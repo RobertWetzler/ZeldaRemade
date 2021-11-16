@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Factory;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace Project.Commands
         public PlayGameCommand(Game1 game)
         {
             this.game = game;
+
         }
         public void Execute()
         {

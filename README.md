@@ -33,29 +33,25 @@ Developers:
 - Boomerang: ```4```
 - Blue Boomerang: ```5```
 - Flame: ```6```
-### Cycle Rooms
-- ```Left Mouse Button```
+### Pause Game
+- ```Left Shift```
 ### Quit Game
 - ```Q```
 ### Reset Level
 - ```R```
-
-## Mouse Controls
-![alt text](https://github.com/RobertWetzler/CSE3902_Group/blob/defc779230380615480dc852efe908662521e6d8/MouseControllerExample.png?raw=true)
-### Go To Next Room
-- Click the right side of room walls
-### Go To Previous Room
-- Click the left side of room walls
-
+### Open HUD
+- ```B```
+### Close HUD
+- ```Esc```
+### Item Selection
+- ```F```
 
 ## Known Bugs
-- When Link takes damage, he ignores collision with blocks & wall collision. 
-- Enemies do not collide with moveable blocks.
-- Bombs do not damage anything nor collide with anything.
 - When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
-- When Link is not moving, he ignores all collision. 
+- Trap movement seems to save links old positions and keep moving even if link isn't standing in range. 
+- When opening the HUD menu it flashes.
 
 ## Missing Features
-- No room transitions.
-- OldMan does not have any text. 
-- SwordBeam animation
+- A & B Weapon
+- Win Screen
+- Game Over Screen
