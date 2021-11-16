@@ -28,7 +28,7 @@ namespace Project.Sound
         private SoundEffect sword_slash;
         private SoundEffect text;
         private SoundEffect title;
-        public SoundEffectInstance music;
+        public SoundEffectInstance backgroundInstance;
         public SoundEffectInstance titleInstance;
         public SoundEffectInstance soundInstance;
         public static SoundManager instance = new SoundManager();
@@ -48,6 +48,8 @@ namespace Project.Sound
         {
             arrow_boomerang = soundFile.Load<SoundEffect>("Sound/LOZ_Arrow_Boomerang");
             background_music = soundFile.Load<SoundEffect>("Sound/LOZ_Background_Music");
+            backgroundInstance = background_music.CreateInstance();
+            backgroundInstance.IsLooped = true;
             bomb_blow = soundFile.Load<SoundEffect>("Sound/LOZ_Bomb_Blow");
             bomb_drop = soundFile.Load<SoundEffect>("Sound/LOZ_Bomb_Drop");
             boss_scream = soundFile.Load<SoundEffect>("Sound/LOZ_Boss_Scream1");
@@ -69,8 +71,8 @@ namespace Project.Sound
             sword_slash = soundFile.Load<SoundEffect>("Sound/LOZ_Sword_Slash");
             text = soundFile.Load<SoundEffect>("Sound/LOZ_Text");
             title = soundFile.Load<SoundEffect>("Sound/LOZ_Title");
-
-
+            titleInstance = title.CreateInstance();
+            titleInstance.IsLooped = true;
         }
 
         public void CreateArrowBoomerangSound()
@@ -82,13 +84,11 @@ namespace Project.Sound
         }
         public void CreateBackgroundMusic()
         {
-            if (music != null && music.State == SoundState.Playing)
+            titleInstance.Stop();
+            if (backgroundInstance.State != SoundState.Playing)
             {
-                music.Stop();
+                backgroundInstance.Play();
             }
-            music = background_music.CreateInstance();
-            music.IsLooped = true;
-            music.Play();
         }
         public void CreateBombBlowSound()
         {
@@ -215,13 +215,11 @@ namespace Project.Sound
         }
         public void CreateTitleSound()
         {
-            if(music != null && music.State == SoundState.Playing)
+            backgroundInstance.Stop();
+            if (titleInstance.State != SoundState.Playing)
             {
-                music.Stop();
+                titleInstance.Play();
             }
-            music = title.CreateInstance();
-            music.IsLooped = true;
-            music.Play();
         }
 
 
