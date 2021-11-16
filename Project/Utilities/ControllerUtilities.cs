@@ -63,6 +63,10 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.Z, new PlayerUseItemACommand());
             keyboardController.RegisterCommand(Keys.X, new PlayerUseItemBCommand());
 
+            //Set A & B items
+            keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(game));
+            keyboardController.RegisterCommand(Keys.G, new GetBItemCommand(game));
+
             return keyboardController;
         }
        

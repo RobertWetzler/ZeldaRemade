@@ -26,6 +26,8 @@ namespace Project
         public Rectangle PlayerBounds => playerBounds; 
         
         public int ItemIdx = 0;
+
+        public ItemType getItem;
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => RoomManager.IdToRoom.Count; }
