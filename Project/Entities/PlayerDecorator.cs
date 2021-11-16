@@ -16,6 +16,9 @@ namespace Project.Entities
         public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
         public CollisionType CollisionType => decoratedPlayer.CollisionType;
 
+        public int Health { get => decoratedPlayer.Health; set => decoratedPlayer.Health = value; }
+
+        public PlayerInventory Inventory => decoratedPlayer.Inventory;
 
         public void RemoveDecorator()
         {

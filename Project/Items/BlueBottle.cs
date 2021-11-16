@@ -18,7 +18,7 @@ namespace Project.Items
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 3);
 
         }
-
+        public ItemType type => ItemType.Blue_Bottle;
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Item;
 

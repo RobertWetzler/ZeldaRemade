@@ -12,11 +12,12 @@ namespace Project.Items
         private Vector2 position;
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Item;
-
+        public ItemType type => ItemType.Rupee;
         public OneRupee(Vector2 position)
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 4);
+            
 
         }
 
