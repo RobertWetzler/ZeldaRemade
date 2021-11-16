@@ -31,9 +31,9 @@ namespace Project.GameState
             }
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
 
-            RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
+            RoomManager.Instance.CurrentRoom.Update(game.PlayerBounds, gameTime);
             smallHud.Update();
-            game.Player.Update(playerBounds, gameTime);
+            game.Player.Update(game.PlayerBounds, gameTime);
 
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

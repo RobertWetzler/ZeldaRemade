@@ -22,7 +22,6 @@ namespace Project
         private int roomIdx = 0;
         private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
-
         public Rectangle PlayerBounds => playerBounds;
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
@@ -32,10 +31,10 @@ namespace Project
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }
-        
+        public List<int> PassedRoom { get => passedRoom; }
+
         private static Game1 instance = new Game1();
         public static Game1 Instance => instance;
-        public List<int> PassedRoom { get => passedRoom; }
 
         public Game1()
         {
@@ -79,6 +78,7 @@ namespace Project
             RoomManager.LoadAllRooms(player, _graphics);
 
             RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
+            passedRoom.Add(roomIdx);
             collisionIterator = new CollisionIterator();
             
         }
