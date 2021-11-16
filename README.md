@@ -56,6 +56,7 @@ These commands are only used for debugging and can potentially lead to bugs. The
 - Link unlocks any doors with a key, this includes hidden doors.
 - When health is zero link doesn't die.
 - Link gains empty hearts when picking up hearts enemies drop.
+- When Link enters the hidden rooms via the stairs, he can become glitched in the walls of the hidden room. Also, he has no way of leaving the hidden room.
 
 ## Missing Features
 - A & B Weapon
