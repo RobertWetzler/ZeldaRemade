@@ -48,6 +48,8 @@ Developers:
 
 ## Known Bugs
 - When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
+- Trap movement seems to save links old positions and keep moving even if link isn't standing in range. 
+- When opening the HUD menu it flashes.
 
 ## Missing Features
 - A & B Weapon
