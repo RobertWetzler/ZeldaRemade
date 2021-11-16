@@ -26,14 +26,8 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-
             this.facing = facing;
-         
-
-
             spriteRow = 0;
-         
-
 
         }
 

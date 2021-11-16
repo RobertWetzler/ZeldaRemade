@@ -45,7 +45,7 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             flipped = timer > 1000;
 
-            sprite.Update(gameTime);
+
 
             switch (this.facing)
             {
