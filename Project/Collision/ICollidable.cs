@@ -12,6 +12,7 @@ namespace Project.Collision
         Player,
         Projectile,
         MovableBlock,
+        StairBlock,
         BlueBlock,
         Bomb,
         Door
