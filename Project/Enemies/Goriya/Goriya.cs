@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
+using Project.Factory;
 using Project.Projectiles;
 using Project.Utilities;
 
@@ -48,6 +49,7 @@ namespace Project
         public void UseWeapon()
         {
             currentState.UseWeapon();
+            SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
         public void SetState(IEnemyState state)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 using System.Collections.Generic;
 
 namespace Project
@@ -22,6 +23,7 @@ namespace Project
             this.animationCounter = 0;
             this.animationDelay = 150;
             oneCycleFinished = false;
+            SoundManager.Instance.CreateBossScream();
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)

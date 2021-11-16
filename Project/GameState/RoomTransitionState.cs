@@ -29,7 +29,7 @@ namespace Project.GameState
         {
             this.game = game;
             this.dir = dir;
-            smallHUD = new SmallHUD(game.Player);
+            smallHUD = new SmallHUD();
             Room curRoom = RoomManager.Instance.CurrentRoom;
             switch (dir)
             {
