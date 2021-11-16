@@ -15,7 +15,7 @@ namespace Project.Items
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Item;
 
-
+        public ItemType type => ItemType.Blue_Ring;
         public BlueRing(Vector2 position)
         {
             this.position = position;

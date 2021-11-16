@@ -25,6 +25,7 @@ namespace Project.GameState
             smallHud = new SmallHUD();
             SoundManager.Instance.CreateBackgroundMusic();
             SoundManager.Instance.soundInstance.Pause();
+            smallHud = new SmallHUD(game.Player);
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
@@ -34,6 +35,7 @@ namespace Project.GameState
             }
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
+            smallHud.Update();
             game.Player.Update(playerBounds, gameTime);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

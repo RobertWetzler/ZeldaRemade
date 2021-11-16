@@ -10,6 +10,7 @@ namespace Project
         public Vector2 Position { get; set; }
         public IPlayerSprite PlayerSprite { get; }
         public LinkStateMachine StateMachine { get; }
+        public PlayerInventory Inventory { get; }
         // used for setting an intial sprite upon Game.LoadContent()
         void SetSprite(IPlayerSprite sprite);
         void MoveUp();

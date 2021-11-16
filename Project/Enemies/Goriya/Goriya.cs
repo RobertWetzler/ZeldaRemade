@@ -19,6 +19,8 @@ namespace Project
         private EnemyMovement movement;
         private Facing facingDirection;
         private Vector2 position;
+        private int health = 4;
+
         public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -26,6 +28,7 @@ namespace Project
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
+        public int Health { get => health; set => health = value; }
         public Goriya(Vector2 position)
         {
             this.position = position;

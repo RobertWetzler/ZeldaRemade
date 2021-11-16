@@ -44,6 +44,7 @@ namespace Project.GameState
             textList.Add(spriteS);
             textList.Add(spriteE);
             textList.Add(spriteD);
+            smallHUD = new SmallHUD(game.Player);
         }
 
         public void Update(GameTime gameTime, Rectangle bounds)

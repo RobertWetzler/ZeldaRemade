@@ -19,7 +19,7 @@ namespace Project.Items
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 10);
 
         }
-
+        public ItemType type => ItemType.WhiteSword;
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, this.position);
