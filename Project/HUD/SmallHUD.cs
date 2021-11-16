@@ -29,9 +29,9 @@ namespace Project.HUD
         public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
         public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
 
-        public SmallHUD(IPlayer player)
+        public SmallHUD()
         {
-            this.player = player;
+            player = Game1.Instance.Player;
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
             blueMapSprite = HUDSpriteFactory.Instance.CreateBlueMapSprite();
             playerRectSprite = HUDSpriteFactory.Instance.CreatePlayerRectangleSprite();
