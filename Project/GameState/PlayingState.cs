@@ -20,7 +20,6 @@ namespace Project.GameState
             this.game = game;
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
-            controllers.Add(ControllerUtilities.GetMouseController(this.game));
             smallHud = new SmallHUD(game.Player);
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
