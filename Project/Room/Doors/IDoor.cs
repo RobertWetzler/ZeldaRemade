@@ -14,5 +14,6 @@ namespace Project
         DoorType DoorType { get; }
         void Draw(SpriteBatch spriteBatch);
         void DrawForeground(SpriteBatch spriteBatch);
+        void Unlock();
     }
 }

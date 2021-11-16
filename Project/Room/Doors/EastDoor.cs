@@ -58,6 +58,11 @@ namespace Project
         {
             eastDoorSprite.DrawForeground(spriteBatch, position, Color.White);
         }
+        public void Unlock()
+        {
+            doorType = DoorType.OPEN;
+            eastDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateEastDoorSprite(doorType, new Vector2(896, 509));
+        }
     }
 }
 

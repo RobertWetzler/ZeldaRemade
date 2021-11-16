@@ -60,5 +60,10 @@ namespace Project
         {
             northDoorSprite.DrawForeground(spriteBatch, position, Color.White);
         }
+
+        public void Unlock()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

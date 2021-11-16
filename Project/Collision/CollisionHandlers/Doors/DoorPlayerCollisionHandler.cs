@@ -14,6 +14,10 @@ namespace Project.Collision.CollisionHandlers.Doors
             IPlayer player = playerCollidable as IPlayer;
             if(door.IsClosed)
             {
+                if(player.Inventory.GetItemCount(ItemType.Key) > 0)
+                {
+                    HandleUnlock(player, door);
+                }
                 (new PlayerBlockCollisionHandler()).HandleCollision(playerCollidable, doorCollidable, CollisionUtils.Opposite(side));
             }
             else if (IsPlayerHittingEdge(player)) {
@@ -38,6 +42,10 @@ namespace Project.Collision.CollisionHandlers.Doors
         {
             Rectangle roomBounds = RoomManager.Instance.CurrentRoom.Background.Bounds;
             return !roomBounds.Contains(player.BoundingBox.Center);
+        }
+        private void HandleUnlock(IPlayer player, IDoor door)
+        {
+            door.
         }
     }
 }
