@@ -6,6 +6,8 @@
         {
             IItems item = itemCollidable as IItems;
             item.Despawn();
+            IPlayer link = player as IPlayer;
+            link.Inventory.AddItem(item.type);
         }
     }
 }

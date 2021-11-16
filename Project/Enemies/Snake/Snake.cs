@@ -17,13 +17,14 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
+        private int health = 3;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => pos; set => pos = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-
+        public int Health { get => health; set => health = value; }
         public Snake(Vector2 pos)
         {
             this.pos = pos;
