@@ -1,39 +1,71 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
+using System;
 
 namespace Project.Projectiles
 {
-    class Sword : IProjectile
+    class SwordBeam: IProjectile
     {
 
-        private IWeaponSprite sprite;
-        private Facing facing;
-        public bool IsFinished => sprite.isFinished() || !IsActive;
+        private IProjectileSprite sprite;
+        private IProjectile projectile;
+        public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-        public Sword(Facing facing, Vector2 position, bool isFriendly = true)
+        private Vector2 position;
+        private Facing facing;
+        private int xPos, yPos;
+        private int velocity;
+       
+        public SwordBeam(Facing facing, Vector2 position, bool isFriendly = true)
         {
-            sprite = ItemSpriteFactory.Instance.CreateSwordSprite(facing, position);
+            this.facing = facing;
+            this.position = position;
             this.isFriendly = isFriendly;
+
+            sprite = ItemSpriteFactory.Instance.CreateSwordSprite(this.facing);
+            
+
+            velocity = 500;
+
             this.facing = facing;
             SoundManager.Instance.CreateSwordShootSound();
         }
-
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Projectile;
         public bool IsActive { get; set; } = true;
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, this.position);
         }
 
         public void Update(GameTime gameTime)
         {
+
+            switch (facing)
+            {
+                case Facing.Up:
+                    yPos = -1;
+                    break;
+                case Facing.Down:
+                    yPos = 1;
+                    break;
+                case Facing.Left:
+                    xPos = -1;
+                    break;
+                case Facing.Right:
+                    xPos = 1;
+                    break;
+            }
+
+            this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
+            this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
+
             sprite.Update(gameTime);
         }
 
