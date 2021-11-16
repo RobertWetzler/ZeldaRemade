@@ -12,7 +12,7 @@ namespace Project.Utilities
 
         public static void RegisterPause()
         {
-            controller.RegisterCommand(Keys.Escape, new TogglePauseGameCommand());
+            controller.RegisterCommand(Keys.LeftShift, new TogglePauseGameCommand());
         }
     }
 }
