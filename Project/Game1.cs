@@ -23,7 +23,9 @@ namespace Project
         private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
 
-        public Rectangle PlayerBounds => playerBounds;
+        public Rectangle PlayerBounds => playerBounds; 
+        
+        public int ItemIdx = 0;
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => RoomManager.IdToRoom.Count; }

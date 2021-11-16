@@ -1,0 +1,17 @@
+Author of Review: Jacob Batt
+Date of Review: 11/15/21
+Sprint Number: 4
+Name of .cs file being reviewed: Project/Text/OldManText.cs
+Author of .cs file being reviewed: Yuting
+
+The code quality in this file is very good.  Each variable very clearly is defined for a specific need and the name suits it.  The methods are very organized and follow good structure.
+
+
+
+
+Date of Review: 11/15/21
+Sprint Number: 4
+Name of .cs file being reviewed: Project/HUD/ItemSelectionBox.cs
+Author of .cs file being reviewed: Jena Fogerty
+
+This file has great code maintainablity.  It calls in other methods and classes.  It uses these values to then produce what it needs for the final item selections.  This way when it updates the item counts in another class it will also update in this file as well.
