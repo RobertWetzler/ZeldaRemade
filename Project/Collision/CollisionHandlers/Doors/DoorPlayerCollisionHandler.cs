@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Project.Factory;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace Project.Collision.CollisionHandlers.Doors
         {
             IDoor door = doorCollidable as IDoor;
             IPlayer player = playerCollidable as IPlayer;
-            if(door.IsClosed)
+            
+            if (door.IsClosed)
             {
                 (new PlayerBlockCollisionHandler()).HandleCollision(playerCollidable, doorCollidable, CollisionUtils.Opposite(side));
             }
@@ -21,15 +23,19 @@ namespace Project.Collision.CollisionHandlers.Doors
                 {
                     case NorthDoor northDoor:
                         Game1.Instance.GameStateMachine.RoomTransition(GameState.Direction.Up);
+                        
                         break;
                     case SouthDoor southDoor:
                         Game1.Instance.GameStateMachine.RoomTransition(GameState.Direction.Down);
+                        
                         break;
                     case EastDoor eastDoor:
                         Game1.Instance.GameStateMachine.RoomTransition(GameState.Direction.Right);
+                        
                         break;
                     case WestDoor westDoor:
                         Game1.Instance.GameStateMachine.RoomTransition(GameState.Direction.Left);
+                        
                         break;
                 }
             }

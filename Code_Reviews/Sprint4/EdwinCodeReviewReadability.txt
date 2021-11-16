@@ -1,0 +1,9 @@
+Author: Edwin Pallithanam
+Date: November 15, 2021
+Sprint #4
+PlayerInventory.cs
+Maggie Feng
+Number of Minutes: 8
+The code is readable because there is low coupling and simple to follow along,
+the enums listed explain what items are there, and the method InitializeInventory() 
+add the list of items Dictionary inventory.
