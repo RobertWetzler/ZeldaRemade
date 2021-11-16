@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
-using Project.Factory;
+using Project.Sound;
 
 
 namespace Project.GameState
@@ -19,8 +19,6 @@ namespace Project.GameState
             this.titleScreen = new TitleScreen(game.Graphics);
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
-
-
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {

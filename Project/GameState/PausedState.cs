@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.HUD;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
 

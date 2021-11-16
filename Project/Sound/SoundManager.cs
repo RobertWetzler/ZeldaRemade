@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 
-namespace Project.Factory
+namespace Project.Sound
 {
     public class SoundManager
     {
@@ -29,6 +29,7 @@ namespace Project.Factory
         private SoundEffect text;
         private SoundEffect title;
         public SoundEffectInstance music;
+        public SoundEffectInstance titleInstance;
         public SoundEffectInstance soundInstance;
         public static SoundManager instance = new SoundManager();
 
@@ -81,6 +82,10 @@ namespace Project.Factory
         }
         public void CreateBackgroundMusic()
         {
+            if (music != null && music.State == SoundState.Playing)
+            {
+                music.Stop();
+            }
             music = background_music.CreateInstance();
             music.IsLooped = true;
             music.Play();
@@ -210,9 +215,13 @@ namespace Project.Factory
         }
         public void CreateTitleSound()
         {
-            soundInstance = title.CreateInstance();
-            soundInstance.IsLooped = false;
-            soundInstance.Play();
+            if(music != null && music.State == SoundState.Playing)
+            {
+                music.Stop();
+            }
+            music = title.CreateInstance();
+            music.IsLooped = true;
+            music.Play();
         }
 
 
