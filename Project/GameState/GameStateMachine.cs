@@ -33,7 +33,7 @@ namespace Project.GameState
         }
         public void Play()
         {
-            this.currentState = new PlayingState(game);
+                this.currentState = new PlayingState(game);
         }
         public void Pause()
         {
@@ -51,6 +51,14 @@ namespace Project.GameState
             if (this.currentState is PlayingState)
             {
                 this.currentState = new RoomTransitionState(game, dir);
+            }
+        }
+
+        public void ItemSelectionScreen()
+        {
+            if (this.currentState is PlayingState)
+            {
+                this.currentState = new ItemSelectionState(game);
             }
         }
     }

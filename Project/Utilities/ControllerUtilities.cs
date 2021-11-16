@@ -51,6 +51,9 @@ namespace Project.Utilities
             //Register idle command as default
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
+            //Key to show HUD
+            keyboardController.RegisterCommand(Keys.V, new SelectItemCommand(game));
+
             keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
             keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
             keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));

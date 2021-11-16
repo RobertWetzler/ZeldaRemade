@@ -26,7 +26,7 @@ namespace Project.GameState
         public PausedState(Game1 game)
         {
             this.game = game;
-            smallHUD = new SmallHUD();
+            smallHUD = new SmallHUD(false);
             SoundManager.Instance.music.Pause();
             spriteBlank = TextSpriteFactory.Instance.CreateBlankSprite();
             spriteA = TextSpriteFactory.Instance.CreateASprite();
@@ -42,7 +42,6 @@ namespace Project.GameState
             textList.Add(spriteS);
             textList.Add(spriteE);
             textList.Add(spriteD);
-            smallHUD = new SmallHUD();
         }
 
         public void Update(GameTime gameTime, Rectangle bounds)

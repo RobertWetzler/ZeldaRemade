@@ -17,6 +17,8 @@ namespace Project.Factory
         private Texture2D playerRectTexture;
         private Texture2D triforceRectTexture;
         private Texture2D healthBarSpriteSheet;
+        private Texture2D whiteSquareTexture;
+
 
         private static HUDSpriteFactory instance = new HUDSpriteFactory();
         public static HUDSpriteFactory Instance
@@ -41,6 +43,7 @@ namespace Project.Factory
             triforceRectTexture = new Texture2D(graphicsDevice, 1, 1);
             triforceRectTexture.SetData(new[] { Color.White });
             healthBarSpriteSheet = content.Load<Texture2D>("ItemSprites/health_bar");
+            whiteSquareTexture = content.Load<Texture2D>("HUD/white_square");
         }
         public ISprite CreateSmallHUDSprite()
         {
@@ -71,6 +74,10 @@ namespace Project.Factory
         public ISprite CreateEmptyHeart()
         {
             return new HealthBarSprite(healthBarSpriteSheet, 1, 3, 2);
+        }
+        public ISprite CreateWhiteSquare()
+        {
+            return new WhiteSquareSprite(whiteSquareTexture);
         }
 
     }

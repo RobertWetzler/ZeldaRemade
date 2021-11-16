@@ -22,10 +22,9 @@ namespace Project.GameState
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
             controllers.Add(ControllerUtilities.GetMouseController(this.game));
-            smallHud = new SmallHUD();
             SoundManager.Instance.CreateBackgroundMusic();
             SoundManager.Instance.soundInstance.Pause();
-            smallHud = new SmallHUD();
+            smallHud = new SmallHUD(false);
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
