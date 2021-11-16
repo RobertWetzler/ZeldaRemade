@@ -1,0 +1,23 @@
+Readability:
+Author of Review: Yuting Yang
+Date of Review: 11/15/21
+Sprint Number: 4
+Name of .cs file being reviewed: Project/GameState/RoomTransitionState.cs
+Author of .cs file being reviewed: Robert Wetzler
+Number of minutes taken to complete the review: 10 mins
+Comments on Code Quality:
+- This class is readable with descriptive variable and method names such as nextRoom and transitionSpeed.
+- Good readability by breaking functionalities of the class into smaller methods.
+- Using enum for directions to improve readability.
+- The sprite class has proper line length (within 150 lines of code), consistent identation and naming scheme to improve readability. 
+
+Maintainability:
+Author of Review: Yuting Yang
+Date of Review: 11/15/21
+Sprint Number: 4
+Name of .cs file being reviewed: Project/GameState/RoomTransitionState.cs
+Author of .cs file being reviewed: Robert Wetzler
+Comments on code maintainability:
+- Relatively low coupling, only using other classes of Room, IHUD and Game1.
+- Good code maintainability, barely no magic number.
+- High cohesion, similar game state classes implementing IGameState. The class only focuses on room transition.

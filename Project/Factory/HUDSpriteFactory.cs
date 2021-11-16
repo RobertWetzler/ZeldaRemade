@@ -18,6 +18,7 @@ namespace Project.Factory
         private Texture2D triforceRectTexture;
         private Texture2D healthBarSpriteSheet;
         private Texture2D whiteSquareTexture;
+        private Texture2D itemSelectionBoxSpriteSheet;
 
 
         private static HUDSpriteFactory instance = new HUDSpriteFactory();
@@ -44,6 +45,7 @@ namespace Project.Factory
             triforceRectTexture.SetData(new[] { Color.White });
             healthBarSpriteSheet = content.Load<Texture2D>("ItemSprites/health_bar");
             whiteSquareTexture = content.Load<Texture2D>("HUD/white_square");
+            itemSelectionBoxSpriteSheet = content.Load<Texture2D>("HUD/item-selection-box");
         }
         public ISprite CreateSmallHUDSprite()
         {
@@ -78,6 +80,10 @@ namespace Project.Factory
         public ISprite CreateWhiteSquare()
         {
             return new WhiteSquareSprite(whiteSquareTexture);
+        }
+        public ISprite CreateItemSelectionBoxSprite()
+        {
+            return new ItemSelectionBoxSprite(itemSelectionBoxSpriteSheet, 1, 2);
         }
 
     }

@@ -1,0 +1,22 @@
+Author of Review: Jena Fogarty
+Date of Review: 11/15/2021
+Sprint Number: 4
+Name of .cs file being reviewed: SmallHUD.cs
+Author of .cs file being reviewed: Maggie Feng
+Time Taken: 27
+ 
+Code Maintainability:
+- Abstraction due to usage of interfaces. 
+- Cohesion is good, SmallHUD only does what is present in the small HUB not over reaching in to Big Hub. 
+- Makes usage of utiltity class which increases cohesion. 
+- Magic numbers are used for positioning which isn't ideal.
+- The class has good maintainability outside of the magic numbers. 
+- Because there are so many magic numbers for the positioning, any adjustments to the size of the game would result in a refactoring of the SmallHUD.
+
+
+Code Quality(Readability): 
+- No random comments, which makes it easier to read. 
+- Less than 150 lines of code. 
+- Method does one thing and that is create the SmallHub making it easier to read. 
+- 3 conditional statements, but doesn't really make the code harder to read. 
+- The class has good readability. 
