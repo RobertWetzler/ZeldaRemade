@@ -25,6 +25,12 @@ namespace Project.HUD
         private Lives healthBar;
 
         private Vector2 topLeftPos;
+        private Vector2 aItemPos;
+        private Vector2 bItemPos;
+        private ItemType aItemType;
+        private ItemType bItemType;
+        private IItems aItem;
+        private IItems bItem;
 
         public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
         public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
@@ -46,6 +52,12 @@ namespace Project.HUD
             triforceRectSprite = HUDSpriteFactory.Instance.CreateTriforceRectangleSprite();
            
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
+            bItemPos = new Vector2(topLeftPos.X + 582, topLeftPos.Y + 100);
+            aItemPos = new Vector2(topLeftPos.X + 490, topLeftPos.Y + 100);
+            aItemType = player.Inventory.AItem;
+            bItemType = player.Inventory.BItem;
+            aItem = HoldableItemUtilities.GetHoldableItem(aItemType, aItemPos);
+            bItem = HoldableItemUtilities.GetHoldableItem(bItemType, bItemPos);
 
             numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
             numKeys = player.Inventory.GetItemCount(ItemType.Key);
@@ -58,6 +70,7 @@ namespace Project.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             playerRectPos = HUDUtilities.Instance.GetPlayerRectLocationSmallHUD(topLeftPos);
             triforcePos = HUDUtilities.Instance.GetTriforceRoomPos(topLeftPos);
             healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
@@ -76,7 +89,14 @@ namespace Project.HUD
             numKeysText.Draw(spriteBatch);
             numBombsText.Draw(spriteBatch);
             healthBar.Draw(spriteBatch);
-
+            if(aItem != null)
+            {
+                aItem.Draw(spriteBatch);
+            }
+            if (bItem != null)
+            {
+                bItem.Draw(spriteBatch);
+            }
         }
 
         public void Update()
@@ -88,6 +108,20 @@ namespace Project.HUD
             numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
             numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
             healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
+            UpdateABItems();
+        }
+        public void UpdateABItems()
+        {
+            if (player.Inventory.AItem != aItemType)
+            {
+                aItemType = player.Inventory.AItem;
+                aItem = HoldableItemUtilities.GetHoldableItem(aItemType, aItemPos);
+            }
+            if (player.Inventory.BItem != bItemType)
+            {
+                bItemType = player.Inventory.BItem;
+                bItem = HoldableItemUtilities.GetHoldableItem(bItemType, bItemPos);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Project.Commands;
+using Project.Commands.PlayerCommandClasses.WeaponCommands;
 using System.Collections.Generic;
 
 namespace Project.Utilities
@@ -32,10 +33,6 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.S, downCommand);
             keyboardController.RegisterCommand(Keys.Down, downCommand);
 
-            ICommand swordCommand = new PlayerUseSwordCommand(game);
-            keyboardController.RegisterCommand(Keys.Z, swordCommand); //Use sword with Z
-            keyboardController.RegisterCommand(Keys.N, swordCommand); //Use sword with N
-
             keyboardController.RegisterCommand(Keys.D1, new PlayerUseBombCommand(game)); //Use bomb with 1
             keyboardController.RegisterCommand(Keys.D2, new PlayerUseArrowCommand(game)); //Use arrow with 2
             keyboardController.RegisterCommand(Keys.D3, new PlayerUseBlueArrowCommand(game)); //Use blue arrow with 3
@@ -61,6 +58,10 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
             keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));
             keyboardController.RegisterCommand(Keys.L, new TestRoomTransitionRightCommand(game));
+
+            //A and B items
+            keyboardController.RegisterCommand(Keys.Z, new PlayerUseItemACommand());
+            keyboardController.RegisterCommand(Keys.X, new PlayerUseItemBCommand());
 
             return keyboardController;
         }
