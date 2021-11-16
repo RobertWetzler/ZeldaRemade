@@ -54,6 +54,7 @@ namespace Project
                     _graphics.PreferredBackBufferWidth - 2 * playerBoundOffset, _graphics.PreferredBackBufferHeight - heightOffset - 2 * playerBoundOffset);
             passedRoom = new List<int>();
 
+            PauseController.RegisterPause();
             base.Initialize();
         }
 
