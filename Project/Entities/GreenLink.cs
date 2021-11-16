@@ -123,7 +123,7 @@ namespace Project.Entities
             }
             else
             {
-                //link death command
+                game.GameStateMachine.TitleScreen();
             }
           
         }
