@@ -25,7 +25,7 @@ namespace Project.GameState
             smallHud = new SmallHUD();
             SoundManager.Instance.CreateBackgroundMusic();
             SoundManager.Instance.soundInstance.Pause();
-            smallHud = new SmallHUD(game.Player);
+            smallHud = new SmallHUD();
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
