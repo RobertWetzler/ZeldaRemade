@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
 using System;
 
@@ -82,7 +82,7 @@ namespace Project.Projectiles
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
             sprite.Update(gameTime);
-            
+
 
         }
 

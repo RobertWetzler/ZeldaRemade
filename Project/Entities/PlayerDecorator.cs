@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sprites.PlayerSprites;
 using Project.Collision;
+using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
 {

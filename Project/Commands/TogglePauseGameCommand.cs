@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project.Commands
+﻿namespace Project.Commands
 {
-    class TogglePauseGameCommand: ICommand
+    class TogglePauseGameCommand : ICommand
     {
         public void Execute()
         {

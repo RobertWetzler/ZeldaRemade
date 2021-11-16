@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
-using Project.Utilities;
 using Project.Factory;
 using Project.HUD;
+using Project.Utilities;
 
 namespace Project.GameState
 {
@@ -36,7 +36,7 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(this.game));
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
             smallHud = new SmallHUD(true);
-            
+
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile3 = MapTileSpriteFactory.Instance.CreateBRDoorTileSprite();
@@ -78,7 +78,7 @@ namespace Project.GameState
                     dotPos = new Vector2(513, 408);
                     break;
                 case 3:
-                         dotPos = new Vector2(513, 472);
+                    dotPos = new Vector2(513, 472);
                     break;
                 case 4:
                     dotPos = new Vector2(513, 504);
@@ -90,10 +90,10 @@ namespace Project.GameState
                     dotPos = new Vector2(544, 408);
                     break;
                 case 7:
-                   dotPos = new Vector2(544, 441);
+                    dotPos = new Vector2(544, 441);
                     break;
                 case 8:
-                   dotPos = new Vector2(544, 472);
+                    dotPos = new Vector2(544, 472);
                     break;
                 case 9:
                     dotPos = new Vector2(544, 504);
@@ -122,7 +122,7 @@ namespace Project.GameState
                 case 17:
                     dotPos = new Vector2(640, 441);
                     break;
-        }
+            }
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -167,7 +167,7 @@ namespace Project.GameState
 
 
             if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
-                compass.Draw(spriteBatch, new Vector2(165,600));
+                compass.Draw(spriteBatch, new Vector2(165, 600));
 
 
             smallHud.Draw(spriteBatch);

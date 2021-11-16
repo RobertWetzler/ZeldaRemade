@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 using Project.Collision;
+using Project.Factory;
 
 namespace Project.Items
 {
@@ -17,7 +17,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 4);
-            
+
 
         }
 

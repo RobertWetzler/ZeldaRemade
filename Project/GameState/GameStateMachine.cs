@@ -1,12 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-
-namespace Project.GameState
+﻿namespace Project.GameState
 {
     public class GameStateMachine
     {
@@ -33,7 +25,7 @@ namespace Project.GameState
         }
         public void Play()
         {
-                this.currentState = new PlayingState(game);
+            this.currentState = new PlayingState(game);
         }
         public void Pause()
         {

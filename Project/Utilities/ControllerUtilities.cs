@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Project.Commands;
 using Project.Commands.PlayerCommandClasses.WeaponCommands;
-using System.Collections.Generic;
 
 namespace Project.Utilities
 {
@@ -50,7 +49,7 @@ namespace Project.Utilities
 
             //Key to show HUD
             keyboardController.RegisterCommand(Keys.V, new SelectItemCommand(game));
-           
+
             //Cycle Items in the item selector box
             keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(game));
 
@@ -65,6 +64,6 @@ namespace Project.Utilities
 
             return keyboardController;
         }
-       
+
     }
 }

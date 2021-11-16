@@ -1,14 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
-using Project.HUD;
 using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Project.Entities
 {
@@ -32,7 +30,7 @@ namespace Project.Entities
         private Rectangle SetBoundingBox()
         {
             const float BOUNDINGBOX_OFFSET = 0.125f;
-            if (!(sprite is LinkUseSwordUpwardsSprite) && !(sprite is LinkUseSwordSidewaysSprite) 
+            if (!(sprite is LinkUseSwordUpwardsSprite) && !(sprite is LinkUseSwordSidewaysSprite)
                 && !(sprite is LinkUseSwordDownwardsSprite))
             {
                 float width = sprite.DestRectangle.Width * (1 - BOUNDINGBOX_OFFSET);
@@ -42,7 +40,7 @@ namespace Project.Entities
                 return new Rectangle(x, y, (int)width, (int)height);
             }
             return sprite.DestRectangle;
-            
+
         }
 
         public Vector2 Position
@@ -103,17 +101,17 @@ namespace Project.Entities
 
         public void UseWeapon(WeaponTypes weaponType)
         {
-          
+
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
-            
+
             if (potentialWeapon != null)
             {
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
             }
         }
-        
-   
+
+
         public void BecomeDamaged()
         {
             throw new NotImplementedException();
@@ -132,9 +130,9 @@ namespace Project.Entities
                 game.GameStateMachine.TitleScreen();
                 health = 6;
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
-                
+
             }
-          
+
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
@@ -165,28 +163,28 @@ namespace Project.Entities
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
-          
+
             sprite.Update(gameTime);
             foreach (IProjectile projectile in projectiles)
             {
                 projectile.Update(gameTime);
             }
             projectiles.RemoveAll(projectile => !projectile.IsActive);
-            
-          
+
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);
-            
+
             foreach (IProjectileSprite projectile in projectiles)
             {
                 projectile.Update(gameTime);
             }
 
             projectiles.RemoveAll(projectile => projectile.IsFinished);
-            
+
         }
     }
 }

@@ -53,6 +53,6 @@ namespace Project.Sprites.ItemSprites
                 currentFrame %= sourceFrames.Count;
             }
         }
-   
+
     }
 }

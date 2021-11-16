@@ -119,7 +119,7 @@ namespace Project.Factory
             sourceFrames.Add(new Rectangle(51, 0, 16, 16));
             Rectangle downFrame = new Rectangle(0, 0, 16, 16);
             Rectangle upFrame = new Rectangle(17, 0, 16, 16);
-            
+
             switch (dir)
             {
                 case Facing.Up:

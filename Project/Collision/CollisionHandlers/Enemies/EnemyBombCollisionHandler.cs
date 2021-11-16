@@ -1,5 +1,4 @@
-﻿using System;
-using Project.Projectiles;
+﻿using Project.Projectiles;
 
 namespace Project.Collision.CollisionHandlers.Enemies
 {

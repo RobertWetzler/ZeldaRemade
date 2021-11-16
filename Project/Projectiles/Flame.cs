@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
 
 namespace Project.Projectiles
@@ -18,7 +18,7 @@ namespace Project.Projectiles
         private float timer;
         private int xPos, yPos;
         private int velocity;
-       
+
         public Flame(Facing facing, Vector2 position, bool isFriendly = true)
         {
             this.facing = facing;

@@ -1,13 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Projectiles;
-using Project.Sprites;
 using Project.Text;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.HUD
 {
@@ -50,7 +45,7 @@ namespace Project.HUD
                 topLeftPos = new Vector2(0, RoomManager.Instance.CurrentRoom.Background.Bounds.Height);
             }
             triforceRectSprite = HUDSpriteFactory.Instance.CreateTriforceRectangleSprite();
-           
+
             mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
             bItemPos = new Vector2(topLeftPos.X + 582, topLeftPos.Y + 100);
             aItemPos = new Vector2(topLeftPos.X + 490, topLeftPos.Y + 100);
@@ -70,7 +65,7 @@ namespace Project.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
+
             playerRectPos = HUDUtilities.Instance.GetPlayerRectLocationSmallHUD(topLeftPos);
             triforcePos = HUDUtilities.Instance.GetTriforceRoomPos(topLeftPos);
             healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
@@ -89,7 +84,7 @@ namespace Project.HUD
             numKeysText.Draw(spriteBatch);
             numBombsText.Draw(spriteBatch);
             healthBar.Draw(spriteBatch);
-            if(aItem != null)
+            if (aItem != null)
             {
                 aItem.Draw(spriteBatch);
             }
