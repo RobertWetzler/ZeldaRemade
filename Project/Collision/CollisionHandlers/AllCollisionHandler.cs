@@ -1,6 +1,7 @@
 ﻿using Project.Blocks;
 using Project.Blocks.MovableBlock;
 using Project.Collision.CollisionHandlers;
+using Project.Collision.CollisionHandlers.Doors;
 using Project.Collision.CollisionHandlers.Enemies;
 using Project.Entities;
 using Project.Items;
@@ -29,8 +30,12 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.Block), new ProjectileAnyCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.MovableBlock), new ProjectileAnyCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.NPC), new ProjectileAnyCollisionHandler());
+    
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.MovableBlock, CollisionType.Player), new MovableBlockPlayerCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.MovableBlock), new EnemyMovableBlockCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Bomb), new EnemyBombCollisionHandler());
+
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Enemy), new PlayerEnemyCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Bat), new PlayerEnemyCollisionHandler());
@@ -46,6 +51,7 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Bat, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
 
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Door, CollisionType.Player), new DoorPlayerCollisionHandler());
         }
 
 

@@ -13,6 +13,7 @@ namespace Project
         {
             RoomManager.Instance.CurrentRoom.RemoveItem(this);
         }
+        public ItemType type { get; }
 
     }
 }

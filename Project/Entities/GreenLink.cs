@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.HUD;
 using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
@@ -19,6 +20,8 @@ namespace Project.Entities
         private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
+        private int health = 6;
+        private PlayerInventory inventory;
 
         /**
         * Shrinks the bounding box for link
@@ -59,12 +62,17 @@ namespace Project.Entities
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Player;
 
+        public PlayerInventory Inventory => inventory;
+
+        public int Health { get => health; set => health = value; }
+
         public GreenLink(Game1 game)
         {
             this.game = game;
             position = new Vector2(500, 500);
             stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
+            inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
         }
 
@@ -114,6 +122,15 @@ namespace Project.Entities
         public void TakeDamage(int damage)
         {
             this.game.Player = new DamagedLink(this, game);
+            if (health > 0)
+            {
+                health -= damage;
+            }
+            else
+            {
+                //link death command
+            }
+          
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
@@ -141,25 +158,8 @@ namespace Project.Entities
                 }
             }
 
-            float newX = position.X + (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-            float newY = position.Y + (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-
-            if (x_dir == 1)
-            {
-                position.X = (int)(newX + BoundingBox.Width) < windowBounds.Right ? newX : windowBounds.Right - BoundingBox.Width;
-            }
-            else if (x_dir == -1)
-            {
-                position.X = (int)newX > windowBounds.Left ? newX : windowBounds.Left;
-            }
-            else if (y_dir == 1)
-            {
-                position.Y = (int)(newY + BoundingBox.Height) < windowBounds.Bottom ? newY : windowBounds.Bottom - BoundingBox.Height;
-            }
-            else
-            {
-                position.Y = (int)(newY) > windowBounds.Top ? newY : windowBounds.Top;
-            }
+            position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+            position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
           
             sprite.Update(gameTime);

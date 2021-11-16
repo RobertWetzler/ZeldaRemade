@@ -17,13 +17,13 @@ namespace Project
         private IPlayer player;
         private Vector2 startPos;
         private EnemyDirections movingDirection;
-
+        private int health = int.MaxValue;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-
+        public int Health { get => health; set => health = value; }
         public Trap(Vector2 pos, IPlayer player)
         {
             this.position = pos;
@@ -61,7 +61,7 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
-            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128;
+            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128 + 224;
 
             sprite.Update(gameTime);
             currentState.Update(gameTime);

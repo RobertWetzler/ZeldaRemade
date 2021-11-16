@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Projectiles;
 using Project.Sprites;
+using Project.Text;
+using Project.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,44 +14,72 @@ namespace Project.HUD
 
     class SmallHUD : IHUD
     {
+        private Vector2 mapPos;
+        private Vector2 playerRectPos, triforcePos;
         private ISprite backgroundHUDSprite;
         private ISprite blueMapSprite;
-        private int bombs;
-        private int coins;
-        private int keys;
-        private int lives;
-        private IProjectile aItem;
-        private IProjectile bItem;
-        private bool showMap;
-        private Rectangle playerLocation;
+        private ISprite playerRectSprite, triforceRectSprite;
+        private IText numCoinsText, numBombsText, numKeysText;
+        private IPlayer player;
+        private int numCoins, numKeys, numBombs;
+        private Lives healthBar;
+
         private Vector2 topLeftPos;
 
-        public bool ShowMap { set => showMap = value; }
+        public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
+        public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
 
-        public SmallHUD()
+        public SmallHUD(IPlayer player)
         {
+            this.player = player;
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
             blueMapSprite = HUDSpriteFactory.Instance.CreateBlueMapSprite();
+            playerRectSprite = HUDSpriteFactory.Instance.CreatePlayerRectangleSprite();
+            triforceRectSprite = HUDSpriteFactory.Instance.CreateTriforceRectangleSprite();
             topLeftPos = Vector2.Zero;
-            lives = 3;
-            coins = 0;
-            keys = 0;
-            bombs = 3;
-            showMap = false;
+            mapPos = new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50);
+
+            numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
+            numKeys = player.Inventory.GetItemCount(ItemType.Key);
+            numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
+            numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
+            numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
+            numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
+            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            playerRectPos = HUDUtilities.Instance.GetPlayerRectLocationSmallHUD(topLeftPos);
+            triforcePos = HUDUtilities.Instance.GetTriforceRoomPos(topLeftPos);
+            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
             backgroundHUDSprite.Draw(spriteBatch, topLeftPos);
-            if (showMap)
+            if (player.Inventory.GetItemCount(ItemType.Map) > 0)
             {
-                blueMapSprite.Draw(spriteBatch, new Vector2(topLeftPos.X + 50, topLeftPos.Y + 50));
+                blueMapSprite.Draw(spriteBatch, mapPos);
+                
             }
-          
+            if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
+            {
+                triforceRectSprite.Draw(spriteBatch, triforcePos, Color.Red);
+            }
+            playerRectSprite.Draw(spriteBatch, playerRectPos, Color.LightGreen);
+            numCoinsText.Draw(spriteBatch);
+            numKeysText.Draw(spriteBatch);
+            numBombsText.Draw(spriteBatch);
+            healthBar.Draw(spriteBatch);
+
         }
 
         public void Update()
         {
+            numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
+            numKeys = player.Inventory.GetItemCount(ItemType.Key); 
+            numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
+            numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
+            numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
+            numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
+            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
         }
     }
 }

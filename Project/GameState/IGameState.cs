@@ -9,6 +9,6 @@ namespace Project.GameState
     public interface IGameState
     {
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime);
-        public void Update(GameTime gameTime, Rectangle bounds);
+        public void Update(GameTime gameTime, Rectangle playerBounds);
     }
 }
