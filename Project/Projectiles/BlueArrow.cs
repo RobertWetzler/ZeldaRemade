@@ -38,6 +38,7 @@ namespace Project.Projectiles
                 Facing.Left => Direction.Left,
                 _ => throw new NotImplementedException()
             };
+            SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

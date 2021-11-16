@@ -28,7 +28,8 @@ namespace Project
 
         public NorthDoor(DoorType doorType)
         {
-            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, new Vector2(448, 223));
+            position = new Vector2(448, 223);
+            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
             canBeBombed = false;
             this.doorType = doorType;
 
@@ -59,6 +60,13 @@ namespace Project
         public void DrawForeground(SpriteBatch spriteBatch)
         {
             northDoorSprite.DrawForeground(spriteBatch, position, Color.White);
+        }
+
+        public void Unlock()
+        {
+            doorType = DoorType.OPEN;
+            isClosed = false;
+            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
         }
     }
 }

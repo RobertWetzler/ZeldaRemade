@@ -38,7 +38,7 @@ namespace Project.Projectiles
                 Facing.Left => Direction.Left,
                 _ => throw new NotImplementedException()
             };
-
+            SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();
@@ -82,6 +82,8 @@ namespace Project.Projectiles
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
             sprite.Update(gameTime);
+            
+
         }
 
         /**

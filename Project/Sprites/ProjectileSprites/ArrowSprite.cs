@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
+using Project.Factory;
 using Project.Projectiles;
 
 namespace Project.Sprites.ItemSprites
@@ -46,7 +47,7 @@ namespace Project.Sprites.ItemSprites
                 default:
                     break;
             }
-
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)

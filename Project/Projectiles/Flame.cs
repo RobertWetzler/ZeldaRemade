@@ -25,6 +25,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateFlameSprite(this.facing);
             this.isFriendly = isFriendly;
+            SoundManager.Instance.CreateCandleSound();
             velocity = 200;
         }
 

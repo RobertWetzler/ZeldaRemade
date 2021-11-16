@@ -26,10 +26,7 @@ namespace Project.Projectiles
             this.position = position;
             this.facing = facing;
             this.isFriendly = isFriendly;
-
-            sprite = ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(this.facing);
-            velocity = 200;
-
+            SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
         public Rectangle BoundingBox => SetBoundingBox();
@@ -85,6 +82,5 @@ namespace Project.Projectiles
             int y = sprite.DestRectangle.Y + ((sprite.DestRectangle.Height - (int)height) / 2);
             return new Rectangle(x, y, (int)width, (int)height);
         }
-
     }
 }

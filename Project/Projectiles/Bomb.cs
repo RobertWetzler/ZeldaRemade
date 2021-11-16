@@ -30,11 +30,13 @@ namespace Project.Projectiles
             this.isFriendly = isFriendly;
             offsetVal = 30f;
             offset = Offset();
+            SoundManager.Instance.CreateBombDropSound();
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bomb;
         public bool IsActive { get; set; } = true;
+        
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -46,6 +48,7 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             sprite.Update(gameTime);
+            
         }
 
         public Vector2 Offset()

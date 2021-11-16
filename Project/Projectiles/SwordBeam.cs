@@ -32,6 +32,8 @@ namespace Project.Projectiles
 
             velocity = 500;
 
+            this.facing = facing;
+            SoundManager.Instance.CreateSwordShootSound();
         }
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Projectile;
