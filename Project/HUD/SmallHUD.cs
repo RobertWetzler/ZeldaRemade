@@ -29,7 +29,7 @@ namespace Project.HUD
         public Vector2 TopLeftPosition { get => topLeftPos; set => topLeftPos = value; }
         public Vector2 PlayerRectPosition { get => playerRectPos; set => playerRectPos = value; }
 
-        public SmallHUD(IPlayer player, bool HUDState)
+        public SmallHUD(bool HUDState)
         {
             player = Game1.Instance.Player;
             backgroundHUDSprite = HUDSpriteFactory.Instance.CreateSmallHUDSprite();
@@ -41,7 +41,7 @@ namespace Project.HUD
             }
             else
             {
-                topLeftPos = new Vector2(0, 700);   // need to change
+                topLeftPos = new Vector2(0, RoomManager.Instance.CurrentRoom.Background.Bounds.Height);
             }
             triforceRectSprite = HUDSpriteFactory.Instance.CreateTriforceRectangleSprite();
            

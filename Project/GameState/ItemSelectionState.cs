@@ -27,7 +27,7 @@ namespace Project.GameState
             this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            smallHud = new SmallHUD(game.Player, true);
+            smallHud = new SmallHUD(true);
             
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
