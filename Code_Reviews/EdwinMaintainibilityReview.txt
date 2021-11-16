@@ -1,0 +1,12 @@
+Author: Edwin Pallithanam
+Date: November 15, 2021
+Sprint #4
+PlayerInventory.cs
+Maggie Feng
+Number of Minutes: 10
+The code is maintainable as we approach our last sprint.
+To add possible new items, you would only have to declare
+them in the enum and then add the item to the dictionary.
+It also includes a feature to remove the item from the 
+inventory once Link uses it and adds an item when link 
+picks one up.
