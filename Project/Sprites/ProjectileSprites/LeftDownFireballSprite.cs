@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project.Sprites.ItemSprites
 {
-    class LeftUpFireballSprite : IWeaponSprite
+    class LeftDownFireballSprite : IProjectileSprite
     {
         private Texture2D dragonSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -15,7 +15,7 @@ namespace Project.Sprites.ItemSprites
         private Vector2 startPosition;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
-        public LeftUpFireballSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames, Vector2 position)
+        public LeftDownFireballSprite(Texture2D dragonSpriteSheet, List<Rectangle> sourceFrames, Vector2 position)
         {
             this.dragonSpriteSheet = dragonSpriteSheet;
             this.sourceFrames = sourceFrames;
@@ -24,16 +24,14 @@ namespace Project.Sprites.ItemSprites
             delay_frame_index = 0;
         }
 
-      
-
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Rectangle source = sourceFrames[currentFrame];
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
             spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
         }
 
-        public bool isFinished()
+        public bool IsFinished()
         {
             bool isFinished = false;
 
@@ -50,11 +48,11 @@ namespace Project.Sprites.ItemSprites
             {
                 delay_frame_index = 0;
                 position.X -= 5;
-                position.Y -= 5;
+                position.Y += 5;
                 currentFrame++;
                 currentFrame %= sourceFrames.Count;
             }
         }
-
+   
     }
 }

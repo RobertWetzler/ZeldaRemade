@@ -27,7 +27,7 @@ namespace Project.Entities
                 WeaponTypes.BlueBoomerang => new BlueBoomerang(facing, newPosition),
                 WeaponTypes.Bomb => new Bomb(facing, newPosition),
                 WeaponTypes.Flame => new Flame(facing, newPosition),
-                WeaponTypes.Sword => new Sword(facing, newPosition),
+                WeaponTypes.Sword => new SwordBeam(facing, newPosition),
                 _ => throw new NotImplementedException()
             };
             return weapon;

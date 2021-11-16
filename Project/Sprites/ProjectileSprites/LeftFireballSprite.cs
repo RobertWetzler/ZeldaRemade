@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project.Sprites.ItemSprites
 {
-    class LeftFireballSprite : IWeaponSprite
+    class LeftFireballSprite : IProjectileSprite
     {
         private Texture2D dragonSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -23,17 +23,16 @@ namespace Project.Sprites.ItemSprites
             startPosition = position;
             delay_frame_index = 0;
         }
-
         
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Rectangle source = sourceFrames[currentFrame];
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
             spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
         }
 
-        public bool isFinished()
+        public bool IsFinished()
         {
             bool isFinished = false;
 

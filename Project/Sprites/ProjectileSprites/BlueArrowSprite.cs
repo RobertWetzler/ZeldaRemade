@@ -4,7 +4,7 @@ using Project.Entities;
 
 namespace Project.Sprites.ItemSprites
 {
-    class BlueArrowSprite : IWeaponSprite
+    class BlueArrowSprite : IProjectileSprite
     {
         private int sheetRows;
         private int sheetColumns;
@@ -16,56 +16,45 @@ namespace Project.Sprites.ItemSprites
         private bool isFin;
         private float timer;
 
-        private Vector2 position;
         private Facing facing;
 
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
         //Texture, Rows, Columns
-        public BlueArrowSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing, Vector2 position)
+        public BlueArrowSprite(Texture2D spriteSheet, int sheetRows, int sheetColumns, Facing facing)
         {
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
 
-            this.facing = facing;
-            this.position = position;
-
-
             spriteRow = 0;
             isFin = false;
             velocity = 400;
-
 
             switch (facing)
             {
                 case Facing.Up:
                     spriteFrame = 2;
-                    this.position.Y -= 50;
                     break;
                 case Facing.Down:
                     spriteFrame = 3;
-                    this.position.Y += 50;
                     break;
                 case Facing.Left:
                     spriteFrame = 1;
-                    this.position.X -= 50;
                     break;
                 case Facing.Right:
                     spriteFrame = 0;
-                    this.position.X += 50;
                     break;
                 default:
                     break;
             }
 
 
-
         }
        
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
 
             int width = spriteSheet.Width / sheetColumns;
@@ -75,7 +64,7 @@ namespace Project.Sprites.ItemSprites
 
 
             Rectangle spriteRectangle = new Rectangle(spriteFrame * width, spriteRow * height, width, height);
-            destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, width * scale, height * scale);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 
         }
@@ -87,34 +76,9 @@ namespace Project.Sprites.ItemSprites
             if (timer > 1500 && timer < 2000)
                 spriteFrame = 4;
 
-            switch (spriteFrame)
-            {
-                case 2:
-                    yPos = -1;
-                    break;
-                case 3:
-                    yPos = 1;
-                    break;
-                case 1:
-                    xPos = -1;
-                    break;
-                case 0:
-                    xPos = 1;
-                    break;
-                case 4:
-                    xPos = 0;
-                    yPos = 0;
-                    break;
-                default:
-                    break;
-            }
-
-            this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
-            this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
-
         }
 
-        public bool isFinished()
+        public bool IsFinished()
         { 
             return isFin = timer > 2000 ? true : false;
         }
