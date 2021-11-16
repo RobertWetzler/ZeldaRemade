@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Sprites.BackgroundSprites
 {
@@ -38,7 +35,7 @@ namespace Project.Sprites.BackgroundSprites
 
         public void Update(GameTime gameTime)
         {
-            time += (int) gameTime.ElapsedGameTime.TotalMilliseconds;
+            time += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (time > TOTAL_MS)
             {
                 time -= TOTAL_MS;

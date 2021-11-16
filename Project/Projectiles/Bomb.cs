@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
 using System;
 
@@ -36,7 +36,7 @@ namespace Project.Projectiles
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bomb;
         public bool IsActive { get; set; } = true;
-        
+
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -48,12 +48,12 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             sprite.Update(gameTime);
-            
+
         }
 
         public Vector2 Offset()
         {
-           
+
             offset = facing switch
             {
                 Facing.Up => new Vector2(0f, -offsetVal),

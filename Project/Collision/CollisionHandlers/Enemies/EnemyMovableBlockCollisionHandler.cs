@@ -1,8 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Project.Blocks.MovableBlock;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Project.Blocks.MovableBlock;
 
 namespace Project.Collision.CollisionHandlers.Enemies
 {

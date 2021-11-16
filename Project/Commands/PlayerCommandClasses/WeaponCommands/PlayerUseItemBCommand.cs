@@ -1,11 +1,8 @@
 ﻿using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Commands.PlayerCommandClasses.WeaponCommands
 {
-    class PlayerUseItemBCommand: ICommand
+    class PlayerUseItemBCommand : ICommand
     {
         public void Execute()
         {

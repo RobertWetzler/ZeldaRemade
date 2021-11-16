@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Collision.CollisionHandlers.Doors
 {
@@ -14,13 +11,14 @@ namespace Project.Collision.CollisionHandlers.Doors
             IPlayer player = playerCollidable as IPlayer;
             if(door.DoorType == DoorType.KEY_CLOSED && player.Inventory.GetItemCount(ItemType.Key) > 0)
             {
-                    HandleUnlock(player, door);
+                HandleUnlock(player, door);
             }
             else if (door.IsClosed)
             { 
                 new PlayerBlockCollisionHandler().HandleCollision(playerCollidable, doorCollidable, CollisionUtils.Opposite(side));
             }
-            else if (IsPlayerHittingEdge(player)) {
+            else if (IsPlayerHittingEdge(player))
+            {
                 switch (door)
                 {
                     case NorthDoor northDoor:

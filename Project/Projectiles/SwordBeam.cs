@@ -4,11 +4,10 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
-using System;
 
 namespace Project.Projectiles
 {
-    class SwordBeam: IProjectile
+    class SwordBeam : IProjectile
     {
 
         private IProjectileSprite sprite;
@@ -20,7 +19,7 @@ namespace Project.Projectiles
         private Facing facing;
         private int xPos, yPos;
         private int velocity;
-       
+
         public SwordBeam(Facing facing, Vector2 position, bool isFriendly = true)
         {
             this.facing = facing;
@@ -28,7 +27,7 @@ namespace Project.Projectiles
             this.isFriendly = isFriendly;
 
             sprite = ItemSpriteFactory.Instance.CreateSwordSprite(this.facing);
-            
+
 
             velocity = 500;
 

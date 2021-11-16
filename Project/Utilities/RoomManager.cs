@@ -44,12 +44,12 @@ namespace Project.Utilities
         public static Room GetRoom(int roomID)
         {
             Room room = null;
-            if(IdToRoom.ContainsKey(roomID))
+            if (IdToRoom.ContainsKey(roomID))
             {
                 room = IdToRoom[roomID];
             }
             return room;
         }
- 
+
     }
 }

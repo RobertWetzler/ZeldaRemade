@@ -1,15 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 
 namespace Project.Blocks.Walls
 {
     class WallCreator
     {
         public static List<Wall> CreateWalls(Rectangle roomBounds, List<IDoor> doors)
-        {   
+        {
             List<Wall> walls = new List<Wall>();
             Rectangle playerBounds = Game1.Instance.PlayerBounds;
             walls.AddRange(CreateNorthWalls(roomBounds, playerBounds, (NorthDoor)doors.Find(x => x is NorthDoor)));

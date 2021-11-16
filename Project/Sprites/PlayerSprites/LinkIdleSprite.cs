@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Project.Sprites.PlayerSprites
 {
@@ -15,7 +14,7 @@ namespace Project.Sprites.PlayerSprites
         private Vector2 position;
 
         public Rectangle DestRectangle => this.destRectangle;
-        
+
         public LinkIdleSprite(Texture2D playerSpriteSheet, Facing facing, Vector2 position)
         {
             this.playerSpriteSheet = playerSpriteSheet;
@@ -41,7 +40,7 @@ namespace Project.Sprites.PlayerSprites
                     spriteColumn = 2;
                     break;
             }
-           
+
             frameWidth = new List<(int spriteW, int totalW)>();
             frameWidth.Add((16, 0));
             frameWidth.Add((16, 17));
@@ -61,7 +60,7 @@ namespace Project.Sprites.PlayerSprites
 
         public void Update(GameTime gameTime)
         {
-            
+
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
@@ -71,10 +70,10 @@ namespace Project.Sprites.PlayerSprites
 
             Rectangle source = new Rectangle(frameWidth[spriteColumn].totalW, spriteRow * height, width, height);
             if (facingLeft)
-                spriteBatch.Draw(playerSpriteSheet, this.destRectangle, source,color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(playerSpriteSheet, this.destRectangle, source, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
             else
                 spriteBatch.Draw(playerSpriteSheet, this.destRectangle, source, color);
-            
+
         }
 
         public Rectangle destRectangle
@@ -84,7 +83,7 @@ namespace Project.Sprites.PlayerSprites
                 Rectangle destRectangle;
                 return destRectangle = new Rectangle((int)position.X, (int)position.Y, frameWidth[spriteColumn].spriteW * 4, playerSpriteSheet.Height / sheetRows * 4);
             }
-            
+
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sprites;
 
 namespace Project.Sprites.BackgroundSprites
 {
