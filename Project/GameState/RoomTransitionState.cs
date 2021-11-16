@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Factory;
 using Project.HUD;
 using Project.Utilities;
 using System;
@@ -34,20 +35,26 @@ namespace Project.GameState
             switch (dir)
             {
                 case Direction.Up:
+                    
                     this.dir_vect = new Vector2(0, 1);
                     this.nextRoom = curRoom.NorthRoom;
+                    SoundManager.Instance.music.Stop();
                     break;
                 case Direction.Down:
+                    
                     this.dir_vect = new Vector2(0, -1);
                     this.nextRoom = curRoom.SouthRoom;
+                    SoundManager.Instance.music.Stop();
                     break;
                 case Direction.Left:
                     this.dir_vect = new Vector2(1, 0);
                     this.nextRoom = curRoom.WestRoom;
+                    SoundManager.Instance.music.Stop();
                     break;
                 case Direction.Right:
                     this.dir_vect = new Vector2(-1, 0);
                     this.nextRoom = curRoom.EastRoom;
+                    SoundManager.Instance.music.Stop();
                     break;
                 default:
                     throw new NotImplementedException();
