@@ -46,8 +46,6 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             flipped = timer > 2000;
 
-
-
             switch (this.facing)
             {
                 case Facing.Up:
