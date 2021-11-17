@@ -185,6 +185,8 @@ namespace Project.GameState
             if (player.Inventory.GetItemCount(ItemType.Sword) > 0)
                 sword.Draw(spriteBatch, new Vector2(500, 250));
 
+            if (player.Inventory.GetItemCount(ItemType.Map) > 0)
+                map.Draw(spriteBatch, new Vector2(165, 440));
 
             if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
                 compass.Draw(spriteBatch, new Vector2(165, 600));
@@ -197,7 +199,7 @@ namespace Project.GameState
                     switch (room)
                     {
                         case 1:
-                            mapTile1.Draw(spriteBatch, new Vector2(400, 464 + heightOffset), Color.White);
+                            mapTile1.Draw(spriteBatch, new Vector2(468, 464 + heightOffset), Color.White);
                             break;
                         case 2:
                             mapTile2.Draw(spriteBatch, new Vector2(500, 400 + heightOffset), Color.White);
