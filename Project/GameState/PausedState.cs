@@ -23,7 +23,7 @@ namespace Project.GameState
         {
             this.game = game;
             smallHUD = new SmallHUD(false);
-            SoundManager.Instance.music.Pause();
+            SoundManager.Instance.backgroundInstance.Pause();
             spriteBlank = TextSpriteFactory.Instance.CreateBlankSprite();
             spriteA = TextSpriteFactory.Instance.CreateASprite();
             spriteD = TextSpriteFactory.Instance.CreateDSprite();
