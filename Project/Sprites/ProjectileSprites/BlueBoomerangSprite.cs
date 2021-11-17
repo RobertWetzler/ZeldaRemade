@@ -14,8 +14,6 @@ namespace Project.Sprites.ItemSprites
         private int velocity;
         private bool isFin;
         private float timer;
-
-        private Vector2 position;
         private Facing facing;
 
         private Texture2D spriteSheet;
@@ -27,14 +25,8 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-
-            this.facing = facing;
-
-
+            this.facing = facing;   
             spriteRow = 0;
-
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
