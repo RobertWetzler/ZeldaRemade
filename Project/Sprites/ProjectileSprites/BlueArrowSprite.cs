@@ -52,7 +52,7 @@ namespace Project.Sprites.ItemSprites
 
 
         }
-       
+
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -79,10 +79,10 @@ namespace Project.Sprites.ItemSprites
         }
 
         public bool IsFinished()
-        { 
+        {
             return isFin = timer > 2000 ? true : false;
         }
 
-   
+
     }
 }

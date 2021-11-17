@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Entities;
-using System;
 
 namespace Project.Sprites.ItemSprites
 {

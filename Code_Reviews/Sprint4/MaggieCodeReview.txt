@@ -1,0 +1,28 @@
+Readability 
+Author: Maggie Feng
+11/15/2021
+Sprint 4
+Reviewing: SoundManager.cs
+Author of reviewed file: Edwin
+Time: 10 min
+Comments: 
+- Uses descriptive method and variable names which makes it more readable
+- Very long class, which makes the class a little less readable since it's very long
+- Overall, the readability of the class is good. Easy to understand what the class
+is supposed to do (create and play sounds) with the descriptive variable names
+
+Maintainability:
+Author: Maggie Feng
+11/15/2021
+Sprint 4
+Reviewing: ItemSelectionState.cs
+Author of reviewed file: Yuting
+Comments on code quality: 
+- Uses a lot of dependicies, so has high coupling. 
+- Uses some magic numbers which makes it less maintainable in case of future changes
+- Very long class file. Could separate file into multiple parts 
+- Overall, this class could be refactored so it is more maintainable and uses less hardcoded values
+Hypothetical change:  I
+- If we changed the screen size of the game, this class would not easily support the change because it uses
+a lot of magic numbers to hardcode position of sprites.We would have to modify all the numbers
+in the file to support the screen size change. 

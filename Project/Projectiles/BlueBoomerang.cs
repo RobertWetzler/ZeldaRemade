@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
 
 namespace Project.Projectiles
@@ -44,8 +44,6 @@ namespace Project.Projectiles
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             flipped = timer > 2000;
-
-
 
             switch (this.facing)
             {

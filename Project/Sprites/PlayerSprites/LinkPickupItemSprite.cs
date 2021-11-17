@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 using System.Collections.Generic;
 
 namespace Project.Sprites.PlayerSprites
@@ -55,7 +54,7 @@ namespace Project.Sprites.PlayerSprites
                 }
             }
 
-          
+
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)

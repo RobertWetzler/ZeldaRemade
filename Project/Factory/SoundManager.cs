@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework.Audio;
+﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 
 namespace Project.Factory
@@ -80,7 +77,7 @@ namespace Project.Factory
             soundInstance = arrow_boomerang.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();
-            
+
         }
         public void CreateBackgroundMusic()
         {
@@ -93,7 +90,7 @@ namespace Project.Factory
             soundInstance = bomb_blow.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();
-            
+
         }
         public void CreateBombDropSound()
         {
@@ -106,7 +103,7 @@ namespace Project.Factory
             soundInstance = boss_scream.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();
-          
+
         }
         public void CreateCandleSound()
         {

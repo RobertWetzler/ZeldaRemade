@@ -1,6 +1,6 @@
-﻿using Project.Projectiles;
+﻿using Microsoft.Xna.Framework;
 using Project.Items;
-using Microsoft.Xna.Framework;
+using Project.Projectiles;
 using System;
 
 namespace Project.Collision.CollisionHandlers.Enemies
@@ -17,7 +17,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
             IEnemy enemy = enemyCollidable as IEnemy;
             IProjectile projectile = projectileCollidable as IProjectile;
             enemyPos = new Vector2(enemyCollidable.BoundingBox.X, enemyCollidable.BoundingBox.Y);
-            
+
             randDouble = rand.NextDouble();
             if (randDouble < 0.05)
                 item = new BombItem(enemyPos);
@@ -37,10 +37,10 @@ namespace Project.Collision.CollisionHandlers.Enemies
                 if (!(enemy is Trap))
                 {
                     enemy.Despawn();
-                    if (enemy is Goriya|| enemy is Skeleton || enemy is WallMaster)
+                    if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
                     {
                         randDouble = rand.NextDouble();
-                        if (randDouble>0.65)
+                        if (randDouble > 0.65)
                             enemy.DropItem(item);
                     }
                 }

@@ -10,7 +10,7 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-      
+
         private float timer;
         private bool isFin, flipped;
 
@@ -28,12 +28,10 @@ namespace Project.Sprites.ItemSprites
             this.sheetRows = sheetRows;
             this.facing = facing;
             spriteRow = 0;
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-
             int width = spriteSheet.Width / sheetColumns;
             int height = spriteSheet.Height / sheetRows;
             int scale = 4;
@@ -42,9 +40,6 @@ namespace Project.Sprites.ItemSprites
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
 
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
-
-
-
         }
 
         public bool IsFinished()
@@ -59,7 +54,7 @@ namespace Project.Sprites.ItemSprites
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
             flipped = timer > 1500;
 
-     
+
         }
     }
 }

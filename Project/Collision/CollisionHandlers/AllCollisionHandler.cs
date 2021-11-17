@@ -1,13 +1,7 @@
-﻿using Project.Blocks;
-using Project.Blocks.MovableBlock;
-using Project.Collision.CollisionHandlers;
+﻿using Project.Collision.CollisionHandlers;
 using Project.Collision.CollisionHandlers.Blocks;
 using Project.Collision.CollisionHandlers.Doors;
 using Project.Collision.CollisionHandlers.Enemies;
-using Project.Entities;
-using Project.Items;
-using Project.NPC.OldMan;
-using Project.Projectiles;
 using System;
 using System.Collections.Generic;
 

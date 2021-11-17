@@ -23,7 +23,7 @@ namespace Project.Sprites.ItemSprites
             startPosition = position;
             delay_frame_index = 0;
         }
-        
+
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -54,6 +54,6 @@ namespace Project.Sprites.ItemSprites
             }
         }
 
-  
+
     }
 }

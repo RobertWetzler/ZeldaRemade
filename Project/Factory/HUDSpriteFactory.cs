@@ -4,9 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites;
 using Project.Sprites.HUDSprites;
 using Project.Sprites.ItemSprites;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Factory
 {

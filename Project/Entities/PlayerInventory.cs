@@ -1,10 +1,5 @@
-﻿using Project.Projectiles;
-using Project.Items;
-using System;
+﻿using Project.Utilities;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using Project.Utilities;
 
 namespace Project
 {
@@ -49,7 +44,7 @@ namespace Project
             {
                 inventory.Add(item, 1);
             }
-           if (aItem == ItemType.Null && HoldableItemUtilities.holdableItems.Contains(item))
+            if (aItem == ItemType.Null && HoldableItemUtilities.holdableItems.Contains(item))
             {
                 aItem = item;
             }
