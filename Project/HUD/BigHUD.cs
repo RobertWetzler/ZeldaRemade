@@ -1,40 +1,68 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Project.Commands;
 using Project.Factory;
-using Project.HUD;
+using Project.Text;
 using Project.Utilities;
 
-namespace Project.GameState
+namespace Project.HUD
 {
-    class ItemSelectionState : IGameState
+    class BigHUD : IHUD
     {
         private Game1 game;
         private KeyboardController keyboardController;
-        private IHUD smallHud, bigHUD;
+        private ItemSelectionScreen itemSelectionScreen;
+        private ItemSelectionBox itemSelector;
+        private ISprite mapTile1, mapTile2, mapTile3, mapTile4, mapTile5, mapTile6, mapTile7, mapTile8, mapTile9, mapTile10, mapTile11, mapTile12, mapTile13, mapTile14, mapTile15, mapTile16, mapTile17;
+        private ISprite blueBoomerang, boomerang, sword, bow, blueCandle, map, compass;
+        private const int heightOffset = 0;
+        private IHUD smallHud;
+        private Vector2 itemSelectedPosition;
+        private ISprite posDot;
+        private Vector2 dotPos;
+        private IPlayer player;
 
-        public ItemSelectionState(Game1 game)
+        public BigHUD(Game1 game)
         {
             this.game = game;
-            bigHUD = new BigHUD(game); 
+            this.player = game.Player;
+            itemSelector = new ItemSelectionBox(game);
+            posDot = HUDSpriteFactory.Instance.CreateWhiteSquare();
+            dotPos = new Vector2(544, 569);
+            itemSelectedPosition = new Vector2(245, 180);
+            this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
+            mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
+            mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
+            mapTile3 = MapTileSpriteFactory.Instance.CreateBRDoorTileSprite();
+            mapTile4 = MapTileSpriteFactory.Instance.CreateUpDoorTileSprite();
+            mapTile5 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
+            mapTile6 = MapTileSpriteFactory.Instance.CreateBLDoorTileSprite();
+            mapTile7 = MapTileSpriteFactory.Instance.CreateUBDoorTileSprite();
+            mapTile8 = MapTileSpriteFactory.Instance.CreateULRDoorTileSprite();
+            mapTile9 = MapTileSpriteFactory.Instance.CreateBLRDoorTileSprite();
+            mapTile10 = MapTileSpriteFactory.Instance.CreateUBDoorTileSprite();
+            mapTile11 = MapTileSpriteFactory.Instance.CreateUBLRDoorTileSprite();
+            mapTile12 = MapTileSpriteFactory.Instance.CreateLRDoorTileSprite();
+            mapTile13 = MapTileSpriteFactory.Instance.CreateLDoorTileSprite();
+            mapTile14 = MapTileSpriteFactory.Instance.CreateLDoorTileSprite();
+            mapTile15 = MapTileSpriteFactory.Instance.CreateBRDoorTileSprite();
+            mapTile16 = MapTileSpriteFactory.Instance.CreateULDoorTileSprite();
+            mapTile17 = MapTileSpriteFactory.Instance.CreateLDoorTileSprite();
 
-            keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(this.game));
-            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(this.game));
-            keyboardController.RegisterCommand(Keys.G, new GetBItemCommand(game));
-            smallHud = new SmallHUD(true);
+            blueBoomerang = ItemSpriteFactory.Instance.CreateItemSprite(1, 1);
+            boomerang = ItemSpriteFactory.Instance.CreateItemSprite(1, 0);
+            sword = ItemSpriteFactory.Instance.CreateItemSprite(0, 10);
+            bow = ItemSpriteFactory.Instance.CreateItemSprite(0, 7);
+            blueCandle = ItemSpriteFactory.Instance.CreateItemSprite(0, 3);
+            map = ItemSpriteFactory.Instance.CreateItemSprite(1, 8);
+            compass = ItemSpriteFactory.Instance.CreateItemSprite(1, 9);
         }
-        public void Update(GameTime gameTime, Rectangle gameRect)
+        public void Update(GameTime gameTime)
         {
-            keyboardController.Update();
-
-            bigHUD.Update();
-        /*
-            *
+            itemSelectionScreen.Update(gameTime);
+            itemSelector.Update(gameTime);
+            /*
              * Update posDot's position 
-             *
+             */
             switch (RoomManager.Instance.CurrentRoom.RoomID)
             {
                 case 1:
@@ -88,19 +116,17 @@ namespace Project.GameState
                 case 17:
                     dotPos = new Vector2(640, 441);
                     break;
-            }*/
+            }
         }
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-            bigHUD.Draw(spriteBatch);
-            /*
+        public void Draw(SpriteBatch spriteBatch)
+        {            /*
              * Display big HUD screen
-             *
+             */
             itemSelectionScreen.Draw(spriteBatch);
             itemSelector.Draw(spriteBatch);
             /*
              * Displays Items in the Selected box 
-             *
+             */
             if (game.ItemIdx == 0 && player.Inventory.GetItemCount(ItemType.Blue_Boomerang) > 0)
             {
                 blueBoomerang.Draw(spriteBatch, itemSelectedPosition);
@@ -130,9 +156,9 @@ namespace Project.GameState
                 sword.Draw(spriteBatch, itemSelectedPosition);
                 Game1.Instance.getItem = ItemType.Sword;
             }
-           /*
-            * Displays Items in the inventory box          
-            *
+            /*
+             * Displays Items in the inventory box          
+             */
             if (player.Inventory.GetItemCount(ItemType.Bomb) > 0)
                 blueBoomerang.Draw(spriteBatch, new Vector2(500, 180));
 
@@ -154,12 +180,8 @@ namespace Project.GameState
             if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
                 compass.Draw(spriteBatch, new Vector2(165, 600));
             /*
-             * Display small HUD screen on the bottom
+             * Display orange map
              */
-            smallHud.Draw(spriteBatch);
-           /*
-            * Display orange map
-            *
             foreach (var room in game.PassedRoom)
             {
                 switch (room)
@@ -217,7 +239,8 @@ namespace Project.GameState
                         break;
                 }
             }
-                posDot.Draw(spriteBatch, dotPos, Color.White);*/
+            posDot.Draw(spriteBatch, dotPos, Color.White);
         }
+        public void Update() { }
     }
 }

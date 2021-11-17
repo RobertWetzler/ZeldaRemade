@@ -6,7 +6,6 @@ using Project.Utilities;
 
 namespace Project.HUD
 {
-
     class SmallHUD : IHUD
     {
         private Vector2 mapPos;
