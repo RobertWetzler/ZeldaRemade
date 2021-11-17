@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Sound;
 using Project.Sprites.ItemSprites;
 using System;
 

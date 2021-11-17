@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 
-namespace Project.Factory
+namespace Project.Sound
 {
     public class SoundManager
     {
@@ -28,7 +28,8 @@ namespace Project.Factory
         private SoundEffect sword_slash;
         private SoundEffect text;
         private SoundEffect title;
-        public SoundEffectInstance music;
+        public SoundEffectInstance backgroundInstance;
+        public SoundEffectInstance titleInstance;
         public SoundEffectInstance soundInstance;
         public static SoundManager instance = new SoundManager();
 
@@ -47,6 +48,8 @@ namespace Project.Factory
         {
             arrow_boomerang = soundFile.Load<SoundEffect>("Sound/LOZ_Arrow_Boomerang");
             background_music = soundFile.Load<SoundEffect>("Sound/LOZ_Background_Music");
+            backgroundInstance = background_music.CreateInstance();
+            backgroundInstance.IsLooped = true;
             bomb_blow = soundFile.Load<SoundEffect>("Sound/LOZ_Bomb_Blow");
             bomb_drop = soundFile.Load<SoundEffect>("Sound/LOZ_Bomb_Drop");
             boss_scream = soundFile.Load<SoundEffect>("Sound/LOZ_Boss_Scream1");
@@ -68,8 +71,8 @@ namespace Project.Factory
             sword_slash = soundFile.Load<SoundEffect>("Sound/LOZ_Sword_Slash");
             text = soundFile.Load<SoundEffect>("Sound/LOZ_Text");
             title = soundFile.Load<SoundEffect>("Sound/LOZ_Title");
-
-
+            titleInstance = title.CreateInstance();
+            titleInstance.IsLooped = true;
         }
 
         public void CreateArrowBoomerangSound()
@@ -81,9 +84,11 @@ namespace Project.Factory
         }
         public void CreateBackgroundMusic()
         {
-            music = background_music.CreateInstance();
-            music.IsLooped = true;
-            music.Play();
+            titleInstance.Stop();
+            if (backgroundInstance.State != SoundState.Playing)
+            {
+                backgroundInstance.Play();
+            }
         }
         public void CreateBombBlowSound()
         {
@@ -210,9 +215,11 @@ namespace Project.Factory
         }
         public void CreateTitleSound()
         {
-            soundInstance = title.CreateInstance();
-            soundInstance.IsLooped = false;
-            soundInstance.Play();
+            backgroundInstance.Stop();
+            if (titleInstance.State != SoundState.Playing)
+            {
+                titleInstance.Play();
+            }
         }
 
 

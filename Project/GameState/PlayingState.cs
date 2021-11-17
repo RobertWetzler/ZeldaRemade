@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
+using Project.Sound;
 using Project.HUD;
 using Project.Utilities;
 using System.Collections.Generic;
@@ -20,7 +20,6 @@ namespace Project.GameState
             controllers = new List<IController>();
             controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
             SoundManager.Instance.CreateBackgroundMusic();
-            SoundManager.Instance.soundInstance.Stop();
             smallHud = new SmallHUD(false);
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)

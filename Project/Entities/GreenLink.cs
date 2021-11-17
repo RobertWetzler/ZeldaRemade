@@ -112,10 +112,7 @@ namespace Project.Entities
         }
 
 
-        public void BecomeDamaged()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void TakeDamage(int damage)
         {
@@ -130,7 +127,7 @@ namespace Project.Entities
                 game.GameStateMachine.TitleScreen();
                 health = 6;
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
-
+                RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
             }
 
         }

@@ -4,6 +4,7 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.Sprites.ItemSprites;
+using Project.Sound;
 
 namespace Project.Projectiles
 {
