@@ -104,6 +104,9 @@ namespace Project.HUD
             healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
             UpdateABItems();
         }
+
+        public void Update(GameTime gameTime) { }
+
         public void UpdateABItems()
         {
             if (player.Inventory.AItem != aItemType)
