@@ -11,7 +11,6 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
         private float timer;
-        private bool isFin;
 
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
@@ -25,8 +24,6 @@ namespace Project.Sprites.ItemSprites
 
 
             spriteRow = 0;
-            isFin = false;
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -47,14 +44,14 @@ namespace Project.Sprites.ItemSprites
 
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 3000 && timer < 4000)
+            if (timer > 1000 && timer < 2000)
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
 
         }
 
         public bool IsFinished()
         {
-            return isFin = timer > 3500 ? true : false;
+            return timer > 2000 ? true : false;
         }
     }
 }
