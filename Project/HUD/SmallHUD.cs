@@ -99,13 +99,16 @@ namespace Project.HUD
             numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
             numKeys = player.Inventory.GetItemCount(ItemType.Key);
             numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
-            numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
-            numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
-            numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
+            ((NumberItemsText)numCoinsText).Number = numCoins;
+            ((NumberItemsText)numKeysText).Number = numKeys;
+            ((NumberItemsText)numBombsText).Number = numBombs;
+            ((NumberItemsText)numCoinsText).StartPosition = new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65);
+            ((NumberItemsText)numKeysText).StartPosition = new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130);
+            ((NumberItemsText)numBombsText).StartPosition = new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160);
             healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
             UpdateABItems();
         }
-        public void UpdateABItems()
+        private void UpdateABItems()
         {
             if (player.Inventory.AItem != aItemType)
             {
