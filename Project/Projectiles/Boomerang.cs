@@ -29,7 +29,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(this.facing);
             this.isFriendly = isFriendly;
-            velocity = 200;
+            velocity = 400;
             SoundManager.Instance.CreateArrowBoomerangSound();
         }
 

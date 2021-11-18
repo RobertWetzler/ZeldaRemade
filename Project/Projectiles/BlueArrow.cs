@@ -29,7 +29,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBlueArrowSprite(this.facing);
             this.isFriendly = isFriendly;
-            velocity = 400;
+            velocity = 500;
 
             direction = this.facing switch
             {

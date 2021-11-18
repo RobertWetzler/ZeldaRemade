@@ -28,7 +28,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(this.facing);
             this.isFriendly = isFriendly;
-            velocity = 200;
+            velocity = 500;
             SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
