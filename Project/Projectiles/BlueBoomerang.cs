@@ -44,7 +44,7 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            flipped = timer > 2000;
+            flipped = timer > 1000;
 
             switch (this.facing)
             {
