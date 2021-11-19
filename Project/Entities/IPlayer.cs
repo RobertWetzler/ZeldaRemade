@@ -19,6 +19,7 @@ namespace Project
         void MoveRight();
         void StopMoving();
         void UseWeapon(WeaponTypes weaponType);
+        void AddHealth(int value);
 
     }
 }

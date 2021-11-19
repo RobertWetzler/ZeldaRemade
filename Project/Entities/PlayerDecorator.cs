@@ -24,6 +24,11 @@ namespace Project.Entities
         {
             game.Player = decoratedPlayer;
         }
+
+        public void AddHealth(int value)
+        {
+            // Do nothing
+        }
         // mark methods as virtual so they can be overriden by derived classes
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
@@ -79,5 +84,6 @@ namespace Project.Entities
         {
             decoratedPlayer.UseWeapon(weaponType);
         }
+
     }
 }

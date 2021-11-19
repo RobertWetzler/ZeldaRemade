@@ -64,6 +64,11 @@ namespace Project.Entities
 
         public int Health { get => health; set => health = value; }
 
+        public void AddHealth(int value)
+        {
+            health += value;
+        }
+
         public GreenLink(Game1 game)
         {
             this.game = game;
