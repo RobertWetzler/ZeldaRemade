@@ -18,6 +18,7 @@ namespace Project.Entities
         private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
+        private int maxHealth = 6;
         private int health = 6;
         private PlayerInventory inventory;
 
@@ -66,7 +67,19 @@ namespace Project.Entities
 
         public void AddHealth(int value)
         {
-            health += value;
+            if (health <= (maxHealth - 2))
+            {
+                health += value;
+            }
+            else
+            {
+                health = maxHealth;
+            }
+        }
+
+        public void MaxHealth()
+        {
+            maxHealth += 2;
         }
 
         public GreenLink(Game1 game)

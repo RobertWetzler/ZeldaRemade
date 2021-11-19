@@ -29,6 +29,11 @@ namespace Project.Entities
         {
             // Do nothing
         }
+
+        public void MaxHealth()
+        {
+            // Do Nothing
+        }
         // mark methods as virtual so they can be overriden by derived classes
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
