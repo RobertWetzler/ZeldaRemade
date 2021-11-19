@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using System.Collections.Generic;
+using Project.Sound;
 
 namespace Project.Text
 {
