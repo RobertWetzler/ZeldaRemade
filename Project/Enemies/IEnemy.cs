@@ -26,7 +26,7 @@ namespace Project
 
         public void DropItem(IItems item)
         {
-            RoomManager.Instance.CurrentRoom.AddItem(item);
+            RoomManager.Instance.CurrentRoom.AddRandomItem(item);
         }
     }
 }
