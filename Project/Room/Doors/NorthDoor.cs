@@ -4,9 +4,6 @@ using Project.Collision;
 using Project.Factory;
 using Project.Sprites;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {

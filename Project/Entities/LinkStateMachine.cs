@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Project.Projectiles;
+﻿using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 

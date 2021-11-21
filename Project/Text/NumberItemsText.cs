@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Text
 {
@@ -41,7 +38,7 @@ namespace Project.Text
             if (num < 10)
             {
                 sprite0.Draw(spriteBatch, firstDigitPosition);
-                DrawSpriteNumber(spriteBatch, num, secondDigitPosition);           
+                DrawSpriteNumber(spriteBatch, num, secondDigitPosition);
             }
             else
             {

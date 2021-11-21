@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
-using Project.Factory;
 using Project.Projectiles;
 using Project.Utilities;
+using Project.Sound;
 
 namespace Project
 {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Collision;
 using Project.Factory;
+using Project.Sound;
 using Project.Utilities;
 
 namespace Project
@@ -24,9 +25,9 @@ namespace Project
             SoundManager.Instance.CreateEnemyDeathSound();
         }
 
-        public void DropItem (IItems item)
+        public void DropItem(IItems item)
         {
-            RoomManager.Instance.CurrentRoom.AddItem(item);
+            RoomManager.Instance.CurrentRoom.AddRandomItem(item);
         }
     }
 }

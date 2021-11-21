@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
-using Project.Utilities;
 using Project.Factory;
 using Project.HUD;
+using Project.Utilities;
 
 namespace Project.GameState
 {
@@ -15,7 +15,7 @@ namespace Project.GameState
         private ItemSelectionScreen itemSelectionScreen;
         private ItemSelectionBox itemSelector;
         private ISprite mapTile1, mapTile2, mapTile3, mapTile4, mapTile5, mapTile6, mapTile7, mapTile8, mapTile9, mapTile10, mapTile11, mapTile12, mapTile13, mapTile14, mapTile15, mapTile16, mapTile17;
-        private ISprite bomb, boomerang, sword, bow, blueCandle, map, compass;
+        private ISprite blueBoomerang, boomerang, sword, bow, blueCandle, map, compass;
         private const int heightOffset = 0;
         private IHUD smallHud;
         private Vector2 itemSelectedPosition;
@@ -35,8 +35,10 @@ namespace Project.GameState
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(this.game));
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
+            keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(this.game));
+            keyboardController.RegisterCommand(Keys.G, new GetBItemCommand(game));
             smallHud = new SmallHUD(true);
-            
+
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile2 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
             mapTile3 = MapTileSpriteFactory.Instance.CreateBRDoorTileSprite();
@@ -55,7 +57,7 @@ namespace Project.GameState
             mapTile16 = MapTileSpriteFactory.Instance.CreateULDoorTileSprite();
             mapTile17 = MapTileSpriteFactory.Instance.CreateLDoorTileSprite();
 
-            bomb = ItemSpriteFactory.Instance.CreateItemSprite(1, 4);
+            blueBoomerang = ItemSpriteFactory.Instance.CreateItemSprite(1, 1);
             boomerang = ItemSpriteFactory.Instance.CreateItemSprite(1, 0);
             sword = ItemSpriteFactory.Instance.CreateItemSprite(0, 10);
             bow = ItemSpriteFactory.Instance.CreateItemSprite(0, 7);
@@ -78,7 +80,7 @@ namespace Project.GameState
                     dotPos = new Vector2(513, 408);
                     break;
                 case 3:
-                         dotPos = new Vector2(513, 472);
+                    dotPos = new Vector2(513, 472);
                     break;
                 case 4:
                     dotPos = new Vector2(513, 504);
@@ -90,10 +92,10 @@ namespace Project.GameState
                     dotPos = new Vector2(544, 408);
                     break;
                 case 7:
-                   dotPos = new Vector2(544, 441);
+                    dotPos = new Vector2(544, 441);
                     break;
                 case 8:
-                   dotPos = new Vector2(544, 472);
+                    dotPos = new Vector2(544, 472);
                     break;
                 case 9:
                     dotPos = new Vector2(544, 504);
@@ -122,7 +124,7 @@ namespace Project.GameState
                 case 17:
                     dotPos = new Vector2(640, 441);
                     break;
-        }
+            }
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -132,26 +134,41 @@ namespace Project.GameState
             /*
              * Displays Items in the Selected box 
              */
-            if (game.ItemIdx == 0 && player.Inventory.GetItemCount(ItemType.Bomb) > 0)
-                bomb.Draw(spriteBatch, itemSelectedPosition);
+            if (game.ItemIdx == 0 && player.Inventory.GetItemCount(ItemType.Blue_Boomerang) > 0)
+            {
+                blueBoomerang.Draw(spriteBatch, itemSelectedPosition);
+                Game1.Instance.getItem = ItemType.Blue_Boomerang;
+            }
 
             if (game.ItemIdx == 1 && player.Inventory.GetItemCount(ItemType.Blue_Candle) > 0)
+            {
                 blueCandle.Draw(spriteBatch, itemSelectedPosition);
+                Game1.Instance.getItem = ItemType.Blue_Candle;
+            }
 
             if (game.ItemIdx == 2 && player.Inventory.GetItemCount(ItemType.Bow) > 0)
+            {
                 bow.Draw(spriteBatch, itemSelectedPosition);
+                Game1.Instance.getItem = ItemType.Bow;
+            }
 
             if (game.ItemIdx == 3 && player.Inventory.GetItemCount(ItemType.Boomerang) > 0)
+            {
                 boomerang.Draw(spriteBatch, itemSelectedPosition);
+                Game1.Instance.getItem = ItemType.Boomerang;
+            }
 
             if (game.ItemIdx == 4 && player.Inventory.GetItemCount(ItemType.Sword) > 0)
+            {
                 sword.Draw(spriteBatch, itemSelectedPosition);
+                Game1.Instance.getItem = ItemType.Sword;
+            }
 
             /*
             * Displays Items in the inventory box          
             */
             if (player.Inventory.GetItemCount(ItemType.Bomb) > 0)
-                bomb.Draw(spriteBatch, new Vector2(500, 180));
+                blueBoomerang.Draw(spriteBatch, new Vector2(500, 180));
 
             if (player.Inventory.GetItemCount(ItemType.Blue_Candle) > 0)
                 blueCandle.Draw(spriteBatch, new Vector2(600, 180));
@@ -167,7 +184,7 @@ namespace Project.GameState
 
 
             if (player.Inventory.GetItemCount(ItemType.Compass) > 0)
-                compass.Draw(spriteBatch, new Vector2(165,600));
+                compass.Draw(spriteBatch, new Vector2(165, 600));
 
 
             smallHud.Draw(spriteBatch);

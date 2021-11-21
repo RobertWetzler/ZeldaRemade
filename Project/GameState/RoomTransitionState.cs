@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
+using Project.Sound;
 using Project.HUD;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Project.GameState
 {
@@ -35,31 +34,27 @@ namespace Project.GameState
             switch (dir)
             {
                 case Direction.Up:
-                    
+
                     this.dir_vect = new Vector2(0, 1);
                     this.nextRoom = curRoom.NorthRoom;
-                    SoundManager.Instance.music.Stop();
                     break;
                 case Direction.Down:
-                    
+
                     this.dir_vect = new Vector2(0, -1);
                     this.nextRoom = curRoom.SouthRoom;
-                    SoundManager.Instance.music.Stop();
                     break;
                 case Direction.Left:
                     this.dir_vect = new Vector2(1, 0);
                     this.nextRoom = curRoom.WestRoom;
-                    SoundManager.Instance.music.Stop();
                     break;
                 case Direction.Right:
                     this.dir_vect = new Vector2(-1, 0);
                     this.nextRoom = curRoom.EastRoom;
-                    SoundManager.Instance.music.Stop();
                     break;
                 default:
                     throw new NotImplementedException();
             }
-            if(this.nextRoom is null)
+            if (this.nextRoom is null)
             {
                 this.game.GameStateMachine.Play();
             }
@@ -91,7 +86,7 @@ namespace Project.GameState
             Rectangle roomBounds = RoomManager.Instance.CurrentRoom.Background.Bounds;
             offset += dir_vect * (float)gameTime.ElapsedGameTime.TotalSeconds * transitionSpeed;
             nextRoomOffset = offset - (new Vector2(roomBounds.Width, roomBounds.Height)) * dir_vect;
-            if(IsTransitionDone())
+            if (IsTransitionDone())
             {
                 RoomManager.Instance.SetCurrentRoom(nextRoom);
                 UpdateLinkPosition();
@@ -124,7 +119,7 @@ namespace Project.GameState
                 Rectangle playerBounds = Game1.Instance.PlayerBounds;
                 Game1.Instance.Player.Position = new Vector2(playerBounds.Center.X, playerBounds.Center.Y);
             }
-            else 
+            else
             {
                 Vector2 doorCenter = new Vector2(door.BoundingBox.Center.X, door.BoundingBox.Center.Y);
                 IPlayer player = Game1.Instance.Player;
@@ -133,7 +128,7 @@ namespace Project.GameState
                     Vector2 doorOffset = doorCenter - dir_vect * new Vector2(door.BoundingBox.Width, door.BoundingBox.Height);
                     player.Position = doorOffset - dir_vect * new Vector2(player.BoundingBox.Width, player.BoundingBox.Height);
                 }
-                else 
+                else
                 {
                     player.Position = new Vector2(doorCenter.X - player.BoundingBox.Width / 2, doorCenter.Y - player.BoundingBox.Height / 2);
                 }

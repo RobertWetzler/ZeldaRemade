@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using System.Collections.Generic;
+using Project.Sound;
 
 namespace Project.Text
 {
@@ -23,8 +24,8 @@ namespace Project.Text
         private List<ISprite> textList1 = new List<ISprite>();  // first line
         private List<ISprite> textList2 = new List<ISprite>();  // second line
 
-        public OldManText() 
-        { 
+        public OldManText()
+        {
             spriteA = TextSpriteFactory.Instance.CreateASprite();
             spriteC = TextSpriteFactory.Instance.CreateCSprite();
             spriteE = TextSpriteFactory.Instance.CreateESprite();
@@ -188,7 +189,7 @@ namespace Project.Text
                 i = 0;
                 foreach (var text in textList2)
                 {
-                    
+
                     text.Draw(spriteBatch, new Vector2(secondLinePosX + i, secondLinePosY));
                     i += shift;
                 }

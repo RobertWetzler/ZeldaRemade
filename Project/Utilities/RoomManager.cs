@@ -17,7 +17,7 @@ namespace Project.Utilities
 
         public static void LoadAllRooms(IPlayer player, GraphicsDeviceManager graphics)
         {
-            
+            IdToRoom = new Dictionary<int, Room>();
             for (int i = 1; i <= 18; i++)
             {
                 string currentRoom = "Room" + i;
@@ -44,12 +44,12 @@ namespace Project.Utilities
         public static Room GetRoom(int roomID)
         {
             Room room = null;
-            if(IdToRoom.ContainsKey(roomID))
+            if (IdToRoom.ContainsKey(roomID))
             {
                 room = IdToRoom[roomID];
             }
             return room;
         }
- 
+
     }
 }

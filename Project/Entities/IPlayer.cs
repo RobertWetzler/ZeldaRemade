@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Collision;
 using Project.Entities;
-using Project.Projectiles;
 using Project.Sprites.PlayerSprites;
 
 namespace Project

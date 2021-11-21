@@ -31,13 +31,13 @@ namespace Project.Sprites
             Rectangle source = new Rectangle(indexRow, indexCol, width, height);
             spriteBatch.Draw(texture, destRect, source, Color.White);
         }
-       public void Draw(SpriteBatch spriteBatch, Rectangle destRect, Vector2 offset)
+        public void Draw(SpriteBatch spriteBatch, Rectangle destRect, Vector2 offset)
         {
             Rectangle offsetRect = new Rectangle(destRect.X + (int)offset.X, destRect.Y + (int)offset.Y, destRect.Width, destRect.Height);
             Draw(spriteBatch, offsetRect);
         }
 
-    public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
         }
     }

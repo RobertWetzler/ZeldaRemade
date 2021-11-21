@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites;
-using Project.Sprites.TextSprites;
 using Project.Utilities;
 
 namespace Project.Factory

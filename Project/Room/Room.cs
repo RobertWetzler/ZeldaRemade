@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Blocks.MovableBlock;
+using Project.Blocks.Walls;
 using Project.Collision;
 using Project.Projectiles;
-using System.Collections.Generic;
-using System.Linq;
 using Project.Text;
 using Project.Utilities;
-using Project.Blocks.Walls;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Project
 {
@@ -15,6 +15,7 @@ namespace Project
     {
         private Background background;
         private List<IItems> items;
+        private List<IItems> randomItems;
         private List<IBlock> blocks;
         private List<INPC> npcs;
         private List<IEnemy> enemies;
@@ -27,7 +28,7 @@ namespace Project
         private int southRoomID;
         private int eastRoomID;
         private int westRoomID;
-    
+
 
         public int RoomID { get => roomID; }
         public Room NorthRoom => RoomManager.GetRoom(northRoomID);
@@ -35,7 +36,7 @@ namespace Project
         public Room EastRoom => RoomManager.GetRoom(eastRoomID);
         public Room WestRoom => RoomManager.GetRoom(westRoomID);
         public Background Background => background;
-        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).ToList();
+        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).Concat(randomItems).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public List<IDoor> Doors => doors;
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
@@ -44,6 +45,7 @@ namespace Project
             this.roomID = id;
             this.background = background;
             this.items = items;
+            this.randomItems = new List<IItems>();
             this.blocks = blocks;
             this.npcs = npcs;
             this.enemies = enemies;
@@ -65,6 +67,14 @@ namespace Project
         public void RemoveItem(IItems item)
         {
             items.Remove(item);
+        }
+        public void AddRandomItem(IItems item)
+        {
+            randomItems.Add(item);
+        }
+        public void RemoveRandomItem(IItems item)
+        {
+            randomItems.Remove(item);
         }
         public void AddProjectile(IProjectile projectile)
         {
@@ -93,6 +103,10 @@ namespace Project
                 npcs.Update(gameTime);
             }
             foreach (IItems item in items)
+            {
+                item.Update(gameTime);
+            }
+            foreach (IItems item in randomItems)
             {
                 item.Update(gameTime);
             }
@@ -132,6 +146,10 @@ namespace Project
             foreach (IEnemy enemy in enemies)
             {
                 enemy.Draw(spriteBatch, gameTime);
+            }
+            foreach (IItems item in randomItems)
+            {
+                item.Draw(spriteBatch);
             }
             if (noEnemies)
             {

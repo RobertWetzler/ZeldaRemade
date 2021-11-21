@@ -23,12 +23,12 @@ namespace Project.Sprites.ItemSprites
             startPosition = position;
             delay_frame_index = 0;
         }
-        
+
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Rectangle source = sourceFrames[currentFrame];
-            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
+            destRectangle = new Rectangle((int)this.position.X, (int)this.position.Y, source.Width * 4, source.Height * 4);
             spriteBatch.Draw(dragonSpriteSheet, destRectangle, source, Color.White);
         }
 
@@ -54,6 +54,6 @@ namespace Project.Sprites.ItemSprites
             }
         }
 
-  
+
     }
 }

@@ -12,6 +12,7 @@ namespace Project
         public void Despawn()
         {
             RoomManager.Instance.CurrentRoom.RemoveItem(this);
+            RoomManager.Instance.CurrentRoom.RemoveRandomItem(this);
         }
         public ItemType type { get; }
 

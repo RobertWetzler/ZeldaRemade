@@ -1,31 +1,34 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
+using Project.Sound;
 
 namespace Project.Projectiles
 {
     class BlueBoomerang : IProjectile
     {
+
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
-        public bool IsFriendly => isFriendly;
         private Vector2 position;
+        public bool IsFriendly => isFriendly;
+        private Facing facing;
         private float timer;
         private bool flipped;
-        private int yPos, xPos;
+        private int xPos, yPos;
         private int velocity;
-        private int offset = 50;
 
-        private Facing facing;
         public BlueBoomerang(Facing facing, Vector2 position, bool isFriendly = true)
         {
-            this.position = position;
             this.facing = facing;
+            this.position = position;
+            sprite = ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(this.facing);
             this.isFriendly = isFriendly;
+            velocity = 200;
             SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
@@ -42,8 +45,6 @@ namespace Project.Projectiles
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             flipped = timer > 2000;
-
-            sprite.Update(gameTime);
 
             switch (this.facing)
             {
@@ -66,7 +67,7 @@ namespace Project.Projectiles
             this.position.X += (float)(gameTime.ElapsedGameTime.TotalSeconds * xPos * velocity);
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
-            
+            sprite.Update(gameTime);
         }
 
         /**
@@ -75,7 +76,6 @@ namespace Project.Projectiles
         private Rectangle SetBoundingBox()
         {
             const float BOUNDINGBOX_OFFSET = 0.5f;
-
             float width = sprite.DestRectangle.Width;
             float height = sprite.DestRectangle.Height * (1 - BOUNDINGBOX_OFFSET);
             int x = sprite.DestRectangle.X;

@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Project.Commands;
-using Project.HUD;
-using Project.Utilities;
 using Project.Factory;
-using System;
+using Project.HUD;
+using Project.Sound;
+using Project.Utilities;
 using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
 
 namespace Project.GameState
 {
@@ -21,13 +17,13 @@ namespace Project.GameState
         private List<ISprite> textList = new List<ISprite>();
         private int textLinePosX = 420;
         private int textLinePosY = 500;
-        
+
         int shift = 30;
         public PausedState(Game1 game)
         {
             this.game = game;
             smallHUD = new SmallHUD(false);
-            SoundManager.Instance.music.Pause();
+            SoundManager.Instance.backgroundInstance.Pause();
             spriteBlank = TextSpriteFactory.Instance.CreateBlankSprite();
             spriteA = TextSpriteFactory.Instance.CreateASprite();
             spriteD = TextSpriteFactory.Instance.CreateDSprite();
@@ -53,7 +49,7 @@ namespace Project.GameState
             int i = 0;
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
-            foreach(var text in textList)
+            foreach (var text in textList)
             {
                 text.Draw(spriteBatch, new Vector2(textLinePosX + i, textLinePosY));
                 i += shift;

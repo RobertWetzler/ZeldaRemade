@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project.Sprites.TextSprites
 {
-    class TextSprite : ISprite 
+    class TextSprite : ISprite
     {
         private int srcSquareSize = 7;  // Side length of the sqaure of source sprite
         private int destSquareSzie = 28;    // Side length of the sqaure of destination position

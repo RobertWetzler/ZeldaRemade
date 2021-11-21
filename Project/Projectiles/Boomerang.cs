@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Collision;
 using Project.Sprites.ItemSprites;
+using Project.Sound;
+
 
 namespace Project.Projectiles
 {
@@ -45,7 +47,7 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             flipped = timer > 1000;
 
-            sprite.Update(gameTime);
+
 
             switch (this.facing)
             {

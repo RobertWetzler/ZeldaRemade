@@ -1,8 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project
 {
@@ -11,7 +8,7 @@ namespace Project
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         private Rectangle sourceRectangle;
-        
+
         public SmallHudSprite(Texture2D texture)
         {
             this.spriteSheet = texture;
@@ -20,7 +17,7 @@ namespace Project
         }
 
         public Rectangle DestRectangle => destRectangle;
-        
+
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             const int scale = 4;

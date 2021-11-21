@@ -4,10 +4,10 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
-using Project.HUD;
 using Project.Utilities;
 using System.Collections.Generic;
-using System.Linq;
+using Project.Sound;
+
 
 namespace Project
 {
@@ -23,16 +23,18 @@ namespace Project
         private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
 
-        public Rectangle PlayerBounds => playerBounds; 
-        
+        public Rectangle PlayerBounds => playerBounds;
+
         public int ItemIdx = 0;
+
+        public ItemType getItem;
         public IPlayer Player { get => player; set => player = value; }
         public int RoomIdx { get => roomIdx; set => roomIdx = value; }
         public int RoomNum { get => RoomManager.IdToRoom.Count; }
         public CollisionIterator CollisionIterator { get => collisionIterator; }
         public GameStateMachine GameStateMachine { get => gameStateMachine; }
         public GraphicsDeviceManager Graphics { get => _graphics; }
-        
+
         private static Game1 instance = new Game1();
         public static Game1 Instance => instance;
         public List<int> PassedRoom { get => passedRoom; }
@@ -61,7 +63,7 @@ namespace Project
 
         protected override void LoadContent()
         {
-             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
             HUDSpriteFactory.Instance.LoadAllTextures(Content, GraphicsDevice);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
@@ -82,9 +84,9 @@ namespace Project
 
             RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
             collisionIterator = new CollisionIterator();
-            
+
         }
-            
+
         protected override void Update(GameTime gameTime)
         {
             passedRoom.Add(RoomManager.Instance.CurrentRoom.RoomID);

@@ -1,7 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Utilities
 {
@@ -77,7 +74,7 @@ namespace Project.Utilities
         }
 
         public Vector2 GetTriforceRoomPos(Vector2 topLeftOrigin)
-        {           
+        {
             return new Vector2(topLeftOrigin.X + 250, topLeftOrigin.Y + 100);
         }
     }

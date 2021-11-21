@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
-using System;
 
 namespace Project
 {
@@ -81,7 +80,7 @@ namespace Project
                 {
                     SetState(new TrapMoveRight(this));
                     movingDirection = EnemyDirections.East;
-                    
+
                 }
                 else if (TrapMovementUtilities.ShouldTrapMoveLeft(startPos, middleOfWidth, player.Position))
                 {
@@ -89,7 +88,7 @@ namespace Project
                     movingDirection = EnemyDirections.West;
 
                 }
-                else if(TrapMovementUtilities.ShouldTrapMoveDown(startPos, middleOfHeight, player.Position))
+                else if (TrapMovementUtilities.ShouldTrapMoveDown(startPos, middleOfHeight, player.Position))
                 {
                     SetState(new TrapMoveDown(this));
                     movingDirection = EnemyDirections.South;
@@ -155,7 +154,7 @@ namespace Project
                         movingDirection = EnemyDirections.None;
                     }
                 }
-            }          
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
