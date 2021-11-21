@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.Factory;
 using Project.HUD;
 using Project.Projectiles;
 using Project.Sprites.ItemSprites;
@@ -129,6 +130,8 @@ namespace Project.Entities
             else
             {
                 game.GameStateMachine.TitleScreen();
+                SoundManager.Instance.soundInstance.Stop();
+                SoundManager.Instance.music.Stop();
             }
           
         }

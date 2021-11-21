@@ -21,7 +21,6 @@ namespace Project.GameState
             this.titleScreen = new TitleScreen(game.Graphics);
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
-            
 
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
