@@ -67,19 +67,25 @@ namespace Project.Entities
 
         public void AddHealth(int value)
         {
-            if (health <= (maxHealth - 2))
+            if (health <= (maxHealth - value))
             {
                 health += value;
+                inventory.AddNItems(ItemType.Heart, value);
             }
             else
             {
                 health = maxHealth;
+                inventory.AddNItems(ItemType.Heart, maxHealth - health);
             }
+            
         }
 
         public void UpdateMaxHealth(int value)
         {
             maxHealth += value;
+            health += value;
+            inventory.AddNItems(ItemType.Heart, value);
+            inventory.AddItem(ItemType.HeartContainer);
         }
 
         public GreenLink(Game1 game)
@@ -138,14 +144,16 @@ namespace Project.Entities
             if (health > 0)
             {
                 health -= damage;
-                inventory.RemoveNItems(ItemType.Heart, 2);
+                inventory.RemoveNItems(ItemType.Heart, damage);
             }
-            else
-            {
+            if (health <= 0) { 
                 game.GameStateMachine.TitleScreen();
-                health = 6;
+                maxHealth = 6;
+                inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
+                inventory.AddNItems(ItemType.HeartContainer, 3);
+                health = maxHealth;
                 inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
-                inventory.AddNItems(ItemType.Heart, 6);
+                inventory.AddNItems(ItemType.Heart, health);
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
                 RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
             }

@@ -11,17 +11,16 @@
             if (item.type == ItemType.Heart)
             {
                 link.AddHealth(2);
-                link.Inventory.AddNItems(item.type, 2);
+            }
+            else if (item.type==ItemType.HeartContainer)
+            {
+                link.UpdateMaxHealth(2);
             }
             else
             {
                 link.Inventory.AddItem(item.type);
             }
 
-            if (item.type==ItemType.HeartContainer)
-            {
-                link.UpdateMaxHealth(2);
-            }
         }
     }
 }
