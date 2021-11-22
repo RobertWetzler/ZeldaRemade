@@ -10,8 +10,6 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-        private int xPos, yPos;
-        private int velocity;
         private bool isFin;
         private float timer;
         private Facing facing;
@@ -44,7 +42,7 @@ namespace Project.Sprites.ItemSprites
 
         public bool IsFinished()
         {
-            return isFin = timer > 4000 ? true : false;
+            return isFin = timer > 2000? true : false;
         }
 
         public void Update(GameTime gameTime)

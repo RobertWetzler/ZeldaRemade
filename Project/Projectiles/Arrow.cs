@@ -56,7 +56,7 @@ namespace Project.Projectiles
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 1500)
+            if (timer > 1000)
                 direction = Direction.Stop;
 
             switch (direction)

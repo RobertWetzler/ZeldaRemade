@@ -28,7 +28,7 @@ namespace Project.Projectiles
             sprite = ItemSpriteFactory.Instance.CreateFlameSprite(this.facing);
             this.isFriendly = isFriendly;
             SoundManager.Instance.CreateCandleSound();
-            velocity = 200;
+            velocity = 350;
         }
 
         public Rectangle BoundingBox => SetBoundingBox();
