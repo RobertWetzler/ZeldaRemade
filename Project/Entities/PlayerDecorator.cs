@@ -30,7 +30,7 @@ namespace Project.Entities
             // Do nothing
         }
 
-        public void MaxHealth()
+        public void UpdateMaxHealth(int value)
         {
             // Do Nothing
         }

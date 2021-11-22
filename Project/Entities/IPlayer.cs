@@ -20,7 +20,7 @@ namespace Project
         void StopMoving();
         void UseWeapon(WeaponTypes weaponType);
         void AddHealth(int value);
-        void MaxHealth();
+        void UpdateMaxHealth(int value);
 
     }
 }

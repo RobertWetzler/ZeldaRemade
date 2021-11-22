@@ -7,15 +7,20 @@
             IItems item = itemCollidable as IItems;
             item.Despawn();
             IPlayer link = player as IPlayer;
-            link.Inventory.AddItem(item.type);
+            
             if (item.type == ItemType.Heart)
             {
                 link.AddHealth(2);
+                link.Inventory.AddNItems(item.type, 2);
+            }
+            else
+            {
+                link.Inventory.AddItem(item.type);
             }
 
-            if (item.type ==ItemType.HeartContainer)
+            if (item.type==ItemType.HeartContainer)
             {
-                link.MaxHealth();
+                link.UpdateMaxHealth(2);
             }
         }
     }
