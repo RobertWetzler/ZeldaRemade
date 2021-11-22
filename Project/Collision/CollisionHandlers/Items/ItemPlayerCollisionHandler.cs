@@ -16,6 +16,11 @@
             {
                 link.UpdateMaxHealth(2);
             }
+            else if (item.type == ItemType.Fairy)
+            {
+                link.Inventory.AddItem(item.type);
+                link.AddHealth(link.Inventory.GetItemCount(ItemType.HeartContainer) * 2 - link.Inventory.GetItemCount(ItemType.Heart));
+            }
             else
             {
                 link.Inventory.AddItem(item.type);
