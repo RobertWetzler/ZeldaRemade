@@ -28,7 +28,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(this.facing);
             this.isFriendly = isFriendly;
-            velocity = 200;
+            velocity = 500;
             SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
@@ -44,7 +44,7 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            flipped = timer > 2000;
+            flipped = timer > 1000;
 
             switch (this.facing)
             {
