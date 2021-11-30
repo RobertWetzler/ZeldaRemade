@@ -44,15 +44,15 @@ namespace Project.Sprites.ItemSprites
 
         public bool IsFinished()
         {
-            return isFin = timer > 3000 ? true : false;
+            return isFin = timer > 2500 ? true : false;
         }
 
         public void Update(GameTime gameTime)
         {
-            isFin = timer > 3000 ? true : false;
+            isFin = timer > 1250 ? true : false;
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 6) % 6;
-            flipped = timer > 1500;
+            flipped = timer > 1250;
 
 
         }
