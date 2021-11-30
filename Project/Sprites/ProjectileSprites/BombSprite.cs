@@ -11,7 +11,7 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
         private float timer;
-
+        public bool IsExploding => timer > 1000;
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
@@ -44,7 +44,7 @@ namespace Project.Sprites.ItemSprites
 
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 1000 && timer < 2000)
+            if (IsExploding && !IsFinished())
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
 
         }
