@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sound;
 using Project.HUD;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;

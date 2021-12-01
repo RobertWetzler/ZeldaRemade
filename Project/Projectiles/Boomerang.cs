@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+using Project.Sprites.ItemSprites;
 
 
 namespace Project.Projectiles

@@ -16,13 +16,13 @@ namespace Project
         private IPlayer player;
         private Vector2 startPos;
         private EnemyDirections movingDirection;
-        private int health = int.MaxValue;
+        private Health health;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public Trap(Vector2 pos, IPlayer player)
         {
             this.position = pos;

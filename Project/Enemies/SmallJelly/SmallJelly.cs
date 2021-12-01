@@ -14,13 +14,13 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
-        private int health = 1;
+        private Health health;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public SmallJelly(Vector2 pos)
         {
             this.position = pos;

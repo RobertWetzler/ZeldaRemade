@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Project.HUD
 {
-    class LivesBar  : IHUD
+    class LivesBar : IHUD
     {
         private ISprite fullHeartSprite, halfHeartSprite, emptyHeartSprite;
         private IPlayer player;
@@ -23,14 +23,15 @@ namespace Project.HUD
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {      
+        {
             int offset = 0;
             foreach (string heart in this.hearts)
             {
                 if (heart == "full")
                 {
                     fullHeartSprite.Draw(spriteBatch, new Vector2(drawPos.X + offset, drawPos.Y));
-                }else if(heart == "empty")
+                }
+                else if (heart == "empty")
                 {
                     emptyHeartSprite.Draw(spriteBatch, new Vector2(drawPos.X + offset, drawPos.Y));
                 }
@@ -58,7 +59,8 @@ namespace Project.HUD
                 {
                     hearts.Insert(i, "full");
                     temp += 2;
-                }else if (temp + 1 <= player.Inventory.GetItemCount(ItemType.Heart))
+                }
+                else if (temp + 1 <= player.Inventory.GetItemCount(ItemType.Heart))
                 {
                     hearts.Insert(i, "half");
                     temp += 1;
