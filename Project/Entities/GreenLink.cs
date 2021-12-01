@@ -101,16 +101,16 @@ namespace Project.Entities
 
         public void UseWeapon(WeaponTypes weaponType)
         {
-            if (weaponType == WeaponTypes.Bomb)
-            {
-                inventory.RemoveItem(ItemType.Bomb);
-            }
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
 
             if (potentialWeapon != null)
             {
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
+                if (weaponType == WeaponTypes.Bomb)
+                {
+                    inventory.RemoveItem(ItemType.Bomb);
+                }
             }
         }
 
@@ -126,7 +126,6 @@ namespace Project.Entities
             }
             else
             {
-
                 game.GameStateMachine.TitleScreen();
                 health = 6;
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
