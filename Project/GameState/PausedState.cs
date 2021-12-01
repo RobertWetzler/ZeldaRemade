@@ -41,7 +41,7 @@ namespace Project.GameState
         public void Update(GameTime gameTime, Rectangle bounds)
         {
             PauseController.controller.Update();
-            smallHUD.Update();
+            smallHUD.Update(gameTime);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

@@ -16,7 +16,7 @@ namespace Project.Projectiles
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-        public bool IsExploding => timer > 3000;
+        public bool IsExploding => timer > 1000;
         private float timer;
         private Vector2 position;
         private Facing facing;

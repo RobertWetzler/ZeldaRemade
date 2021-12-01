@@ -30,6 +30,7 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.MovableBlock, CollisionType.Player), new MovableBlockPlayerCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.MovableBlock), new EnemyMovableBlockCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Bomb), new EnemyBombCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Bat, CollisionType.Bomb), new EnemyBombCollisionHandler());
 
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.Enemy), new PlayerEnemyCollisionHandler());

@@ -43,7 +43,7 @@ namespace Project.HUD
             }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             GetHearts();
         }

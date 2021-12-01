@@ -10,7 +10,6 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-        private float xPos, yPos;
         private int velocity;
 
         private bool isFin;
