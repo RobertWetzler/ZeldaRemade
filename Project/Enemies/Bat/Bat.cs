@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using System;
 
 namespace Project
 {
@@ -15,6 +16,9 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private int health = 1;
+        private IPlayer player;
+        private static int X_DIFF = 100;
+        private static int Y_DIFF = 100;
 
         public Vector2 Position { get => position; set => position = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
@@ -22,7 +26,7 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bat;
         public int Health { get => health; set => health = value; }
-        public Bat(Vector2 position)
+        public Bat(Vector2 position, IPlayer player)
         {
             this.position = position;
             this.velocity = 50f;
@@ -30,6 +34,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
+            this.player = player;
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -63,6 +68,16 @@ namespace Project
                     this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
                     currentState = new EnemyWalkEast(this);
                 }
+            }
+            if (Math.Abs((int)position.X - (int)player.Position.X) < X_DIFF
+               && (Math.Abs((int)player.Position.Y - (int)position.Y) < Y_DIFF))
+            {
+                player.IsApproachBat = true;
+            }
+            if (player.IsApproachBat)
+            {
+                movement.timeToChangeDir = 250;
+                this.velocity = 200f;
             }
             movement.MoveWASDAndDiagonal(windowBounds, gameTime);
             currentState.Update(gameTime);

@@ -16,7 +16,7 @@ namespace Project.Utilities
             switch (enemyStr)
             {
                 case "Bat":
-                    enemy = new Bat(pos);
+                    enemy = new Bat(pos, player);
                     break;
                 case "Dragon":
                     enemy = new Dragon(pos);

@@ -20,6 +20,7 @@ namespace Project.Entities
         private Game1 game;
         private int health = 6;
         private PlayerInventory inventory;
+        private bool isApproachBat;
 
         /**
         * Shrinks the bounding box for link
@@ -63,6 +64,7 @@ namespace Project.Entities
         public PlayerInventory Inventory => inventory;
 
         public int Health { get => health; set => health = value; }
+        public bool IsApproachBat { get => isApproachBat; set => isApproachBat = value; }
 
         public GreenLink(Game1 game)
         {
@@ -72,6 +74,7 @@ namespace Project.Entities
             sprite = stateMachine.StopMoving();
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
+            isApproachBat = false;
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -123,7 +126,6 @@ namespace Project.Entities
             }
             else
             {
-
                 game.GameStateMachine.TitleScreen();
                 health = 6;
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);

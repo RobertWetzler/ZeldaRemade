@@ -19,6 +19,7 @@ namespace Project.Entities
         public int Health { get => decoratedPlayer.Health; set => decoratedPlayer.Health = value; }
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;
+        public bool IsApproachBat { get => decoratedPlayer.IsApproachBat; set => decoratedPlayer.IsApproachBat = value; }
 
         public void RemoveDecorator()
         {

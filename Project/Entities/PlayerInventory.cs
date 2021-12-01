@@ -15,7 +15,7 @@ namespace Project
         private void InitializeInventory()
         {
             inventory.Add(ItemType.Bomb, 10);
-            inventory.Add(ItemType.Key, 0);
+            inventory.Add(ItemType.Key, 10);
             inventory.Add(ItemType.Rupee, 0);
             inventory.Add(ItemType.Sword, 1);
             inventory.Add(ItemType.Arrow, 10);
