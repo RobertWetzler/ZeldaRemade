@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class FiveRupee : IItems
+    class FiveRupee : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -18,7 +19,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateRupeeSprite();
-
+            lightColor = Color.Gold;
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -7,7 +7,7 @@ using Project.GameState;
 using Project.Utilities;
 using System.Collections.Generic;
 using Project.Sound;
-
+using Project.Shading;
 
 namespace Project
 {
@@ -22,6 +22,11 @@ namespace Project
         private int roomIdx = 0;
         private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
+
+        private RenderTarget2D _mainTarget;
+        private RenderTarget2D _lightTarget;
+        public RenderTarget2D MainTarget => _mainTarget;
+        public RenderTarget2D LightTarget => _lightTarget;
 
         public Rectangle PlayerBounds => playerBounds;
 
@@ -75,8 +80,8 @@ namespace Project
             SoundManager.Instance.LoadAllSounds(Content);
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
-            MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
-
+            MapTileSpriteFactory.Instance.LoadAllTextures(Content);
+            LightShaderFactory.Instance.LoadAllContent(Content);
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
 
@@ -84,7 +89,10 @@ namespace Project
 
             RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
             collisionIterator = new CollisionIterator();
-
+            int width = GraphicsDevice.PresentationParameters.BackBufferWidth;
+            int height = GraphicsDevice.PresentationParameters.BackBufferHeight;
+            _mainTarget = new RenderTarget2D(GraphicsDevice, width, height);
+            _lightTarget = new RenderTarget2D(GraphicsDevice, width, height);
         }
 
         protected override void Update(GameTime gameTime)
@@ -96,9 +104,7 @@ namespace Project
 
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }

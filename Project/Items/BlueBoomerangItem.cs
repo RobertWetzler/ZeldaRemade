@@ -2,11 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
-
+using Project.Shading;
 
 namespace Project.Items
 {
-    class BlueBoomerangItem : IItems
+    class BlueBoomerangItem : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -16,7 +16,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 1);
-
+            lightColor = Color.Cyan;
         }
         public ItemType type => ItemType.Blue_Boomerang;
         public Rectangle BoundingBox => sprite.DestRectangle;

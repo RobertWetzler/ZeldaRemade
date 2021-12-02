@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class Clock : IItems
+    class Clock : Lightable, IItems
     {
 
         private ISprite sprite;

@@ -46,6 +46,7 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             int i = 0;
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
@@ -57,6 +58,7 @@ namespace Project.GameState
 
             RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
             smallHUD.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
 

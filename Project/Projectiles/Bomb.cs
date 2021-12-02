@@ -6,10 +6,11 @@ using Project.Factory;
 using Project.Sprites.ItemSprites;
 using Project.Sound;
 using System;
+using Project.Shading;
 
 namespace Project.Projectiles
 {
-    class Bomb : IProjectile
+    class Bomb : FireLight, IProjectile
     {
 
         private IProjectileSprite sprite;
@@ -32,6 +33,8 @@ namespace Project.Projectiles
             offsetVal = 30f;
             offset = Offset();
             SoundManager.Instance.CreateBombDropSound();
+            lightColor = Color.Orange;
+            lightScale = 1f;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
@@ -47,7 +50,11 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
+            if(IsExploding)
+            {
+                lightColor = Color.Red;
+                lightScale = 4f;
+            }
             sprite.Update(gameTime);
 
         }

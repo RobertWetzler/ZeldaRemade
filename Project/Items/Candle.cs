@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class Candle : IItems
+    class Candle : TorchLight, IItems
     {
 
         private ISprite sprite;
@@ -18,7 +19,6 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 2);
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -2,11 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
-
+using Project.Shading;
 
 namespace Project.Items
 {
-    class BlueBottle : IItems
+    class BlueBottle : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -16,7 +16,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 3);
-
+            lightColor = Color.Blue;
         }
         public ItemType type => ItemType.Blue_Bottle;
         public Rectangle BoundingBox => sprite.DestRectangle;

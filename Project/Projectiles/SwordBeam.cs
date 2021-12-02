@@ -6,10 +6,11 @@ using Project.Factory;
 using Project.Sprites.ItemSprites;
 using Project.Sound;
 using System;
+using Project.Shading;
 
 namespace Project.Projectiles
 {
-    class SwordBeam : IProjectile
+    class SwordBeam : Lightable, IProjectile
     {
 
         private IProjectileSprite sprite;
@@ -35,6 +36,8 @@ namespace Project.Projectiles
             velocity = 500;
             this.facing = facing;
             SoundManager.Instance.CreateSwordShootSound();
+            this.lightColor = Color.Cyan;
+            this.lightIntensity = 0.7f;
         }
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Projectile;

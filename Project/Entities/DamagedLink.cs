@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using Project.Sound;
 
-
 namespace Project.Entities
 {
     public class DamagedLink : PlayerDecorator
@@ -25,6 +24,8 @@ namespace Project.Entities
             remainingFlashTime = totalFlashTime;
             remainingKnockbackTime = totalKnockbackTime;
             SoundManager.Instance.CreateLinkHurtSound();
+            lightScale = 1.5f;
+            lightIntensity = 0.7f;
         }
         public override void TakeDamage(int damage)
         {
@@ -40,6 +41,7 @@ namespace Project.Entities
             if (remainingFlashTime > 0)
             {
                 UpdateColor();
+                this.lightColor = color;
             }
             // Update knockback position if timer is still runnning, else do normal update
             if (remainingKnockbackTime > 0)

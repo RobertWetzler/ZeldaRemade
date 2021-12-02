@@ -128,6 +128,7 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             itemSelectionScreen.Draw(spriteBatch);
 
             itemSelector.Draw(spriteBatch);
@@ -250,6 +251,7 @@ namespace Project.GameState
                     posDot.Draw(spriteBatch, dotPos, Color.White);
                 }
             }
+            spriteBatch.End();
         }
     }
 }

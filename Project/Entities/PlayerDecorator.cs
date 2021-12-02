@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.Shading;
 using Project.Sprites.PlayerSprites;
 
 namespace Project.Entities
 {
     // A generic PlayerDecorator class for Decorators to derive from
-    public abstract class PlayerDecorator : IPlayer
+    public abstract class PlayerDecorator : Lightable, IPlayer
     {
         protected IPlayer decoratedPlayer;
         protected Game1 game;

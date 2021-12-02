@@ -2,15 +2,15 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Projectiles;
+using Project.Shading;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
-using System;
 using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink : IPlayer, ICollidable
+    public class GreenLink : TorchLight, IPlayer, ICollidable
     {
         private LinkStateMachine stateMachine;
         private Vector2 position;
@@ -110,10 +110,6 @@ namespace Project.Entities
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
             }
         }
-
-
-        
-
         public void TakeDamage(int damage)
         {
             this.game.Player = new DamagedLink(this, game);
@@ -159,18 +155,13 @@ namespace Project.Entities
 
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-
-
             sprite.Update(gameTime);
             foreach (IProjectile projectile in projectiles)
             {
                 projectile.Update(gameTime);
             }
             projectiles.RemoveAll(projectile => !projectile.IsActive);
-
-
         }
-
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);
