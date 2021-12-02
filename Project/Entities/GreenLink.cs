@@ -11,6 +11,7 @@ namespace Project.Entities
 {
     public class GreenLink : IPlayer, ICollidable
     {
+        private const int START_HEALTH = 6;
         private LinkStateMachine stateMachine;
         private Vector2 position;
         private IPlayerSprite sprite;
@@ -66,7 +67,7 @@ namespace Project.Entities
             sprite = stateMachine.StopMoving();
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
-            health = new Health(6);
+            health = new Health(START_HEALTH);
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -112,14 +113,14 @@ namespace Project.Entities
         public void TakeDamage(int damage)
         {
             this.game.Player = new DamagedLink(this, game);
-            health.DecreaseHealth(1);
+            health.DecreaseHealth(damage);
             inventory.RemoveNItems(ItemType.Heart, damage);
             if (health.CurrentHealth <= 0)
             {
                 game.GameStateMachine.TitleScreen();
-                health.MaxHealth = 6;
+                health.MaxHealth = START_HEALTH;
                 inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
-                inventory.AddNItems(ItemType.HeartContainer, 3);
+                inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
                 health.CurrentHealth = health.MaxHealth;
                 inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
                 inventory.AddNItems(ItemType.Heart, health.CurrentHealth);
