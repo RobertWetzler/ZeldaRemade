@@ -81,7 +81,7 @@ namespace Project.HUD
             /*
              * Displays Items in the inventory box          
              */
-            if (player.Inventory.GetItemCount(ItemType.Bomb) > 0)
+            if (player.Inventory.GetItemCount(ItemType.Blue_Boomerang) > 0)
                 blueBoomerang.Draw(spriteBatch, new Vector2(500, 180));
 
             if (player.Inventory.GetItemCount(ItemType.Blue_Candle) > 0)
