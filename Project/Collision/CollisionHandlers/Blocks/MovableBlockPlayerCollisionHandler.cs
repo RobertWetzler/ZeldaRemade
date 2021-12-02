@@ -1,4 +1,5 @@
 ﻿using Project.Blocks.MovableBlock;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
 
@@ -30,6 +31,7 @@ namespace Project.Collision.CollisionHandlers
                 IDoor closedDoor = doors.Find(x => x.DoorType == DoorType.CLOSED);
                 if (closedDoor != null)
                 {
+                    SoundManager.Instance.CreateSecretSound();
                     closedDoor.Unlock();
                 }
             }

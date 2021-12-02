@@ -1,4 +1,6 @@
-﻿namespace Project.Collision.CollisionHandlers
+﻿using Project.Sound;
+
+namespace Project.Collision.CollisionHandlers
 {
     public class ItemPlayerCollisionHandler : ICollisionHandler
     {
@@ -11,11 +13,41 @@
             if (item.type == ItemType.Heart)
             {
                 link.AddHealth(2);
+                SoundManager.Instance.CreateHeartSound();
             }
 
             if (item.type ==ItemType.HeartContainer)
             {
                 link.MaxHealth();
+                SoundManager.Instance.CreateItemSound();
+            }
+            if (item.type == ItemType.Rupee)
+            {
+                SoundManager.Instance.CreateRupeeSound();
+            }
+            if (item.type == ItemType.Key)
+            {
+                SoundManager.Instance.CreateKeySound();
+            }
+            if (item.type == ItemType.Bow)
+            {
+                SoundManager.Instance.CreateFanfare();
+            }
+            if (item.type == ItemType.Triforce)
+            {
+                //SoundManager.Instance.CreateVictorySound();
+            }
+            if (item.type == ItemType.Fairy)
+            {
+                SoundManager.Instance.CreateItemSound();
+            }
+            if (item.type == ItemType.Map)
+            {
+                SoundManager.Instance.CreateItemSound();
+            }
+            if (item.type == ItemType.Map)
+            {
+                SoundManager.Instance.CreateItemSound();
             }
         }
     }
