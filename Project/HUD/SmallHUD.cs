@@ -6,7 +6,6 @@ using Project.Utilities;
 
 namespace Project.HUD
 {
-
     class SmallHUD : IHUD
     {
         private Vector2 mapPos;
@@ -94,7 +93,7 @@ namespace Project.HUD
             }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
             numKeys = player.Inventory.GetItemCount(ItemType.Key);
@@ -105,6 +104,7 @@ namespace Project.HUD
             healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
             UpdateABItems();
         }
+
         public void UpdateABItems()
         {
             if (player.Inventory.AItem != aItemType)
