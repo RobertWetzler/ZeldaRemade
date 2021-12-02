@@ -11,7 +11,6 @@ namespace Project.Projectiles
 {
     class Bomb : IProjectile
     {
-
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
