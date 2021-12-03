@@ -19,7 +19,9 @@
             }
             if (item.type == ItemType.Triforce)
             {
+                link.PickUpItem(item);
                 Game1.Instance.GameStateMachine.WinScreen();
+
             }
         }
     }

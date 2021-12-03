@@ -21,6 +21,7 @@ namespace Project.Entities
         private int maxHealth = 6;
         private int health = 6;
         private PlayerInventory inventory;
+        private IItems pickUpItem;
 
         /**
         * Shrinks the bounding box for link
@@ -132,9 +133,6 @@ namespace Project.Entities
             }
         }
 
-
-        
-
         public void TakeDamage(int damage)
         {
             this.game.Player = new DamagedLink(this, game);
@@ -187,6 +185,10 @@ namespace Project.Entities
                 projectile.Update(gameTime);
             }
             projectiles.RemoveAll(projectile => !projectile.IsActive);
+            if (pickUpItem != null)
+            {
+                pickUpItem.Update(gameTime);
+            }
 
 
         }
@@ -201,7 +203,17 @@ namespace Project.Entities
             }
 
             projectiles.RemoveAll(projectile => projectile.IsFinished);
+            if (pickUpItem != null)
+            {
+                pickUpItem.Draw(spriteBatch);
+            }
 
+        }
+
+        public void PickUpItem(IItems item)
+        {
+            sprite = stateMachine.PickUpItem();
+            pickUpItem = item;
         }
     }
 }
