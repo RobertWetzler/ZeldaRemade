@@ -78,27 +78,33 @@ namespace Project.Entities
         }
         public void MoveUp()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveUp();
         }
         public void MoveDown()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveDown();
         }
         public void MoveLeft()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveLeft();
         }
         public void MoveRight()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveRight();
         }
         public void StopMoving()
         {
+            pickUpItem = null;
             sprite = stateMachine.StopMoving();
         }
 
         public void UseWeapon(WeaponTypes weaponType)
         {
+            pickUpItem = null;
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
 

@@ -77,6 +77,7 @@ namespace Project.GameState
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
+            smallHUD.Update(gameTime);
             if (this.nextRoom is null)
             {
                 this.game.GameStateMachine.Play();

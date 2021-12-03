@@ -78,6 +78,7 @@ namespace Project.GameState
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             smallHUD.Update(gameTime);
+            Game1.Instance.Player.Update(Game1.Instance.PlayerBounds, gameTime);
             SetDoneFlashing();
             if (!doneFlashing)
             {
