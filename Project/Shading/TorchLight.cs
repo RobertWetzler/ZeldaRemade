@@ -19,8 +19,6 @@ namespace Project.Shading
         private void SetFlickerIntensity(GameTime gameTime)
         {
             lightIntensity = Math.Clamp(lightIntensity + (float)((new Random()).NextDouble() - .3), 0, 1);
-            //lightIntensity = 0.5f + PerlinNoise.GetPerlin(5*(float)gameTime.TotalGameTime.TotalSeconds);
-
         }
         public override void DrawLight(SpriteBatch spriteBatch, GameTime gameTime, Rectangle destRectangle)
         {
