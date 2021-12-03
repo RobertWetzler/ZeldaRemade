@@ -31,6 +31,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
+            health = new Health(2);
         }
 
         public void ChangeDirection(EnemyDirections direction)

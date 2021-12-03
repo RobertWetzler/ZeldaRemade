@@ -36,12 +36,16 @@ namespace Project.Collision.CollisionHandlers.Enemies
             {
                 if (!(enemy is Trap))
                 {
-                    enemy.Despawn();
-                    if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
+                    enemy.RemoveHealth();
+                    if (enemy.Health.CurrentHealth == 0)
                     {
-                        randDouble = rand.NextDouble();
-                        if (randDouble > 0.65)
-                            enemy.DropItem(item);
+                        enemy.Despawn();
+                        if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
+                        {
+                            randDouble = rand.NextDouble();
+                            if (randDouble > 0.65)
+                                enemy.DropItem(item);
+                        }
                     }
                 }
 

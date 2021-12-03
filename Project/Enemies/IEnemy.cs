@@ -28,5 +28,10 @@ namespace Project
         {
             RoomManager.Instance.CurrentRoom.AddRandomItem(item);
         }
+
+        public void RemoveHealth()
+        {
+            Health.DecreaseHealth(1);
+        }
     }
 }
