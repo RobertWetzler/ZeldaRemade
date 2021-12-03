@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using System.Collections.Generic;
 using Project.Sound;
+using System.Collections.Generic;
 
 namespace Project.Text
 {

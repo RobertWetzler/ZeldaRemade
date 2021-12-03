@@ -16,7 +16,7 @@ namespace Project.HUD
         private IText numCoinsText, numBombsText, numKeysText;
         private IPlayer player;
         private int numCoins, numKeys, numBombs;
-        private Lives healthBar;
+        private IHUD healthBar;
 
         private Vector2 topLeftPos;
         private Vector2 aItemPos;
@@ -59,7 +59,7 @@ namespace Project.HUD
             numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
             numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
             numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
-            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
+            healthBar = new LivesBar(player, this);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -67,7 +67,6 @@ namespace Project.HUD
 
             playerRectPos = HUDUtilities.Instance.GetPlayerRectLocationSmallHUD(topLeftPos);
             triforcePos = HUDUtilities.Instance.GetTriforceRoomPos(topLeftPos);
-            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
             backgroundHUDSprite.Draw(spriteBatch, topLeftPos);
             if (player.Inventory.GetItemCount(ItemType.Map) > 0)
             {
@@ -98,13 +97,12 @@ namespace Project.HUD
             numCoins = player.Inventory.GetItemCount(ItemType.Rupee);
             numKeys = player.Inventory.GetItemCount(ItemType.Key);
             numBombs = player.Inventory.GetItemCount(ItemType.Bomb);
-            numCoinsText = new NumberItemsText(numCoins, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 65));
-            numKeysText = new NumberItemsText(numKeys, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 130));
-            numBombsText = new NumberItemsText(numBombs, new Vector2(topLeftPos.X + 390, topLeftPos.Y + 160));
-            healthBar = new Lives(player.Health, player.Inventory.GetItemCount(ItemType.Heart), topLeftPos);
+            ((NumberItemsText)numCoinsText).Number = numCoins;
+            ((NumberItemsText)numKeysText).Number = numKeys;
+            ((NumberItemsText)numBombsText).Number = numBombs;
+            healthBar.Update(gameTime);
             UpdateABItems();
         }
-
         public void UpdateABItems()
         {
             if (player.Inventory.AItem != aItemType)

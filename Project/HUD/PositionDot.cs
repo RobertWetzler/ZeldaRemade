@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Text;
 using Project.Utilities;
 
 namespace Project.HUD
@@ -75,9 +74,9 @@ namespace Project.HUD
                     break;
             }
         }
-        public void Draw(SpriteBatch spriteBatch) 
+        public void Draw(SpriteBatch spriteBatch)
         {
-            posDot.Draw(spriteBatch, dotPos, Color.White); 
+            posDot.Draw(spriteBatch, dotPos, Color.White);
         }
     }
 }

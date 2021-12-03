@@ -31,7 +31,7 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            bigHUD.Draw(spriteBatch);   
+            bigHUD.Draw(spriteBatch);
             smallHud.Draw(spriteBatch);
         }
     }
