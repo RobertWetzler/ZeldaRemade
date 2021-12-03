@@ -16,7 +16,7 @@ namespace Project.GameState
         private int flashTimer = 0, waitTimer = 0, flashCounter = 0;
         private int flashMaxTime = 2000, waitTimeMax = 2000;
         private bool doneFlashing = false, doneWaiting = false;
-        private Color backgroundColor = Color.White;
+        private bool changeBackground = false;
         private IHUD smallHUD;
 
         public WinScreenState()
@@ -39,7 +39,7 @@ namespace Project.GameState
             if (!doneFlashing)
             {
                 spriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
-                if (backgroundColor == Color.White)
+                if (changeBackground)
                 {
                     Game1.Instance.GraphicsDevice.Clear(Color.White);
                 }
@@ -86,13 +86,13 @@ namespace Project.GameState
                 if (flashTimer >= 50)
                 {
                     flashTimer -= 50;
-                    if (backgroundColor == Color.White)
+                    if (changeBackground)
                     {
-                        backgroundColor = Color.Black;
+                        changeBackground = false;
                     }
                     else
                     {
-                        backgroundColor = Color.White;
+                        changeBackground = true;
                     }
                 }
             }
