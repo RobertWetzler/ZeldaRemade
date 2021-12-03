@@ -116,14 +116,14 @@ namespace Project.Entities
 
         public void TakeDamage(int damage)
         {
-            this.game.Player = new DamagedLink(this, game);
+            // this.game.Player = new DamagedLink(this, game);
+            this.game.Player = new DeadLink(this, game); // test
             if (health > 0)
             {
                 health -= damage;
             }
             else
-            {
-
+            {               
                 game.GameStateMachine.TitleScreen();
                 health = 6;
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
