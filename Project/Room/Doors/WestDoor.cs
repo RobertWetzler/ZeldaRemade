@@ -20,9 +20,9 @@ namespace Project
         private bool isClosed;
         private bool canBeBombed;
         private DoorType doorType;
-        public WestDoor(DoorType doorType)
+        public WestDoor(DoorType doorType, Vector2 doorPos)
         {
-            position = new Vector2(0, 509);
+            position = doorPos;
             westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, position);
             canBeBombed = false;
             this.doorType = doorType;

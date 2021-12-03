@@ -186,5 +186,40 @@ namespace Project.Utilities
             }
             return background;
         }
+
+        public List<> GetTorchFromRoom(string room)
+        {
+            List<ISprite> t = new List<IBlock>();
+            IBlock block;
+
+            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
+            {
+                reader.MoveToContent();
+                reader.ReadToFollowing(room);
+
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
+                        && reader.ReadElementContentAsString() == "Block")
+                    {
+                        reader.Read();
+                        string blockType = reader.ReadElementContentAsString();
+                        reader.Read();
+                        string strPos = reader.ReadElementContentAsString();
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
+                        yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
+                        block = XMLParserUtilities.GetBlock(blockType, new Vector2(xPos, yPos));
+                        blocks.Add(block);
+                    }
+                    else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
+                    {
+                        break;
+                    }
+                }
+            }
+            return blocks;
+        }
     }
 }

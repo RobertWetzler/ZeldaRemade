@@ -7,23 +7,24 @@ using Project.Utilities;
 
 namespace Project
 {
-    class SouthDoor : IDoor
+    class Torch : IDoor
     {
         public bool IsClosed => isClosed;
-        public Rectangle BoundingBox => southDoorSprite.DestRectangle;
+        public Rectangle BoundingBox => eastDoorSprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Door;
         public DoorType DoorType => doorType;
 
         public bool CanBeBombed { get => canBeBombed; set => canBeBombed = value; }
-        private DoorSprite southDoorSprite;
+        private DoorSprite eastDoorSprite;
         private Vector2 position;
         private bool isClosed;
         private bool canBeBombed;
         private DoorType doorType;
-        public SouthDoor(DoorType doorType, Vector2 doorPos)
+
+        public Torch(DoorType doorType)
         {
-            position = doorPos;
-            southDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateSouthDoorSprite(doorType, position);
+            position = new Vector2(896, 509);
+            eastDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateEastDoorSprite(doorType, position);
             canBeBombed = false;
             this.doorType = doorType;
 
@@ -48,19 +49,19 @@ namespace Project
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            southDoorSprite.Draw(spriteBatch, position, Color.White);
+            eastDoorSprite.Draw(spriteBatch, position, Color.White);
         }
 
         public void DrawForeground(SpriteBatch spriteBatch)
         {
-            southDoorSprite.DrawForeground(spriteBatch, position, Color.White);
+            eastDoorSprite.DrawForeground(spriteBatch, position, Color.White);
         }
-
         public void Unlock()
         {
             doorType = DoorType.OPEN;
             isClosed = false;
-            southDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateSouthDoorSprite(doorType, position);
+            eastDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateEastDoorSprite(doorType, position);
         }
     }
 }
+

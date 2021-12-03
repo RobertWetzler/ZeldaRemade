@@ -18,22 +18,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>NPC</ObjectType>
@@ -68,22 +72,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -172,22 +180,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Closed</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
@@ -227,22 +239,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Closed</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -293,22 +309,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
@@ -348,22 +368,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -523,22 +547,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -811,22 +839,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Bomb</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -909,22 +941,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Bomb</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -994,22 +1030,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1053,17 +1093,24 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>448,215</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1147,22 +1194,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Bomb</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
@@ -1222,22 +1273,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Bomb</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
@@ -1318,22 +1373,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1393,22 +1452,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Closed</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1483,22 +1546,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1615,22 +1682,26 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>North</Position>
+				<Direction>North</Direction>
+				<Positon>448,223</Positon>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>East</Position>
+				<Direction>East</Direction>
+				<Position>896,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
+				<Direction>South</Direction>
+				<Position>448,797</Position>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
-				<Position>West</Position>
+				<Direction>West</Direction>
+				<Position>0,509</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1785,7 +1856,7 @@
 				<Position>0 0</Position>
 			</Object>
 			<Object>
-				<ObjectType>EastRoom</ObjectType>
+				<ObjectType>SouthRoom</ObjectType>
 				<ObjectName>2</ObjectName>
 			</Object>
 			<Object>

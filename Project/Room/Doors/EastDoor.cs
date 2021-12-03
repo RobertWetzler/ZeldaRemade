@@ -21,9 +21,9 @@ namespace Project
         private bool canBeBombed;
         private DoorType doorType;
 
-        public EastDoor(DoorType doorType)
+        public EastDoor(DoorType doorType, Vector2 doorPos)
         {
-            position = new Vector2(896, 509);
+            position = doorPos;
             eastDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateEastDoorSprite(doorType, position);
             canBeBombed = false;
             this.doorType = doorType;

@@ -493,18 +493,6 @@
 /processorParam:TextureFormat=Color
 /build:ItemSprites/Sword_Beam_Impact.png
 
-#begin ItemSprites/Sword_Beam_Impact.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:ItemSprites/Sword_Beam_Impact.png
-
 #begin ItemSprites/sword_throw.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -882,4 +870,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:titleScreen.png
+
+#begin Torch_Sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Torch_Sheet.png
 

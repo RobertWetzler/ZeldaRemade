@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using System.Xml;
 
 namespace Project.Utilities
@@ -27,9 +28,15 @@ namespace Project.Utilities
                         reader.Read();
                         string doorType = reader.ReadElementContentAsString();
                         reader.Read();
-                        string doorPos = reader.ReadElementContentAsString();
+                        string doorDirection = reader.ReadElementContentAsString();
+                        reader.Read();
+                        string strPos = reader.ReadElementContentAsString();
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        Vector2 doorPos = new Vector2(xPos, yPos);
+                        
 
-                        IDoor door = GetDoorFromType(doorType, doorPos);
+                        IDoor door = GetDoorFromType(doorType, doorDirection, doorPos);
                         doors.Add(door);
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
@@ -42,25 +49,25 @@ namespace Project.Utilities
             return doors;
         }
 
-        private IDoor GetDoorFromType(string doorStr, string position)
+        private IDoor GetDoorFromType(string doorStr, string direction, Vector2 doorPos)
         {
             IDoor door = null;
             switch (doorStr)
             {
                 case "Empty":
-                    door = GetWallDoorFromPosition(position);
+                    door = GetWallDoorFromDirection(direction, doorPos);
                     break;
                 case "Open":
-                    door = GetOpenDoorFromPosition(position);
+                    door = GetOpenDoorFromDirection(direction, doorPos);
                     break;
                 case "Locked":
-                    door = GetLockedDoorFromPosition(position);
+                    door = GetLockedDoorFromDirection(direction, doorPos);
                     break;
                 case "Closed":
-                    door = GetClosedDoorFromPosition(position);
+                    door = GetClosedDoorFromDirection(direction, doorPos);
                     break;
                 case "Bomb":
-                    door = GetBombDoorFromPosition(position);
+                    door = GetBombDoorFromDirection(direction, doorPos);
                     door.CanBeBombed = true;
                     break;
             }
@@ -68,80 +75,80 @@ namespace Project.Utilities
 
         }
 
-        private IDoor GetWallDoorFromPosition(string position)
+        private IDoor GetWallDoorFromDirection(string position, Vector2 doorPos)
         {
             switch (position)
             {
                 case "North":
-                    return new NorthDoor(DoorType.WALL);
+                    return new NorthDoor(DoorType.WALL, doorPos);
                 case "East":
-                    return new EastDoor(DoorType.WALL);
+                    return new EastDoor(DoorType.WALL, doorPos);
                 case "South":
-                    return new SouthDoor(DoorType.WALL);
+                    return new SouthDoor(DoorType.WALL, doorPos);
                 case "West":
-                    return new WestDoor(DoorType.WALL);
+                    return new WestDoor(DoorType.WALL, doorPos);
             }
             return null;
         }
 
-        private IDoor GetOpenDoorFromPosition(string position)
+        private IDoor GetOpenDoorFromDirection(string position, Vector2 doorPos)
         {
             switch (position)
             {
                 case "North":
-                    return new NorthDoor(DoorType.OPEN);
+                    return new NorthDoor(DoorType.OPEN, doorPos);
                 case "East":
-                    return new EastDoor(DoorType.OPEN);
+                    return new EastDoor(DoorType.OPEN, doorPos);
                 case "South":
-                    return new SouthDoor(DoorType.OPEN);
+                    return new SouthDoor(DoorType.OPEN, doorPos);
                 case "West":
-                    return new WestDoor(DoorType.OPEN);
+                    return new WestDoor(DoorType.OPEN, doorPos);
             }
             return null;
         }
-        private IDoor GetClosedDoorFromPosition(string position)
+        private IDoor GetClosedDoorFromDirection(string position, Vector2 doorPos)
         {
             switch (position)
             {
                 case "North":
-                    return new NorthDoor(DoorType.CLOSED);
+                    return new NorthDoor(DoorType.CLOSED, doorPos);
                 case "East":
-                    return new EastDoor(DoorType.CLOSED);
+                    return new EastDoor(DoorType.CLOSED, doorPos);
                 case "South":
-                    return new SouthDoor(DoorType.CLOSED);
+                    return new SouthDoor(DoorType.CLOSED, doorPos);
                 case "West":
-                    return new WestDoor(DoorType.CLOSED);
+                    return new WestDoor(DoorType.CLOSED, doorPos);
             }
             return null;
         }
 
-        private IDoor GetLockedDoorFromPosition(string position)
+        private IDoor GetLockedDoorFromDirection(string position, Vector2 doorPos)
         {
             switch (position)
             {
                 case "North":
-                    return new NorthDoor(DoorType.KEY_CLOSED);
+                    return new NorthDoor(DoorType.KEY_CLOSED, doorPos);
                 case "East":
-                    return new EastDoor(DoorType.KEY_CLOSED);
+                    return new EastDoor(DoorType.KEY_CLOSED, doorPos);
                 case "South":
-                    return new SouthDoor(DoorType.KEY_CLOSED);
+                    return new SouthDoor(DoorType.KEY_CLOSED, doorPos);
                 case "West":
-                    return new WestDoor(DoorType.KEY_CLOSED);
+                    return new WestDoor(DoorType.KEY_CLOSED, doorPos);
             }
             return null;
         }
-        private IDoor GetBombDoorFromPosition(string position)
+        private IDoor GetBombDoorFromDirection(string position, Vector2 doorPos)
         {
             switch (position)
             {
                 case "North":
-                    return new NorthDoor(DoorType.WALL);
+                    return new NorthDoor(DoorType.WALL, doorPos);
                 case "East":
-                    return new EastDoor(DoorType.WALL);
+                    return new EastDoor(DoorType.WALL, doorPos);
                 case "South":
-                    return new SouthDoor(DoorType.WALL);
+                    return new SouthDoor(DoorType.WALL, doorPos);
                 case "West":
-                    return new WestDoor(DoorType.WALL);
+                    return new WestDoor(DoorType.WALL, doorPos);
             }
             return null;
         }
