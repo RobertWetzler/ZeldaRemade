@@ -96,9 +96,7 @@ namespace Project
 
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }

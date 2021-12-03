@@ -142,9 +142,11 @@ namespace Project.GameState
                 this.game.GameStateMachine.Play();
                 return;
             }
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             nextRoom.Background.Draw(spriteBatch, nextRoomOffset);
             RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, offset);
             this.smallHUD.Draw(spriteBatch);
+            spriteBatch.End();
         }
     }
 }

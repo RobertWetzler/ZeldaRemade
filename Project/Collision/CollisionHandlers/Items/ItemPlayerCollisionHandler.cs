@@ -17,6 +17,10 @@
             {
                 link.MaxHealth();
             }
+            if (item.type == ItemType.Triforce)
+            {
+                Game1.Instance.GameStateMachine.WinScreen();
+            }
         }
     }
 }

@@ -28,7 +28,9 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             titleScreen.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
 
