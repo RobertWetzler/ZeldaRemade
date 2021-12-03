@@ -120,6 +120,7 @@ namespace Project.Entities
 
         public void TakeDamage(int damage)
         {
+            pickUpItem = null;
             this.game.Player = new DamagedLink(this, game);
             health.DecreaseHealth(damage);
             inventory.RemoveNItems(ItemType.Heart, damage);
