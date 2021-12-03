@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using System.Diagnostics;
 
 namespace Project
 {
@@ -16,13 +17,13 @@ namespace Project
         private IPlayer player;
         private Vector2 startPos;
         private EnemyDirections movingDirection;
-        private int health = int.MaxValue;
+        private Health health;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public Trap(Vector2 pos, IPlayer player)
         {
             this.position = pos;
@@ -59,8 +60,8 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
-            int middleOfWidth = (windowBounds.Right - windowBounds.Left) / 2 + 128;
-            int middleOfHeight = (windowBounds.Bottom - windowBounds.Top) / 2 + 128 + 224;
+            int XCoorWideEdge = (windowBounds.Right + 128) / 2;
+            int YCoorShortEdge = ((windowBounds.Bottom + 128) / 2) + 85;
 
             sprite.Update(gameTime);
             currentState.Update(gameTime);
@@ -75,25 +76,24 @@ namespace Project
             }
             else if (movingDirection == EnemyDirections.None)
             {
-
-                if (TrapMovementUtilities.ShouldTrapMoveRight(startPos, middleOfWidth, player.Position))
+                if (TrapMovementUtilities.ShouldTrapMoveRight(startPos, XCoorWideEdge, player.Position))
                 {
                     SetState(new TrapMoveRight(this));
                     movingDirection = EnemyDirections.East;
 
                 }
-                else if (TrapMovementUtilities.ShouldTrapMoveLeft(startPos, middleOfWidth, player.Position))
+                else if (TrapMovementUtilities.ShouldTrapMoveLeft(startPos, XCoorWideEdge, player.Position))
                 {
                     SetState(new TrapMoveLeft(this));
                     movingDirection = EnemyDirections.West;
 
                 }
-                else if (TrapMovementUtilities.ShouldTrapMoveDown(startPos, middleOfHeight, player.Position))
+                else if (TrapMovementUtilities.ShouldTrapMoveDown(startPos, YCoorShortEdge, player.Position))
                 {
                     SetState(new TrapMoveDown(this));
                     movingDirection = EnemyDirections.South;
                 }
-                else if (TrapMovementUtilities.ShouldTrapMoveUp(startPos, middleOfHeight, player.Position))
+                else if (TrapMovementUtilities.ShouldTrapMoveUp(startPos, YCoorShortEdge, player.Position))
                 {
                     SetState(new TrapMoveUp(this));
                     movingDirection = EnemyDirections.North;
@@ -103,7 +103,7 @@ namespace Project
             {
                 if (movingDirection == EnemyDirections.East)
                 {
-                    if ((int)position.X >= middleOfWidth)
+                    if ((int)position.X >= XCoorWideEdge)
                     {
                         ChangeDirection(EnemyDirections.West);
                     }
@@ -117,7 +117,7 @@ namespace Project
                 }
                 if (movingDirection == EnemyDirections.West)
                 {
-                    if ((int)position.X < middleOfWidth)
+                    if ((int)position.X < XCoorWideEdge)
                     {
                         ChangeDirection(EnemyDirections.East);
                     }
@@ -130,7 +130,7 @@ namespace Project
                 }
                 if (movingDirection == EnemyDirections.South)
                 {
-                    if ((int)position.Y >= middleOfHeight)
+                    if ((int)position.Y >= YCoorShortEdge)
                     {
                         ChangeDirection(EnemyDirections.North);
                     }
@@ -143,7 +143,7 @@ namespace Project
                 }
                 if (movingDirection == EnemyDirections.North)
                 {
-                    if ((int)position.Y <= middleOfHeight)
+                    if ((int)position.Y <= YCoorShortEdge)
                     {
                         ChangeDirection(EnemyDirections.South);
                     }

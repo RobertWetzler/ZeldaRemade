@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+using Project.Sprites.ItemSprites;
 using System;
 
 namespace Project.Projectiles
@@ -29,7 +29,7 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBlueArrowSprite(this.facing);
             this.isFriendly = isFriendly;
-            velocity = 400;
+            velocity = 500;
 
             direction = this.facing switch
             {
@@ -55,7 +55,7 @@ namespace Project.Projectiles
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 1500)
+            if (timer > 750)
                 direction = Direction.Stop;
 
             switch (direction)

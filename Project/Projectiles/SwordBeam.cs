@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+using Project.Sprites.ItemSprites;
+using System;
 
 namespace Project.Projectiles
 {
@@ -12,7 +13,7 @@ namespace Project.Projectiles
     {
 
         private IProjectileSprite sprite;
-        private IProjectile projectile;
+
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
@@ -20,18 +21,18 @@ namespace Project.Projectiles
         private Facing facing;
         private int xPos, yPos;
         private int velocity;
+        private Vector2 offset;
+        private float offsetVal;
 
         public SwordBeam(Facing facing, Vector2 position, bool isFriendly = true)
         {
             this.facing = facing;
             this.position = position;
             this.isFriendly = isFriendly;
-
             sprite = ItemSpriteFactory.Instance.CreateSwordSprite(this.facing);
-
-
+            offsetVal = 30f;
+            offset = Offset();
             velocity = 500;
-
             this.facing = facing;
             SoundManager.Instance.CreateSwordShootSound();
         }
@@ -41,7 +42,7 @@ namespace Project.Projectiles
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, this.position + offset);
         }
 
         public void Update(GameTime gameTime)
@@ -67,6 +68,22 @@ namespace Project.Projectiles
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
             sprite.Update(gameTime);
+        }
+
+        private Vector2 Offset()
+        {
+
+            offset = facing switch
+            {
+                Facing.Up => new Vector2(-offsetVal, 0),
+                Facing.Down => new Vector2(-offsetVal, 0),
+                Facing.Right => new Vector2(0, -offsetVal / 2f),
+                Facing.Left => new Vector2(0, -offsetVal / 2f),
+                _ => throw new NotImplementedException()
+            };
+
+            return offset;
+
         }
 
         /**

@@ -5,21 +5,22 @@ using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
-using System;
 using System.Collections.Generic;
 
 namespace Project.Entities
 {
     public class GreenLink : IPlayer, ICollidable
     {
+        private const int START_HEALTH = 6;
         private LinkStateMachine stateMachine;
         private Vector2 position;
         private IPlayerSprite sprite;
         private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
-        private int health = 6;
         private PlayerInventory inventory;
+        private Health health;
+        public Health Health { get => health; }
         private bool isApproachBat;
 
         /**
@@ -43,7 +44,6 @@ namespace Project.Entities
             return sprite.DestRectangle;
 
         }
-
         public Vector2 Position
         {
             get { return position; }
@@ -57,13 +57,10 @@ namespace Project.Entities
         {
             get => this.stateMachine;
         }
-
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Player;
-
         public PlayerInventory Inventory => inventory;
 
-        public int Health { get => health; set => health = value; }
         public bool IsApproachBat { get => isApproachBat; set => isApproachBat = value; }
 
         public GreenLink(Game1 game)
@@ -74,6 +71,7 @@ namespace Project.Entities
             sprite = stateMachine.StopMoving();
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
+            health = new Health(START_HEALTH);
             isApproachBat = false;
         }
 
@@ -104,30 +102,33 @@ namespace Project.Entities
 
         public void UseWeapon(WeaponTypes weaponType)
         {
-
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
 
             if (potentialWeapon != null)
             {
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
+                if (weaponType == WeaponTypes.Bomb)
+                {
+                    inventory.RemoveItem(ItemType.Bomb);
+                }
             }
         }
-
-
-        
 
         public void TakeDamage(int damage)
         {
             this.game.Player = new DamagedLink(this, game);
-            if (health > 0)
-            {
-                health -= damage;
-            }
-            else
+            health.DecreaseHealth(damage);
+            inventory.RemoveNItems(ItemType.Heart, damage);
+            if (health.CurrentHealth <= 0)
             {
                 game.GameStateMachine.TitleScreen();
-                health = 6;
+                health.MaxHealth = START_HEALTH;
+                inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
+                inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
+                health.CurrentHealth = health.MaxHealth;
+                inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
+                inventory.AddNItems(ItemType.Heart, health.CurrentHealth);
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
                 RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
             }

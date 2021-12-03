@@ -15,7 +15,7 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
-        private int health = 1;
+        private Health health;
         private IPlayer player;
         private static int X_DIFF = 100;
         private static int Y_DIFF = 100;
@@ -25,7 +25,8 @@ namespace Project
         public float Velocity { get => this.velocity; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bat;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
+
         public Bat(Vector2 position)
         {
             this.position = position;

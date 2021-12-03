@@ -64,7 +64,7 @@ namespace Project.Sprites.ItemSprites
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 1500)
+            if (timer > 1000)
                 spriteFrame = 4;
         }
 

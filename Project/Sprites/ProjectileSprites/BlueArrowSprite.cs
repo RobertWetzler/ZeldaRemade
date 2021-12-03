@@ -10,7 +10,6 @@ namespace Project.Sprites.ItemSprites
         private int sheetColumns;
         private int spriteRow;
         private int spriteFrame;
-        private float xPos, yPos;
         private int velocity;
 
         private bool isFin;
@@ -73,7 +72,7 @@ namespace Project.Sprites.ItemSprites
         {
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 1500 && timer < 2000)
+            if (timer > 750)
                 spriteFrame = 4;
 
         }

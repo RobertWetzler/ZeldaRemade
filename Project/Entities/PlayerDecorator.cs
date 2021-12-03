@@ -16,7 +16,7 @@ namespace Project.Entities
         public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
         public CollisionType CollisionType => decoratedPlayer.CollisionType;
 
-        public int Health { get => decoratedPlayer.Health; set => decoratedPlayer.Health = value; }
+        public Health Health { get => decoratedPlayer.Health; }
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;
         public bool IsApproachBat { get => decoratedPlayer.IsApproachBat; set => decoratedPlayer.IsApproachBat = value; }
@@ -24,6 +24,16 @@ namespace Project.Entities
         public void RemoveDecorator()
         {
             game.Player = decoratedPlayer;
+        }
+
+        public void AddHealth(int value)
+        {
+            // Do nothing
+        }
+
+        public void UpdateMaxHealth(int value)
+        {
+            // Do Nothing
         }
         // mark methods as virtual so they can be overriden by derived classes
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
@@ -80,5 +90,6 @@ namespace Project.Entities
         {
             decoratedPlayer.UseWeapon(weaponType);
         }
+
     }
 }
