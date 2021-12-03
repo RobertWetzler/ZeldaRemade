@@ -1,4 +1,6 @@
-﻿namespace Project.Collision.CollisionHandlers
+﻿using System;
+
+namespace Project.Collision.CollisionHandlers
 {
     public class ItemPlayerCollisionHandler : ICollisionHandler
     {
@@ -7,22 +9,30 @@
             IItems item = itemCollidable as IItems;
             item.Despawn();
             IPlayer link = player as IPlayer;
-            link.Inventory.AddItem(item.type);
+
             if (item.type == ItemType.Heart)
             {
-                link.AddHealth(2);
+                link.Inventory.AddNItems(ItemType.Heart, Math.Min(2, link.Health.MaxHealth - link.Health.CurrentHealth));
+                link.Health.AddHealth(2);
+            }
+            else if (item.type == ItemType.HeartContainer)
+            {
+                link.Inventory.AddNItems(ItemType.Heart, 2);
+                link.Inventory.AddItem(ItemType.HeartContainer);
+                link.Health.UpdateMaxHealth(2);
+            }
+            else if (item.type == ItemType.Fairy)
+            {
+                int value = link.Inventory.GetItemCount(ItemType.HeartContainer) * 2 - link.Inventory.GetItemCount(ItemType.Heart);
+                link.Inventory.AddItem(item.type);
+                link.Inventory.AddNItems(ItemType.Heart, Math.Min(value, link.Health.MaxHealth - link.Health.CurrentHealth));
+                link.Health.AddHealth(value);
+            }
+            else
+            {
+                link.Inventory.AddItem(item.type);
             }
 
-            if (item.type ==ItemType.HeartContainer)
-            {
-                link.MaxHealth();
-            }
-            if (item.type == ItemType.Triforce)
-            {
-                link.PickUpItem(item);
-                Game1.Instance.GameStateMachine.WinScreen();
-
-            }
         }
     }
 }

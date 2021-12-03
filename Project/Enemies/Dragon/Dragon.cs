@@ -17,7 +17,7 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
-        private int health = 6;
+        private Health health;
 
         public List<IProjectile> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
@@ -26,7 +26,7 @@ namespace Project
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public Dragon(Vector2 position)
         {
             this.position = position;

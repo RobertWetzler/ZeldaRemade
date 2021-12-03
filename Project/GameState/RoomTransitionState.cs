@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sound;
 using Project.HUD;
 using Project.Utilities;
 using System;

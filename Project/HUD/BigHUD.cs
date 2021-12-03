@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Text;
-using Project.HUD;
-using Project.Utilities;
 
 namespace Project.HUD
 {
@@ -43,7 +40,7 @@ namespace Project.HUD
             posDot.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
-        {    
+        {
             /*
              * Display big HUD screen
              */
@@ -84,7 +81,7 @@ namespace Project.HUD
             /*
              * Displays Items in the inventory box          
              */
-            if (player.Inventory.GetItemCount(ItemType.Bomb) > 0)
+            if (player.Inventory.GetItemCount(ItemType.Blue_Boomerang) > 0)
                 blueBoomerang.Draw(spriteBatch, new Vector2(500, 180));
 
             if (player.Inventory.GetItemCount(ItemType.Blue_Candle) > 0)
