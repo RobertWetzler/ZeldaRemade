@@ -26,7 +26,7 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bat;
         public int Health { get => health; set => health = value; }
-        public Bat(Vector2 position, IPlayer player)
+        public Bat(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
@@ -34,7 +34,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
-            this.player = player;
+            this.player = Game1.Instance.Player;
         }
 
         public void ChangeDirection(EnemyDirections direction)
