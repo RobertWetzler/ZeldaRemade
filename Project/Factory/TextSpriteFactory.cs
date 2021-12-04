@@ -207,5 +207,9 @@ namespace Project.Factory
         {
             return new TextSprite(fontSpriteSheet, 147, 3);
         }
+        public ISprite CreateExclamationSprite()
+        {
+            return new TextSprite(fontSpriteSheet, 83, 35);
+        }
     }
 }
