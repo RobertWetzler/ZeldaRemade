@@ -15,7 +15,8 @@ namespace Project.Collision
         StairBlock,
         BlueBlock,
         Bomb,
-        Door
+        Door,
+        Darknut
     }
     public interface ICollidable
     {
