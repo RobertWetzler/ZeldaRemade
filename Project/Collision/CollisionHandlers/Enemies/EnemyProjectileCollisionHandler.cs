@@ -36,7 +36,14 @@ namespace Project.Collision.CollisionHandlers.Enemies
             {
                 if (!(enemy is Trap))
                 {
-                    enemy.RemoveHealth();
+                    if (item is Arrow)
+                    {
+                        enemy.Health.DecreaseHealth(2);
+                    }
+                    else
+                    {
+                        enemy.Health.DecreaseHealth(1);
+                    }
                     if (enemy.Health.CurrentHealth == 0)
                     {
                         enemy.Despawn();
