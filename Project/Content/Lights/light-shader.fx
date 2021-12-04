@@ -45,7 +45,7 @@ float4 MainPS(float2 textureCoords : TEXCOORD0) : COLOR
 
 	//	We multiply the mask to darken areas where there isn't light (adding .3 so it isn't completely dark)
 	// Then add the mask again so that colors from the mask are in the resulting image.
-	return pixelColor*(lightColor + 0.3) + (lightColor);
+	return pixelColor*(lightColor + 0.2) + (lightColor);
 }
 
 technique LightDrawing

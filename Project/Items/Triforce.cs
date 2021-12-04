@@ -19,6 +19,8 @@ namespace Project.Items
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateTriforceSprite();
             lightColor = Color.Gold;
+            lightIntensity = 0.8f;
+            lightScale = 3f;
         }
 
         public void Draw(SpriteBatch spriteBatch)
