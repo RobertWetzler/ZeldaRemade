@@ -23,6 +23,9 @@ namespace Project.Entities
                 case Move.UsingItem:
                     sprite = LinkSpriteFactory.Instance.CreateLinkUseItemSprite(facing);
                     break;
+                case Move.PickUpItem:
+                    sprite = LinkSpriteFactory.Instance.CreateLinkPickupItemSprite();
+                    break;
                 default:
                     sprite = LinkSpriteFactory.Instance.CreateLinkIdleSprite(facing, position);
                     break;
