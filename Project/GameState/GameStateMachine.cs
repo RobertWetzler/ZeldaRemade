@@ -57,5 +57,10 @@
         {
             this.currentState = new WinScreenState();
         }
+
+        public void PickUpItemScreen(IItems item)
+        {
+            this.currentState = new PickUpItemState(item);
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.HUD;
+using Project.Sound;
 using Project.Text;
+using Project.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +14,6 @@ namespace Project.GameState
     {
         private IText youWinText, developerText;
         private IText RobertName, MaggieName, JenaName, YutingName, JacobName, EdwinName;
-        private Background background;
         private int flashTimer = 0, waitTimer = 0, flashCounter = 0;
         private int flashMaxTime = 2000, waitTimeMax = 2000;
         private bool doneFlashing = false, doneWaiting = false;
@@ -29,10 +30,8 @@ namespace Project.GameState
             EdwinName = new StringText("Edwin Pallithanam", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 240, 550));
             RobertName = new StringText("Robert Wetzler", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 190, 600));
             YutingName = new StringText("Yuting Yang", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 170, 650));
-
-            background = new Background("Room17", Game1.Instance.Graphics);
             smallHUD = new SmallHUD(false);
-
+            SoundManager.Instance.CreateBackgroundMusic();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -45,7 +44,7 @@ namespace Project.GameState
                 }
                 else
                 {
-                    background.Draw(spriteBatch);
+                    RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
                 }
                 smallHUD.Draw(spriteBatch);
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
@@ -54,7 +53,7 @@ namespace Project.GameState
             else if (doneFlashing && !doneWaiting)
             {
                 spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-                background.Draw(spriteBatch);
+                RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();
             }
@@ -78,7 +77,7 @@ namespace Project.GameState
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             smallHUD.Update(gameTime);
-            Game1.Instance.Player.Update(Game1.Instance.PlayerBounds, gameTime);
+            Game1.Instance.Player.Update(playerBounds, gameTime);
             SetDoneFlashing();
             if (!doneFlashing)
             {

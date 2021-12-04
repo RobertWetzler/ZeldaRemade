@@ -33,13 +33,12 @@ namespace Project.Collision.CollisionHandlers
             {
                 link.Inventory.AddItem(item.type);
                 item = new Triforce(new Vector2(link.Position.X - 20, link.Position.Y - 50));
-                link.PickUpItem(item);
-                Game1.Instance.GameStateMachine.WinScreen();
+                Game1.Instance.GameStateMachine.PickUpItemScreen(item);
             }else if (item.type == ItemType.Bow)
             {
                 link.Inventory.AddItem(item.type);
                 item = new Bow(new Vector2(link.Position.X - 20, link.Position.Y - 50));
-                link.PickUpItem(item);
+                Game1.Instance.GameStateMachine.PickUpItemScreen(item);
             }
             else
             {

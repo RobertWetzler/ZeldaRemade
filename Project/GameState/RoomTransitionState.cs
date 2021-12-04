@@ -117,7 +117,7 @@ namespace Project.GameState
             if (door is null)
             {
                 Rectangle playerBounds = Game1.Instance.PlayerBounds;
-                Game1.Instance.Player.Position = new Vector2(playerBounds.Center.X, playerBounds.Center.Y);
+                Game1.Instance.Player.Position = new Vector2(playerBounds.Center.X - 200, playerBounds.Center.Y + 100);
             }
             else
             {
