@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Project.Items;
+using System;
 
 namespace Project.Collision.CollisionHandlers
 {
@@ -27,6 +29,16 @@ namespace Project.Collision.CollisionHandlers
                 link.Inventory.AddItem(item.type);
                 link.Inventory.AddNItems(ItemType.Heart, Math.Min(value, link.Health.MaxHealth - link.Health.CurrentHealth));
                 link.Health.AddHealth(value);
+            }else if (item.type == ItemType.Triforce)
+            {
+                link.Inventory.AddItem(item.type);
+                item = new Triforce(new Vector2(link.Position.X - 20, link.Position.Y - 50));
+                Game1.Instance.GameStateMachine.PickUpItemScreen(item);
+            }else if (item.type == ItemType.Bow)
+            {
+                link.Inventory.AddItem(item.type);
+                item = new Bow(new Vector2(link.Position.X - 20, link.Position.Y - 50));
+                Game1.Instance.GameStateMachine.PickUpItemScreen(item);
             }
             else
             {
