@@ -12,7 +12,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
 
             if (bomb.IsExploding)
             {
-                enemy.Health.DecreaseHealth(10);
+                enemy.Health.DecreaseHealth(4);
                 new EnemyProjectileCollisionHandler().HandleCollision(enemyCollidable, projectileCollidable, side);
             }
         }
