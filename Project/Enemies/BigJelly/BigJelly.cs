@@ -30,6 +30,7 @@ namespace Project
             startTime = 0;
             timeToSpawn = 600;
             currentState = new EnemySpawning(this);
+            health = new Health(1);
 
         }
 

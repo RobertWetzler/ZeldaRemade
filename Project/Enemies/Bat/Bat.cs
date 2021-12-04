@@ -31,6 +31,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
+            health = new Health(1);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -73,6 +74,7 @@ namespace Project
         {
             sprite.Draw(spriteBatch, position);
         }
+
     }
 
 }
