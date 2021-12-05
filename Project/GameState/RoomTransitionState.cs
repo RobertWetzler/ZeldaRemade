@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sound;
 using Project.HUD;
 using Project.Utilities;
 using System;
@@ -78,6 +77,7 @@ namespace Project.GameState
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
+            smallHUD.Update(gameTime);
             if (this.nextRoom is null)
             {
                 this.game.GameStateMachine.Play();
@@ -117,7 +117,7 @@ namespace Project.GameState
             if (door is null)
             {
                 Rectangle playerBounds = Game1.Instance.PlayerBounds;
-                Game1.Instance.Player.Position = new Vector2(playerBounds.Center.X, playerBounds.Center.Y);
+                Game1.Instance.Player.Position = new Vector2(playerBounds.Center.X - 200, playerBounds.Center.Y + 100);
             }
             else
             {
@@ -142,9 +142,11 @@ namespace Project.GameState
                 this.game.GameStateMachine.Play();
                 return;
             }
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             nextRoom.Background.Draw(spriteBatch, nextRoomOffset);
             RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, offset);
             this.smallHUD.Draw(spriteBatch);
+            spriteBatch.End();
         }
     }
 }

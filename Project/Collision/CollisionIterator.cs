@@ -27,7 +27,6 @@ namespace Project.Collision
                     if (dynamic != dynamic2 && CollisionDetector.IsColliding(dynamic, dynamic2))
                     {
                         collisionHandler.HandleCollision(dynamic, dynamic2, CollisionDetector.GetCollisionSide(dynamic, dynamic2));
-                        collisionHandler.HandleCollision(dynamic2, dynamic, CollisionDetector.GetCollisionSide(dynamic2, dynamic));
                     }
                 }
             }

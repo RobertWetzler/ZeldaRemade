@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using Project.Utilities;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 namespace Project.HUD
 {

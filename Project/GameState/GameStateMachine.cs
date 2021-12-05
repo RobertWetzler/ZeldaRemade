@@ -53,5 +53,14 @@
                 this.currentState = new ItemSelectionState(game);
             }
         }
+        public void WinScreen()
+        {
+            this.currentState = new WinScreenState();
+        }
+
+        public void PickUpItemScreen(IItems item)
+        {
+            this.currentState = new PickUpItemState(item);
+        }
     }
 }

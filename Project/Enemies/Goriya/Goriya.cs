@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Projectiles;
-using Project.Utilities;
 using Project.Sound;
+using Project.Utilities;
 
 namespace Project
 {
@@ -19,7 +19,7 @@ namespace Project
         private EnemyMovement movement;
         private Facing facingDirection;
         private Vector2 position;
-        private int health = 4;
+        private Health health;
 
         public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
@@ -28,7 +28,7 @@ namespace Project
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public Goriya(Vector2 position)
         {
             this.position = position;
@@ -38,6 +38,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
+            health = new Health(3);
         }
 
         public void ChangeDirection(EnemyDirections direction)

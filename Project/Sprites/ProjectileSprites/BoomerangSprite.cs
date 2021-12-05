@@ -13,8 +13,6 @@ namespace Project.Sprites.ItemSprites
 
         private float timer;
         private bool isFin, flipped;
-
-        private Vector2 position;
         private Facing facing;
 
         private Texture2D spriteSheet;

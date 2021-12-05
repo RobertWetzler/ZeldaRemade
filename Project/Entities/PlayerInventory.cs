@@ -24,7 +24,8 @@ namespace Project
             inventory.Add(ItemType.Blue_Candle, 1);
             inventory.Add(ItemType.Boomerang, 0);
             inventory.Add(ItemType.Blue_Boomerang, 1);
-            inventory.Add(ItemType.Heart, 3);
+            inventory.Add(ItemType.HeartContainer, 3);
+            inventory.Add(ItemType.Heart, 6);
             inventory.Add(ItemType.Map, 0);
             inventory.Add(ItemType.Compass, 0);
             inventory.Add(ItemType.Clock, 0);
@@ -44,15 +45,34 @@ namespace Project
             {
                 inventory.Add(item, 1);
             }
-            if (aItem == ItemType.Null && HoldableItemUtilities.holdableItems.Contains(item))
+        }
+
+        public void AddNItems(ItemType item, int number)
+        {
+            if (inventory.ContainsKey(item))
             {
-                aItem = item;
+                inventory[item] += number;
+            }
+            else
+            {
+                inventory.Add(item, number);
             }
         }
 
         public void RemoveItem(ItemType item)
         {
             inventory[item]--;
+        }
+        public void RemoveNItems(ItemType item, int number)
+        {
+            if (inventory[item] - number < 0)
+            {
+                inventory[item] = 0;
+            }
+            else
+            {
+                inventory[item] -= number;
+            }
         }
         public int GetItemCount(ItemType item)
         {
