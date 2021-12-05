@@ -10,6 +10,7 @@ namespace Project.Entities
     {
         protected IPlayer decoratedPlayer;
         protected Game1 game;
+        private bool isDecoratorFinished;
         public Vector2 Position { get => decoratedPlayer.Position; set => decoratedPlayer.Position = value; }
         public IPlayerSprite PlayerSprite => decoratedPlayer.PlayerSprite;
         public LinkStateMachine StateMachine => decoratedPlayer.StateMachine;
@@ -17,11 +18,13 @@ namespace Project.Entities
         public CollisionType CollisionType => decoratedPlayer.CollisionType;
 
         public int Health { get => decoratedPlayer.Health; set => decoratedPlayer.Health = value; }
+        public bool IsFinished { get => isDecoratorFinished; }//test
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;
 
         public void RemoveDecorator()
         {
+           // isDecoratorFinished = true;
             game.Player = decoratedPlayer;
         }
         // mark methods as virtual so they can be overriden by derived classes

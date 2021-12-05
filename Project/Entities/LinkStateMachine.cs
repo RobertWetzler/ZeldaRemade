@@ -72,7 +72,50 @@ namespace Project.Entities
                 sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
             }
             return sprite;
-
+        }
+        public IPlayerSprite IdleUp()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Up;
+                this.move = Move.Idle;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
+            }
+            return sprite;
+        }
+        public IPlayerSprite IdleDown()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Down;
+                this.move = Move.Idle;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
+            }
+            return sprite;
+        }
+        public IPlayerSprite IdleLeft()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Left;
+                this.move = Move.Idle;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
+            }
+            return sprite;
+        }
+        public IPlayerSprite IdleRight()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            if (!IsPerformingAction())
+            {
+                this.facing = Facing.Right;
+                this.move = Move.Idle;
+                sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
+            }
+            return sprite;
         }
         public IPlayerSprite StopMoving()
         {

@@ -21,6 +21,13 @@ namespace Project.Entities
         private int health = 6;
         private PlayerInventory inventory;
 
+        private int timeToChangeDirection = 100; //time to randomly change direction
+        private int changeDirectionCounter = 0;
+        private int spinStartTime = 0;
+        private int timeToSpin = 1000;
+        private bool isDead = false;
+        private bool isFinished = false;//test
+
         /**
         * Shrinks the bounding box for link
         * 16x16 -> 14x14 bounding box before scaling
@@ -63,6 +70,7 @@ namespace Project.Entities
         public PlayerInventory Inventory => inventory;
 
         public int Health { get => health; set => health = value; }
+        public bool IsFinished { get => isFinished; }
 
         public GreenLink(Game1 game)
         {
@@ -112,18 +120,23 @@ namespace Project.Entities
         }
 
 
-        
+
 
         public void TakeDamage(int damage)
         {
+            stateMachine = new LinkStateMachine(this, Facing.Down, Move.Idle, LinkColor.Blue);
             // this.game.Player = new DamagedLink(this, game);
+            sprite = stateMachine.IdleDown();
+            
             this.game.Player = new DeadLink(this, game); // test
+            
+            isDead = true;
             if (health > 0)
             {
                 health -= damage;
             }
             else
-            {               
+            {
                 game.GameStateMachine.TitleScreen();
                 health = 6;
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
@@ -156,32 +169,60 @@ namespace Project.Entities
                         break;
                 }
             }
-
-            position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-            position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-
-
-            sprite.Update(gameTime);
-            foreach (IProjectile projectile in projectiles)
+            if (isDead)
             {
-                projectile.Update(gameTime);
+                spinStartTime+= gameTime.ElapsedGameTime.Milliseconds;
+                if (spinStartTime > timeToSpin)
+                {
+                    changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
+                    if (changeDirectionCounter > timeToChangeDirection)
+                    {
+                        changeDirectionCounter -= timeToChangeDirection;
+                        switch (stateMachine.facing)
+                        {
+                            case Facing.Up:
+                                sprite = stateMachine.IdleRight();
+                                break;
+                            case Facing.Down:
+                                sprite = stateMachine.IdleLeft();
+                                break;
+                            case Facing.Left:
+                                sprite = stateMachine.IdleUp();
+                                break;
+                            case Facing.Right:
+                                sprite = stateMachine.IdleDown();
+                                break;
+                        }
+                    }
+                }
+               
             }
-            projectiles.RemoveAll(projectile => !projectile.IsActive);
+
+                position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+                position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
 
-        }
+                sprite.Update(gameTime);
+                foreach (IProjectile projectile in projectiles)
+                {
+                    projectile.Update(gameTime);
+                }
+                projectiles.RemoveAll(projectile => !projectile.IsActive);
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
-        {
-            sprite.Draw(spriteBatch, this.position, color);
+            
+            }
 
-            foreach (IProjectileSprite projectile in projectiles)
+            public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
             {
-                projectile.Update(gameTime);
+                sprite.Draw(spriteBatch, this.position, color);
+
+                foreach (IProjectileSprite projectile in projectiles)
+                {
+                    projectile.Update(gameTime);
+                }
+
+                projectiles.RemoveAll(projectile => projectile.IsFinished);
+
             }
-
-            projectiles.RemoveAll(projectile => projectile.IsFinished);
-
         }
-    }
-}
+    } 

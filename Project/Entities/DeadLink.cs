@@ -14,8 +14,9 @@ namespace Project.Entities
         private int timeToSpin;//test
         private int spinTimeCounter;
         private LinkStateMachine stateMachine;
+        private bool isFinished = false;
 
-        private double totalFlashTime = 5000;
+        private double totalFlashTime = 1000;
         private double totalKnockbackTime = 500;
         private double remainingFlashTime;
         private double remainingKnockbackTime;
@@ -30,13 +31,12 @@ namespace Project.Entities
             this.game = game;
             remainingFlashTime = totalFlashTime;
             remainingKnockbackTime = totalKnockbackTime;
-            SoundManager.Instance.CreateLinkHurtSound();
+            SoundManager.Instance.CreateLinkHurtSound();// need to change
         }
         public override void TakeDamage(int damage)
         {
             // No damage is taken
         }
-
         public override void Update(Rectangle windowBounds, GameTime gameTime)
         {
             spinTimeCounter += gameTime.ElapsedGameTime.Milliseconds;
@@ -57,11 +57,12 @@ namespace Project.Entities
             if (Math.Max(remainingFlashTime, remainingKnockbackTime) <= 0)
             {
                 RemoveDecorator();
+                isFinished = true;
             }
         }
         private void UpdateColor()
         {
-            List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
+            List<float> hues = new List<float>() { 360f, 260f, 0f };
             double t = totalFlashTime - remainingFlashTime;
             int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
             color = ColorUtils.HSVToRGB(hues[i], 1, 1);
