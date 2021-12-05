@@ -31,12 +31,13 @@ namespace Project.Sprites
 
             Rectangle spriteRectangle = new Rectangle(frame * width, spriteRow * height, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, scale, scale);
-            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
+            spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, color);
         }
 
         public void Update(GameTime gameTime)
         {
             frame = (int)(gameTime.TotalGameTime.TotalSeconds * 10) % 2;
+            
 
         }
     }

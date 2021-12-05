@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using Project.Utilities;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -11,6 +12,7 @@ namespace Project.HUD
         ISprite sprite;
         private KeyboardController keyboardController;
         public List<Vector2> SelectionBoxPosition = new List<Vector2>();
+        private Color color;
         private Game1 game;
         public ItemSelectionBox(Game1 game)
         {
@@ -20,12 +22,13 @@ namespace Project.HUD
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Debug.WriteLine(game.ItemIdx);
-            sprite.Draw(spriteBatch, SelectionBoxPosition[game.ItemIdx]);
+            this.UpdateColor();
+            sprite.Draw(spriteBatch, SelectionBoxPosition[game.ItemIdx], color);
         }
 
         public void Update(GameTime gameTime)
         {
+            this.UpdateColor();
             sprite.Update(gameTime);
         }
 
@@ -40,6 +43,11 @@ namespace Project.HUD
             SelectionBoxPosition.Add(new Vector2(700, 250));
             SelectionBoxPosition.Add(new Vector2(800, 250));
 
+        }
+
+        public void UpdateColor()
+        {
+            color = new Color(92f, 255f, 51f);
         }
     }
 }

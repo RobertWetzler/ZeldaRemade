@@ -18,7 +18,7 @@ namespace Project.GameState
         {
             this.game = game;
             controllers = new List<IController>();
-            controllers.Add(ControllerUtilities.GetKeyboardController(this.game));
+            controllers.Add(PlayStateUtilities.GetKeyboardController(this.game));
             SoundManager.Instance.CreateBackgroundMusic();
             smallHud = new SmallHUD(false);
         }

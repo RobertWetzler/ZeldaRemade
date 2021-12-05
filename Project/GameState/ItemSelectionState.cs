@@ -33,10 +33,11 @@ namespace Project.GameState
             itemSelector = new ItemSelectionBox(game);
             this.itemSelectionScreen = new ItemSelectionScreen(game.Graphics);
             keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(this.game));
-            keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(this.game));
-            keyboardController.RegisterCommand(Keys.G, new GetBItemCommand(game));
+            keyboardController.RegisterCommand(Keys.Right, new ItemSelectionCommandCycleRight(this.game));
+            keyboardController.RegisterCommand(Keys.Left, new ItemSelectionCommandCycleLeft(this.game));
+            keyboardController.RegisterCommand(Keys.Tab, new PlayGameCommand(this.game));
+            //keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(this.game));
+            keyboardController.RegisterCommand(Keys.Enter, new GetBItemCommand(this.game));
             smallHud = new SmallHUD(true);
 
             mapTile1 = MapTileSpriteFactory.Instance.CreateRDoorTileSprite();
