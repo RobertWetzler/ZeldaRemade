@@ -21,6 +21,8 @@ namespace Project.Entities
         private PlayerInventory inventory;
         private Health health;
         public Health Health { get => health; }
+        private IItems pickUpItem;
+
         private bool isApproachBat;
 
         /**
@@ -81,27 +83,33 @@ namespace Project.Entities
         }
         public void MoveUp()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveUp();
         }
         public void MoveDown()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveDown();
         }
         public void MoveLeft()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveLeft();
         }
         public void MoveRight()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveRight();
         }
         public void StopMoving()
         {
+            pickUpItem = null;
             sprite = stateMachine.StopMoving();
         }
 
         public void UseWeapon(WeaponTypes weaponType)
         {
+            pickUpItem = null;
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
 
@@ -117,6 +125,7 @@ namespace Project.Entities
 
         public void TakeDamage(int damage)
         {
+            pickUpItem = null;
             this.game.Player = new DamagedLink(this, game);
             health.DecreaseHealth(damage);
             inventory.RemoveNItems(ItemType.Heart, damage);
@@ -170,6 +179,10 @@ namespace Project.Entities
                 projectile.Update(gameTime);
             }
             projectiles.RemoveAll(projectile => !projectile.IsActive);
+            if (pickUpItem != null)
+            {
+                pickUpItem.Update(gameTime);
+            }
 
 
         }
@@ -184,7 +197,17 @@ namespace Project.Entities
             }
 
             projectiles.RemoveAll(projectile => projectile.IsFinished);
+            if (pickUpItem != null)
+            {
+                pickUpItem.Draw(spriteBatch);
+            }
 
+        }
+
+        public void PickUpItem(IItems item)
+        {
+            sprite = stateMachine.PickUpItem();
+            pickUpItem = item;
         }
     }
 }

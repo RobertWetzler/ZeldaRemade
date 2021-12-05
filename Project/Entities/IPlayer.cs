@@ -20,5 +20,8 @@ namespace Project
         void MoveRight();
         void StopMoving();
         void UseWeapon(WeaponTypes weaponType);
+
+        void PickUpItem(IItems item);
+
     }
 }

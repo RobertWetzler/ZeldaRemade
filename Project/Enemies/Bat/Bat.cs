@@ -35,6 +35,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
+            health = new Health(1);
             this.player = Game1.Instance.Player;
         }
 

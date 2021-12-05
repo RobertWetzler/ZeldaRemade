@@ -91,5 +91,9 @@ namespace Project.Entities
             decoratedPlayer.UseWeapon(weaponType);
         }
 
+        public void PickUpItem(IItems item)
+        {
+            decoratedPlayer.PickUpItem(item);
+        }
     }
 }
