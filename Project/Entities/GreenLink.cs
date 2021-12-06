@@ -25,6 +25,7 @@ namespace Project.Entities
         private int changeDirectionCounter = 0;
         private int spinStartTime = 0;
         private int timeToSpin = 1000;
+        private int timeToStop = 3000;
         private bool isDead = false;
         private bool isFinished = false;//test
 
@@ -195,7 +196,10 @@ namespace Project.Entities
                         }
                     }
                 }
-               
+                if (spinStartTime > timeToStop)
+                {
+                    sprite = stateMachine.IdleDown();
+                }       
             }
 
                 position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
