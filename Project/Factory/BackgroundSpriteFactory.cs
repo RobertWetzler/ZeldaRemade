@@ -31,7 +31,7 @@ namespace Project.Factory
             backgroundSpriteSheet = content.Load<Texture2D>("Level1");
             titleScreenSheet = content.Load<Texture2D>("titleScreen");
             itemSelectionScreenSheet = content.Load<Texture2D>("HUD/main-hud-screen");
-            torchSpriteSheet = content.Load<Texture2D>("torch_Sprite_Sheet");
+            torchSpriteSheet = content.Load<Texture2D>("Torch_Sprite_Sheet");
         }
 
         public IBackgroundSprite CreateOldManRoomBackgroundSprite()

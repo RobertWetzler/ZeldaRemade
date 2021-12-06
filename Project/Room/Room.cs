@@ -147,10 +147,6 @@ namespace Project
             {
                 block.Draw(spriteBatch);
             }
-            foreach (Torch torch in torches)
-            {
-                torch.Draw(spriteBatch);
-            }
             foreach (INPC npc in npcs)
             {
                 npc.Draw(spriteBatch);
@@ -163,7 +159,11 @@ namespace Project
             {
                 item.Draw(spriteBatch);
             }
-       
+            foreach (Torch torch in torches)
+            {
+                torch.Draw(spriteBatch);
+            }
+
             if (noEnemies)
             {
                 foreach (IItems item in items)
