@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Collision;
-using Project.Factory;
 using Project.Sound;
 using Project.Utilities;
 

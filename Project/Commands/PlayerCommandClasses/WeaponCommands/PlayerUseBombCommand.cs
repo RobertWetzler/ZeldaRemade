@@ -13,7 +13,10 @@ namespace Project
 
         public void Execute()
         {
-            this.game.Player.UseWeapon(WeaponTypes.Bomb);
+            if (this.game.Player.Inventory.GetItemCount(ItemType.Bomb) > 0)
+            {
+                this.game.Player.UseWeapon(WeaponTypes.Bomb);
+            }
         }
     }
 }

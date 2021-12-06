@@ -148,6 +148,7 @@ namespace Project.Sound
         }
         public void CreateItemSound()
         {
+            backgroundInstance.Stop();
             soundInstance = get_item.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();

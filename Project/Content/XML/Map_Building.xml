@@ -200,6 +200,7 @@
 				<ObjectName>Closed</ObjectName>
 				<Direction>West</Direction>
 				<Position>0,509</Position>
+				<Enum>Block</Enum>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
@@ -247,6 +248,7 @@
 				<ObjectName>Closed</ObjectName>
 				<Direction>East</Direction>
 				<Position>896,509</Position>
+				<Enum>Enemy</Enum>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
@@ -1464,6 +1466,7 @@
 				<ObjectName>Closed</ObjectName>
 				<Direction>East</Direction>
 				<Position>896,509</Position>
+				<Enum>Enemy</Enum>
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>

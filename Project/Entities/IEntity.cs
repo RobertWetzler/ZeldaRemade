@@ -6,7 +6,7 @@ namespace Project
     public interface IEntity
     {
         public void TakeDamage(int damage);
-        public int Health { get; set; }
+        public Health Health { get; }
         void Update(Rectangle windowBounds, GameTime gameTime);
         void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

@@ -11,8 +11,7 @@ namespace Project.Sprites.ItemSprites
         private int spriteRow;
         private int spriteFrame;
         private float timer;
-        private bool isFin;
-
+        public bool IsExploding => timer > 1000;
         private Texture2D spriteSheet;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
@@ -25,8 +24,6 @@ namespace Project.Sprites.ItemSprites
 
 
             spriteRow = 0;
-            isFin = false;
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -47,14 +44,14 @@ namespace Project.Sprites.ItemSprites
 
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 3000 && timer < 4000)
+            if (IsExploding && !IsFinished())
                 spriteFrame = (int)(gameTime.TotalGameTime.TotalSeconds * 3) % 3 + 1;
 
         }
 
         public bool IsFinished()
         {
-            return isFin = timer > 3500 ? true : false;
+            return timer > 2000 ? true : false;
         }
     }
 }
