@@ -127,6 +127,10 @@ namespace Project
             if (this.enemies.Count == 0)
             {
                 noEnemies = true;
+                if (roomID != 3)
+                {
+                    DoorUtilities.UnlockClosedDoors();
+                }
             }
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -157,6 +161,18 @@ namespace Project
                 foreach (IItems item in items)
                 {
                     item.Draw(spriteBatch);
+                }
+            }
+            else
+            {
+                foreach (IItems item in items)
+                {
+                    if (item.type == ItemType.Triforce || item.type == ItemType.Bow || item.type == ItemType.Map 
+                        || item.type == ItemType.Compass)
+                    {
+                        item.Draw(spriteBatch);
+                    }
+            
                 }
             }
         }

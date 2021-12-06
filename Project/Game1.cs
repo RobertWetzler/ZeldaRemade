@@ -4,10 +4,10 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.Shading;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
-using Project.Sound;
-using Project.Shading;
 
 namespace Project
 {

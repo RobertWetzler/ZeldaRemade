@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
+using Project.Sound;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
-using Project.Sound;
 
 namespace Project.Entities
 {

@@ -11,9 +11,8 @@ namespace Project.GameState
     class PausedState : IGameState
     {
         private Game1 game;
-        private KeyboardController keyboardController;
         private IHUD smallHUD;
-        private ISprite spriteBlank, spriteA, spriteD, spriteE, spriteP, spriteS, spriteU;
+        private ISprite spriteA, spriteD, spriteE, spriteP, spriteS, spriteU;
         private List<ISprite> textList = new List<ISprite>();
         private int textLinePosX = 420;
         private int textLinePosY = 500;
@@ -24,7 +23,6 @@ namespace Project.GameState
             this.game = game;
             smallHUD = new SmallHUD(false);
             SoundManager.Instance.backgroundInstance.Pause();
-            spriteBlank = TextSpriteFactory.Instance.CreateBlankSprite();
             spriteA = TextSpriteFactory.Instance.CreateASprite();
             spriteD = TextSpriteFactory.Instance.CreateDSprite();
             spriteE = TextSpriteFactory.Instance.CreateESprite();
@@ -43,11 +41,12 @@ namespace Project.GameState
         public void Update(GameTime gameTime, Rectangle bounds)
         {
             PauseController.controller.Update();
+            smallHUD.Update(gameTime);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             int i = 0;
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
             foreach (var text in textList)

@@ -17,9 +17,10 @@ namespace Project.Entities
         public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
         public CollisionType CollisionType => decoratedPlayer.CollisionType;
 
-        public int Health { get => decoratedPlayer.Health; set => decoratedPlayer.Health = value; }
+        public Health Health { get => decoratedPlayer.Health; }
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;
+        public bool IsApproachBat { get => decoratedPlayer.IsApproachBat; set => decoratedPlayer.IsApproachBat = value; }
 
         public void RemoveDecorator()
         {
@@ -31,7 +32,7 @@ namespace Project.Entities
             // Do nothing
         }
 
-        public void MaxHealth()
+        public void UpdateMaxHealth(int value)
         {
             // Do Nothing
         }
@@ -91,5 +92,9 @@ namespace Project.Entities
             decoratedPlayer.UseWeapon(weaponType);
         }
 
+        public void PickUpItem(IItems item)
+        {
+            decoratedPlayer.PickUpItem(item);
+        }
     }
 }

@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+using Project.Sprites.ItemSprites;
 using System;
 using Project.Shading;
 
@@ -12,7 +12,6 @@ namespace Project.Projectiles
 {
     class Bomb : FireLight, IProjectile
     {
-
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;

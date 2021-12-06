@@ -13,14 +13,14 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
-        private int health = 3;
+        private Health health;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => pos; set => pos = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public WallMaster(Vector2 pos)
         {
             this.pos = pos;
@@ -29,7 +29,7 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
-
+            health = new Health(2);
         }
 
         public void ChangeDirection(EnemyDirections direction)

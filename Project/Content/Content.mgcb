@@ -889,3 +889,6 @@
 /processorParam:TextureFormat=Color
 /build:titleScreen.png
 
+#begin XML/Map_Building.xml
+/copy:XML/Map_Building.xml
+

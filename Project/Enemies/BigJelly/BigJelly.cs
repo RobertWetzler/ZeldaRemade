@@ -14,14 +14,14 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
-        private int health = 2;
+        private Health health;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
         public BigJelly(Vector2 position)
         {
             this.position = position;
@@ -30,6 +30,7 @@ namespace Project
             startTime = 0;
             timeToSpawn = 600;
             currentState = new EnemySpawning(this);
+            health = new Health(1);
 
         }
 
