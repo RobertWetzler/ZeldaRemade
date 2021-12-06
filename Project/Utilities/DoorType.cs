@@ -7,5 +7,6 @@
         CLOSED,
         KEY_CLOSED,
         BOMB_OPEN,
+        BOMB_CLOSED
     }
 }
