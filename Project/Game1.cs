@@ -84,7 +84,7 @@ namespace Project
 
             RoomManager.LoadAllRooms(player, _graphics);
 
-            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[18]);
+            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
             collisionIterator = new CollisionIterator();
 
         }
