@@ -31,8 +31,10 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             bigHUD.Draw(spriteBatch);   
             smallHud.Draw(spriteBatch);
+            spriteBatch.End();
         }
     }
 }

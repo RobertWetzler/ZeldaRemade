@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+using Project.Sprites.ItemSprites;
+using System;
 
 namespace Project.Projectiles
 {
@@ -21,6 +22,8 @@ namespace Project.Projectiles
         private bool flipped;
         private int xPos, yPos;
         private int velocity;
+        private Vector2 offset;
+        private float offsetVal;
 
         public BlueBoomerang(Facing facing, Vector2 position, bool isFriendly = true)
         {
@@ -29,6 +32,8 @@ namespace Project.Projectiles
             sprite = ItemSpriteFactory.Instance.CreateBlueBoomerangSprite(this.facing);
             this.isFriendly = isFriendly;
             velocity = 500;
+            offsetVal = 12f;
+            offset = Offset();
             SoundManager.Instance.CreateArrowBoomerangSound();
         }
 
@@ -38,7 +43,7 @@ namespace Project.Projectiles
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, this.position);
+            sprite.Draw(spriteBatch, this.position + offset);
         }
 
         public void Update(GameTime gameTime)
@@ -81,6 +86,21 @@ namespace Project.Projectiles
             int x = sprite.DestRectangle.X;
             int y = sprite.DestRectangle.Y + ((sprite.DestRectangle.Height - (int)height) / 2);
             return new Rectangle(x, y, (int)width, (int)height);
+        }
+        private Vector2 Offset()
+        {
+
+            offset = facing switch
+            {
+                Facing.Up => new Vector2(offsetVal, 0),
+                Facing.Down => new Vector2(offsetVal, 0),
+                Facing.Right => new Vector2(0, 0),
+                Facing.Left => new Vector2(0, 0),
+                _ => throw new NotImplementedException()
+            };
+
+            return offset;
+
         }
     }
 }

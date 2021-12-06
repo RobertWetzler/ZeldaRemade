@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 namespace Project.HUD
 {
@@ -20,7 +19,6 @@ namespace Project.HUD
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Debug.WriteLine(game.ItemIdx);
             sprite.Draw(spriteBatch, SelectionBoxPosition[game.ItemIdx]);
         }
 

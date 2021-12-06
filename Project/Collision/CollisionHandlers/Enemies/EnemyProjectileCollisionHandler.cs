@@ -38,12 +38,23 @@ namespace Project.Collision.CollisionHandlers.Enemies
             {
                 if (!(enemy is Trap))
                 {
-                    enemy.Despawn();
-                    if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
+                    if (item is Arrow)
                     {
-                        randDouble = rand.NextDouble();
-                        if (randDouble > 0.65)
-                            enemy.DropItem(item);
+                        enemy.Health.DecreaseHealth(2);
+                    }
+                    else
+                    {
+                        enemy.Health.DecreaseHealth(1);
+                    }
+                    if (enemy.Health.CurrentHealth == 0)
+                    {
+                        enemy.Despawn();
+                        if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
+                        {
+                            randDouble = rand.NextDouble();
+                            if (randDouble > 0.65)
+                                enemy.DropItem(item);
+                        }
                     }
                 }
 

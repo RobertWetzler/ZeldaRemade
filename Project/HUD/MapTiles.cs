@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
-using Project.Text;
-using Project.HUD;
-using Project.Utilities;
 
 namespace Project.HUD
 {

@@ -4,9 +4,9 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
-using Project.Sound;
 
 
 namespace Project
@@ -96,9 +96,7 @@ namespace Project
 
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }

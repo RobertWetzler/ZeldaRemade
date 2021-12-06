@@ -158,6 +158,18 @@ namespace Project
                     item.Draw(spriteBatch);
                 }
             }
+            else
+            {
+                foreach (IItems item in items)
+                {
+                    if (item.type == ItemType.Triforce || item.type == ItemType.Bow || item.type == ItemType.Map 
+                        || item.type == ItemType.Compass)
+                    {
+                        item.Draw(spriteBatch);
+                    }
+            
+                }
+            }
         }
         public void DrawForeground(SpriteBatch spriteBatch, GameTime gameTime)
         {
