@@ -500,7 +500,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>8 4</Position>
+				<Position>5 4</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
