@@ -20,7 +20,7 @@ namespace Project.Blocks
 
         public Rectangle BoundingBox => sprite.DestRectangle;
 
-        public CollisionType CollisionType => CollisionType.Block;
+        public CollisionType CollisionType => CollisionType.BlackBlock;
 
         public void Draw(SpriteBatch spriteBatch)
         {
