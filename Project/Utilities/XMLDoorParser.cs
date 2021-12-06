@@ -31,8 +31,8 @@ namespace Project.Utilities
                         string doorDirection = reader.ReadElementContentAsString();
                         reader.Read();
                         string strPos = reader.ReadElementContentAsString();
-                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
-                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(',')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(',') + 1));
                         Vector2 doorPos = new Vector2(xPos, yPos);
                         
 

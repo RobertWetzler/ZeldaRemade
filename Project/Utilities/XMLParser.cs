@@ -187,10 +187,10 @@ namespace Project.Utilities
             return background;
         }
 
-        public List<> GetTorchFromRoom(string room)
+        public List<Torch> GetTorchFromRoom(string room)
         {
-            List<ISprite> t = new List<IBlock>();
-            IBlock block;
+            List<Torch> torches = new List<Torch>();
+            Torch torch;
 
             using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
             {
@@ -200,18 +200,16 @@ namespace Project.Utilities
                 while (reader.Read())
                 {
                     if (reader.NodeType == XmlNodeType.Element && reader.Name == "ObjectType"
-                        && reader.ReadElementContentAsString() == "Block")
+                        && reader.ReadElementContentAsString() == "Torch")
                     {
                         reader.Read();
-                        string blockType = reader.ReadElementContentAsString();
-                        reader.Read();
                         string strPos = reader.ReadElementContentAsString();
-                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(' ')));
-                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(' ') + 1));
-                        xPos = (xPos * BLOCK_WIDTH) + X_OFFSET;
-                        yPos = (yPos * BLOCK_HEIGHT) + Y_OFFSET;
-                        block = XMLParserUtilities.GetBlock(blockType, new Vector2(xPos, yPos));
-                        blocks.Add(block);
+                        float xPos = (float)double.Parse(strPos.Substring(0, strPos.IndexOf(',')));
+                        float yPos = (float)double.Parse(strPos.Substring(strPos.IndexOf(',') + 1));
+                        Vector2 torchPos = new Vector2(xPos, yPos);
+
+                        torch = new Torch(torchPos);
+                        torches.Add(torch);
                     }
                     else if (reader.NodeType == XmlNodeType.EndElement && reader.Name == room)
                     {
@@ -219,7 +217,7 @@ namespace Project.Utilities
                     }
                 }
             }
-            return blocks;
+            return torches;
         }
     }
 }

@@ -1110,7 +1110,11 @@
 			</Object>
 			<Object>
 				<ObjectType>Torch</ObjectType>
-				<Position>448,215</Position>
+				<Position>430,223</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>430,400</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>

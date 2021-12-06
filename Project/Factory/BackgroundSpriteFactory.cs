@@ -10,6 +10,7 @@ namespace Project.Factory
         private Texture2D backgroundSpriteSheet;
         private Texture2D titleScreenSheet;
         private Texture2D itemSelectionScreenSheet;
+        private Texture2D torchSpriteSheet;
 
         private static BackgroundSpriteFactory instance = new BackgroundSpriteFactory();
         public static BackgroundSpriteFactory Instance
@@ -30,6 +31,7 @@ namespace Project.Factory
             backgroundSpriteSheet = content.Load<Texture2D>("Level1");
             titleScreenSheet = content.Load<Texture2D>("titleScreen");
             itemSelectionScreenSheet = content.Load<Texture2D>("HUD/main-hud-screen");
+            torchSpriteSheet = content.Load<Texture2D>("torch_Sprite_Sheet");
         }
 
         public IBackgroundSprite CreateOldManRoomBackgroundSprite()
@@ -124,7 +126,7 @@ namespace Project.Factory
 
         public ISprite CreateTorchSprite()
         {
-            return new TorchSprite();
+            return new TorchSprite(torchSpriteSheet,1,6);
         }
     }
 }

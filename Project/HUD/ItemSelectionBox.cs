@@ -9,7 +9,6 @@ namespace Project.HUD
     class ItemSelectionBox
     {
         ISprite sprite;
-        private KeyboardController keyboardController;
         public List<Vector2> SelectionBoxPosition = new List<Vector2>();
         private Game1 game;
         public ItemSelectionBox(Game1 game)
@@ -20,7 +19,6 @@ namespace Project.HUD
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Debug.WriteLine(game.ItemIdx);
             sprite.Draw(spriteBatch, SelectionBoxPosition[game.ItemIdx]);
         }
 
