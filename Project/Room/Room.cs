@@ -21,6 +21,7 @@ namespace Project
         private List<IEnemy> enemies;
         private List<IProjectile> projectiles;
         private List<IDoor> doors;
+        private List<Torch> torches;
         private int roomID;
         private IText text;
         private bool noEnemies;
@@ -40,7 +41,7 @@ namespace Project
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public List<IDoor> Doors => doors;
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
-                    List<INPC> npcs, List<IEnemy> enemies, List<IDoor> doors)
+                    List<INPC> npcs, List<IEnemy> enemies, List<IDoor> doors, List<Torch> torches)
         {
             this.roomID = id;
             this.background = background;
@@ -57,6 +58,7 @@ namespace Project
             this.southRoomID = southRoom;
             this.eastRoomID = eastRoom;
             this.doors = doors;
+            this.torches = torches;
             blocks.AddRange(WallCreator.CreateWalls(this.background.Bounds, this.doors));
         }
 
@@ -97,6 +99,10 @@ namespace Project
             foreach (IBlock blocks in blocks)
             {
                 blocks.Update(gameTime);
+            }
+            foreach (Torch torch in torches)
+            {
+                torch.Update(gameTime);
             }
             foreach (INPC npcs in npcs)
             {
@@ -142,6 +148,10 @@ namespace Project
             foreach (IBlock block in blocks)
             {
                 block.Draw(spriteBatch);
+            }
+            foreach(Torch torch in torches)
+            {
+                torch.Draw(spriteBatch);
             }
             foreach (INPC npc in npcs)
             {
