@@ -141,7 +141,14 @@ namespace Project.GameState
             Game1.Instance.GraphicsDevice.SetRenderTarget(Game1.Instance.LightTarget);
             Game1.Instance.GraphicsDevice.Clear(Color.Black);
             Game1.Instance.GraphicsDevice.SetRenderTarget(null);
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, effect: LightShaderFactory.Instance.LightShader);
+            if (GameOptions.IsShaderOn)
+            {
+                spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, effect: LightShaderFactory.Instance.LightShader);
+            }
+            else
+            {
+                spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
+            }
             if (this.nextRoom is null)
             {
                 this.game.GameStateMachine.Play();
