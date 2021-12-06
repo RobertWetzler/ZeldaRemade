@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project
 {
-    class Skeleton : IEnemy
+    class Skeleton : Lightable, IEnemy
     {
         private int timeToSpawn;
         private int startTime;
@@ -32,6 +33,9 @@ namespace Project
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(2);
+            lightColor = Color.Red;
+            lightIntensity = .6f;
+            lightScale = 1f;
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -56,6 +60,7 @@ namespace Project
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
+            lightOffset = new Vector2(0, -BoundingBox.Height / 2);
             sprite.Update(gameTime);
             if (currentState is EnemySpawning)
             {

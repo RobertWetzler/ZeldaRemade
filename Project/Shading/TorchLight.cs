@@ -34,7 +34,8 @@ namespace Project.Shading
             float innerHorizAdjust = (innerFlame.Width * innerLightScale - innerFlame.Width) / 2;
             float innerVertAdjust = (innerFlame.Height * innerLightScale - innerFlame.Height) / 2;
             innerFlame.Inflate(innerHorizAdjust, innerVertAdjust);
-
+            innerFlame.Offset(lightOffset.X, lightOffset.Y);
+            outerFlame.Offset(lightOffset.X, lightOffset.Y);
             spriteBatch.Draw(LightShaderFactory.Instance.LightTexture, outerFlame, lightColor * lightIntensity);
             spriteBatch.Draw(LightShaderFactory.Instance.LightTexture, innerFlame, innerLightColor * innerLightIntensity);
         }

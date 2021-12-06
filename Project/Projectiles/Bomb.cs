@@ -48,9 +48,12 @@ namespace Project.Projectiles
 
         public void Update(GameTime gameTime)
         {
+            
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            lightOffset = new Vector2(0, -BoundingBox.Height / 3);
             if(IsExploding)
             {
+                lightOffset = Vector2.Zero;
                 lightColor = Color.Red;
                 lightScale = 4f;
             }
