@@ -490,7 +490,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>6 2</Position>
+				<Position>6 1</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
