@@ -48,6 +48,7 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Bat, CollisionType.Projectile), new EnemyProjectileCollisionHandler());
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Door, CollisionType.Player), new DoorPlayerCollisionHandler());
+            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Door, CollisionType.Bomb), new DoorBombCollisionHandler());
         }
 
 
