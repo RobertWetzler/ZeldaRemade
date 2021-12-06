@@ -1,4 +1,5 @@
 ﻿using Project.Projectiles;
+using Project.Utilities;
 
 namespace Project.Collision.CollisionHandlers
 {
@@ -10,7 +11,14 @@ namespace Project.Collision.CollisionHandlers
             IProjectile projectile = projectileCollidable as IProjectile;
             if (!projectile.IsFriendly)
             {
-                player.TakeDamage(1);
+                if (!GameOptions.IsHarderVersion)
+                {
+                    player.TakeDamage(1); 
+                }
+                else
+                {
+                    player.TakeDamage(2);
+                }
             }
         }
     }
