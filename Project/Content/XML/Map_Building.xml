@@ -1453,6 +1453,11 @@
 				<ObjectName>Pyramid</ObjectName>
 				<Position>8 6</Position>
 			</Object>
+      <Object>
+        <ObjectType>Block</ObjectType>
+        <ObjectName>Pyramid</ObjectName>
+        <Position>9 5</Position>
+      </Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
