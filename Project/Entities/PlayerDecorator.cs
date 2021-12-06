@@ -17,7 +17,7 @@ namespace Project.Entities
         public Rectangle BoundingBox => decoratedPlayer.BoundingBox;
         public CollisionType CollisionType => decoratedPlayer.CollisionType;
 
-        public int Health { get => decoratedPlayer.Health; set => decoratedPlayer.Health = value; }
+        public Health Health { get => decoratedPlayer.Health; }
         public bool IsFinished { get => isDecoratorFinished; }//test
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;

@@ -6,6 +6,7 @@ using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
 using System.Collections.Generic;
+using Project.Sound;
 
 namespace Project.Entities
 {
@@ -71,7 +72,7 @@ namespace Project.Entities
         public CollisionType CollisionType => CollisionType.Player;
         public PlayerInventory Inventory => inventory;
 
-        public int Health { get => health; set => health = value; }
+        //public int Health { get => health; set => health = value; }
         public bool IsFinished { get => isFinished; }
         public bool IsApproachBat { get => isApproachBat; set => isApproachBat = value; }
 
@@ -135,20 +136,21 @@ namespace Project.Entities
 
         public void TakeDamage(int damage)
         {
-            stateMachine = new LinkStateMachine(this, Facing.Down, Move.Idle, LinkColor.Blue);
-            // this.game.Player = new DamagedLink(this, game);
-            sprite = stateMachine.IdleDown();
-            
-            this.game.Player = new DeadLink(this, game); // test
-            
-            isDead = true;
-            //pickUpItem = null;
-            //this.game.Player = new DamagedLink(this, game);
-            //health.DecreaseHealth(damage);
-            //inventory.RemoveNItems(ItemType.Heart, damage);
+            pickUpItem = null;
+            this.game.Player = new DamagedLink(this, game);
+            health.DecreaseHealth(damage);
+            inventory.RemoveNItems(ItemType.Heart, damage);
             if (health.CurrentHealth <= 0)
             {
-                game.GameStateMachine.TitleScreen();
+                //stateMachine = new LinkStateMachine(this, Facing.Down, Move.Idle, LinkColor.Blue);
+                // this.game.Player = new DamagedLink(this, game);
+                sprite = stateMachine.IdleDown();
+
+                this.game.Player = new DeadLink(this, game); // test
+
+                isDead = true;
+                game.GameStateMachine.GameOverScreen();
+                this.game.Player = new GreenLink(game); // test
                 health.MaxHealth = START_HEALTH;
                 inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
                 inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
@@ -158,7 +160,6 @@ namespace Project.Entities
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
                 RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
             }
-
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
