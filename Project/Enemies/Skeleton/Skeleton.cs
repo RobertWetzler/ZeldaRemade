@@ -7,7 +7,8 @@ namespace Project
 {
     class Skeleton : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 100;
         private int startTime;
         private IEnemyState currentState;
         private ISprite sprite;
@@ -15,6 +16,8 @@ namespace Project
         private Vector2 position;
         private EnemyMovement movement;
         private Health health;
+        private bool isFinished;
+        private int endTime;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -22,13 +25,13 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
         public Skeleton(Vector2 pos)
         {
             this.position = pos;
             this.velocity = 50f;
             this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(2);
@@ -64,6 +67,14 @@ namespace Project
                 {
                     this.sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
                     currentState = new EnemyWalkEast(this);
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
 

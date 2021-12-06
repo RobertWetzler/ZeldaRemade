@@ -7,7 +7,8 @@ namespace Project
     class Dinosaur : IEnemy
     {
 
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 100;
         private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
@@ -15,19 +16,21 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+        private bool isFinished;
+        private int endTime;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
         public Dinosaur(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
             movement = new EnemyMovement(this);
             startTime = 0;
-            timeToSpawn = 600;
             currentState = new EnemySpawning(this);
 
         }
@@ -61,6 +64,14 @@ namespace Project
                 if (startTime > timeToSpawn)
                 {
                     currentState = new DinosaurWalkEast(this);
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
 

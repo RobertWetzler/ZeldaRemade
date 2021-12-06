@@ -19,7 +19,7 @@ namespace Project.Projectiles
         private float timer;
         public Vector2 position;
         private Facing facing;
-        private int velocity;
+        private const int velocity = 400;
         private Direction direction;
         public bool IsFriendly => isFriendly;
         public Arrow(Facing facing, Vector2 position, bool isFriendly = true)
@@ -28,8 +28,6 @@ namespace Project.Projectiles
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite(this.facing);
             this.isFriendly = isFriendly;
-
-            velocity = 400;
 
             direction = this.facing switch
             {

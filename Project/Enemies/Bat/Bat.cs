@@ -8,7 +8,8 @@ namespace Project
 {
     class Bat : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 100;
         private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
@@ -19,6 +20,8 @@ namespace Project
         private IPlayer player;
         private static int X_DIFF = 100;
         private static int Y_DIFF = 100;
+        private int endTime;
+        private bool isFinished;
 
         public Vector2 Position { get => position; set => position = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
@@ -26,13 +29,13 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bat;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
 
         public Bat(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
@@ -69,6 +72,14 @@ namespace Project
                 {
                     this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
                     currentState = new EnemyWalkEast(this);
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
             if (Math.Abs((int)position.X - (int)player.Position.X) < X_DIFF

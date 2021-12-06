@@ -46,7 +46,15 @@ namespace Project.Collision.CollisionHandlers.Enemies
                     }
                     if (enemy.Health.CurrentHealth == 0)
                     {
-                        enemy.Despawn();
+                        
+                        enemy.SetState(new EnemyDespawning(enemy));
+
+                        if(enemy.IsFinished)
+                        {
+                            enemy.Despawn();
+                        }
+
+
                         if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
                         {
                             randDouble = rand.NextDouble();

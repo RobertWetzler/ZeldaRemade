@@ -8,9 +8,10 @@ namespace Project
 {
     class Dragon : IEnemy
     {
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 100;
         private int timeToAttack;
         private int attackCounter;
-        private int timeToSpawn;
         private int startTime;
         private IEnemyState currentState;
         private Vector2 position;
@@ -18,6 +19,8 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+        private int endTime;
+        private bool isFinished;
 
         public List<IProjectile> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
@@ -27,6 +30,7 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
         public Dragon(Vector2 position)
         {
             this.position = position;
@@ -35,7 +39,6 @@ namespace Project
             timeToAttack = 3000;
             attackCounter = 0;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(6);
@@ -71,6 +74,14 @@ namespace Project
                 startTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (startTime > timeToSpawn)
                     currentState = new DragonWalkLeft(this);
+            }
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
+                }
             }
             movement.CheckIfAtEdge(windowBounds);
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;

@@ -8,8 +8,10 @@ namespace Project
 {
     class Trap : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 200;
         private int startTime;
+        private int endTime;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -18,12 +20,14 @@ namespace Project
         private Vector2 startPos;
         private EnemyDirections movingDirection;
         private Health health;
+        private bool isFinished;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
         public Trap(Vector2 pos, IPlayer player)
         {
             this.position = pos;
@@ -31,7 +35,6 @@ namespace Project
             this.velocity = 350f;
             this.player = player;
             startTime = 0;
-            timeToSpawn = 600;
             movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
 
@@ -72,6 +75,14 @@ namespace Project
                 {
                     this.sprite = EnemySpriteFactory.Instance.CreateTrapSprite();
                     currentState = new TrapStill(this);
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
             else if (movingDirection == EnemyDirections.None)

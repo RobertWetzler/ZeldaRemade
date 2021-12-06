@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Factory;
+using Project.Sound;
+using Project.Utilities;
 
 namespace Project
 {
-    class EnemySpawning : IEnemyState
+    class EnemyDespawning : IEnemyState
     {
         private IEnemy enemy;
-
-        public EnemySpawning(IEnemy enemy)
+        public EnemyDespawning(IEnemy enemy)
         {
             this.enemy = enemy;
             this.enemy.EnemySprite = EnemySpriteFactory.Instance.CreateEnemySpawnSprite();
@@ -19,12 +20,13 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-           
+          
+          
         }
 
         public void UseWeapon()
         {
+        
         }
-
     }
 }

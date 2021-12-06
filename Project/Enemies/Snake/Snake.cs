@@ -9,7 +9,8 @@ namespace Project
 {
     class Snake : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 200;
         private int startTime;
         private IEnemyState currentState;
         private Facing facingDirection;
@@ -18,6 +19,9 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+        private int endTime;
+        private bool isFinished;
+
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -25,13 +29,13 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
         public Snake(Vector2 pos)
         {
             this.pos = pos;
             this.velocity = 50f;
             this.facingDirection = Facing.Down;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
@@ -82,6 +86,15 @@ namespace Project
                             currentState = new SnakeWalkNorth(this);
                             break;
                     }
+                }
+            }
+
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
 

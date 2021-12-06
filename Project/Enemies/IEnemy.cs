@@ -15,13 +15,14 @@ namespace Project
         public Vector2 Position { get; set; }
         public ISprite EnemySprite { get; set; }
         public float Velocity { get; }
+        public bool IsFinished { get; }
         void ChangeDirection(EnemyDirections direction);
         void SetState(IEnemyState state);
         void UseWeapon();
         public void Despawn()
         {
-            RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
-            SoundManager.Instance.CreateEnemyDeathSound();
+             RoomManager.Instance.CurrentRoom.RemoveEnemy(this);
+             SoundManager.Instance.CreateEnemyDeathSound();    
         }
 
         public void DropItem(IItems item)

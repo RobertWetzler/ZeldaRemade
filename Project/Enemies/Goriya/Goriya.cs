@@ -10,7 +10,8 @@ namespace Project
 {
     class Goriya : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 100;
         private int startTime;
         private IEnemyState currentState;
         private ISprite sprite;
@@ -20,6 +21,8 @@ namespace Project
         private Facing facingDirection;
         private Vector2 position;
         private Health health;
+        private int endTime;
+        private bool isFinished;
 
         public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
@@ -29,13 +32,13 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public bool IsFinished => isFinished;
         public Goriya(Vector2 position)
         {
             this.position = position;
             this.velocity = 50f;
             this.facingDirection = Facing.Right;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(3);
@@ -86,6 +89,14 @@ namespace Project
                             currentState = new GoriyaWalkNorth(this);
                             break;
                     }
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
             if (!(currentState is GoriyaUseItem))

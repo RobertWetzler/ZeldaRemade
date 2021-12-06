@@ -6,14 +6,17 @@ namespace Project
 {
     class WallMaster : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 200;
         private int startTime;
+        private int endTime;
         private IEnemyState currentState;
         private Vector2 pos;
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+        private bool isFinished = false;
 
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -21,12 +24,14 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+
+        public bool IsFinished => isFinished;
+
         public WallMaster(Vector2 pos)
         {
             this.pos = pos;
             this.velocity = 50f;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(2);
@@ -61,6 +66,15 @@ namespace Project
                 if (startTime > timeToSpawn)
                 {
                     currentState = new WallMasterWalkEast(this);
+                }
+            }
+
+            if(currentState is EnemyDespawning)
+            {
+                endTime += gameTime.ElapsedGameTime.Milliseconds;
+                if(endTime > timeToDespawn)
+                {
+                    isFinished = true;
                 }
             }
 
