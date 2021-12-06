@@ -1354,7 +1354,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>Skeleton</ObjectName>
+				<ObjectName>Dinosaur</ObjectName>
 				<Position>9 2</Position>
 			</Object>
 			<Object>

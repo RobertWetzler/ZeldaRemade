@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class DinosaurWalkLeftRightSprite : ISprite
+    class DinosaurWalkRightSprite : ISprite
     {
         private Texture2D dinosaurSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -14,7 +14,7 @@ namespace Project
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
 
-        public DinosaurWalkLeftRightSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
+        public DinosaurWalkRightSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.dinosaurSpriteSheet = dinosaurSpriteSheet;
             this.sourceFrames = sourceFrames;

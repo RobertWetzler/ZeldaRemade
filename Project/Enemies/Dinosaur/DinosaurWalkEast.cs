@@ -11,7 +11,7 @@ namespace Project
         public DinosaurWalkEast(Dinosaur dinosaur)
         {
             this.dinosaur = dinosaur;
-            this.dinosaur.EnemySprite = EnemySpriteFactory.Instance.CreateDinosaurLeftRightSprite();
+            this.dinosaur.EnemySprite = EnemySpriteFactory.Instance.CreateDinosaurWalkRightSprite();
         }
 
         public void ChangeDirection(EnemyDirections direction)
