@@ -21,13 +21,9 @@ namespace Project.Collision.CollisionHandlers.Enemies
             randDouble = rand.NextDouble();
             if (randDouble < 0.05)
                 item = new BombItem(enemyPos);
-            else if (randDouble < 0.07)
-                item = new Compass(enemyPos);
-            else if (randDouble < 0.12)
-                item = new Key(enemyPos);
-            else if (randDouble < 0.18)
+            else if (randDouble < 0.2)
                 item = new Fairy(enemyPos);
-            else if (randDouble < 0.42)
+            else if (randDouble < 0.6)
                 item = new Heart(enemyPos);
             else
                 item = new OneRupee(enemyPos);
