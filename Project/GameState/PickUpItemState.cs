@@ -3,9 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.HUD;
 using Project.Sound;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.GameState
 {
@@ -25,11 +22,7 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            smallHUD.Draw(spriteBatch);
-            RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-            Game1.Instance.Player.Draw(spriteBatch, gameTime);
-            spriteBatch.End();
+            DrawingUtilities.DrawGameScreen(spriteBatch, gameTime, smallHUD);
         }
 
         public void Update(GameTime gameTime, Rectangle playerBounds)

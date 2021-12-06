@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class ArrowItem : IItems
+    class ArrowItem : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -15,7 +16,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 0);
-
+            lightColor = Color.Brown;
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;

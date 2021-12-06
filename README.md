@@ -41,6 +41,8 @@ Developers:
 - ```Esc```
 #### Item Selection
 - ```F```
+### Toggle Shader
+- ```T```
 ## Keyboard Controls (Debugging Commands)
 #### Note:
 These commands are only used for debugging and can potentially lead to bugs. These aren't intended for the main game.

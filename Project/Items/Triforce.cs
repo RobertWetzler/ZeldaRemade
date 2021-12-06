@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class Triforce : IItems
+    class Triforce : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -17,7 +18,9 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateTriforceSprite();
-
+            lightColor = Color.Gold;
+            lightIntensity = 0.8f;
+            lightScale = 3f;
         }
 
         public void Draw(SpriteBatch spriteBatch)

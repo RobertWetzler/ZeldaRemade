@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class HeartContainer : IItems
+    class HeartContainer : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -18,7 +19,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 6);
-
+            lightColor = Color.MistyRose;
         }
 
         public void Draw(SpriteBatch spriteBatch)

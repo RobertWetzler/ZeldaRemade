@@ -3,12 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Shading;
 using Project.Sprites.ItemSprites;
 using System;
 
 namespace Project.Projectiles
 {
-    class Fireball : IProjectile
+    class Fireball : FireLight, IProjectile
     {
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
@@ -25,6 +26,7 @@ namespace Project.Projectiles
                 Facing.Down => ItemSpriteFactory.Instance.CreateLeftDownFireballSprite(position),
                 _ => throw new NotImplementedException()
             };
+            this.lightColor = Color.Red;
             this.isFriendly = isFriendly;
         }
 

@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class OneRupee : IItems
+    class OneRupee : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -17,7 +18,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 4);
-
+            lightColor = Color.RoyalBlue;
 
         }
 

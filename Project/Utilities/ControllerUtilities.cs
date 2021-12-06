@@ -60,6 +60,9 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.X, new PlayerUseItemBCommand());
 
 
+            //Toggle shader
+            keyboardController.RegisterCommand(Keys.T, new ToggleShaderCommand());
+
             return keyboardController;
         }
 

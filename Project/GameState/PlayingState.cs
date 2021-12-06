@@ -5,6 +5,8 @@ using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
+using Project.Entities;
+using Project.Shading;
 
 namespace Project.GameState
 {
@@ -36,14 +38,8 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-            game.Player.Draw(spriteBatch, gameTime);
-            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
-            smallHud.Draw(spriteBatch);
-            spriteBatch.End();
+            DrawingUtilities.DrawGameScreen(spriteBatch, gameTime, smallHud);
         }
-
 
     }
 }

@@ -4,6 +4,7 @@ using Project.Blocks.MovableBlock;
 using Project.Blocks.Walls;
 using Project.Collision;
 using Project.Projectiles;
+using Project.Shading;
 using Project.Text;
 using Project.Utilities;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace Project
         public Room EastRoom => RoomManager.GetRoom(eastRoomID);
         public Room WestRoom => RoomManager.GetRoom(westRoomID);
         public Background Background => background;
-        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).Concat(randomItems).ToList();
+        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(randomItems).Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).Concat(randomItems).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public List<IDoor> Doors => doors;
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
@@ -188,6 +189,15 @@ namespace Project
             if (roomID == 1)
             {
                 text.Draw(spriteBatch);
+            }
+        }
+
+        public void DrawLights(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            List<Lightable> lights = Statics.FindAll(x => x is Lightable).Cast<Lightable>().Concat(Dynamics.FindAll(x => x is Lightable).Cast<Lightable>()).ToList();
+            foreach (Lightable light in lights)
+            {
+                light.DrawLight(spriteBatch, gameTime, (light as ICollidable).BoundingBox);
             }
         }
     }
