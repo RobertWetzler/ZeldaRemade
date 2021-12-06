@@ -22,7 +22,6 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.Right, new ItemSelectionCommandCycleRight(this.game));
             keyboardController.RegisterCommand(Keys.Left, new ItemSelectionCommandCycleLeft(this.game));
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            //keyboardController.RegisterCommand(Keys., new GetAItemCommand(this.game));
             keyboardController.RegisterCommand(Keys.Enter, new GetBItemCommand(this.game));
         }
         public void Update(GameTime gameTime, Rectangle gameRect)
