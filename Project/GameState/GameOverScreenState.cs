@@ -22,8 +22,6 @@ namespace Project.GameState
             youLoseText = new StringText("GAME OVER", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 120, 400));
             smallHUD = new SmallHUD(false);
             Game1.Instance.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
-            //Game1.Instance.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
-            //Game1.Instance.GameStateMachine.GameOverScreen();
             SoundManager.Instance.CreateLinkDeathSound();
         }
 
