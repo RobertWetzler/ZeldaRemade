@@ -23,6 +23,8 @@ namespace Project.Entities
         public Health Health { get => health; }
         private IItems pickUpItem;
 
+        private bool isApproachBat;
+
         /**
         * Shrinks the bounding box for link
         * 16x16 -> 14x14 bounding box before scaling
@@ -61,6 +63,8 @@ namespace Project.Entities
         public CollisionType CollisionType => CollisionType.Player;
         public PlayerInventory Inventory => inventory;
 
+        public bool IsApproachBat { get => isApproachBat; set => isApproachBat = value; }
+
         public GreenLink(Game1 game)
         {
             this.game = game;
@@ -70,6 +74,7 @@ namespace Project.Entities
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
             health = new Health(START_HEALTH);
+            isApproachBat = false;
         }
 
         public void SetSprite(IPlayerSprite sprite)

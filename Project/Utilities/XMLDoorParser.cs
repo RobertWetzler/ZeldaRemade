@@ -15,7 +15,7 @@ namespace Project.Utilities
         {
             List<IDoor> doors = new List<IDoor>();
 
-            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);

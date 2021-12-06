@@ -8,7 +8,8 @@ namespace Project.Utilities
 {
     public static class HoldableItemUtilities
     {
-        public static List<ItemType> holdableItems = new List<ItemType>() { ItemType.Sword, ItemType.Bow, ItemType.Blue_Candle, ItemType.Boomerang, ItemType.Blue_Boomerang };
+
+        public static List<ItemType> holdableItems = new List<ItemType>() { ItemType.Sword, ItemType.Bow, ItemType.Blue_Candle, ItemType.Boomerang, ItemType.Blue_Boomerang, ItemType.Bomb, ItemType.Compass, ItemType.Map };
         public static IItems GetHoldableItem(ItemType itemType, Vector2 pos)
         {
             return itemType switch
@@ -18,6 +19,7 @@ namespace Project.Utilities
                 ItemType.Blue_Candle => new BlueCandle(pos),
                 ItemType.Boomerang => new BoomerangItem(pos),
                 ItemType.Blue_Boomerang => new BlueBoomerangItem(pos),
+                ItemType.Bomb => new BombItem(pos),
                 ItemType.Null => null,
                 _ => throw new NotImplementedException()
             };
@@ -31,8 +33,13 @@ namespace Project.Utilities
                 ItemType.Blue_Candle => WeaponTypes.Flame,
                 ItemType.Boomerang => WeaponTypes.Boomerang,
                 ItemType.Blue_Boomerang => WeaponTypes.BlueBoomerang,
+                ItemType.Bomb => WeaponTypes.Bomb,
                 _ => throw new NotImplementedException()
             };
         }
+
+
+
     }
 }
+

@@ -24,7 +24,8 @@ namespace Project.Sprites
             int height = spriteSheet.Height;
             int scale = 4;
 
-            Rectangle spriteRectangle = new Rectangle(frame* width, height, width, height);
+
+            Rectangle spriteRectangle = new Rectangle(frame* width, 0, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height*scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
 

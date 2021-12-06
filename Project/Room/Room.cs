@@ -134,6 +134,10 @@ namespace Project
             if (this.enemies.Count == 0)
             {
                 noEnemies = true;
+                if (roomID != 3)
+                {
+                    DoorUtilities.UnlockClosedDoors();
+                }
             }
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

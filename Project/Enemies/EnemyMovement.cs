@@ -10,6 +10,11 @@ namespace Project
         private int changeDirectionCounter;
         private Random rand;
         private IEnemy enemy;
+        public int timeToChangeDir
+        {
+            get { return this.timeToChangeDirection; }
+            set { this.timeToChangeDirection = value; }
+        }
         private static List<EnemyDirections> DIRECTIONS = new List<EnemyDirections>()
         {
             EnemyDirections.East,
