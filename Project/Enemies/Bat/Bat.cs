@@ -17,6 +17,10 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+        private IPlayer player;
+        private static int X_DIFF = 100;
+        private static int Y_DIFF = 100;
+
         private double totalFlashTime = 750;
         private double remainingFlashTime;
         private Color colorTint;
@@ -36,6 +40,7 @@ namespace Project
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
+            this.player = Game1.Instance.Player;
             remainingFlashTime = 0;
         }
 
@@ -69,6 +74,28 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
+            if (currentState is EnemySpawning)
+            {
+                startTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTime > timeToSpawn)
+                {
+                    this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
+                    currentState = new EnemyWalkEast(this);
+                }
+            }
+            if (Math.Abs((int)position.X - (int)player.Position.X) < X_DIFF
+               && (Math.Abs((int)player.Position.Y - (int)position.Y) < Y_DIFF))
+            {
+                player.IsApproachBat = true;
+            }
+            if (player.IsApproachBat)
+            {
+                movement.timeToChangeDir = 250;
+                this.velocity = 200f;
+            }
+            movement.MoveWASDAndDiagonal(windowBounds, gameTime);
+            currentState.Update(gameTime);
+        }
             if (remainingFlashTime <= 0)
             {
                 if (currentState is EnemySpawning)
@@ -112,7 +139,6 @@ namespace Project
             int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
             colorTint = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
-
     }
 
 }

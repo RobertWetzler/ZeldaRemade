@@ -26,12 +26,7 @@ namespace Project.Collision.CollisionHandlers
                         block.MoveBlock(MovingDir.Left);
                         break;
                 }
-                List<IDoor> doors = RoomManager.Instance.CurrentRoom.Doors;
-                IDoor closedDoor = doors.Find(x => x.DoorType == DoorType.CLOSED);
-                if (closedDoor != null)
-                {
-                    closedDoor.Unlock();
-                }
+                DoorUtilities.UnlockClosedDoors();
             }
             else
             {
