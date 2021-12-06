@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
 using Project.HUD;
+using Project.Utilities;
 
 namespace Project.GameState
 {
@@ -18,16 +19,18 @@ namespace Project.GameState
             bigHUD = new BigHUD(game);
             smallHud = new SmallHUD(true);
             keyboardController = new KeyboardController();
-            keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(this.game));
+            keyboardController.RegisterCommand(Keys.Right, new ItemSelectionCommandCycleRight(this.game));
+            keyboardController.RegisterCommand(Keys.Left, new ItemSelectionCommandCycleLeft(this.game));
             keyboardController.RegisterCommand(Keys.Escape, new PlayGameCommand(this.game));
-            keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(this.game));
-            keyboardController.RegisterCommand(Keys.G, new GetBItemCommand(game));
+            keyboardController.RegisterCommand(Keys.Enter, new GetBItemCommand(this.game));
         }
         public void Update(GameTime gameTime, Rectangle gameRect)
         {
+           
             keyboardController.Update();
             smallHud.Update(gameTime);
             bigHUD.Update(gameTime);
+            ItemSelectionUtilities.UpdateAllInventoryItems();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
