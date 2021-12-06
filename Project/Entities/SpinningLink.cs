@@ -24,7 +24,6 @@ namespace Project.Entities
             this.game = game;
             remainingFlashTime = totalFlashTime;
             facing = Facing.Down;
-            SoundManager.Instance.CreateLinkDeathSound();
         }
         public override void TakeDamage(int damage)
         {

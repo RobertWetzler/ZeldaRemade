@@ -23,6 +23,8 @@ namespace Project.GameState
             smallHUD = new SmallHUD(false);
             Game1.Instance.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
             //Game1.Instance.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
+            //Game1.Instance.GameStateMachine.GameOverScreen();
+            SoundManager.Instance.CreateLinkDeathSound();
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -45,7 +47,6 @@ namespace Project.GameState
                 {
                     RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
                 }
-                //RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
                 smallHUD.Draw(spriteBatch);
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();

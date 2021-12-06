@@ -21,10 +21,7 @@ namespace Project.Entities
         private Game1 game;
         private PlayerInventory inventory;
         private Health health;
-        private bool isDead = false;
-        private int deadTimer = 0;
-        private int deadWaitTime = 6000;
-        public Health Health { get => health; }
+        public Health Health { get => health; }  //test
         private IItems pickUpItem;
 
         private bool isApproachBat;
@@ -129,9 +126,12 @@ namespace Project.Entities
 
         public void TakeDamage(int damage)
         {
+            pickUpItem = null;
+            this.game.Player = new DamagedLink(this, game);
+            health.DecreaseHealth(damage);
+            inventory.RemoveNItems(ItemType.Heart, damage);
             if (health.CurrentHealth <= 0)
             {
-                this.game.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
                 this.game.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
                 game.GameStateMachine.GameOverScreen();
                 health.MaxHealth = START_HEALTH;
@@ -140,13 +140,7 @@ namespace Project.Entities
                 health.CurrentHealth = health.MaxHealth;
                 inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
                 inventory.AddNItems(ItemType.Heart, health.CurrentHealth);
-                //RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
-                //isDead = true;
             }
-            pickUpItem = null;
-            this.game.Player = new DamagedLink(this, game);
-            health.DecreaseHealth(damage);
-            inventory.RemoveNItems(ItemType.Heart, damage);
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
@@ -187,18 +181,7 @@ namespace Project.Entities
             if (pickUpItem != null)
             {
                 pickUpItem.Update(gameTime);
-            }
-            /*
-            if (isDead)
-            {
-                deadTimer+= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-                if (deadTimer > deadWaitTime)
-                {
-                    RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
-                    isDead = false;
-                }
-            }*/
-            
+            }            
             }
 
             public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
