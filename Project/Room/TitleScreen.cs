@@ -10,8 +10,6 @@ namespace Project
     {
         private IBackgroundSprite sprite;
         private Rectangle bounds;
-
-
         public TitleScreen(GraphicsDeviceManager graphics)
         {
             sprite = BackgroundSpriteFactory.Instance.CreateTitleScreen();

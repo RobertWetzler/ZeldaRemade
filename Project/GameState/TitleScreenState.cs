@@ -26,11 +26,8 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.Up, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
 
-            test = new Bow(new Vector2(500,500));
-
             easyButton = new EasyButton();
             hardButton = new HardButton();
-
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
