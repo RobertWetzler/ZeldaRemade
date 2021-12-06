@@ -204,7 +204,8 @@ namespace Project
 
         public void DrawLights(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            List<Lightable> lights = Statics.FindAll(x => x is Lightable).Cast<Lightable>().Concat(Dynamics.FindAll(x => x is Lightable).Cast<Lightable>()).ToList();
+            List<Lightable> lights = Statics.FindAll(x => x is Lightable).Cast<Lightable>().Concat(Dynamics.FindAll(x => x is Lightable).Cast<Lightable>())
+                .Concat(torches).Cast<Lightable>().ToList();
             foreach (Lightable light in lights)
             {
                 light.DrawLight(spriteBatch, gameTime, (light as ICollidable).BoundingBox);
