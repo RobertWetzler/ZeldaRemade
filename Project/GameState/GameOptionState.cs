@@ -3,21 +3,21 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
 using Project.HUD;
-using Project.Items;
 using Project.Sound;
+using Project.Utilities;
+using System.Diagnostics;
 
 namespace Project.GameState
 {
-    public class TitleScreenState : IGameState
+    public class GameOptionState : IGameState
     {
         private TitleScreen titleScreen;
         private KeyboardController keyboardController;
         private EasyButton easyButton;
         private HardButton hardButton;
-        private IItems test;
 
 
-        public TitleScreenState(Game1 game)
+        public GameOptionState(Game1 game)
         {
             SoundManager.Instance.CreateTitleSound();
             this.titleScreen = new TitleScreen(game.Graphics);
@@ -26,7 +26,7 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.Up, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
 
-            test = new Bow(new Vector2(500,500));
+
 
             easyButton = new EasyButton();
             hardButton = new HardButton();
@@ -36,8 +36,6 @@ namespace Project.GameState
         {
             keyboardController.Update();
             titleScreen.Update(gameTime);
-            easyButton.Update(gameTime);
-            hardButton.Update(gameTime);
 
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
