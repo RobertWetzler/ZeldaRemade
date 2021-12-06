@@ -36,13 +36,17 @@ namespace Project.Collision.CollisionHandlers.Enemies
             {
                 if (!(enemy is Trap))
                 {
-                    if (item is Arrow)
+                    if (projectile is Arrow)
                     {
-                        enemy.Health.DecreaseHealth(2);
+                        enemy.TakeDamage(2);
+                    }
+                    else if (projectile is Bomb)
+                    {
+                        enemy.TakeDamage(2); //b/c bomb collision seems to be calling twice
                     }
                     else
                     {
-                        enemy.Health.DecreaseHealth(1);
+                        enemy.TakeDamage(1);
                     }
                     if (enemy.Health.CurrentHealth == 0)
                     {
@@ -53,10 +57,6 @@ namespace Project.Collision.CollisionHandlers.Enemies
                             if (randDouble > 0.65)
                                 enemy.DropItem(item);
                         }
-                    }
-                    else
-                    {
-                        enemy.TakeDamage(1);
                     }
                 }
 

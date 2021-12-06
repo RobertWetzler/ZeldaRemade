@@ -71,7 +71,11 @@ namespace Project
 
         public void TakeDamage(int damage)
         {
-            remainingFlashTime = totalFlashTime;
+            health.DecreaseHealth(damage);
+            if (health.CurrentHealth > 0)
+            {
+                remainingFlashTime = totalFlashTime;
+            }
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
