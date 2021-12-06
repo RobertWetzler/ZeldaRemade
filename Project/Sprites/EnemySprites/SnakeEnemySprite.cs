@@ -36,7 +36,7 @@ namespace Project
             destRectangle = new Rectangle(
               (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(snakeSpriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
+            spriteBatch.Draw(snakeSpriteSheet, destRectangle, source, color, 0f, Vector2.Zero, spriteEffects, 0f);
         }
 
         public void Update(GameTime gameTime)

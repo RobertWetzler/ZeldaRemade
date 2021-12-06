@@ -54,6 +54,10 @@ namespace Project.Collision.CollisionHandlers.Enemies
                                 enemy.DropItem(item);
                         }
                     }
+                    else
+                    {
+                        enemy.TakeDamage(1);
+                    }
                 }
 
             }

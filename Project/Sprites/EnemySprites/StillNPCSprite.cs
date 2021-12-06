@@ -20,7 +20,7 @@ namespace Project
             destRectangle = new Rectangle(
                 (int)position.X, (int)position.Y,
                 spriteSheet.Width * 4, spriteSheet.Height * 4);
-            spriteBatch.Draw(spriteSheet, destRectangle, source, Color.White);
+            spriteBatch.Draw(spriteSheet, destRectangle, source, color);
         }
         public void Update(GameTime gameTime)
         {

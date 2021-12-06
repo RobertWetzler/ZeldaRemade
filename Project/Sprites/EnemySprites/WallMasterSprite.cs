@@ -37,7 +37,7 @@ namespace Project
                 (int)position.X, (int)position.Y,
                 source.Width * 3, source.Height * 3);
 
-            spriteBatch.Draw(spriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, spriteEffects, 0f);
+            spriteBatch.Draw(spriteSheet, destRectangle, source, color, 0f, Vector2.Zero, spriteEffects, 0f);
         }
 
         public void Update(GameTime gameTime)

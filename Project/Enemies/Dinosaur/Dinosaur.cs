@@ -29,7 +29,7 @@ namespace Project
             startTime = 0;
             timeToSpawn = 600;
             currentState = new EnemySpawning(this);
-
+            health = new Health(6);
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -49,7 +49,6 @@ namespace Project
 
         public void TakeDamage(int damage)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)

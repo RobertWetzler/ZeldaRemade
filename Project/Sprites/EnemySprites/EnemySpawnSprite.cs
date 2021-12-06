@@ -26,7 +26,7 @@ namespace Project
             destRectangle = new Rectangle(
                 (int)position.X, (int)position.Y,
                 source.Width * 3, source.Height * 3);
-            spriteBatch.Draw(bombSpriteSheet, destRectangle, source, Color.White);
+            spriteBatch.Draw(bombSpriteSheet, destRectangle, source, color);
         }
 
         public void Update(GameTime gameTime)

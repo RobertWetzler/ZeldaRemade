@@ -51,7 +51,6 @@ namespace Project
 
         public void TakeDamage(int damage)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
