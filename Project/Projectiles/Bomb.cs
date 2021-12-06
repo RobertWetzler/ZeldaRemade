@@ -17,7 +17,7 @@ namespace Project.Projectiles
         public bool IsFriendly => isFriendly;
         public bool HasExploded { get; set; } = false;
         private float timer;
-        public bool IsExploding => timer > 1000 & !HasExploded;
+        public bool IsExploding => timer > 1000 && !HasExploded;
         private Vector2 position;
         private Facing facing;
         private Vector2 offset;
