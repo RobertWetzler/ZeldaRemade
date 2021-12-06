@@ -19,7 +19,7 @@ namespace Project.Blocks
         }
 
         public Rectangle BoundingBox => sprite.DestRectangle;
-        public CollisionType CollisionType => CollisionType.BrickBlock;
+        public CollisionType CollisionType => CollisionType.Block;
 
 
         public void Draw(SpriteBatch spriteBatch)

@@ -14,8 +14,6 @@ namespace Project.Collision
         MovableBlock,
         StairBlock,
         BlueBlock,
-        BrickBlock,
-        BlackBlock,
         Bomb,
         Door
     }
