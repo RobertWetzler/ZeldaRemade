@@ -56,6 +56,7 @@ namespace Project.Projectiles
                 lightOffset = Vector2.Zero;
                 lightColor = Color.Red;
                 lightScale = 4f;
+                innerLightScale = 2.3f;
             }
             sprite.Update(gameTime);
 

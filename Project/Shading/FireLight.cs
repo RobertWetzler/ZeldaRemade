@@ -10,7 +10,7 @@ namespace Project.Shading
     public abstract class FireLight: Lightable
     {
         protected new Color lightColor = Color.Red;
-        protected Color innerLightColor = Color.Orange;
+        protected Color innerLightColor = Color.Yellow;
         protected new float lightScale = 3f;
         protected float innerLightScale = 2f;
         protected new float lightIntensity = 1f;
