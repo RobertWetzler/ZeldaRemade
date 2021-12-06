@@ -18,8 +18,14 @@ namespace Project
         {
             switch (direction)
             {
-                case EnemyDirections.North:
-                    dinosaur.SetState(new DinosaurWalkNorth(dinosaur));
+                case EnemyDirections.South:
+                    dinosaur.SetState(new DinosaurWalkSouth(dinosaur));
+                    break;
+                case EnemyDirections.East:
+                    dinosaur.SetState(new DinosaurWalkEast(dinosaur));
+                    break;
+                case EnemyDirections.West:
+                    dinosaur.SetState(new DinosaurWalkWest(dinosaur));
                     break;
             }
         }
