@@ -1503,13 +1503,13 @@
 			</Object>
 			<Object>
 				<ObjectType>Torch</ObjectType>
-				<Position>896, 630</Position>
-				<Direction>East</Direction>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Torch</ObjectType>
-				<Position>896, 465</Position>
-				<Direction>East</Direction>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
