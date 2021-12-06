@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using System;
 
 namespace Project
 {
@@ -14,14 +15,18 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
-        private int health = 1;
+        private Health health;
+        private IPlayer player;
+        private static int X_DIFF = 100;
+        private static int Y_DIFF = 100;
 
         public Vector2 Position { get => position; set => position = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bat;
-        public int Health { get => health; set => health = value; }
+        public Health Health { get => health; }
+
         public Bat(Vector2 position)
         {
             this.position = position;
@@ -30,6 +35,8 @@ namespace Project
             timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
+            health = new Health(1);
+            this.player = Game1.Instance.Player;
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -63,6 +70,16 @@ namespace Project
                     this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
                     currentState = new EnemyWalkEast(this);
                 }
+            }
+            if (Math.Abs((int)position.X - (int)player.Position.X) < X_DIFF
+               && (Math.Abs((int)player.Position.Y - (int)position.Y) < Y_DIFF))
+            {
+                player.IsApproachBat = true;
+            }
+            if (player.IsApproachBat)
+            {
+                movement.timeToChangeDir = 250;
+                this.velocity = 200f;
             }
             movement.MoveWASDAndDiagonal(windowBounds, gameTime);
             currentState.Update(gameTime);

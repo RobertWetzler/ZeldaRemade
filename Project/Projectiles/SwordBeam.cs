@@ -3,8 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+<<<<<<< HEAD
+=======
+using Project.Sprites.ItemSprites;
+>>>>>>> f572615f5dfda3608e62fb71c72c00122dcf82c0
 using System;
 
 namespace Project.Projectiles

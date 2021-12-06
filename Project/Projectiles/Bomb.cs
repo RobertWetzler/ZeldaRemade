@@ -3,21 +3,21 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sprites.ItemSprites;
 using Project.Sound;
+using Project.Sprites.ItemSprites;
 using System;
 
 namespace Project.Projectiles
 {
     class Bomb : IProjectile
     {
-
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-        public bool IsExploding => timer > 3000;
+        public bool HasExploded { get; set; } = false;
         private float timer;
+        public bool IsExploding => timer > 1000 && !HasExploded;
         private Vector2 position;
         private Facing facing;
         private Vector2 offset;
@@ -33,6 +33,8 @@ namespace Project.Projectiles
             offset = Offset();
             SoundManager.Instance.CreateBombDropSound();
         }
+
+
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bomb;

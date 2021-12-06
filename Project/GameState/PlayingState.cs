@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sound;
 using Project.HUD;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,15 +31,17 @@ namespace Project.GameState
             PauseController.controller.Update();
             game.CollisionIterator.UpdateCollisions(RoomManager.Instance.CurrentRoom.Dynamics.Append(game.Player).ToList(), RoomManager.Instance.CurrentRoom.Statics);
             RoomManager.Instance.CurrentRoom.Update(playerBounds, gameTime);
-            smallHud.Update();
+            smallHud.Update(gameTime);
             game.Player.Update(playerBounds, gameTime);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
             game.Player.Draw(spriteBatch, gameTime);
             RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
             smallHud.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
 

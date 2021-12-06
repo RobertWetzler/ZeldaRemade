@@ -14,7 +14,7 @@ namespace Project.Utilities
         {
             List<IDoor> doors = new List<IDoor>();
 
-            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
@@ -61,7 +61,6 @@ namespace Project.Utilities
                     break;
                 case "Bomb":
                     door = GetBombDoorFromPosition(position);
-                    door.CanBeBombed = true;
                     break;
             }
             return door;
@@ -135,13 +134,13 @@ namespace Project.Utilities
             switch (position)
             {
                 case "North":
-                    return new NorthDoor(DoorType.WALL);
+                    return new NorthDoor(DoorType.BOMB_CLOSED);
                 case "East":
-                    return new EastDoor(DoorType.WALL);
+                    return new EastDoor(DoorType.BOMB_CLOSED);
                 case "South":
-                    return new SouthDoor(DoorType.WALL);
+                    return new SouthDoor(DoorType.BOMB_CLOSED);
                 case "West":
-                    return new WestDoor(DoorType.WALL);
+                    return new WestDoor(DoorType.BOMB_CLOSED);
             }
             return null;
         }

@@ -1,4 +1,6 @@
 ﻿using Project.Projectiles;
+using Project.Sprites.ItemSprites;
+using System.Diagnostics;
 
 namespace Project.Collision.CollisionHandlers.Enemies
 {
@@ -7,10 +9,13 @@ namespace Project.Collision.CollisionHandlers.Enemies
         public void HandleCollision(ICollidable enemyCollidable, ICollidable projectileCollidable, CollisionSide side)
         {
 
+            IEnemy enemy = enemyCollidable as IEnemy;
             Bomb bomb = projectileCollidable as Bomb;
 
             if (bomb.IsExploding)
             {
+                bomb.HasExploded = true;
+                enemy.Health.DecreaseHealth(3);
                 new EnemyProjectileCollisionHandler().HandleCollision(enemyCollidable, projectileCollidable, side);
             }
         }

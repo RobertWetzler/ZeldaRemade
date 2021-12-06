@@ -23,7 +23,7 @@ namespace Project.Sprites.ItemSprites
             this.spriteSheet = spriteSheet;
             this.sheetColumns = sheetColumns;
             this.sheetRows = sheetRows;
-            this.facing = facing;   
+            this.facing = facing;
             spriteRow = 0;
         }
 
@@ -42,7 +42,11 @@ namespace Project.Sprites.ItemSprites
 
         public bool IsFinished()
         {
+<<<<<<< HEAD
             return isFin = timer > 2000? true : false;
+=======
+            return isFin = timer > 2000 ? true : false;
+>>>>>>> f572615f5dfda3608e62fb71c72c00122dcf82c0
         }
 
         public void Update(GameTime gameTime)

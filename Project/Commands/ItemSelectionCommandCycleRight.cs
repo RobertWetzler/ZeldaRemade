@@ -1,10 +1,10 @@
 ﻿namespace Project
 {
-    class ItemSelectionCommand : ICommand
+    class ItemSelectionCommandCycleRight : ICommand
     {
         private Game1 game;
 
-        public ItemSelectionCommand(Game1 game)
+        public ItemSelectionCommandCycleRight(Game1 game)
         {
             this.game = game;
         }

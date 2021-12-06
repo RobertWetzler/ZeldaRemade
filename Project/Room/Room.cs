@@ -15,6 +15,7 @@ namespace Project
     {
         private Background background;
         private List<IItems> items;
+        private List<IItems> randomItems;
         private List<IBlock> blocks;
         private List<INPC> npcs;
         private List<IEnemy> enemies;
@@ -35,7 +36,7 @@ namespace Project
         public Room EastRoom => RoomManager.GetRoom(eastRoomID);
         public Room WestRoom => RoomManager.GetRoom(westRoomID);
         public Background Background => background;
-        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).ToList();
+        public List<ICollidable> Statics => items.Cast<ICollidable>().Concat(blocks.FindAll(b => !(b is MovableBlock))).Concat(doors).Concat(randomItems).ToList();
         public List<ICollidable> Dynamics => npcs.Cast<ICollidable>().Concat(enemies).Concat(projectiles).Concat(blocks.FindAll(b => b is MovableBlock)).ToList();
         public List<IDoor> Doors => doors;
         public Room(int id, Background background, int northRoom, int southRoom, int eastRoom, int westRoom, List<IItems> items, List<IBlock> blocks,
@@ -44,6 +45,7 @@ namespace Project
             this.roomID = id;
             this.background = background;
             this.items = items;
+            this.randomItems = new List<IItems>();
             this.blocks = blocks;
             this.npcs = npcs;
             this.enemies = enemies;
@@ -65,6 +67,14 @@ namespace Project
         public void RemoveItem(IItems item)
         {
             items.Remove(item);
+        }
+        public void AddRandomItem(IItems item)
+        {
+            randomItems.Add(item);
+        }
+        public void RemoveRandomItem(IItems item)
+        {
+            randomItems.Remove(item);
         }
         public void AddProjectile(IProjectile projectile)
         {
@@ -96,6 +106,10 @@ namespace Project
             {
                 item.Update(gameTime);
             }
+            foreach (IItems item in randomItems)
+            {
+                item.Update(gameTime);
+            }
             foreach (IEnemy enemies in enemies)
             {
                 enemies.Update(windowBounds, gameTime);
@@ -112,6 +126,10 @@ namespace Project
             if (this.enemies.Count == 0)
             {
                 noEnemies = true;
+                if (roomID != 3)
+                {
+                    DoorUtilities.UnlockClosedDoors();
+                }
             }
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -133,11 +151,27 @@ namespace Project
             {
                 enemy.Draw(spriteBatch, gameTime);
             }
+            foreach (IItems item in randomItems)
+            {
+                item.Draw(spriteBatch);
+            }
             if (noEnemies)
             {
                 foreach (IItems item in items)
                 {
                     item.Draw(spriteBatch);
+                }
+            }
+            else
+            {
+                foreach (IItems item in items)
+                {
+                    if (item.type == ItemType.Triforce || item.type == ItemType.Bow || item.type == ItemType.Map 
+                        || item.type == ItemType.Compass)
+                    {
+                        item.Draw(spriteBatch);
+                    }
+            
                 }
             }
         }

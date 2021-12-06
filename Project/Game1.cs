@@ -4,9 +4,9 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
-using Project.Sound;
 
 
 namespace Project
@@ -76,6 +76,7 @@ namespace Project
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
             MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
+            ItemSelectionUtilities.LoadAllEquipableItems();
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
@@ -96,9 +97,7 @@ namespace Project
 
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             gameStateMachine.CurrentState.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }
