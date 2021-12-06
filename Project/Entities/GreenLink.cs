@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Projectiles;
+using Project.Shading;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Project.Entities
 {
-    public class GreenLink : IPlayer, ICollidable
+    public class GreenLink : TorchLight, IPlayer, ICollidable
     {
         private const int START_HEALTH = 6;
         private LinkStateMachine stateMachine;
@@ -171,8 +172,6 @@ namespace Project.Entities
 
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
             position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-
-
             sprite.Update(gameTime);
             foreach (IProjectile projectile in projectiles)
             {
@@ -186,7 +185,6 @@ namespace Project.Entities
 
 
         }
-
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);

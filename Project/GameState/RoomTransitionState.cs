@@ -4,6 +4,7 @@ using Project.HUD;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
+using Project.Shading;
 
 namespace Project.GameState
 {
@@ -137,14 +138,26 @@ namespace Project.GameState
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            Game1.Instance.GraphicsDevice.SetRenderTarget(Game1.Instance.LightTarget);
+            Game1.Instance.GraphicsDevice.Clear(Color.Black);
+            Game1.Instance.GraphicsDevice.SetRenderTarget(null);
+            if (GameOptions.IsShaderOn)
+            {
+                spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, effect: LightShaderFactory.Instance.LightShader);
+            }
+            else
+            {
+                spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
+            }
             if (this.nextRoom is null)
             {
                 this.game.GameStateMachine.Play();
                 return;
             }
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             nextRoom.Background.Draw(spriteBatch, nextRoomOffset);
             RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, offset);
+            spriteBatch.End();
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             this.smallHUD.Draw(spriteBatch);
             spriteBatch.End();
         }

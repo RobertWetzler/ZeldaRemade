@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.Shading;
 
 namespace Project.NPC.Flame
 {
-    class Flame : INPC
+    class Flame : FireLight, INPC
     {
         public INPCState currentState;
         public Vector2 pos;

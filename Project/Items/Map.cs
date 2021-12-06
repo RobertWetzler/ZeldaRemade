@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
-
+using Project.Shading; 
 namespace Project.Items
 {
-    class Map : IItems
+    class Map : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -18,7 +18,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(1, 8);
-
+            lightColor = Color.Yellow;
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -4,10 +4,10 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.Shading;
 using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
-
 
 namespace Project
 {
@@ -22,6 +22,11 @@ namespace Project
         private int roomIdx = 0;
         private Rectangle playerBounds; //Bounding window for player/enemy movement
         private List<int> passedRoom;
+
+        private RenderTarget2D _mainTarget;
+        private RenderTarget2D _lightTarget;
+        public RenderTarget2D MainTarget => _mainTarget;
+        public RenderTarget2D LightTarget => _lightTarget;
 
         public Rectangle PlayerBounds => playerBounds;
 
@@ -76,6 +81,7 @@ namespace Project
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
             MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
+            LightShaderFactory.Instance.LoadAllContent(Content);
             ItemSelectionUtilities.LoadAllEquipableItems();
 
             gameStateMachine = new GameStateMachine(this);
@@ -85,7 +91,10 @@ namespace Project
 
             RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
             collisionIterator = new CollisionIterator();
-
+            int width = GraphicsDevice.PresentationParameters.BackBufferWidth;
+            int height = GraphicsDevice.PresentationParameters.BackBufferHeight;
+            _mainTarget = new RenderTarget2D(GraphicsDevice, width, height);
+            _lightTarget = new RenderTarget2D(GraphicsDevice, width, height);
         }
 
         protected override void Update(GameTime gameTime)

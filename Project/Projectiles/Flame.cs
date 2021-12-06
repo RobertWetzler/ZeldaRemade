@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
-using Project.Sound;
 using Project.Sprites.ItemSprites;
-
+using Project.Sound;
+using Project.Shading;
 
 namespace Project.Projectiles
 {
-    class Flame : IProjectile
+    class Flame : FireLight, IProjectile
     {
         private IProjectileSprite sprite;
         public bool IsFinished => sprite.IsFinished() || !IsActive;
@@ -29,6 +29,7 @@ namespace Project.Projectiles
             this.isFriendly = isFriendly;
             SoundManager.Instance.CreateCandleSound();
             velocity = 350;
+            this.lightColor = Color.Red;
         }
 
         public Rectangle BoundingBox => SetBoundingBox();

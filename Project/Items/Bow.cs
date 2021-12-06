@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Shading;
 
 namespace Project.Items
 {
-    class Bow : IItems
+    class Bow : Lightable, IItems
     {
 
         private ISprite sprite;
@@ -17,7 +18,7 @@ namespace Project.Items
         {
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateItemSprite(0, 7);
-
+            lightColor = Color.LightGreen;
         }
 
         public void Draw(SpriteBatch spriteBatch)
