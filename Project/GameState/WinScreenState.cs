@@ -37,25 +37,21 @@ namespace Project.GameState
         {
             if (!doneFlashing)
             {
-                spriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
+                DrawingUtilities.DrawGameScreen(spriteBatch, gameTime, smallHUD);
                 if (changeBackground)
                 {
+                    Game1.Instance.GraphicsDevice.SetRenderTarget(Game1.Instance.MainTarget);
                     Game1.Instance.GraphicsDevice.Clear(Color.White);
+                    Game1.Instance.GraphicsDevice.SetRenderTarget(null);
+                    spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+                    spriteBatch.Draw(Game1.Instance.MainTarget, Vector2.Zero, Color.White);
+                    smallHUD.Draw(spriteBatch);
+                    spriteBatch.End();
                 }
-                else
-                {
-                    RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-                }
-                smallHUD.Draw(spriteBatch);
-                Game1.Instance.Player.Draw(spriteBatch, gameTime);
-                spriteBatch.End();
             }
             else if (doneFlashing && !doneWaiting)
             {
-                spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-                RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-                Game1.Instance.Player.Draw(spriteBatch, gameTime);
-                spriteBatch.End();
+                DrawingUtilities.DrawGameScreen(spriteBatch, gameTime, smallHUD);
             }
             else if (doneWaiting && doneFlashing)
             {

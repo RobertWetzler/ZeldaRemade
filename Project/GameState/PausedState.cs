@@ -45,18 +45,15 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            int i = 0;
+            DrawingUtilities.DrawGameScreen(spriteBatch, gameTime, smallHUD);
+            Game1.Instance.GraphicsDevice.SetRenderTarget(null);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-            game.Player.Draw(spriteBatch, gameTime);
+            int i = 0;
             foreach (var text in textList)
             {
                 text.Draw(spriteBatch, new Vector2(textLinePosX + i, textLinePosY));
                 i += shift;
             }
-
-            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
-            smallHUD.Draw(spriteBatch);
             spriteBatch.End();
         }
 

@@ -38,40 +38,8 @@ namespace Project.GameState
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            //draw lights
-            Game1.Instance.GraphicsDevice.SetRenderTarget(Game1.Instance.LightTarget);
-            Game1.Instance.GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(blendState: BlendState.Additive);
-            Lightable lightablePlayer = Game1.Instance.Player as Lightable;
-            if(lightablePlayer != null) //in case player is not lightable
-            {
-                lightablePlayer.DrawLight(spriteBatch, gameTime, Game1.Instance.Player.BoundingBox);
-            }
-            RoomManager.Instance.CurrentRoom.DrawLights(spriteBatch, gameTime);
-            spriteBatch.End();
-
-            //draw game
-            Game1.Instance.GraphicsDevice.SetRenderTarget(Game1.Instance.MainTarget);
-            //Game1.Instance.GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-            game.Player.Draw(spriteBatch, gameTime);
-            RoomManager.Instance.CurrentRoom.DrawForeground(spriteBatch, gameTime);
-            spriteBatch.End();
-            
-            //use shader to combine lights onto game
-            Game1.Instance.GraphicsDevice.SetRenderTarget(null);
-            Game1.Instance.GraphicsDevice.Clear(Color.Black);
-            LightShaderFactory.Instance.LightShader.Parameters["MaskTexture"].SetValue(Game1.Instance.LightTarget);
-            spriteBatch.Begin(blendState: BlendState.AlphaBlend, effect: LightShaderFactory.Instance.LightShader);
-            spriteBatch.Draw(Game1.Instance.MainTarget, Vector2.Zero, Color.White);
-            spriteBatch.End();
-            //draw HUD without shader
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            smallHud.Draw(spriteBatch);
-            spriteBatch.End();
+            DrawingUtilities.DrawGameScreen(spriteBatch, gameTime, smallHud);
         }
-
 
     }
 }
