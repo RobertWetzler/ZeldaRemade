@@ -48,10 +48,7 @@ namespace Project.Utilities
             keyboardController.RegisterDefaultCommand(new PlayerStopMovingCommand(game));
 
             //Key to show HUD
-            keyboardController.RegisterCommand(Keys.V, new SelectItemCommand(game));
-
-            //Cycle Items in the item selector box
-            keyboardController.RegisterCommand(Keys.F, new ItemSelectionCommand(game));
+            keyboardController.RegisterCommand(Keys.Tab, new SelectItemCommand(game));
 
             keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
             keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
@@ -62,9 +59,6 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.Z, new PlayerUseItemACommand());
             keyboardController.RegisterCommand(Keys.X, new PlayerUseItemBCommand());
 
-            //Set A & B items
-            keyboardController.RegisterCommand(Keys.B, new GetAItemCommand(game));
-            keyboardController.RegisterCommand(Keys.G, new GetBItemCommand(game));
 
             //Toggle shader
             keyboardController.RegisterCommand(Keys.T, new ToggleShaderCommand());

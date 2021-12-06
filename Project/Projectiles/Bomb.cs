@@ -16,8 +16,9 @@ namespace Project.Projectiles
         public bool IsFinished => sprite.IsFinished() || !IsActive;
         private bool isFriendly;
         public bool IsFriendly => isFriendly;
-        public bool IsExploding => timer > 1000;
+        public bool HasExploded { get; set; } = false;
         private float timer;
+        public bool IsExploding => timer > 1000 && !HasExploded;
         private Vector2 position;
         private Facing facing;
         private Vector2 offset;
@@ -35,6 +36,8 @@ namespace Project.Projectiles
             lightColor = Color.Orange;
             lightScale = 1f;
         }
+
+
 
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Bomb;

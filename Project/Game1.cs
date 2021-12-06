@@ -80,8 +80,10 @@ namespace Project
             SoundManager.Instance.LoadAllSounds(Content);
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
-            MapTileSpriteFactory.Instance.LoadAllTextures(Content);
-            LightShaderFactory.Instance.LoadAllContent(Content);
+            MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
+            LightShaderFactory.Instance.LoadAllContent(Content):
+            ItemSelectionUtilities.LoadAllEquipableItems();
+
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
 
