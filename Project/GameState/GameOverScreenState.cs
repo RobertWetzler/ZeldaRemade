@@ -11,9 +11,9 @@ namespace Project.GameState
     public class GameOverScreenState : IGameState
     {
         private IText youLoseText;
-        private int flashTimer = 0, waitTimer = 0, flashCounter = 0;
-        private int flashMaxTime = 2000, waitTimeMax = 2000, timeToRestart = 4000;
-        private bool doneFlashing = false, doneWaiting = false, doneRestart = false;
+        private int spinTimer = 0, flashTimer = 0, flashCounter = 0, waitTimer = 0;
+        private int spinTimeMax = 2000, flashTimeMax = 800, timeToRestart = 3000;
+        private bool doneSpinning = false, doneFlashing = false, doneRestart = false;
         private bool changeBackground = false;
         private IHUD smallHUD;
 
@@ -27,7 +27,14 @@ namespace Project.GameState
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            if (!doneFlashing)
+            if (!doneSpinning)
+            {
+                spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+                RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
+                Game1.Instance.Player.Draw(spriteBatch, gameTime);
+                spriteBatch.End();
+            }
+            else if (doneSpinning && !doneFlashing)
             {
                 spriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
                 if (changeBackground)
@@ -38,19 +45,12 @@ namespace Project.GameState
                 {
                     RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
                 }
-                RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-                smallHUD.Draw(spriteBatch);   
+                //RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
+                smallHUD.Draw(spriteBatch);
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();
             }
-            else if (doneFlashing && !doneWaiting)
-            {
-                spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-                RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-                Game1.Instance.Player.Draw(spriteBatch, gameTime);
-                spriteBatch.End();
-            }
-            else if (doneWaiting && doneFlashing&&!doneRestart)
+            else if (doneSpinning && doneFlashing &&!doneRestart)
             {
                 spriteBatch.Begin(samplerState: SamplerState.PointClamp);
                 Game1.Instance.GraphicsDevice.Clear(Color.Black);
@@ -68,13 +68,20 @@ namespace Project.GameState
             smallHUD.Update(gameTime);
             Game1.Instance.Player.Update(playerBounds, gameTime);
             SetDoneFlashing();
-            if (!doneFlashing)
+            if (!doneSpinning)
+            {
+                spinTimer += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (spinTimer > spinTimeMax)
+                {
+                    doneSpinning = true;
+                }
+            } else if (doneSpinning && !doneFlashing)
             {
                 flashTimer += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
                 flashCounter += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-                if (flashTimer >= 50)
+                if (flashTimer >= 100)
                 {
-                    flashTimer -= 50;
+                    flashTimer -= 100;
                     if (changeBackground)
                     {
                         changeBackground = false;
@@ -83,14 +90,6 @@ namespace Project.GameState
                     {
                         changeBackground = true;
                     }
-                }
-            }
-            else if (!doneWaiting)
-            {
-                waitTimer += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-                if (waitTimer > waitTimeMax)
-                {
-                    doneWaiting = true;
                 }
             }
             else if (!doneRestart)
@@ -107,7 +106,7 @@ namespace Project.GameState
         {
             if (!doneFlashing)
             {
-                doneFlashing = flashCounter >= flashMaxTime ? true : false;
+                doneFlashing = flashCounter >= flashTimeMax ? true : false;
             }
         }
     }
