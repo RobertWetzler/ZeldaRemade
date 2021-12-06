@@ -7,8 +7,8 @@ namespace Project
     {
         private Dictionary<ItemType, int> inventory;
 
-        private ItemType aItem = ItemType.Null;
-        private ItemType bItem = ItemType.Sword;
+        private ItemType aItem = ItemType.Sword;
+        private ItemType bItem = ItemType.Null;
         public ItemType AItem => aItem;
         public ItemType BItem => bItem;
 

@@ -45,6 +45,7 @@ namespace Project.Sprites
                     sourceRect = new Rectangle(4 * width + 4, row * height + offset, width, height);
                     break;
                 case DoorType.WALL:
+                case DoorType.BOMB_CLOSED:
                     sourceRect = new Rectangle(0 * width, row * height + offset, width, height);
                     break;
             }
