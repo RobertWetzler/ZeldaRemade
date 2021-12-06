@@ -20,6 +20,7 @@ namespace Project.Shading
         {
             lightIntensity = Math.Clamp(lightIntensity + (float)((new Random()).NextDouble() - .3), 0, 1);
         }
+
         public override void DrawLight(SpriteBatch spriteBatch, GameTime gameTime, Rectangle destRectangle)
         {
             SetFlickerIntensity(gameTime);
