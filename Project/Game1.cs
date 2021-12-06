@@ -4,6 +4,7 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.Rooms;
 using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ namespace Project
 
             RoomManager.LoadAllRooms(player, _graphics);
 
-            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
+            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[18]);
             collisionIterator = new CollisionIterator();
 
         }
