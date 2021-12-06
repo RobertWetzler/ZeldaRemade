@@ -12,7 +12,8 @@
         Moving,
         Idle,
         UsingSword,
-        UsingItem
+        UsingItem,
+        PickUpItem
     }
     public enum LinkColor
     {

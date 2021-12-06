@@ -1,10 +1,4 @@
-﻿using Project.GameState;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-
-namespace Project.Commands
+﻿namespace Project.Commands
 {
     class GetAItemCommand : ICommand
     {
@@ -15,8 +9,8 @@ namespace Project.Commands
         }
         public void Execute()
         {
-            if(Game1.Instance.Player.Inventory.BItem != Game1.Instance.getItem)
-            Game1.Instance.Player.Inventory.SetAItem(Game1.Instance.getItem);
+            if (Game1.Instance.Player.Inventory.BItem != Game1.Instance.getItem)
+                Game1.Instance.Player.Inventory.SetAItem(Game1.Instance.getItem);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Project
         public IPlayerSprite PlayerSprite { get; }
         public LinkStateMachine StateMachine { get; }
         public PlayerInventory Inventory { get; }
+        public bool IsApproachBat { get; set; }
         // used for setting an intial sprite upon Game.LoadContent()
         void SetSprite(IPlayerSprite sprite);
         void MoveUp();
@@ -19,6 +20,8 @@ namespace Project
         void MoveRight();
         void StopMoving();
         void UseWeapon(WeaponTypes weaponType);
+
+        void PickUpItem(IItems item);
 
     }
 }

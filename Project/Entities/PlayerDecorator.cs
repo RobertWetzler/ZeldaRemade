@@ -21,11 +21,22 @@ namespace Project.Entities
         public bool IsFinished { get => isDecoratorFinished; }//test
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;
+        public bool IsApproachBat { get => decoratedPlayer.IsApproachBat; set => decoratedPlayer.IsApproachBat = value; }
 
         public void RemoveDecorator()
         {
            // isDecoratorFinished = true;
             game.Player = decoratedPlayer;
+        }
+
+        public void AddHealth(int value)
+        {
+            // Do nothing
+        }
+
+        public void UpdateMaxHealth(int value)
+        {
+            // Do Nothing
         }
         // mark methods as virtual so they can be overriden by derived classes
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
@@ -81,6 +92,11 @@ namespace Project.Entities
         public virtual void UseWeapon(WeaponTypes weaponType)
         {
             decoratedPlayer.UseWeapon(weaponType);
+        }
+
+        public void PickUpItem(IItems item)
+        {
+            decoratedPlayer.PickUpItem(item);
         }
     }
 }

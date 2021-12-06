@@ -163,6 +163,14 @@ namespace Project.Entities
             }
             return (sprite, weapon);
         }
+        public IPlayerSprite PickUpItem()
+        {
+            IPlayerSprite sprite = this.link.PlayerSprite;
+            this.move = Move.PickUpItem;
+            sprite = this.spriteSelector.UpdateSprite(this.facing, this.move, this.color, this.link.Position);
+            return sprite;
+        }
+
         private bool IsInActionState()
         {
             return this.move == Move.UsingItem || this.move == Move.UsingSword;

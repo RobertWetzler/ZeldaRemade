@@ -5,21 +5,23 @@ using Project.Projectiles;
 using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
-using System;
 using System.Collections.Generic;
 
 namespace Project.Entities
 {
     public class GreenLink : IPlayer, ICollidable
     {
+        private const int START_HEALTH = 6;
         private LinkStateMachine stateMachine;
         private Vector2 position;
         private IPlayerSprite sprite;
         private List<IProjectile> projectiles;
         private double velocity = 250;
         private Game1 game;
-        private int health = 6;
         private PlayerInventory inventory;
+        private Health health;
+        public Health Health { get => health; }
+        private IItems pickUpItem;
 
         private int timeToChangeDirection = 100; //time to randomly change direction
         private int changeDirectionCounter = 0;
@@ -28,6 +30,8 @@ namespace Project.Entities
         private int timeToStop = 3000;
         private bool isDead = false;
         private bool isFinished = false;//test
+
+        private bool isApproachBat;
 
         /**
         * Shrinks the bounding box for link
@@ -50,7 +54,6 @@ namespace Project.Entities
             return sprite.DestRectangle;
 
         }
-
         public Vector2 Position
         {
             get { return position; }
@@ -64,14 +67,13 @@ namespace Project.Entities
         {
             get => this.stateMachine;
         }
-
         public Rectangle BoundingBox => SetBoundingBox();
         public CollisionType CollisionType => CollisionType.Player;
-
         public PlayerInventory Inventory => inventory;
 
         public int Health { get => health; set => health = value; }
         public bool IsFinished { get => isFinished; }
+        public bool IsApproachBat { get => isApproachBat; set => isApproachBat = value; }
 
         public GreenLink(Game1 game)
         {
@@ -81,6 +83,8 @@ namespace Project.Entities
             sprite = stateMachine.StopMoving();
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
+            health = new Health(START_HEALTH);
+            isApproachBat = false;
         }
 
         public void SetSprite(IPlayerSprite sprite)
@@ -89,39 +93,45 @@ namespace Project.Entities
         }
         public void MoveUp()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveUp();
         }
         public void MoveDown()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveDown();
         }
         public void MoveLeft()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveLeft();
         }
         public void MoveRight()
         {
+            pickUpItem = null;
             sprite = stateMachine.MoveRight();
         }
         public void StopMoving()
         {
+            pickUpItem = null;
             sprite = stateMachine.StopMoving();
         }
 
         public void UseWeapon(WeaponTypes weaponType)
         {
-
+            pickUpItem = null;
             IProjectile potentialWeapon = WeaponSelector.GetWeapon(weaponType, stateMachine.facing, position);
             (sprite, potentialWeapon) = stateMachine.UseWeapon(potentialWeapon); // only sets this.weaponSprite if the state machine allows it
 
             if (potentialWeapon != null)
             {
                 RoomManager.Instance.CurrentRoom.AddProjectile(potentialWeapon);
+                if (weaponType == WeaponTypes.Bomb)
+                {
+                    inventory.RemoveItem(ItemType.Bomb);
+                }
             }
         }
-
-
-
 
         public void TakeDamage(int damage)
         {
@@ -132,14 +142,19 @@ namespace Project.Entities
             this.game.Player = new DeadLink(this, game); // test
             
             isDead = true;
-            if (health > 0)
-            {
-                health -= damage;
-            }
-            else
+            //pickUpItem = null;
+            //this.game.Player = new DamagedLink(this, game);
+            //health.DecreaseHealth(damage);
+            //inventory.RemoveNItems(ItemType.Heart, damage);
+            if (health.CurrentHealth <= 0)
             {
                 game.GameStateMachine.TitleScreen();
-                health = 6;
+                health.MaxHealth = START_HEALTH;
+                inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
+                inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
+                health.CurrentHealth = health.MaxHealth;
+                inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
+                inventory.AddNItems(ItemType.Heart, health.CurrentHealth);
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
                 RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
             }
@@ -206,12 +221,16 @@ namespace Project.Entities
                 position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
 
-                sprite.Update(gameTime);
-                foreach (IProjectile projectile in projectiles)
-                {
-                    projectile.Update(gameTime);
-                }
-                projectiles.RemoveAll(projectile => !projectile.IsActive);
+            sprite.Update(gameTime);
+            foreach (IProjectile projectile in projectiles)
+            {
+                projectile.Update(gameTime);
+            }
+            projectiles.RemoveAll(projectile => !projectile.IsActive);
+            if (pickUpItem != null)
+            {
+                pickUpItem.Update(gameTime);
+            }
 
             
             }
@@ -225,8 +244,18 @@ namespace Project.Entities
                     projectile.Update(gameTime);
                 }
 
-                projectiles.RemoveAll(projectile => projectile.IsFinished);
-
+            projectiles.RemoveAll(projectile => projectile.IsFinished);
+            if (pickUpItem != null)
+            {
+                pickUpItem.Draw(spriteBatch);
             }
+
         }
-    } 
+
+        public void PickUpItem(IItems item)
+        {
+            sprite = stateMachine.PickUpItem();
+            pickUpItem = item;
+        }
+    }
+}
