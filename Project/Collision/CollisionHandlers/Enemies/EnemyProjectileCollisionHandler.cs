@@ -36,9 +36,20 @@ namespace Project.Collision.CollisionHandlers.Enemies
                     {
                         enemy.TakeDamage(2);
                     }
-                    else if (projectile is Bomb)
+                    else if (projectile is Bomb || projectile is BlueArrow)
                     {
-                        enemy.TakeDamage(2); //b/c bomb collision seems to be calling twice
+                        enemy.TakeDamage(4); 
+                    }
+                    else if (projectile is Boomerang || projectile is BlueBoomerang)
+                    {
+                        if (enemy is Bat || enemy is SmallJelly || enemy is BigJelly)
+                        {
+                            enemy.TakeDamage(1);
+                        }
+                        else
+                        {
+                            enemy.TakeDamage(0); //Boomerang only stuns large enemies
+                        }
                     }
                     else
                     {
