@@ -76,6 +76,7 @@ namespace Project
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
             MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
+            ItemSelectionUtilities.LoadAllEquipableItems();
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
