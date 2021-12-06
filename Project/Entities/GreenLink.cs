@@ -24,14 +24,6 @@ namespace Project.Entities
         public Health Health { get => health; }
         private IItems pickUpItem;
 
-        private int timeToChangeDirection = 100; //time to randomly change direction
-        private int changeDirectionCounter = 0;
-        private int spinStartTime = 0;
-        private int timeToSpin = 1000;
-        private int timeToStop = 3000;
-        private bool isDead = false;
-        private bool isFinished = false;//test
-
         private bool isApproachBat;
 
         /**
@@ -72,8 +64,6 @@ namespace Project.Entities
         public CollisionType CollisionType => CollisionType.Player;
         public PlayerInventory Inventory => inventory;
 
-        //public int Health { get => health; set => health = value; }
-        public bool IsFinished { get => isFinished; }
         public bool IsApproachBat { get => isApproachBat; set => isApproachBat = value; }
 
         public GreenLink(Game1 game)
@@ -142,15 +132,8 @@ namespace Project.Entities
             inventory.RemoveNItems(ItemType.Heart, damage);
             if (health.CurrentHealth <= 0)
             {
-                //stateMachine = new LinkStateMachine(this, Facing.Down, Move.Idle, LinkColor.Blue);
-                // this.game.Player = new DamagedLink(this, game);
-                sprite = stateMachine.IdleDown();
-
-                this.game.Player = new DeadLink(this, game); // test
-
-                isDead = true;
+                this.game.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
                 game.GameStateMachine.GameOverScreen();
-                this.game.Player = new GreenLink(game); // test
                 health.MaxHealth = START_HEALTH;
                 inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
                 inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
@@ -186,39 +169,8 @@ namespace Project.Entities
                         break;
                 }
             }
-            if (isDead)
-            {
-                spinStartTime+= gameTime.ElapsedGameTime.Milliseconds;
-                if (spinStartTime > timeToSpin)
-                {
-                    changeDirectionCounter += gameTime.ElapsedGameTime.Milliseconds;
-                    if (changeDirectionCounter > timeToChangeDirection)
-                    {
-                        changeDirectionCounter -= timeToChangeDirection;
-                        switch (stateMachine.facing)
-                        {
-                            case Facing.Up:
-                                sprite = stateMachine.IdleRight();
-                                break;
-                            case Facing.Down:
-                                sprite = stateMachine.IdleLeft();
-                                break;
-                            case Facing.Left:
-                                sprite = stateMachine.IdleUp();
-                                break;
-                            case Facing.Right:
-                                sprite = stateMachine.IdleDown();
-                                break;
-                        }
-                    }
-                }
-                if (spinStartTime > timeToStop)
-                {
-                    sprite = stateMachine.IdleDown();
-                }       
-            }
 
-                position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
+            position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
                 position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
 
@@ -250,7 +202,6 @@ namespace Project.Entities
             {
                 pickUpItem.Draw(spriteBatch);
             }
-
         }
 
         public void PickUpItem(IItems item)

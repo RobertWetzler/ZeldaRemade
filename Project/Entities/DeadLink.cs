@@ -31,7 +31,7 @@ namespace Project.Entities
             this.game = game;
             remainingFlashTime = totalFlashTime;
             remainingKnockbackTime = totalKnockbackTime;
-            SoundManager.Instance.CreateLinkHurtSound();// need to change
+            //SoundManager.Instance.CreateLinkHurtSound();// need to change
         }
         public override void TakeDamage(int damage)
         {

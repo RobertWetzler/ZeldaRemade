@@ -4,9 +4,7 @@ using Project.HUD;
 using Project.Sound;
 using Project.Text;
 using Project.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Project.Entities;
 
 namespace Project.GameState
 {
@@ -14,7 +12,7 @@ namespace Project.GameState
     {
         private IText youLoseText;
         private int flashTimer = 0, waitTimer = 0, flashCounter = 0;
-        private int flashMaxTime = 2000, waitTimeMax = 2000, timeToRestart = 5000;
+        private int flashMaxTime = 2000, waitTimeMax = 2000, timeToRestart = 4000;
         private bool doneFlashing = false, doneWaiting = false, doneRestart = false;
         private bool changeBackground = false;
         private IHUD smallHUD;
@@ -23,8 +21,8 @@ namespace Project.GameState
         {
             youLoseText = new StringText("GAME OVER", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 120, 400));
             smallHUD = new SmallHUD(false);
-                SoundManager.Instance.CreateLinkDeathSound();
-            
+            Game1.Instance.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
+            //Game1.Instance.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -32,16 +30,16 @@ namespace Project.GameState
             if (!doneFlashing)
             {
                 spriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
-                /*if (changeBackground)
+                if (changeBackground)
                 {
                     Game1.Instance.GraphicsDevice.Clear(Color.DarkRed);
                 }
                 else
                 {
                     RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-                }*/
+                }
                 RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
-                smallHUD.Draw(spriteBatch);
+                smallHUD.Draw(spriteBatch);   
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();
             }
@@ -67,12 +65,6 @@ namespace Project.GameState
 
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
-            //waitSpinTimer+= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            /*
-            if (waitSpinTimer > timeToSpin)
-            {
-                isSpinning = true;
-            }*/
             smallHUD.Update(gameTime);
             Game1.Instance.Player.Update(playerBounds, gameTime);
             SetDoneFlashing();

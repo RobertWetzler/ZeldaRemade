@@ -18,14 +18,12 @@ namespace Project.Entities
         public CollisionType CollisionType => decoratedPlayer.CollisionType;
 
         public Health Health { get => decoratedPlayer.Health; }
-        public bool IsFinished { get => isDecoratorFinished; }//test
 
         public PlayerInventory Inventory => decoratedPlayer.Inventory;
         public bool IsApproachBat { get => decoratedPlayer.IsApproachBat; set => decoratedPlayer.IsApproachBat = value; }
 
         public void RemoveDecorator()
         {
-           // isDecoratorFinished = true;
             game.Player = decoratedPlayer;
         }
 
