@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
 using Project.Utilities;
+using System;
 using System.Collections.Generic;
 
 namespace Project
@@ -74,28 +75,6 @@ namespace Project
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is EnemySpawning)
-            {
-                startTime += gameTime.ElapsedGameTime.Milliseconds;
-                if (startTime > timeToSpawn)
-                {
-                    this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
-                    currentState = new EnemyWalkEast(this);
-                }
-            }
-            if (Math.Abs((int)position.X - (int)player.Position.X) < X_DIFF
-               && (Math.Abs((int)player.Position.Y - (int)position.Y) < Y_DIFF))
-            {
-                player.IsApproachBat = true;
-            }
-            if (player.IsApproachBat)
-            {
-                movement.timeToChangeDir = 250;
-                this.velocity = 200f;
-            }
-            movement.MoveWASDAndDiagonal(windowBounds, gameTime);
-            currentState.Update(gameTime);
-        }
             if (remainingFlashTime <= 0)
             {
                 if (currentState is EnemySpawning)
@@ -106,6 +85,16 @@ namespace Project
                         this.sprite = EnemySpriteFactory.Instance.CreateBatSprite();
                         currentState = new EnemyWalkEast(this);
                     }
+                }
+                if (Math.Abs((int)position.X - (int)player.Position.X) < X_DIFF
+                   && (Math.Abs((int)player.Position.Y - (int)position.Y) < Y_DIFF))
+                {
+                    player.IsApproachBat = true;
+                }
+                if (player.IsApproachBat)
+                {
+                    movement.timeToChangeDir = 250;
+                    this.velocity = 200f;
                 }
                 movement.MoveWASDAndDiagonal(windowBounds, gameTime);
                 currentState.Update(gameTime);
@@ -118,8 +107,10 @@ namespace Project
                     UpdateColor();
                 }
             }
-
+           
         }
+
+        
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
