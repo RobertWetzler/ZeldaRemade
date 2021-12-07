@@ -228,6 +228,7 @@ namespace Project.Sound
 
         public void CreateVictorySound()
         {
+            backgroundInstance.Stop();
             soundInstance = victory.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();
