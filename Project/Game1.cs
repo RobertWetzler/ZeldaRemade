@@ -79,7 +79,6 @@ namespace Project
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
             MapTileSpriteFactory.Instance.LoadAllTextures(Content); 
             ItemSelectionUtilities.LoadAllEquipableItems();
-            GameOptions.LoadXMLVersion();
 
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
