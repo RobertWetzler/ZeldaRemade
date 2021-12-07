@@ -314,7 +314,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>East</Position>
 			</Object>
 			<Object>
