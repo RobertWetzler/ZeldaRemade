@@ -9,7 +9,7 @@ namespace Project.Utilities
         {
             int northRoomID = 0;
 
-            using (XmlReader reader = XmlReader.Create(@GameOptions.XML))
+            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
