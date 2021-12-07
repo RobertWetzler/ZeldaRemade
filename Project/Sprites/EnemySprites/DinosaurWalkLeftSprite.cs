@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class DinosaurWalkLeftRightSprite : ISprite
+    class DinosaurWalkLeftSprite : ISprite
     {
         private Texture2D dinosaurSpriteSheet;
         private List<Rectangle> sourceFrames;
@@ -14,7 +14,7 @@ namespace Project
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
 
-        public DinosaurWalkLeftRightSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
+        public DinosaurWalkLeftSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
         {
             this.dinosaurSpriteSheet = dinosaurSpriteSheet;
             this.sourceFrames = sourceFrames;
@@ -26,7 +26,7 @@ namespace Project
         {
             Rectangle source = sourceFrames[currentFrame];
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, source, color);
+            spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
         }
         public void Update(GameTime gameTime)
         {
