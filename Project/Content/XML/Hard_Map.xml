@@ -314,7 +314,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Open</ObjectName>
+				<ObjectName>Locked</ObjectName>
 				<Position>East</Position>
 			</Object>
 			<Object>
@@ -1285,6 +1285,26 @@
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
 				<Position>7 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>11 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>11 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>0 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>0 0</Position>
 			</Object>
 		</Room12>
 		<Room13 Type="MyDataTypes.Room13ObjectData[]">
