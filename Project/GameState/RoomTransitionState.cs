@@ -18,7 +18,6 @@ namespace Project.GameState
     }
     class RoomTransitionState : IGameState
     {
-        private Game1 game;
         private Room nextRoom;
         private Direction dir;
         private Vector2 dir_vect;
@@ -26,21 +25,33 @@ namespace Project.GameState
         private Vector2 nextRoomOffset;
         private float transitionSpeed = 700f;
         private IHUD smallHUD;
+
+        public RoomTransitionState(Room nextRoom, Direction dir = Direction.Down)
+        {
+            this.dir = dir;
+            smallHUD = new SmallHUD(false);
+            this.dir_vect = dir switch
+            {
+                Direction.Up => new Vector2(0, 1),
+                Direction.Down => new Vector2(0, -1),
+                Direction.Left => new Vector2(1, 0),
+                Direction.Right => new Vector2(-1, 0),
+                _ => throw new NotImplementedException(),
+            };
+            this.nextRoom = nextRoom;
+        }
         public RoomTransitionState(Game1 game, Direction dir)
         {
-            this.game = game;
             this.dir = dir;
             smallHUD = new SmallHUD(false);
             Room curRoom = RoomManager.Instance.CurrentRoom;
             switch (dir)
             {
                 case Direction.Up:
-
                     this.dir_vect = new Vector2(0, 1);
                     this.nextRoom = curRoom.NorthRoom;
                     break;
                 case Direction.Down:
-
                     this.dir_vect = new Vector2(0, -1);
                     this.nextRoom = curRoom.SouthRoom;
                     break;
@@ -57,7 +68,7 @@ namespace Project.GameState
             }
             if (this.nextRoom is null)
             {
-                this.game.GameStateMachine.Play();
+                Game1.Instance.GameStateMachine.Play();
             }
             else
             {
@@ -86,7 +97,7 @@ namespace Project.GameState
             smallHUD.Update(gameTime);
             if (this.nextRoom is null)
             {
-                this.game.GameStateMachine.Play();
+                Game1.Instance.GameStateMachine.Play();
                 return;
             }
             Rectangle roomBounds = RoomManager.Instance.CurrentRoom.Background.Bounds;
@@ -96,30 +107,20 @@ namespace Project.GameState
             {
                 RoomManager.Instance.SetCurrentRoom(nextRoom);
                 UpdateLinkPosition();
-                this.game.GameStateMachine.Play();
+                Game1.Instance.GameStateMachine.Play();
             }
         }
         private void UpdateLinkPosition()
         {
-            IDoor door;
             List<IDoor> doors = RoomManager.Instance.CurrentRoom.Doors;
-            switch (dir)
+            IDoor door = dir switch
             {
-                case Direction.Up:
-                    door = doors.Find(x => x is SouthDoor);
-                    break;
-                case Direction.Down:
-                    door = doors.Find(x => x is NorthDoor);
-                    break;
-                case Direction.Left:
-                    door = doors.Find(x => x is EastDoor);
-                    break;
-                case Direction.Right:
-                    door = doors.Find(x => x is WestDoor);
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
+                Direction.Up => doors.Find(x => x is SouthDoor),
+                Direction.Down => doors.Find(x => x is NorthDoor),
+                Direction.Left => doors.Find(x => x is EastDoor),
+                Direction.Right => doors.Find(x => x is EastDoor),
+                _ => throw new NotImplementedException()
+            };
             if (door is null)
             {
                 Rectangle playerBounds = Game1.Instance.PlayerBounds;
@@ -140,12 +141,11 @@ namespace Project.GameState
                 }
             }
         }
-
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (this.nextRoom is null)
             {
-                this.game.GameStateMachine.Play();
+                Game1.Instance.GameStateMachine.Play();
                 return;
             }
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
