@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Project.Rooms.Doors;
 using Project.Utilities;
 
 namespace Project.Collision.CollisionHandlers.Doors
@@ -17,7 +18,7 @@ namespace Project.Collision.CollisionHandlers.Doors
             {
                 new PlayerBlockCollisionHandler().HandleCollision(playerCollidable, doorCollidable, CollisionUtils.Opposite(side));
             }
-            else if (IsPlayerHittingEdge(player))
+            else if (IsPlayerHittingEdge(player) || door is HiddenDoor)
             {
                 switch (door)
                 {
@@ -32,6 +33,9 @@ namespace Project.Collision.CollisionHandlers.Doors
                         break;
                     case WestDoor westDoor:
                         Game1.Instance.GameStateMachine.RoomTransition(GameState.Direction.Left);
+                        break;
+                    case HiddenDoor hiddenDoor:
+                        Game1.Instance.GameStateMachine.RoomTransition(GameState.Direction.Right);
                         break;
                 }
             }

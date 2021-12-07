@@ -1807,6 +1807,11 @@
 				<ObjectName>2</ObjectName>
 			</Object>
 			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Hidden</ObjectName>
+				<Position>null</Position>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Brick</ObjectName>
 				<Position>0 0</Position>

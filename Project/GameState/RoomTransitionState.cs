@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.HUD;
+using Project.Rooms;
+using Project.Rooms.Doors;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
