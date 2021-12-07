@@ -5,6 +5,7 @@ using Project.Sound;
 using Project.Text;
 using Project.Utilities;
 using Project.Entities;
+using System.Collections.Generic;
 
 namespace Project.GameState
 {
@@ -15,13 +16,14 @@ namespace Project.GameState
         private int spinTimeMax = 2000, flashTimeMax = 800, timeToRestart = 3000;
         private bool doneSpinning = false, doneFlashing = false, doneRestart = false;
         private bool changeBackground = false;
-        private IHUD smallHUD;
+        private IHUD smallHUD, bigHUD;
         private const int START_HEALTH = 6;
 
         public GameOverScreenState()
         {
             youLoseText = new StringText("GAME OVER", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 120, 400));
             smallHUD = new SmallHUD(false);
+            bigHUD = new BigHUD(Game1.Instance);//test
             Game1.Instance.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
             SoundManager.Instance.backgroundInstance.Stop();
             SoundManager.Instance.CreateLinkDeathSound();
@@ -69,13 +71,10 @@ namespace Project.GameState
         {
             Game1.Instance.GameStateMachine.TitleScreen();
             // reset player health, inventory and position
-            Game1.Instance.Player.Health.MaxHealth = START_HEALTH;
-            Game1.Instance.Player.Inventory.RemoveNItems(ItemType.HeartContainer, Game1.Instance.Player.Inventory.GetItemCount(ItemType.HeartContainer));
-            Game1.Instance.Player.Inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
-            Game1.Instance.Player.Health.CurrentHealth = Game1.Instance.Player.Health.MaxHealth;
-            Game1.Instance.Player.Inventory.RemoveNItems(ItemType.Heart, Game1.Instance.Player.Inventory.GetItemCount(ItemType.Heart));
-            Game1.Instance.Player.Inventory.AddNItems(ItemType.Heart, Game1.Instance.Player.Health.CurrentHealth);
             Game1.Instance.Player = new GreenLink(Game1.Instance);
+            Game1.Instance.Player.Inventory.ResetInventory(0);
+            Game1.Instance.PassedRoom = new List<int>();
+            //ItemSelectionUtilities.UpdateAllInventoryItems();
             RoomManager.LoadAllRooms(Game1.Instance.Player, Game1.Instance.Graphics);
             RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
         }
@@ -83,6 +82,7 @@ namespace Project.GameState
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             smallHUD.Update(gameTime);
+            bigHUD.Update(gameTime);
             Game1.Instance.Player.Update(playerBounds, gameTime);
             SetDoneFlashing();
             if (!doneSpinning)

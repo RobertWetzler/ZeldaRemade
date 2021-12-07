@@ -39,7 +39,7 @@ namespace Project
 
         private static Game1 instance = new Game1();
         public static Game1 Instance => instance;
-        public List<int> PassedRoom { get => passedRoom; }
+        public List<int> PassedRoom { get => passedRoom; set => passedRoom = value; }
 
         public Game1()
         {
