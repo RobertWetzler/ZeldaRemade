@@ -18,9 +18,6 @@ namespace Project.GameState
             this.titleScreen = new TitleScreen(game.Graphics);
             keyboardController = new KeyboardController();
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
-
-            // RoomManager.LoadAllRooms(game.Player, Game1.Instance.Graphics);
-            // RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
         }
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {

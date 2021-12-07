@@ -70,7 +70,7 @@ namespace Project.Entities
         {
             this.game = game;
             position = new Vector2(500, 500);
-            stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
+            stateMachine = new LinkStateMachine(this, Facing.Up, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();

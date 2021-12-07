@@ -68,13 +68,14 @@ namespace Project.GameState
         private void RestartGame()
         {
             Game1.Instance.GameStateMachine.TitleScreen();
-            // reset player inventory and health
+            // reset player health, inventory and position
             Game1.Instance.Player.Health.MaxHealth = START_HEALTH;
             Game1.Instance.Player.Inventory.RemoveNItems(ItemType.HeartContainer, Game1.Instance.Player.Inventory.GetItemCount(ItemType.HeartContainer));
             Game1.Instance.Player.Inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
             Game1.Instance.Player.Health.CurrentHealth = Game1.Instance.Player.Health.MaxHealth;
             Game1.Instance.Player.Inventory.RemoveNItems(ItemType.Heart, Game1.Instance.Player.Inventory.GetItemCount(ItemType.Heart));
             Game1.Instance.Player.Inventory.AddNItems(ItemType.Heart, Game1.Instance.Player.Health.CurrentHealth);
+            Game1.Instance.Player = new GreenLink(Game1.Instance);
             RoomManager.LoadAllRooms(Game1.Instance.Player, Game1.Instance.Graphics);
             RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
         }
