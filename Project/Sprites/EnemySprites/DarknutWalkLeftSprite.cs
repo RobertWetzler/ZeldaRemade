@@ -1,32 +1,32 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Project
 {
-    class DinosaurWalkLeftRightSprite : ISprite
+    class DarknutWalkLeftSprite : ISprite
     {
-        private Texture2D dinosaurSpriteSheet;
+        private Texture2D darknutSpriteSheet;
         private List<Rectangle> sourceFrames;
         private int currentFrame = 0;
-        private int animationCounter;
-        private int animationDelay;
+        private int animationCounter = 0;
+        private int animationDelay = 100;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
-
-        public DinosaurWalkLeftRightSprite(Texture2D dinosaurSpriteSheet, List<Rectangle> sourceFrames)
+        public DarknutWalkLeftSprite(Texture2D darknutSpriteSheet, List<Rectangle> sourceFrames)
         {
-            this.dinosaurSpriteSheet = dinosaurSpriteSheet;
+            this.darknutSpriteSheet = darknutSpriteSheet;
             this.sourceFrames = sourceFrames;
-            this.animationCounter = 0;
-            this.animationDelay = 100;
         }
-
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle source = sourceFrames[currentFrame];
-            destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, source, color);
+            destRectangle = new Rectangle(
+                (int)position.X, (int)position.Y,
+                source.Width * 4, source.Height * 4);
+            spriteBatch.Draw(darknutSpriteSheet, destRectangle, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
         }
         public void Update(GameTime gameTime)
         {
@@ -37,7 +37,6 @@ namespace Project
                 currentFrame++;
                 currentFrame %= sourceFrames.Count;
             }
-
         }
     }
 }

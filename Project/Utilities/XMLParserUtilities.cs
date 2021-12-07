@@ -36,6 +36,19 @@ namespace Project.Utilities
                 case "WallMaster":
                     enemy = new WallMaster(pos);
                     break;
+                case "Darknut":
+                    enemy = new Darknut(pos);
+                    break;
+                case "Snake":
+                    enemy = new Snake(pos);
+                    break;
+                case "BigJelly":
+                    enemy = new BigJelly(pos);
+                    break;
+                
+                case "Dinosaur":
+                    enemy = new Dinosaur(pos);
+                    break;
             }
             return enemy;
         }

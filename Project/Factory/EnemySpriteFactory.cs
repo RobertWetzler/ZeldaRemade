@@ -20,6 +20,7 @@ namespace Project.Factory
         private Texture2D zolSpriteSheet;
         private Texture2D trapSpriteSheet;
         private Texture2D bombSpriteSheet;
+        private Texture2D darknutSpriteSheet;
 
 
         private static EnemySpriteFactory instance = new EnemySpriteFactory();
@@ -49,6 +50,7 @@ namespace Project.Factory
             batSpriteSheet = content.Load<Texture2D>("EnemySprites/enemy-bat");
             trapSpriteSheet = content.Load<Texture2D>("EnemySprites/trap");
             bombSpriteSheet = content.Load<Texture2D>("ItemSprites/weapon_bomb_explosion");
+            darknutSpriteSheet = content.Load<Texture2D>("EnemySprites/Darknut");
         }
 
         public ISprite CreateEnemySpawnSprite()
@@ -132,7 +134,33 @@ namespace Project.Factory
                     return new GoriyaWalkRightSprite(goriyaSpriteSheet, sourceFrames);
             }
         }
+        public ISprite CreateDarknutWalkEastSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(68, 0, 16, 16));
+            return new DarknutWalkRightSprite(darknutSpriteSheet, sourceFrames);
+        }
+        public ISprite CreateDarknutWalkWestSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(51, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(68, 0, 16, 16));
+            return new DarknutWalkLeftSprite(darknutSpriteSheet, sourceFrames);
+        }
 
+        public ISprite CreateDarknutWalkNorthSprite()
+        {
+            Rectangle source = new Rectangle(34, 0, 16, 16);
+            return new DarknutWalkUpSprite(darknutSpriteSheet, source);
+        }
+        public ISprite CreateDarknutWalkSouthSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 16, 16));
+            sourceFrames.Add(new Rectangle(17, 0, 16, 16));
+            return new DarknutWalkDownSprite(darknutSpriteSheet, sourceFrames);
+        }
         public ISprite CreateTrapSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
@@ -173,13 +201,33 @@ namespace Project.Factory
             return new SnakeEnemySprite(snakeSpriteSheet, sourceFrames, dir);
         }
 
-        public ISprite CreateDinosaurLeftRightSprite()
+        public ISprite CreateDinosaurWalkRightSprite()
         {
             List<Rectangle> sourceFrames = new List<Rectangle>();
             sourceFrames.Add(new Rectangle(0, 0, 32, 16));
             sourceFrames.Add(new Rectangle(33, 0, 32, 16));
             sourceFrames.Add(new Rectangle(66, 0, 32, 16));
-            return new DinosaurWalkLeftRightSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
+            return new DinosaurWalkRightSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
+        }
+
+        public ISprite CreateDinosaurWalkLeftSprite()
+        {
+            List<Rectangle> sourceFrames = new List<Rectangle>();
+            sourceFrames.Add(new Rectangle(0, 0, 32, 16));
+            sourceFrames.Add(new Rectangle(33, 0, 32, 16));
+            sourceFrames.Add(new Rectangle(66, 0, 32, 16));
+            return new DinosaurWalkLeftSprite(dinosaurLeftRightSpriteSheet, sourceFrames);
+        }
+        public ISprite CreateDinosaurWalkUpSprite()
+        {
+            Rectangle source = new Rectangle(34, 0, 16, 16);
+            return new DinosaurWalkUpSprite(dinosaurUpDownSpriteSheet, source);
+        }
+
+        public ISprite CreateDinosaurWalkDownSprite()
+        {
+            Rectangle source = new Rectangle(0, 0, 16, 16);
+            return new DinosaurWalkDownSprite(dinosaurUpDownSpriteSheet, source);
         }
 
     }

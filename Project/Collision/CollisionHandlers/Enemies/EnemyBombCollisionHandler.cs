@@ -15,6 +15,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
             if (bomb.IsExploding)
             {
                 bomb.HasExploded = true;
+             
                 new EnemyProjectileCollisionHandler().HandleCollision(enemyCollidable, projectileCollidable, side);
             }
         }
