@@ -1,0 +1,13 @@
+Author of Review: Edwin Pallithanam
+Date of Review: 12/ 06/21
+Sprint 5
+Author of the file being reviewed:
+Number of minutes to complete review: 30
+Readabilty comments:
+They used effective variable naming
+Pathings easy to understand
+No comments to explain code
+Maintainability comments:
+use of nested ifs
+many other parsers are like this
+easier to maintain in layers
