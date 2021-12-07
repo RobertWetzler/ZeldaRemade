@@ -192,14 +192,14 @@ namespace Project.Factory
         }
         public ISprite CreateDinosaurWalkUpSprite()
         {
-            Rectangle source = new Rectangle(17, 0, 32, 16);
-            return new DinosaurWalkUpDownSprite(dinosaurUpDownSpriteSheet, source);
+            Rectangle source = new Rectangle(34, 0, 16, 16);
+            return new DinosaurWalkUpSprite(dinosaurUpDownSpriteSheet, source);
         }
-        public ISprite CreateDinosaurWalkDownSprite() { 
-        
-            Rectangle source = new Rectangle(0, 0, 32, 16);
-            
-            return new DinosaurWalkUpDownSprite(dinosaurUpDownSpriteSheet, source);
+
+        public ISprite CreateDinosaurWalkDownSprite()
+        {
+            Rectangle source = new Rectangle(0, 0, 16, 16);
+            return new DinosaurWalkDownSprite(dinosaurUpDownSpriteSheet, source);
         }
 
     }

@@ -32,8 +32,7 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            dinosaur.Position = new Vector2((float)(gameTime.ElapsedGameTime.TotalSeconds * dinosaur.Velocity) + dinosaur.Position.X,
-                                            dinosaur.Position.Y);
+            dinosaur.Position = new Vector2(dinosaur.Position.X, dinosaur.Position.Y + (float)(gameTime.ElapsedGameTime.TotalSeconds * dinosaur.Velocity));
         }
 
         public void UseWeapon()

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    class DinosaurWalkUpDownSprite : ISprite
+    class DinosaurWalkUpSprite : ISprite
     {
         private Texture2D dinosaurSpriteSheet;
         private Rectangle sourceFrame;
@@ -12,7 +12,7 @@ namespace Project
         private int animationDelay = 100;
         private Rectangle destRectangle;
         public Rectangle DestRectangle => destRectangle;
-        public DinosaurWalkUpDownSprite(Texture2D dinosaurSpriteSheet, Rectangle sourceFrame)
+        public DinosaurWalkUpSprite(Texture2D dinosaurSpriteSheet, Rectangle sourceFrame)
         {
             this.dinosaurSpriteSheet = dinosaurSpriteSheet;
             this.sourceFrame = sourceFrame;
@@ -23,6 +23,7 @@ namespace Project
             destRectangle = new Rectangle(
                 (int)position.X, (int)position.Y,
                 sourceFrame.Width * 4, sourceFrame.Height * 4);
+
             if (flipSprite)
             {
                 spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
@@ -31,6 +32,7 @@ namespace Project
             {
                 spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, sourceFrame, Color.White);
             }
+
         }
 
         public void Update(GameTime gameTime)
@@ -40,8 +42,8 @@ namespace Project
             {
                 animationCounter -= animationDelay;
                 flipSprite = !flipSprite;
+   
             }
-
         }
     }
 }
