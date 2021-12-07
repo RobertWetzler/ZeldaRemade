@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Sprites;
 using Project.Sprites.BlockSprites;
 
 namespace Project.Factory
@@ -9,6 +10,8 @@ namespace Project.Factory
         private Texture2D blockSpriteSheet;
         private Texture2D rectangle1SpriteSheet;
         private Texture2D rectangle2SpriteSheet;
+        private Texture2D torchSpriteSheet;
+        private Texture2D torchSpriteSheetEast;
 
 
         private static BlockSpriteFactory instance = new BlockSpriteFactory();
@@ -30,6 +33,8 @@ namespace Project.Factory
             blockSpriteSheet = content.Load<Texture2D>("Blocks/blocks_spritesheet");
             rectangle1SpriteSheet = content.Load<Texture2D>("Blocks/Rectangle1");
             rectangle2SpriteSheet = content.Load<Texture2D>("Blocks/Rectangle2");
+            torchSpriteSheet = content.Load<Texture2D>("Torch_Sprite_Sheet");
+            torchSpriteSheetEast= content.Load<Texture2D>("Torch_Sprite_Sheet_East");
         }
 
         //Plain green block
@@ -96,5 +101,16 @@ namespace Project.Factory
         {
             return new Rectangle2Sprite(rectangle2SpriteSheet);
         }
+
+        public ISprite CreateNorthSouthTorchSprite(bool flipped)
+        {
+            return new NorthSouthTorchSprite(torchSpriteSheet, 1, 6, flipped);
+        }
+        public ISprite CreateEastWestTorchSprite(bool flipped)
+        {
+            return new EastWestTorchSprite(torchSpriteSheetEast, 6, 1, flipped);
+        }
+      
     }
+
 }

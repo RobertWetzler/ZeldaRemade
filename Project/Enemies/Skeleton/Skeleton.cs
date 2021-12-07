@@ -41,6 +41,7 @@ namespace Project
             lightColor = Color.Red;
             lightIntensity = .6f;
             lightScale = 1f;
+            remainingFlashTime = 0;
         }
 
         public void ChangeDirection(EnemyDirections direction)

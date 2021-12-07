@@ -36,6 +36,16 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
 				<ObjectType>NPC</ObjectType>
 				<ObjectName>OldMan</ObjectName>
 				<Position>5.5 2</Position>
@@ -89,6 +99,16 @@
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Stairs</ObjectName>
 				<Position>6 3</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -191,6 +211,36 @@
 				<Enum>Block</Enum>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>SmallJelly</ObjectName>
 				<Position>5 2</Position>
@@ -245,6 +295,26 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -313,6 +383,16 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
 				<Position>1 1</Position>
@@ -366,6 +446,26 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Locked</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -541,6 +641,26 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -836,6 +956,36 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle1</ObjectName>
 				<Position>1 1</Position>
@@ -934,6 +1084,36 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
 				<Position>2 2</Position>
@@ -1019,6 +1199,26 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle2</ObjectName>
 				<Position>5 2</Position>
@@ -1077,6 +1277,46 @@
         <ObjectName>Open</ObjectName>
         <Position>South</Position>
       </Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
+			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>RightDragon</ObjectName>
@@ -1177,6 +1417,26 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Boomerang</ObjectName>
 				<Position>6 1</Position>
@@ -1250,6 +1510,16 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
@@ -1348,6 +1618,16 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle2</ObjectName>
 				<Position>2 2</Position>
@@ -1422,6 +1702,26 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 630</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>896, 465</Position>
+				<Direction>East</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1517,6 +1817,26 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -1649,6 +1969,16 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 630</Position>
+				<Direction>West</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>75, 465</Position>
+				<Direction>West</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
