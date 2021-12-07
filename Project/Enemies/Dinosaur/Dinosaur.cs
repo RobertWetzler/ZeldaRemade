@@ -88,7 +88,7 @@ namespace Project
                         {
                             currentState = new DinosaurWalkEast(this);
                         }
-                        currentState = new DinosaurWalkEast(this);
+                       
                     }
 
                     movement.MoveWASDOnly(windowBounds, gameTime);
@@ -104,7 +104,7 @@ namespace Project
                 }
 
 
-            movement.MoveWASDOnly(windowBounds, gameTime);
+            
        
         }
 
