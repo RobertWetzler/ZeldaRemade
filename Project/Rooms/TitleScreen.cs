@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Factory;
+using Project.HUD;
 using Project.Sprites.BackgroundSprites;
 
 namespace Project
@@ -9,7 +10,6 @@ namespace Project
     {
         private IBackgroundSprite sprite;
         private Rectangle bounds;
-
         public TitleScreen(GraphicsDeviceManager graphics)
         {
             sprite = BackgroundSpriteFactory.Instance.CreateTitleScreen();
@@ -24,6 +24,7 @@ namespace Project
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, bounds);
+
         }
     }
 }

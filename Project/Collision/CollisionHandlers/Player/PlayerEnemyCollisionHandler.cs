@@ -1,16 +1,22 @@
-﻿using Project.Utilities;
+﻿using Project.Rooms;
+using Project.Utilities;
 
 namespace Project.Collision.CollisionHandlers
 {
     class PlayerEnemyCollisionHandler : ICollisionHandler
     {
       
-        public void HandleCollision(ICollidable playerCollidable, ICollidable enemy, CollisionSide side)
+        public void HandleCollision(ICollidable playerCollidable, ICollidable enemyCollidable, CollisionSide side)
         {
             IPlayer player = playerCollidable as IPlayer;
-            if (!GameOptions.IsHarderVersion)
+            if (enemyCollidable is WallMaster)
             {
-                player.TakeDamage(1); //TODO: use a damage variable from enemy
+                Room room11 = RoomManager.GetRoom(11);
+                Game1.Instance.GameStateMachine.RoomTransition(room11);
+            }
+            else if (!GameOptions.IsHarderVersion)
+            {
+                player.TakeDamage(1);
             }
             else
             {
