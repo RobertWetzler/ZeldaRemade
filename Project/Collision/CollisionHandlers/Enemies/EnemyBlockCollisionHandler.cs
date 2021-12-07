@@ -7,23 +7,27 @@ namespace Project.Collision.CollisionHandlers
         public void HandleCollision(ICollidable enemyCollidable, ICollidable block, CollisionSide side)
         {
             IEnemy enemy = enemyCollidable as IEnemy;
-            switch (side)
+            if (!(enemy is Trap))
             {
-                case CollisionSide.Up:
-                    //Collided with top, move down
-                    enemy.ChangeDirection(EnemyDirections.South);
-                    break;
-                case CollisionSide.Down:
-                    //Collided with bottom, move up
-                    enemy.ChangeDirection(EnemyDirections.North);
-                    break;
-                case CollisionSide.Left:
-                    enemy.ChangeDirection(EnemyDirections.East);
-                    break;
-                case CollisionSide.Right:
-                    enemy.ChangeDirection(EnemyDirections.West);
-                    break;
+                switch (side)
+                {
+                    case CollisionSide.Up:
+                        //Collided with top, move down
+                        enemy.ChangeDirection(EnemyDirections.South);
+                        break;
+                    case CollisionSide.Down:
+                        //Collided with bottom, move up
+                        enemy.ChangeDirection(EnemyDirections.North);
+                        break;
+                    case CollisionSide.Left:
+                        enemy.ChangeDirection(EnemyDirections.East);
+                        break;
+                    case CollisionSide.Right:
+                        enemy.ChangeDirection(EnemyDirections.West);
+                        break;
+                }
             }
+          
 
 
         }

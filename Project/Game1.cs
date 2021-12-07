@@ -77,7 +77,7 @@ namespace Project
             SoundManager.Instance.LoadAllSounds(Content);
             HUDSpriteFactory.Instance.LoadAllTextures(Content, _graphics.GraphicsDevice);
             DoorSpriteFactory.Instance.LoadAllTextures(Content);
-            MapTileSpriteFactory.Instance.LoadAllTextures(Content); //Testing
+            MapTileSpriteFactory.Instance.LoadAllTextures(Content); 
             ItemSelectionUtilities.LoadAllEquipableItems();
             GameOptions.LoadXMLVersion();
 

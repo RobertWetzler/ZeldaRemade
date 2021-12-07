@@ -5,6 +5,7 @@ using Project.Commands;
 using Project.HUD;
 using Project.Items;
 using Project.Sound;
+using Project.Utilities;
 
 namespace Project.GameState
 {
@@ -15,12 +16,13 @@ namespace Project.GameState
         private EasyButton easyButton;
         private HardButton hardButton;
 
-
         public TitleScreenState(Game1 game)
         {
             SoundManager.Instance.CreateTitleSound();
             this.titleScreen = new TitleScreen(game.Graphics);
             keyboardController = new KeyboardController();
+            keyboardController.RegisterCommand(Keys.S, new SelectHardModeCommand(game));
+            keyboardController.RegisterCommand(Keys.W, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Down, new SelectHardModeCommand(game));
             keyboardController.RegisterCommand(Keys.Up, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Enter, new StartGameCommand());
@@ -44,7 +46,5 @@ namespace Project.GameState
             hardButton.Draw(spriteBatch);
             spriteBatch.End();
         }
-
-
     }
 }

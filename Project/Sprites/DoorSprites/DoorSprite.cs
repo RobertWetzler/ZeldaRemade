@@ -53,11 +53,13 @@ namespace Project.Sprites
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(texture, destRectangle, sourceRect, color);
         }
 
         public void DrawForeground(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(maskTexture, destRectangle, sourceRect, color);
         }
 
