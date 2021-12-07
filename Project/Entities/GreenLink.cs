@@ -107,7 +107,11 @@ namespace Project.Entities
             pickUpItem = null;
             sprite = stateMachine.StopMoving();
         }
-
+        public void ResetWeapon()
+        {
+            // use when changing rooms and need to set current weapon to null
+            stateMachine.ResetWeapon();
+        }
         public void UseWeapon(WeaponTypes weaponType)
         {
             pickUpItem = null;
@@ -179,12 +183,12 @@ namespace Project.Entities
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-                sprite.Draw(spriteBatch, this.position, color);
+            sprite.Draw(spriteBatch, this.position, color);
 
-                foreach (IProjectileSprite projectile in projectiles)
-                {
-                    projectile.Update(gameTime);
-                }
+            foreach (IProjectileSprite projectile in projectiles)
+            {
+                projectile.Update(gameTime);
+            }
 
             projectiles.RemoveAll(projectile => projectile.IsFinished);
             if (pickUpItem != null)

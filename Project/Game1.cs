@@ -4,6 +4,7 @@ using Project.Collision;
 using Project.Entities;
 using Project.Factory;
 using Project.GameState;
+using Project.Rooms;
 using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Project
 {
     public class Game1 : Game
     {
+        public bool DEBUG = true;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
