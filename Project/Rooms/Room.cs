@@ -8,8 +8,9 @@ using Project.Text;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
+using Project.Rooms.Doors;
 
-namespace Project
+namespace Project.Rooms
 {
     public class Room
     {

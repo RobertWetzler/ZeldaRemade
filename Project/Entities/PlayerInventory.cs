@@ -14,7 +14,7 @@ namespace Project
 
         private void InitializeInventory()
         {
-            inventory.Add(ItemType.Bomb, 10);
+            inventory.Add(ItemType.Bomb, 3);
             inventory.Add(ItemType.Key, 0);
             inventory.Add(ItemType.Rupee, 0);
             inventory.Add(ItemType.Sword, 1);
@@ -93,6 +93,25 @@ namespace Project
             {
                 bItem = item;
             }
+        }
+        public void ResetInventory(int numRupees)
+        {
+            inventory = new Dictionary<ItemType, int>();
+            inventory.Add(ItemType.Bomb, 3);
+            inventory.Add(ItemType.Key, 0);
+            inventory.Add(ItemType.Rupee, numRupees);
+            inventory.Add(ItemType.Sword, 1);
+            inventory.Add(ItemType.Arrow, 10);
+            inventory.Add(ItemType.Blue_Arrow, 10);
+            inventory.Add(ItemType.Bow, 0);
+            inventory.Add(ItemType.Blue_Candle, 1);
+            inventory.Add(ItemType.Boomerang, 0);
+            inventory.Add(ItemType.Blue_Boomerang, 1);
+            inventory.Add(ItemType.HeartContainer, 3);
+            inventory.Add(ItemType.Heart, 6);
+            inventory.Add(ItemType.Map, 0);
+            inventory.Add(ItemType.Compass, 0);
+            inventory.Add(ItemType.Clock, 0);
         }
     }
 
