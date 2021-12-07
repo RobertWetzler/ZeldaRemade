@@ -39,7 +39,7 @@ namespace Project
 
         private static Game1 instance = new Game1();
         public static Game1 Instance => instance;
-        public List<int> PassedRoom { get => passedRoom; }
+        public List<int> PassedRoom { get => passedRoom; set { passedRoom = value; } }
 
         public Game1()
         {
@@ -57,7 +57,7 @@ namespace Project
             _graphics.ApplyChanges();
             playerBounds = new Rectangle(playerBoundOffset, playerBoundOffset + heightOffset,
                     _graphics.PreferredBackBufferWidth - 2 * playerBoundOffset, _graphics.PreferredBackBufferHeight - heightOffset - 2 * playerBoundOffset);
-            passedRoom = new List<int>();
+            passedRoom = new List<int>() { 11 };
 
             PauseController.RegisterPause();
             base.Initialize();
@@ -83,16 +83,13 @@ namespace Project
             gameStateMachine = new GameStateMachine(this);
             player = new GreenLink(this);
 
-            RoomManager.LoadAllRooms(player, _graphics);
 
-            RoomManager.Instance.SetCurrentRoom(RoomManager.IdToRoom[11]);
             collisionIterator = new CollisionIterator();
 
         }
 
         protected override void Update(GameTime gameTime)
         {
-            passedRoom.Add(RoomManager.Instance.CurrentRoom.RoomID);
             gameStateMachine.CurrentState.Update(gameTime, playerBounds);
             base.Update(gameTime);
         }

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Sound;
 using Project.Sprites;
 using Project.Utilities;
 using System;
@@ -55,6 +56,7 @@ namespace Project.Rooms.Doors
             doorType = DoorType.OPEN;
             isClosed = false;
             eastDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateEastDoorSprite(doorType, position);
+            SoundManager.Instance.CreateDoorUnlockSound();
         }
         public void OpenWithBomb(bool isAdjacent = false)
         {
