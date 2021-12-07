@@ -10,7 +10,7 @@ Developers:
 - Yuting Yang
 
 ## Keyboard Controls
-### Link Movement
+### Link Controls
 #### Link Move Up
 - ```W```
 - ```↑```
@@ -29,6 +29,7 @@ Developers:
 - ```X```
 #### Link Attack with B Weapon
 - ```Z```
+### Game Controls
 #### Pause Game
 - ```Left Shift```
 #### Quit Game
@@ -36,32 +37,38 @@ Developers:
 #### Reset Level
 - ```R```
 #### Open HUD
-- ```V```
+- ```Tab```
 #### Close HUD
 - ```Esc```
 #### Item Selection
-- ```F```
+- Cycle Right: ```→```
+- Cycle Left: ```←```
+- Select Item: ```Enter```
+### Start Screen
+#### Select Easy Mode
+- ```↑```
+#### Select Hard Mode
+- ```↓```
+#### Start Game
+- ```Enter```
 ## Keyboard Controls (Debugging Commands)
 #### Note:
-These commands are only used for debugging and can potentially lead to bugs. These aren't intended for the main game.
+IF you would like to access debug commands, Change the if statement within Game1.cs regarding debugging. 
 #### Room Panning
 - Up: ```I```
 - Down: ```K```
 - Left: ```J```
 - Right: ```L```
+#### Weapon 
+- Bomb: ```1```
+- Arrow: ```2```
+- Blue Arrow: ```3```
+- Boomerang: ```4```
+- Blue Boomerang: ```5```
+- Candle: ```6```
 
 ## Known Bugs
-- When enemies are trapped in between two blocks on opposings sides they will become stuck momentarily.
-- Trap movement seems to save links old positions and keep moving even if link isn't standing in range. 
-- Link unlocks any doors with a key, this includes hidden doors.
-- When health is zero link doesn't die.
-- Link gains empty hearts when picking up hearts enemies drop.
-- When Link enters the hidden rooms via the stairs, he can become glitched in the walls of the hidden room. Also, he has no way of leaving the hidden room.
-- Game sometimes crashes when using certain items that aren't the sword.
+- When the game restarts sometimes Link will disappear, primarily when link is not in the first one.
 
 ## Missing Features
-- A & B Weapon
-- Win Screen
-- Game Over Screen
-- Ability to change a weapon
-- Link pick up item animation 
+- Missing?
