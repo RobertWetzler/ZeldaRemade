@@ -45,7 +45,6 @@ namespace Project.Entities
                 return new Rectangle(x, y, (int)width, (int)height);
             }
             return sprite.DestRectangle;
-
         }
         public Vector2 Position
         {
@@ -112,6 +111,7 @@ namespace Project.Entities
             // use when changing rooms and need to set current weapon to null
             stateMachine.ResetWeapon();
         }
+
         public void UseWeapon(WeaponTypes weaponType)
         {
             pickUpItem = null;

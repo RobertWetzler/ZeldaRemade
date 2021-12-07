@@ -32,7 +32,5 @@ namespace Project.GameState
             titleScreen.Draw(spriteBatch);
             spriteBatch.End();
         }
-
-
     }
 }
