@@ -1,4 +1,5 @@
 ﻿using Project.Projectiles;
+using Project.Rooms.Doors;
 using Project.Utilities;
 
 namespace Project.Collision.CollisionHandlers.Doors

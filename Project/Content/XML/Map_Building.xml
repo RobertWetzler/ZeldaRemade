@@ -72,7 +72,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>East</Position>
 			</Object>
 			<Object>
@@ -181,7 +181,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>South</Position>
 			</Object>
 			<Object>
@@ -299,7 +299,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>East</Position>
 			</Object>
 			<Object>
@@ -359,7 +359,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>South</Position>
 			</Object>
 			<Object>
@@ -787,6 +787,11 @@
 				<ObjectName>Skeleton</ObjectName>
 				<Position>10 1</Position>
 			</Object>
+      <Object>
+        <ObjectType>Item</ObjectType>
+        <ObjectName>Key</ObjectName>
+        <Position>6 1</Position>
+      </Object>
 		</Room7>
 		<Room8 Type="MyDataTypes.Room8ObjectData[]">
 			<Object>
@@ -817,7 +822,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Open</ObjectName>
+				<ObjectName>Locked</ObjectName>
 				<Position>East</Position>
 			</Object>
 			<Object>
@@ -1067,6 +1072,11 @@
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
 			</Object>
+      <Object>
+        <ObjectType>Door</ObjectType>
+        <ObjectName>Open</ObjectName>
+        <Position>South</Position>
+      </Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>RightDragon</ObjectName>
@@ -1163,7 +1173,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
 			</Object>
 			<Object>
@@ -1405,7 +1415,7 @@
 			</Object>
 			<Object>
 				<ObjectType>Door</ObjectType>
-				<ObjectName>Locked</ObjectName>
+				<ObjectName>Open</ObjectName>
 				<Position>South</Position>
 			</Object>
 			<Object>
@@ -1453,6 +1463,11 @@
 				<ObjectName>Pyramid</ObjectName>
 				<Position>8 6</Position>
 			</Object>
+      <Object>
+        <ObjectType>Block</ObjectType>
+        <ObjectName>Pyramid</ObjectName>
+        <Position>9 5</Position>
+      </Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Pyramid</ObjectName>
@@ -1790,6 +1805,11 @@
 			<Object>
 				<ObjectType>EastRoom</ObjectType>
 				<ObjectName>2</ObjectName>
+			</Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Hidden</ObjectName>
+				<Position>null</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>

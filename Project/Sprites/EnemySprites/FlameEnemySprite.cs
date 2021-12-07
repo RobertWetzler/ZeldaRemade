@@ -33,7 +33,7 @@ namespace Project
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * scale, source.Height * scale);
 
             SpriteEffects effects = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            spriteBatch.Draw(flameSpriteSheet, destRectangle, source, Color.White, 0f, Vector2.Zero, effects, 0f);
+            spriteBatch.Draw(flameSpriteSheet, destRectangle, source, color, 0f, Vector2.Zero, effects, 0f);
 
 
 
