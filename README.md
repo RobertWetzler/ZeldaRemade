@@ -67,7 +67,7 @@ If you would like to access debug commands, change the property DEBUG at the sta
 
 ## Known Bugs
 - Bugs = Features :^)
-- Enemies get trapped between blocks due.
+- Enemies get trapped between two blocks due to collision. 
 
 ## Missing Features
 - Enemy Despawn
