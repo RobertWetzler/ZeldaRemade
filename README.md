@@ -26,16 +26,14 @@ Developers:
 #### Link Attack with Sword
 - ```N```
 #### Link Attack with A Weapon
-- ```X```
-#### Link Attack with B Weapon
 - ```Z```
+#### Link Attack with B Weapon
+- ```X```
 ### Game Controls
 #### Pause Game
 - ```Left Shift```
 #### Quit Game
 - ```Q```
-#### Reset Level
-- ```R```
 #### Open HUD
 - ```Tab```
 #### Close HUD
