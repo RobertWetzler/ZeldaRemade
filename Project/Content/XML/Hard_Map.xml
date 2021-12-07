@@ -216,6 +216,11 @@
 				<Position>3 3</Position>
 			</Object>
 			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Skeleton</ObjectName>
+				<Position>5 10</Position>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Moveable</ObjectName>
 				<Position>5 3</Position>
@@ -336,6 +341,11 @@
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Bat</ObjectName>
 				<Position>1 5</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Darknut</ObjectName>
+				<Position>2 5</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
