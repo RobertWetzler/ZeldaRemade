@@ -26,7 +26,7 @@ namespace Project
         {
             Rectangle source = sourceFrames[currentFrame];
             destRectangle = new Rectangle((int)position.X, (int)position.Y, source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, source, Color.White);
+            spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, source, color);
         }
         public void Update(GameTime gameTime)
         {
