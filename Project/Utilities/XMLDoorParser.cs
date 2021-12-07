@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
+using Project.Rooms.Doors;
 
 namespace Project.Utilities
 {
@@ -61,6 +62,9 @@ namespace Project.Utilities
                     break;
                 case "Bomb":
                     door = GetBombDoorFromPosition(position);
+                    break;
+                case "Hidden":
+                    door = new HiddenDoor();
                     break;
             }
             return door;

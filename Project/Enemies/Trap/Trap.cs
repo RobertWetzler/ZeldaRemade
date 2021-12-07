@@ -34,8 +34,7 @@ namespace Project
             timeToSpawn = 600;
             movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
-
-
+            health = new Health(int.MaxValue);
         }
 
         public void ChangeDirection(EnemyDirections direction)

@@ -24,11 +24,11 @@ namespace Project
                 spriteSheet.Width * 3, spriteSheet.Height * 3);
             if (flipSprite)
             {
-                spriteBatch.Draw(spriteSheet, destRectangle, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(spriteSheet, destRectangle, source, color, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                spriteBatch.Draw(spriteSheet, destRectangle, Color.White);
+                spriteBatch.Draw(spriteSheet, destRectangle, color);
             }
 
         }
