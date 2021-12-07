@@ -68,7 +68,8 @@ If you would like to access debug commands, change the property DEBUG at the sta
 - Candle: ```6```
 
 ## Known Bugs
-- Bugs
+- Bugs = Features :^)
+- Enemies get trapped between two blocks due to collision. 
 
 ## Missing Features
 - Enemy Despawn
