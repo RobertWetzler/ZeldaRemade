@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.HUD;
+using Project.Rooms;
+using Project.Rooms.Doors;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
@@ -56,6 +58,10 @@ namespace Project.GameState
             if (this.nextRoom is null)
             {
                 this.game.GameStateMachine.Play();
+            }
+            else
+            {
+                Game1.Instance.Player.ResetWeapon();
             }
         }
         private bool IsTransitionDone()
