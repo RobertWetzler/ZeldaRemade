@@ -21,11 +21,7 @@ namespace Project.Utilities
             List<IEnemy> enemies = new List<IEnemy>();
             IEnemy enemy;
 
-<<<<<<< HEAD
-            using (XmlReader reader = XmlReader.Create(@"../../../Content/XML/Map_building.xml"))
-=======
             using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
->>>>>>> f572615f5dfda3608e62fb71c72c00122dcf82c0
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);

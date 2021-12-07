@@ -8,7 +8,6 @@ namespace Project
     {
         private Texture2D darknutSpriteSheet;
         private List<Rectangle> sourceFrames;
-        private bool flipSprite = false;
         private int currentFrame = 0;
         private int animationCounter = 0;
         private int animationDelay = 100;
