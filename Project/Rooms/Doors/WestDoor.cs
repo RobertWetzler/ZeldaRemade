@@ -6,26 +6,24 @@ using Project.Sprites;
 using Project.Utilities;
 using System.Collections.Generic;
 
-namespace Project
+namespace Project.Rooms.Doors
 {
-    class NorthDoor : IDoor
+    class WestDoor : IDoor
     {
         public bool IsClosed => isClosed;
-        public Rectangle BoundingBox => northDoorSprite.DestRectangle;
+        public Rectangle BoundingBox => westDoorSprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Door;
-
         public DoorType DoorType => doorType;
-        private DoorSprite northDoorSprite;
+
+        private DoorSprite westDoorSprite;
         private Vector2 position;
         private bool isClosed;
         private DoorType doorType;
-
-        public NorthDoor(DoorType doorType)
+        public WestDoor(DoorType doorType)
         {
-            position = new Vector2(448, 223);
-            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
+            position = new Vector2(0, 509);
+            westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, position);
             this.doorType = doorType;
-
             switch (doorType)
             {
                 case DoorType.OPEN:
@@ -42,32 +40,32 @@ namespace Project
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            northDoorSprite.Draw(spriteBatch, position, Color.White);
+            westDoorSprite.Draw(spriteBatch, position, Color.White);
         }
 
         public void DrawForeground(SpriteBatch spriteBatch)
         {
-            northDoorSprite.DrawForeground(spriteBatch, position, Color.White);
+            westDoorSprite.DrawForeground(spriteBatch, position, Color.White);
         }
 
         public void Unlock()
         {
             doorType = DoorType.OPEN;
             isClosed = false;
-            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
+            westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, position);
         }
         public void OpenWithBomb(bool isAdjacent = false)
         {
             doorType = DoorType.BOMB_OPEN;
             isClosed = false;
-            northDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateNorthDoorSprite(doorType, position);
+            westDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateWestDoorSprite(doorType, position);
             // try opening door in adjacent room
             if (!isAdjacent)
             {
                 try
                 {
-                    List<IDoor> doors = RoomManager.Instance.CurrentRoom.NorthRoom.Doors;
-                    IDoor adjDoor = doors.Find(x => x is SouthDoor && x.DoorType == DoorType.BOMB_CLOSED);
+                    List<IDoor> doors = RoomManager.Instance.CurrentRoom.WestRoom.Doors;
+                    IDoor adjDoor = doors.Find(x => x is EastDoor && x.DoorType == DoorType.BOMB_CLOSED);
                     adjDoor.OpenWithBomb(isAdjacent: true);
                 }
                 catch
@@ -78,3 +76,4 @@ namespace Project
         }
     }
 }
+
