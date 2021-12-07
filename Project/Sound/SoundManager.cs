@@ -28,6 +28,8 @@ namespace Project.Sound
         private SoundEffect sword_slash;
         private SoundEffect text;
         private SoundEffect title;
+        private SoundEffect victory;
+        private SoundEffect magical;
         public SoundEffectInstance backgroundInstance;
         public SoundEffectInstance titleInstance;
         public SoundEffectInstance soundInstance;
@@ -71,6 +73,8 @@ namespace Project.Sound
             sword_slash = soundFile.Load<SoundEffect>("Sound/LOZ_Sword_Slash");
             text = soundFile.Load<SoundEffect>("Sound/LOZ_Text");
             title = soundFile.Load<SoundEffect>("Sound/LOZ_Title");
+            victory = soundFile.Load<SoundEffect>("Sound/LOZ_Victory");
+            magical = soundFile.Load<SoundEffect>("Sound/LOZ_Magical");
             titleInstance = title.CreateInstance();
             titleInstance.IsLooped = true;
         }
@@ -148,7 +152,6 @@ namespace Project.Sound
         }
         public void CreateItemSound()
         {
-            backgroundInstance.Stop();
             soundInstance = get_item.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();
@@ -223,6 +226,18 @@ namespace Project.Sound
             }
         }
 
-
+        public void CreateVictorySound()
+        {
+            soundInstance = victory.CreateInstance();
+            soundInstance.IsLooped = false;
+            soundInstance.Play();
+        }
+        public void CreateMagicalSound()
+        {
+            soundInstance = magical.CreateInstance();
+            soundInstance.IsLooped = false;
+            soundInstance.Play();
+        }
+        
     }
 }
