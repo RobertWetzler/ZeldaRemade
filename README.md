@@ -51,7 +51,7 @@ Developers:
 - ```Enter```
 ## Keyboard Controls (Debugging Commands)
 #### Note:
-IF you would like to access debug commands, Change the if statement within Game1.cs regarding debugging. 
+If you would like to access debug commands, change the property DEBUG at the start of Game1.cs to false.
 #### Room Panning
 - Up: ```I```
 - Down: ```K```
@@ -66,7 +66,7 @@ IF you would like to access debug commands, Change the if statement within Game1
 - Candle: ```6```
 
 ## Known Bugs
-- When the game restarts sometimes Link will disappear, primarily when link is not in the first one.
+- Bugs
 
 ## Missing Features
-- Missing?
+- Enemy Despawn
