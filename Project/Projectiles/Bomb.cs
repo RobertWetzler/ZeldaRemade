@@ -33,13 +33,13 @@ namespace Project.Projectiles
             this.facing = facing;
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(this.facing);
-            boundingBox = sprite.DestRectangle;
             this.isFriendly = isFriendly;
             offsetVal = 30f;
             offset = Offset();
             SoundManager.Instance.CreateBombDropSound();
             lightColor = Color.Orange;
-            lightScale = 1f;
+            lightScale = 2f;
+            lightIntensity = 1f;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -49,20 +49,19 @@ namespace Project.Projectiles
 
         public void Update(GameTime gameTime)
         {
-            
+            boundingBox = new Rectangle(sprite.DestRectangle.X, sprite.DestRectangle.Y, sprite.DestRectangle.Width, sprite.DestRectangle.Height);
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             lightOffset = new Vector2(0, -BoundingBox.Height / 3);
             if(IsExploding)
             {
                 lightOffset = Vector2.Zero;
                 lightColor = Color.Red;
-                lightScale = 4f;
+                lightScale = 3f;
                 innerLightScale = 2.3f;
             }
             sprite.Update(gameTime);
             if (IsExploding)
             {
-                boundingBox = new Rectangle(sprite.DestRectangle.X, sprite.DestRectangle.Y, sprite.DestRectangle.Width, sprite.DestRectangle.Height);
                 boundingBox.Inflate(sprite.DestRectangle.Width, sprite.DestRectangle.Height); //double size of bounding box
             }
 
