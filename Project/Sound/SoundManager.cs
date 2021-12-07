@@ -140,6 +140,7 @@ namespace Project.Sound
         }
         public void CreateFanfare()
         {
+            backgroundInstance.Stop();
             soundInstance = fanfare.CreateInstance();
             soundInstance.IsLooped = false;
             soundInstance.Play();
