@@ -348,6 +348,11 @@
 				<Position>2 5</Position>
 			</Object>
 			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Darknut</ObjectName>
+				<Position>11 0</Position>
+			</Object>
+			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Key</ObjectName>
 				<Position>8 6</Position>
@@ -521,6 +526,16 @@
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
 				<Position>5 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>11 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Bat</ObjectName>
+				<Position>0 0</Position>
 			</Object>
 			<Object>
 				<ObjectType>Item</ObjectType>
@@ -807,6 +822,11 @@
 				<ObjectName>Skeleton</ObjectName>
 				<Position>10 1</Position>
 			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Goriya</ObjectName>
+				<Position>0 3</Position>
+			</Object>
       <Object>
         <ObjectType>Item</ObjectType>
         <ObjectName>Key</ObjectName>
@@ -887,28 +907,33 @@
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>BigJelly</ObjectName>
 				<Position>2 0</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>BigJelly</ObjectName>
 				<Position>7 0</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>Goriya</ObjectName>
 				<Position>3 2</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>Snake</ObjectName>
 				<Position>3 5</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>Snake</ObjectName>
 				<Position>8 2</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Snake</ObjectName>
+				<Position>0 6</Position>
 			</Object>
 		</Room8>
 		<Room9 Type="MyDataTypes.Room9ObjectData[]">
@@ -1002,6 +1027,11 @@
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
 				<Position>3 4</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Dinosaur</ObjectName>
+				<Position>5 4</Position>
 			</Object>
 		</Room9>
 		<Room10 Type="MyDataTypes.Room10ObjectData[]">
