@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.Entities;
 using Project.Utilities;
 using System.Collections.Generic;
 
@@ -15,10 +16,12 @@ namespace Project
         private ISprite sprite;
         private float velocity;
         private EnemyMovement movement;
+        private Facing facingDirection;
         private Health health;
         private double totalFlashTime = 750;
         private double remainingFlashTime;
         private Color colorTint;
+        public Facing FacingDirection { get=> facingDirection; set=>facingDirection=value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
@@ -41,8 +44,10 @@ namespace Project
 
         public void ChangeDirection(EnemyDirections direction)
         {
+            
             if (remainingFlashTime <= 0)
             {
+                facingDirection = EnemyUtilities.GetFacingFromEnemyDirection(direction);
                 currentState.ChangeDirection(direction);
             }
 
