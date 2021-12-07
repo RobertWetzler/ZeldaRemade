@@ -109,6 +109,7 @@ namespace Project
                     UpdateColor();
                 }
             }
+
             if (currentState is EnemyDespawning)
             {
                 startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;

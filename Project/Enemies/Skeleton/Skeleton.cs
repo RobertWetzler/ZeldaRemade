@@ -87,8 +87,9 @@ namespace Project
                     }
                 }
 
-                movement.MoveWASDOnly(windowBounds, gameTime);
-                currentState.Update(gameTime);
+              
+               movement.MoveWASDOnly(windowBounds, gameTime);
+               currentState.Update(gameTime);
             }
             else
             {
