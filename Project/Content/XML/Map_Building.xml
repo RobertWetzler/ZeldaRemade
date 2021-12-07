@@ -986,6 +986,16 @@
 				<Direction>West</Direction>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>Rectangle1</ObjectName>
 				<Position>1 1</Position>
@@ -1082,6 +1092,16 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Torch</ObjectType>
@@ -1272,11 +1292,11 @@
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
 			</Object>
-      <Object>
-        <ObjectType>Door</ObjectType>
-        <ObjectName>Open</ObjectName>
-        <Position>South</Position>
-      </Object>
+			<Object>
+				<ObjectType>Door</ObjectType>
+				<ObjectName>Open</ObjectName>
+				<Position>South</Position>
+			</Object>
 			<Object>
 				<ObjectType>Torch</ObjectType>
 				<Position>405, 290</Position>
@@ -1437,6 +1457,16 @@
 				<Direction>West</Direction>
 			</Object>
 			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 810</Position>
+				<Direction>South</Direction>
+			</Object>
+			<Object>
 				<ObjectType>Item</ObjectType>
 				<ObjectName>Boomerang</ObjectName>
 				<Position>6 1</Position>
@@ -1510,6 +1540,16 @@
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>405, 290</Position>
+				<Direction>North</Direction>
+			</Object>
+			<Object>
+				<ObjectType>Torch</ObjectType>
+				<Position>570, 290</Position>
+				<Direction>North</Direction>
 			</Object>
 			<Object>
 				<ObjectType>Torch</ObjectType>
