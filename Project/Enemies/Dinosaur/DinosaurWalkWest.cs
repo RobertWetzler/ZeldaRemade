@@ -13,7 +13,7 @@ namespace Project
         public DinosaurWalkWest(Dinosaur dinosaur)
         {
             this.dinosaur = dinosaur;
-            this.dinosaur.EnemySprite = EnemySpriteFactory.Instance.CreateDinosaurLeftRightSprite();
+            this.dinosaur.EnemySprite = EnemySpriteFactory.Instance.CreateDinosaurWalkLeftSprite();
 
         }
 
@@ -21,8 +21,14 @@ namespace Project
         {
             switch (direction)
             {
+                case EnemyDirections.South:
+                    dinosaur.SetState(new DinosaurWalkSouth(dinosaur));
+                    break;
                 case EnemyDirections.East:
                     dinosaur.SetState(new DinosaurWalkEast(dinosaur));
+                    break;
+                case EnemyDirections.North:
+                    dinosaur.SetState(new DinosaurWalkNorth(dinosaur));
                     break;
             }
         }
