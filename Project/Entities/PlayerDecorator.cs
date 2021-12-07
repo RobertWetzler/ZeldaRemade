@@ -10,7 +10,6 @@ namespace Project.Entities
     {
         protected IPlayer decoratedPlayer;
         protected Game1 game;
-        private bool isDecoratorFinished;
         public Vector2 Position { get => decoratedPlayer.Position; set => decoratedPlayer.Position = value; }
         public IPlayerSprite PlayerSprite => decoratedPlayer.PlayerSprite;
         public LinkStateMachine StateMachine => decoratedPlayer.StateMachine;
@@ -27,15 +26,6 @@ namespace Project.Entities
             game.Player = decoratedPlayer;
         }
 
-        public void AddHealth(int value)
-        {
-            // Do nothing
-        }
-
-        public void UpdateMaxHealth(int value)
-        {
-            // Do Nothing
-        }
         // mark methods as virtual so they can be overriden by derived classes
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {

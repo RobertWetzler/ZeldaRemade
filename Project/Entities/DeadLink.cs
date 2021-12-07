@@ -11,7 +11,7 @@ namespace Project.Entities
     {
         private double totalFlashTime = 1000;
         private double remainingFlashTime;
-        private Color color;
+        private Color color = Color.White;
         public DeadLink(IPlayer decoratedPlayer, Game1 game)
         {
             this.decoratedPlayer = decoratedPlayer;
