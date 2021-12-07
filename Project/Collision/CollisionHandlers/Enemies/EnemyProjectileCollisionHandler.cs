@@ -30,7 +30,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
 
             if (projectile.IsFriendly)
             {
-                if (!(enemy is Trap))
+                if (!(enemy is Trap) && !(enemy is Dinosaur))
                 {
                     if (projectile is Arrow)
                     {
@@ -64,6 +64,13 @@ namespace Project.Collision.CollisionHandlers.Enemies
                             if (randDouble > 0.65)
                                 enemy.DropItem(item);
                         }
+                    }
+                }
+                else if((!(enemy is Trap) && (enemy is Dinosaur)))
+                {
+                    if(projectile is Bomb)
+                    {
+                        enemy.TakeDamage(1);
                     }
                 }
 
