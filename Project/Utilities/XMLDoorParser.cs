@@ -15,7 +15,7 @@ namespace Project.Utilities
         {
             List<IDoor> doors = new List<IDoor>();
 
-            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
+            using (XmlReader reader = XmlReader.Create(@GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);

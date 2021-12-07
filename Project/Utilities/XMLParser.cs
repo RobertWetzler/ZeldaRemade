@@ -21,7 +21,7 @@ namespace Project.Utilities
             List<IEnemy> enemies = new List<IEnemy>();
             IEnemy enemy;
 
-            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
+            using (XmlReader reader = XmlReader.Create(@GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
