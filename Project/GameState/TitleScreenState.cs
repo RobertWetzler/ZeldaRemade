@@ -14,7 +14,6 @@ namespace Project.GameState
         private KeyboardController keyboardController;
         private EasyButton easyButton;
         private HardButton hardButton;
-        private IItems test;
 
 
         public TitleScreenState(Game1 game)
