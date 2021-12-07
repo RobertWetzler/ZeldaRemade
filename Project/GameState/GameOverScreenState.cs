@@ -16,14 +16,12 @@ namespace Project.GameState
         private int spinTimeMax = 2000, flashTimeMax = 800, timeToRestart = 3000;
         private bool doneSpinning = false, doneFlashing = false, doneRestart = false;
         private bool changeBackground = false;
-        private IHUD smallHUD, bigHUD;
-        private const int START_HEALTH = 6;
-
+        private IHUD smallHUD;
+        
         public GameOverScreenState()
         {
             youLoseText = new StringText("GAME OVER", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 120, 400));
             smallHUD = new SmallHUD(false);
-            bigHUD = new BigHUD(Game1.Instance);//test
             Game1.Instance.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
             SoundManager.Instance.backgroundInstance.Stop();
             SoundManager.Instance.CreateLinkDeathSound();
@@ -70,11 +68,10 @@ namespace Project.GameState
         private void RestartGame()
         {
             Game1.Instance.GameStateMachine.TitleScreen();
-            // reset player health, inventory and position
+            // reset game
             Game1.Instance.Player = new GreenLink(Game1.Instance);
             Game1.Instance.Player.Inventory.ResetInventory(0);
             Game1.Instance.PassedRoom = new List<int>();
-            //ItemSelectionUtilities.UpdateAllInventoryItems();
             RoomManager.LoadAllRooms(Game1.Instance.Player, Game1.Instance.Graphics);
             RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
         }
@@ -82,7 +79,6 @@ namespace Project.GameState
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
             smallHUD.Update(gameTime);
-            bigHUD.Update(gameTime);
             Game1.Instance.Player.Update(playerBounds, gameTime);
             SetDoneFlashing();
             if (!doneSpinning)

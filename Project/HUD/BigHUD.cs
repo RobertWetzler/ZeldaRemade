@@ -35,7 +35,6 @@ namespace Project.HUD
             itemSelectionScreen.Update(gameTime);
             itemSelector.Update(gameTime);
             posDot.Update();
-            //ItemSelectionUtilities.UpdateAllInventoryItems();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
