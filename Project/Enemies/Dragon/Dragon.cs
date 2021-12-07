@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Projectiles;
+using Project.Utilities;
 using System.Collections.Generic;
 
 namespace Project
@@ -19,9 +20,15 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+<<<<<<< HEAD
         private int endTime;
         private bool isFinished;
 
+=======
+        private double totalFlashTime = 750;
+        private double remainingFlashTime;
+        private Color colorTint;
+>>>>>>> f858021b9586cc088b6438a1a7ef93f247bc03e2
         public List<IProjectile> fireballs { get; private set; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
@@ -42,39 +49,65 @@ namespace Project
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(6);
-
+            remainingFlashTime = 0;
         }
 
         public void ChangeDirection(EnemyDirections direction)
         {
-            currentState.ChangeDirection(direction);
+            if (remainingFlashTime <= 0)
+            {
+                currentState.ChangeDirection(direction);
+            }
         }
 
         public void UseWeapon()
         {
-            currentState.UseWeapon();
+            if (remainingFlashTime <= 0)
+            {
+                currentState.UseWeapon();
+            }
         }
 
         public void SetState(IEnemyState state)
         {
-            currentState = state;
+            if (remainingFlashTime <= 0)
+            {
+                currentState = state;
+            }
         }
 
         public void TakeDamage(int damage)
         {
-            throw new System.NotImplementedException();
+            health.DecreaseHealth(damage);
+            if (health.CurrentHealth > 0)
+            {
+                remainingFlashTime = totalFlashTime;
+            }
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
-
             sprite.Update(gameTime);
-            if (currentState is EnemySpawning)
+            if (remainingFlashTime <= 0)
             {
-                startTime += gameTime.ElapsedGameTime.Milliseconds;
-                if (startTime > timeToSpawn)
-                    currentState = new DragonWalkLeft(this);
+                if (currentState is EnemySpawning)
+                {
+                    startTime += gameTime.ElapsedGameTime.Milliseconds;
+                    if (startTime > timeToSpawn)
+                        currentState = new DragonWalkLeft(this);
+                }
+                movement.CheckIfAtEdge(windowBounds);
+                attackCounter += gameTime.ElapsedGameTime.Milliseconds;
+                if (attackCounter > timeToAttack)
+                {
+                    attackCounter -= (int)(1.5 * timeToAttack);
+                    currentState = new DragonAttack(this);
+                    UseWeapon();
+                }
+                sprite.Update(gameTime);
+                currentState.Update(gameTime);
             }
+<<<<<<< HEAD
             if (currentState is EnemyDespawning)
             {
                 endTime += gameTime.ElapsedGameTime.Milliseconds;
@@ -86,28 +119,46 @@ namespace Project
             movement.CheckIfAtEdge(windowBounds);
             attackCounter += gameTime.ElapsedGameTime.Milliseconds;
             if (attackCounter > timeToAttack)
+=======
+            else
+>>>>>>> f858021b9586cc088b6438a1a7ef93f247bc03e2
             {
-                attackCounter -= (3 * timeToAttack);
-                currentState = new DragonAttack(this);
-                UseWeapon();
+                remainingFlashTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (remainingFlashTime > 0)
+                {
+                    UpdateColor();
+                }
             }
-            sprite.Update(gameTime);
-            currentState.Update(gameTime);
 
             foreach (IProjectile fireball in fireballs)
             {
                 fireball.Update(gameTime);
             }
             this.fireballs.RemoveAll(fireball => fireball.IsFinished);
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, position);
+            if (remainingFlashTime <= 0)
+            {
+                sprite.Draw(spriteBatch, position, Color.White);
+            }
+            else
+            {
+                sprite.Draw(spriteBatch, position, this.colorTint);
+            }
             foreach (IProjectile fireball in fireballs)
             {
                 fireball.Draw(spriteBatch);
             }
+        }
+        private void UpdateColor()
+        {
+            List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
+            double t = totalFlashTime - remainingFlashTime;
+            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
+            colorTint = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
 
     }

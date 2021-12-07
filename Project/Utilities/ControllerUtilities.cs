@@ -12,9 +12,21 @@ namespace Project.Utilities
         {
             KeyboardController keyboardController = new KeyboardController();
 
-            //Register player damage command
-            keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
-
+            if (Game1.Instance.DEBUG)
+            {
+                keyboardController.RegisterCommand(Keys.E, new PlayerDamageCommand(game));
+                keyboardController.RegisterCommand(Keys.D1, new PlayerUseBombCommand(game)); //Use bomb with 1
+                keyboardController.RegisterCommand(Keys.D2, new PlayerUseArrowCommand(game)); //Use arrow with 2
+                keyboardController.RegisterCommand(Keys.D3, new PlayerUseBlueArrowCommand(game)); //Use blue arrow with 3
+                keyboardController.RegisterCommand(Keys.D4, new PlayerUseBoomerangCommand(game)); //Use boomerang with 4
+                keyboardController.RegisterCommand(Keys.D5, new PlayerUseBlueBoomerangCommand(game)); //Use blue boomerang with 5
+                keyboardController.RegisterCommand(Keys.D6, new PlayerUseFlameCommand(game)); //Use flame with 6
+                keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
+                keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
+                keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));
+                keyboardController.RegisterCommand(Keys.L, new TestRoomTransitionRightCommand(game));
+            }
+            
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(game);
             keyboardController.RegisterCommand(Keys.W, upCommand);
@@ -32,13 +44,6 @@ namespace Project.Utilities
             keyboardController.RegisterCommand(Keys.S, downCommand);
             keyboardController.RegisterCommand(Keys.Down, downCommand);
 
-            keyboardController.RegisterCommand(Keys.D1, new PlayerUseBombCommand(game)); //Use bomb with 1
-            keyboardController.RegisterCommand(Keys.D2, new PlayerUseArrowCommand(game)); //Use arrow with 2
-            keyboardController.RegisterCommand(Keys.D3, new PlayerUseBlueArrowCommand(game)); //Use blue arrow with 3
-            keyboardController.RegisterCommand(Keys.D4, new PlayerUseBoomerangCommand(game)); //Use boomerang with 4
-            keyboardController.RegisterCommand(Keys.D5, new PlayerUseBlueBoomerangCommand(game)); //Use blue boomerang with 5
-            keyboardController.RegisterCommand(Keys.D6, new PlayerUseFlameCommand(game)); //Use flame with 6
-
             //Register reset and quit command
             ICommand resetCommand = new ResetCommand(game);
             keyboardController.RegisterCommand(Keys.R, resetCommand);
@@ -49,11 +54,6 @@ namespace Project.Utilities
 
             //Key to show HUD
             keyboardController.RegisterCommand(Keys.Tab, new SelectItemCommand(game));
-
-            keyboardController.RegisterCommand(Keys.I, new TestRoomTransitionUpCommand(game));
-            keyboardController.RegisterCommand(Keys.J, new TestRoomTransitionLeftCommand(game));
-            keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));
-            keyboardController.RegisterCommand(Keys.L, new TestRoomTransitionRightCommand(game));
 
             //A and B items
             keyboardController.RegisterCommand(Keys.Z, new PlayerUseItemACommand());

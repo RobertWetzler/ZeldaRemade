@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Utilities;
+using System.Collections.Generic;
 
 namespace Project
 {
@@ -25,7 +27,13 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+<<<<<<< HEAD
         public bool IsFinished => isFinished;
+=======
+        private double totalFlashTime = 750;
+        private double remainingFlashTime;
+        private Color colorTint;
+>>>>>>> f858021b9586cc088b6438a1a7ef93f247bc03e2
         public SmallJelly(Vector2 pos)
         {
             this.position = pos;
@@ -35,11 +43,15 @@ namespace Project
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
+            remainingFlashTime = 0;
         }
 
         public void ChangeDirection(EnemyDirections direction)
         {
-            currentState.ChangeDirection(direction);
+            if (remainingFlashTime <= 0)
+            {
+                currentState.ChangeDirection(direction);
+            }
         }
 
         public void UseWeapon()
@@ -49,25 +61,37 @@ namespace Project
 
         public void SetState(IEnemyState state)
         {
-            currentState = state;
+            if (remainingFlashTime <= 0)
+            {
+                currentState = state;
+            }
+
         }
 
         public void TakeDamage(int damage)
         {
-            throw new System.NotImplementedException();
+            health.DecreaseHealth(damage);
+            if (health.CurrentHealth > 0)
+            {
+                remainingFlashTime = totalFlashTime;
+            }
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is EnemySpawning)
+            if (remainingFlashTime <= 0)
             {
-                startTime += gameTime.ElapsedGameTime.Milliseconds;
-                if (startTime > timeToSpawn)
+                if (currentState is EnemySpawning)
                 {
-                    this.sprite = EnemySpriteFactory.Instance.CreateSmallJellySprite();
-                    currentState = new EnemyWalkEast(this);
+                    startTime += gameTime.ElapsedGameTime.Milliseconds;
+                    if (startTime > timeToSpawn)
+                    {
+                        this.sprite = EnemySpriteFactory.Instance.CreateSmallJellySprite();
+                        currentState = new EnemyWalkEast(this);
+                    }
                 }
+<<<<<<< HEAD
             }
             if (currentState is EnemyDespawning)
             {
@@ -77,15 +101,41 @@ namespace Project
                     isFinished = true;
                 }
             }
+=======
+>>>>>>> f858021b9586cc088b6438a1a7ef93f247bc03e2
 
-            movement.MoveWASDAndDiagonal(windowBounds, gameTime);
+                movement.MoveWASDAndDiagonal(windowBounds, gameTime);
 
-            currentState.Update(gameTime);
+                currentState.Update(gameTime);
+            }
+            else
+            {
+                remainingFlashTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (remainingFlashTime > 0)
+                {
+                    UpdateColor();
+                }
+            }
+               
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, position);
+            if (remainingFlashTime <= 0)
+            {
+                sprite.Draw(spriteBatch, position, Color.White);
+            }
+            else
+            {
+                sprite.Draw(spriteBatch, position, this.colorTint);
+            }
+        }
+        private void UpdateColor()
+        {
+            List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
+            double t = totalFlashTime - remainingFlashTime;
+            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
+            colorTint = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
     }
 

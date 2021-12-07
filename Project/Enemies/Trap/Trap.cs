@@ -37,8 +37,7 @@ namespace Project
             startTime = 0;
             movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
-
-
+            health = new Health(int.MaxValue);
         }
 
         public void ChangeDirection(EnemyDirections direction)

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Utilities;
-
+using System.Collections.Generic;
 
 namespace Project
 {
@@ -19,10 +19,16 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+<<<<<<< HEAD
         private int endTime;
         private bool isFinished;
 
 
+=======
+        private double totalFlashTime = 750;
+        private double remainingFlashTime;
+        private Color colorTint;
+>>>>>>> f858021b9586cc088b6438a1a7ef93f247bc03e2
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => pos; set => pos = value; }
@@ -39,13 +45,17 @@ namespace Project
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
-
+            remainingFlashTime = 0;
         }
 
         public void ChangeDirection(EnemyDirections direction)
         {
-            facingDirection = EnemyUtilities.GetFacingFromEnemyDirection(direction);
-            currentState.ChangeDirection(direction);
+            if (remainingFlashTime <= 0)
+            {
+                facingDirection = EnemyUtilities.GetFacingFromEnemyDirection(direction);
+                currentState.ChangeDirection(direction);
+            }
+
         }
 
         public void UseWeapon()
@@ -55,40 +65,50 @@ namespace Project
 
         public void SetState(IEnemyState state)
         {
-            currentState = state;
+            if (remainingFlashTime <= 0)
+            {
+                this.currentState = state;
+            }
         }
 
         public void TakeDamage(int damage)
         {
-            throw new System.NotImplementedException();
+            health.DecreaseHealth(damage);
+            if (health.CurrentHealth > 0)
+            {
+                remainingFlashTime = totalFlashTime;
+            }
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is EnemySpawning)
+            if (remainingFlashTime <= 0)
             {
-                startTime += gameTime.ElapsedGameTime.Milliseconds;
-                if (startTime > timeToSpawn)
+                if (currentState is EnemySpawning)
                 {
-                    switch (this.facingDirection)
+                    startTime += gameTime.ElapsedGameTime.Milliseconds;
+                    if (startTime > timeToSpawn)
                     {
-                        case Facing.Down:
-                            currentState = new SnakeWalkSouth(this);
-                            break;
-                        case Facing.Left:
-                            currentState = new SnakeWalkWest(this);
-                            break;
-                        case Facing.Right:
-                            currentState = new SnakeWalkEast(this);
-                            break;
-                        case Facing.Up:
-                            currentState = new SnakeWalkNorth(this);
-                            break;
+                        switch (this.facingDirection)
+                        {
+                            case Facing.Down:
+                                currentState = new SnakeWalkSouth(this);
+                                break;
+                            case Facing.Left:
+                                currentState = new SnakeWalkWest(this);
+                                break;
+                            case Facing.Right:
+                                currentState = new SnakeWalkEast(this);
+                                break;
+                            case Facing.Up:
+                                currentState = new SnakeWalkNorth(this);
+                                break;
+                        }
                     }
                 }
-            }
 
+<<<<<<< HEAD
             if (currentState is EnemyDespawning)
             {
                 endTime += gameTime.ElapsedGameTime.Milliseconds;
@@ -100,11 +120,39 @@ namespace Project
 
             movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
+=======
+                movement.MoveWASDOnly(windowBounds, gameTime);
+                currentState.Update(gameTime);
+            }
+            else
+            {
+                remainingFlashTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (remainingFlashTime > 0)
+                {
+                    UpdateColor();
+                }
+            }
+               
+>>>>>>> f858021b9586cc088b6438a1a7ef93f247bc03e2
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, pos);
+            if (remainingFlashTime <= 0)
+            {
+                sprite.Draw(spriteBatch, pos, Color.White);
+            }
+            else
+            {
+                sprite.Draw(spriteBatch, pos, this.colorTint);
+            }
+        }
+        private void UpdateColor()
+        {
+            List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
+            double t = totalFlashTime - remainingFlashTime;
+            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
+            colorTint = ColorUtils.HSVToRGB(hues[i], 1, 1);
         }
     }
 

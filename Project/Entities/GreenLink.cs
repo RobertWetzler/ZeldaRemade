@@ -106,7 +106,11 @@ namespace Project.Entities
             pickUpItem = null;
             sprite = stateMachine.StopMoving();
         }
-
+        public void ResetWeapon()
+        {
+            // use when changing rooms and need to set current weapon to null
+            stateMachine.ResetWeapon();
+        }
         public void UseWeapon(WeaponTypes weaponType)
         {
             pickUpItem = null;
@@ -133,11 +137,8 @@ namespace Project.Entities
             {
                 game.GameStateMachine.TitleScreen();
                 health.MaxHealth = START_HEALTH;
-                inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
-                inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
                 health.CurrentHealth = health.MaxHealth;
-                inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
-                inventory.AddNItems(ItemType.Heart, health.CurrentHealth);
+                inventory.ResetInventory(inventory.GetItemCount(ItemType.Rupee));
                 RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
                 RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
             }
