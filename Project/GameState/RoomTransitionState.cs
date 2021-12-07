@@ -151,7 +151,15 @@ namespace Project.GameState
             }
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             nextRoom.Background.Draw(spriteBatch, nextRoomOffset);
+            foreach (IDoor door in nextRoom.Doors)
+            {
+                door.Draw(spriteBatch, nextRoomOffset);
+            }
             RoomManager.Instance.CurrentRoom.Background.Draw(spriteBatch, offset);
+            foreach (IDoor door in RoomManager.Instance.CurrentRoom.Doors)
+            {
+                door.Draw(spriteBatch, offset);
+            }
             this.smallHUD.Draw(spriteBatch);
             spriteBatch.End();
         }

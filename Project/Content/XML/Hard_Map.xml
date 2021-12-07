@@ -1088,6 +1088,26 @@
 				<ObjectName>Skeleton</ObjectName>
 				<Position>3 4</Position>
 			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>11 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>11 6</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>0 0</Position>
+			</Object>
+			<Object>
+				<ObjectType>Enemy</ObjectType>
+				<ObjectName>Trap</ObjectName>
+				<Position>0 6</Position>
+			</Object>
 		</Room10>
 		<Room11 Type="MyDataTypes.Room11ObjectData[]">
 			<Object>
