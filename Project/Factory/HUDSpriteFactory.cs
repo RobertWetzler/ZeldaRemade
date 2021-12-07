@@ -16,6 +16,8 @@ namespace Project.Factory
         private Texture2D healthBarSpriteSheet;
         private Texture2D whiteSquareTexture;
         private Texture2D itemSelectionBoxSpriteSheet;
+        private Texture2D easyButtonSpriteSheet;
+        private Texture2D hardButtonSpriteSheet;
 
 
         private static HUDSpriteFactory instance = new HUDSpriteFactory();
@@ -43,6 +45,9 @@ namespace Project.Factory
             healthBarSpriteSheet = content.Load<Texture2D>("ItemSprites/health_bar");
             whiteSquareTexture = content.Load<Texture2D>("HUD/white_square");
             itemSelectionBoxSpriteSheet = content.Load<Texture2D>("HUD/item-selection-box");
+            hardButtonSpriteSheet = content.Load<Texture2D>("Hard_Button");
+            easyButtonSpriteSheet = content.Load<Texture2D>("Easy_Button");
+
         }
         public ISprite CreateSmallHUDSprite()
         {
@@ -81,6 +86,16 @@ namespace Project.Factory
         public ISprite CreateItemSelectionBoxSprite()
         {
             return new ItemSelectionBoxSprite(itemSelectionBoxSpriteSheet, 1, 2);
+        }
+
+        public ISprite CreateHardButtonSprite()
+        {
+            return new HardButtonSprite(hardButtonSpriteSheet);
+        }
+        public ISprite CreateEasyButtonSprite()
+        {
+            return new EasyButtonSprite(easyButtonSpriteSheet);
+
         }
 
     }
