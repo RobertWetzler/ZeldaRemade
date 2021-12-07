@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
+using Project.Utilities;
+using System.Collections.Generic;
 
 namespace Project
 {
     class Dinosaur : IEnemy
     {
-
         private int timeToSpawn;
         private int startTime;
         private IEnemyState currentState;
@@ -15,6 +16,9 @@ namespace Project
         private float velocity;
         private EnemyMovement movement;
         private Health health;
+        private double totalFlashTime = 750;
+        private double remainingFlashTime;
+        private Color colorTint;
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
@@ -29,41 +33,76 @@ namespace Project
             startTime = 0;
             timeToSpawn = 600;
             currentState = new EnemySpawning(this);
+            health = new Health(6);
+            remainingFlashTime = 0;
             health = new Health(2);
 
         }
 
         public void ChangeDirection(EnemyDirections direction)
         {
+            if (remainingFlashTime <= 0)
+            {
+                currentState.ChangeDirection(direction);
+            }
+
             currentState.ChangeDirection(direction);
         }
 
         public void UseWeapon()
         {
-            //No weapon
+            // No weapon
         }
 
         public void SetState(IEnemyState state)
         {
+            if (remainingFlashTime <= 0)
+            {
+                currentState = state;
+            }
             currentState = state;
         }
 
         public void TakeDamage(int damage)
         {
+            health.DecreaseHealth(damage);
+            if (health.CurrentHealth > 0)
+            {
+                remainingFlashTime = totalFlashTime;
+            }
             throw new System.NotImplementedException();
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if (currentState is EnemySpawning)
-            {
-                startTime += gameTime.ElapsedGameTime.Milliseconds;
-                if (startTime > timeToSpawn)
+            if (remainingFlashTime <= 0)
+                if (currentState is EnemySpawning)
                 {
-                    currentState = new DinosaurWalkEast(this);
+                    if (currentState is EnemySpawning)
+                        startTime += gameTime.ElapsedGameTime.Milliseconds;
+                    if (startTime > timeToSpawn)
+                    {
+                        startTime += gameTime.ElapsedGameTime.Milliseconds;
+                        if (startTime > timeToSpawn)
+                        {
+                            currentState = new DinosaurWalkEast(this);
+                        }
+                        currentState = new DinosaurWalkEast(this);
+                    }
+
+                    movement.MoveWASDOnly(windowBounds, gameTime);
+                    currentState.Update(gameTime);
                 }
-            }
+                else
+                {
+                    remainingFlashTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                    if (remainingFlashTime > 0)
+                    {
+                        UpdateColor();
+                    }
+                }
+
 
             movement.MoveWASDOnly(windowBounds, gameTime);
             currentState.Update(gameTime);
@@ -71,8 +110,22 @@ namespace Project
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
-            sprite.Draw(spriteBatch, position);
+            if (remainingFlashTime <= 0)
+            {
+                sprite.Draw(spriteBatch, position, Color.White);
+            }
+            else
+            {
+                sprite.Draw(spriteBatch, position, this.colorTint);
+            }
+        }
+        private void UpdateColor()
+        {
+            List<float> hues = new List<float>() { 140f, 180f, 260f, 340f };
+            double t = totalFlashTime - remainingFlashTime;
+            int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
+            colorTint = ColorUtils.HSVToRGB(hues[i], 1, 1);
+
         }
     }
-
 }
