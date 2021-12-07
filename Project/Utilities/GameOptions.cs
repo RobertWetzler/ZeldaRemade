@@ -10,22 +10,7 @@ namespace Project.Utilities
         private static String normal = "Content/XML/Map_Building.xml";
         private static String hard = "Content/XML/Hard_Map.xml";
 
-        public static string XML { get; set; }
-
-        public static void LoadXMLVersion()
-        {
-            
-            if (IsHarderVersion)
-            {
-                XML = normal;
-
-            }
-            else
-            {
-                XML = hard;
-            }
-
-        }
+        public static string XML => IsHarderVersion ? hard : normal;
 
     }
 }
