@@ -24,7 +24,7 @@ namespace Project.Rooms.Doors
             int doorWidth = 65;
             boundingBox = new Rectangle((int)position.X, (int)position.Y, doorWidth, doorWidth);
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
         }
 
