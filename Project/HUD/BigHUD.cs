@@ -42,12 +42,17 @@ namespace Project.HUD
             itemSelectionScreen.Draw(spriteBatch);
             itemSelector.Draw(spriteBatch);
 
+            itemType = ItemSelectionUtilities.IdToItem[Game1.Instance.ItemIdx];
             if (ItemSelectionUtilities.IdToItem.ContainsKey(game.ItemIdx) && player.Inventory.GetItemCount(itemType) > 0)
             {
                 equipableItem =  ItemSelectionUtilities.GetSelectedItem(itemType,itemSelectedPosition);
                 equipableItem.Draw(spriteBatch);
 
                 Game1.Instance.getItem = itemType;
+            }
+            else
+            {
+                Game1.Instance.getItem = ItemType.Null;
             }
 
             foreach (IItems item in ItemSelectionUtilities.InventoryItems)

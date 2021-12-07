@@ -21,9 +21,12 @@ namespace Project.GameState
             SoundManager.Instance.CreateTitleSound();
             this.titleScreen = new TitleScreen(game.Graphics);
             keyboardController = new KeyboardController();
+            keyboardController.RegisterCommand(Keys.S, new SelectHardModeCommand(game));
+            keyboardController.RegisterCommand(Keys.W, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Down, new SelectHardModeCommand(game));
             keyboardController.RegisterCommand(Keys.Up, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
+            
 
             easyButton = new EasyButton();
             hardButton = new HardButton();
