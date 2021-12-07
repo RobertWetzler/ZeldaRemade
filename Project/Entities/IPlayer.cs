@@ -22,6 +22,5 @@ namespace Project
         void UseWeapon(WeaponTypes weaponType);
         void ResetWeapon();
         void PickUpItem(IItems item);
-
     }
 }
