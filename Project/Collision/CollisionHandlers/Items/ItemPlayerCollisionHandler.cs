@@ -3,6 +3,7 @@
 using Microsoft.Xna.Framework;
 using Project.Items;
 using System;
+using Project.Projectiles;
 
 namespace Project.Collision.CollisionHandlers
 {
@@ -50,8 +51,6 @@ namespace Project.Collision.CollisionHandlers
             else if (item.type == ItemType.Boomerang)
             {
                 link.Inventory.AddItem(item.type);
-                item = new Bow(new Vector2(link.Position.X - 20, link.Position.Y - 50));
-                Game1.Instance.GameStateMachine.PickUpItemScreen(item);
                 SoundManager.Instance.CreateFanfare();
             }
             else if (item.type == ItemType.Rupee)

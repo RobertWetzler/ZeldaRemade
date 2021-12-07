@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
+using Project.Sound;
 using Project.Sprites;
 using Project.Utilities;
 using System.Collections.Generic;
@@ -39,9 +40,9 @@ namespace Project.Rooms.Doors
                     break;
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
-            southDoorSprite.Draw(spriteBatch, position, Color.White);
+            southDoorSprite.Draw(spriteBatch, position + offset, Color.White);
         }
 
         public void DrawForeground(SpriteBatch spriteBatch)
@@ -54,6 +55,7 @@ namespace Project.Rooms.Doors
             doorType = DoorType.OPEN;
             isClosed = false;
             southDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateSouthDoorSprite(doorType, position);
+            SoundManager.Instance.CreateDoorUnlockSound();
         }
         public void OpenWithBomb(bool isAdjacent = false)
         {

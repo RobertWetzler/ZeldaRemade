@@ -1,0 +1,16 @@
+Author of Review: Jacob Batt
+Date of Review: 12/6/21
+Sprint Number: 4
+Name of .cs file being reviewed: Project/GameState/WinScreenState.cs
+Author of .cs file being reviewed: Maggie Feng
+
+The code quality in this file is very good.  You can clearly tell what each variable is for and it has a great use of private functions and variables.
+
+
+
+Date of Review: 12/6/21
+Sprint Number: 4
+Name of .cs file being reviewed: Project/Utilities/ItemSelectionUtilities.cs
+Author of .cs file being reviewed: Jena Fogerty
+
+This file has great code maintainability. This code is very easily changeable to suit the needs of all the classes that call to it.

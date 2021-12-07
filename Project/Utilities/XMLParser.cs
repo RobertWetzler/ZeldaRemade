@@ -21,7 +21,7 @@ namespace Project.Utilities
             List<IEnemy> enemies = new List<IEnemy>();
             IEnemy enemy;
 
-            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
@@ -58,7 +58,7 @@ namespace Project.Utilities
             List<INPC> npcs = new List<INPC>();
             INPC npc;
 
-            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
@@ -95,7 +95,7 @@ namespace Project.Utilities
             List<IItems> items = new List<IItems>();
             IItems item;
 
-            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
@@ -130,7 +130,7 @@ namespace Project.Utilities
             List<IBlock> blocks = new List<IBlock>();
             IBlock block;
 
-            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);
@@ -164,7 +164,7 @@ namespace Project.Utilities
         {
             Background background = null;
 
-            using (XmlReader reader = XmlReader.Create(@"Content/XML/Map_Building.xml"))
+            using (XmlReader reader = XmlReader.Create(GameOptions.XML))
             {
                 reader.MoveToContent();
                 reader.ReadToFollowing(room);

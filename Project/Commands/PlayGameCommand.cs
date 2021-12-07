@@ -1,16 +1,12 @@
-﻿namespace Project.Commands
+﻿using Project.Utilities;
+
+namespace Project.Commands
 {
     class PlayGameCommand : ICommand
     {
-        private Game1 game;
-        public PlayGameCommand(Game1 game)
-        {
-            this.game = game;
-
-        }
         public void Execute()
         {
-            game.GameStateMachine.Play();
+            Game1.Instance.GameStateMachine.Play();
         }
     }
 }
