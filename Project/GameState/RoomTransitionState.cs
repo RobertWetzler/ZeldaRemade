@@ -106,6 +106,7 @@ namespace Project.GameState
             if (IsTransitionDone())
             {
                 RoomManager.Instance.SetCurrentRoom(nextRoom);
+                Game1.Instance.PassedRoom.Add(RoomManager.Instance.CurrentRoom.RoomID);
                 UpdateLinkPosition();
                 Game1.Instance.GameStateMachine.Play();
             }

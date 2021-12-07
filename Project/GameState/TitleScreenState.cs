@@ -25,8 +25,7 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.W, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Down, new SelectHardModeCommand(game));
             keyboardController.RegisterCommand(Keys.Up, new SelectEasyModeCommand(game));
-            keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
-            
+            keyboardController.RegisterCommand(Keys.Enter, new StartGameCommand());
 
             easyButton = new EasyButton();
             hardButton = new HardButton();

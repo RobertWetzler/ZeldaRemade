@@ -1,0 +1,24 @@
+Readability 
+Author: Maggie Feng
+12/6/2021
+Sprint 4
+Reviewing: DrawingUtilities.cs
+Author of reviewed file: Robert
+Time: 10 min
+Comments: 
+- Descriptive class names, method names
+- Has some unnecessary comments that can be removed
+- Overall, the class is very readable and easy to understand what class does
+
+Maintainability:
+Author: Maggie Feng
+12/6/2021
+Sprint 4
+Reviewing: Lightable.cs
+Author of reviewed file: Robert
+Comments on code quality: 
+- Abstract class so you can apply it to any class that derives it
+- Can extend the class so other class can inherit the properties of the class
+- Overall very reusable as a lot of other classes can extend from this class
+- If you wanted more objects that can light up, this class can easily support that change
+- You can easily extend this class and overwrite the methods in this class.

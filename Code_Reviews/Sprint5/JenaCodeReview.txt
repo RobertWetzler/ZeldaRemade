@@ -1,0 +1,15 @@
+Author: Jena Fogarty
+Date: Dec. 6, 2021
+Sprint 5
+File reviewed: PickUpItemState.cs
+Author of file being reviewed: Magge F.
+Number of minutes to complete review: 20 
+Readability comments:
+- The uses effective naming and is readable.
+- High cohesion due to methods having a singular purpose. 
+- Only 59 lines of code making it more readable.
+- No comments are present. 
+Maintainability comments:
+- The coupling is tight due to using two singletons. 
+- Being it uses RoomManager if multiplayer were to be added to the game it would require refactoring.
+- A lot of abstraction due to using interfaces.

@@ -12,7 +12,6 @@ namespace Project.Commands
         public void Execute()
         {
             GameOptions.IsHarderVersion = true;
-            
         }
     }
 }

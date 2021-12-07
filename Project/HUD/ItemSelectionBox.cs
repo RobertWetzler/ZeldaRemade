@@ -36,7 +36,6 @@ namespace Project.HUD
             SelectionBoxPosition.Add(new Vector2(600, 250));
             SelectionBoxPosition.Add(new Vector2(700, 250));
             SelectionBoxPosition.Add(new Vector2(800, 250));
-
         }
     }
 }

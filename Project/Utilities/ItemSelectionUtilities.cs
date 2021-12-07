@@ -62,20 +62,17 @@ namespace Project.Utilities
 
         public static void UpdateAllInventoryItems()
         {
-            foreach (ItemType holdableItems in HoldableItemUtilities.holdableItems)
+            foreach (ItemType holdableItem in HoldableItemUtilities.holdableItems)
             {
-                if (Game1.Instance.Player.Inventory.GetItemCount(holdableItems) > 0)
+                if (Game1.Instance.Player.Inventory.GetItemCount(holdableItem) > 0)
                 {
-                    InventoryItems.Add(ItemSelectionUtilities.GetInventoryItem(holdableItems));
+                    InventoryItems.Add(ItemSelectionUtilities.GetInventoryItem(holdableItem));
                 }
-                else if(ItemSelectionUtilities.GetInventoryItem(holdableItems) != null)
+                else if(Game1.Instance.Player.Inventory.GetItemCount(holdableItem) <= 0)
                 {
-                    InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(holdableItems));
+                    InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(holdableItem));
                 }
             }
         }
-
-
-
     }
 }
