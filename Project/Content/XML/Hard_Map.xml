@@ -202,17 +202,17 @@
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>BigJelly</ObjectName>
 				<Position>5 2</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>BigJelly</ObjectName>
 				<Position>5 5</Position>
 			</Object>
 			<Object>
 				<ObjectType>Enemy</ObjectType>
-				<ObjectName>SmallJelly</ObjectName>
+				<ObjectName>BigJelly</ObjectName>
 				<Position>3 3</Position>
 			</Object>
 			<Object>
