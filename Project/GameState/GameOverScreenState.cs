@@ -16,7 +16,7 @@ namespace Project.GameState
         private bool doneSpinning = false, doneFlashing = false, doneRestart = false;
         private bool changeBackground = false;
         private IHUD smallHUD;
-        private const int START_HEALTH = 6;  //test
+        private const int START_HEALTH = 6;
 
         public GameOverScreenState()
         {
@@ -62,15 +62,21 @@ namespace Project.GameState
             }
             else if (doneRestart)
             {
-                Game1.Instance.GameStateMachine.TitleScreen();
-
-                Game1.Instance.Player.Health.MaxHealth = START_HEALTH;
-                Game1.Instance.Player.Inventory.RemoveNItems(ItemType.HeartContainer, Game1.Instance.Player.Inventory.GetItemCount(ItemType.HeartContainer));
-                Game1.Instance.Player.Inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
-                Game1.Instance.Player.Health.CurrentHealth = Game1.Instance.Player.Health.MaxHealth;
-                Game1.Instance.Player.Inventory.RemoveNItems(ItemType.Heart, Game1.Instance.Player.Inventory.GetItemCount(ItemType.Heart));
-                Game1.Instance.Player.Inventory.AddNItems(ItemType.Heart, Game1.Instance.Player.Health.CurrentHealth);
+                RestartGame();
             }
+        }
+        private void RestartGame()
+        {
+            Game1.Instance.GameStateMachine.TitleScreen();
+            // reset player inventory and health
+            Game1.Instance.Player.Health.MaxHealth = START_HEALTH;
+            Game1.Instance.Player.Inventory.RemoveNItems(ItemType.HeartContainer, Game1.Instance.Player.Inventory.GetItemCount(ItemType.HeartContainer));
+            Game1.Instance.Player.Inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
+            Game1.Instance.Player.Health.CurrentHealth = Game1.Instance.Player.Health.MaxHealth;
+            Game1.Instance.Player.Inventory.RemoveNItems(ItemType.Heart, Game1.Instance.Player.Inventory.GetItemCount(ItemType.Heart));
+            Game1.Instance.Player.Inventory.AddNItems(ItemType.Heart, Game1.Instance.Player.Health.CurrentHealth);
+            RoomManager.LoadAllRooms(Game1.Instance.Player, Game1.Instance.Graphics);
+            RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
         }
 
         public void Update(GameTime gameTime, Rectangle playerBounds)

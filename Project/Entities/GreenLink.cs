@@ -21,7 +21,7 @@ namespace Project.Entities
         private Game1 game;
         private PlayerInventory inventory;
         private Health health;
-        public Health Health { get => health; }  //test
+        public Health Health { get => health; }
         private IItems pickUpItem;
 
         private bool isApproachBat;
@@ -134,12 +134,6 @@ namespace Project.Entities
             {
                 this.game.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
                 game.GameStateMachine.GameOverScreen();
-                health.MaxHealth = START_HEALTH;
-                inventory.RemoveNItems(ItemType.HeartContainer, inventory.GetItemCount(ItemType.HeartContainer));
-                inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
-                health.CurrentHealth = health.MaxHealth;
-                inventory.RemoveNItems(ItemType.Heart, inventory.GetItemCount(ItemType.Heart));
-                inventory.AddNItems(ItemType.Heart, health.CurrentHealth);
             }
         }
 
@@ -169,8 +163,7 @@ namespace Project.Entities
             }
 
             position.X += (float)(x_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-                position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
-
+            position.Y += (float)(y_dir * gameTime.ElapsedGameTime.TotalSeconds * velocity);
 
             sprite.Update(gameTime);
             foreach (IProjectile projectile in projectiles)
@@ -181,11 +174,11 @@ namespace Project.Entities
             if (pickUpItem != null)
             {
                 pickUpItem.Update(gameTime);
-            }            
             }
+        } 
 
-            public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
-            {
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
+        {
                 sprite.Draw(spriteBatch, this.position, color);
 
                 foreach (IProjectileSprite projectile in projectiles)
