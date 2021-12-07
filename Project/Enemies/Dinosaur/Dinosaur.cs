@@ -46,7 +46,7 @@ namespace Project
                 currentState.ChangeDirection(direction);
             }
 
-            currentState.ChangeDirection(direction);
+            
         }
 
         public void UseWeapon()
@@ -60,7 +60,7 @@ namespace Project
             {
                 currentState = state;
             }
-            currentState = state;
+
         }
 
         public void TakeDamage(int damage)
@@ -70,7 +70,7 @@ namespace Project
             {
                 remainingFlashTime = totalFlashTime;
             }
-            throw new System.NotImplementedException();
+
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
@@ -105,7 +105,7 @@ namespace Project
 
 
             movement.MoveWASDOnly(windowBounds, gameTime);
-            currentState.Update(gameTime);
+       
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
