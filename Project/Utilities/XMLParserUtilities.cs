@@ -46,6 +46,9 @@ namespace Project.Utilities
                     enemy = new BigJelly(pos);
                     break;
                 
+                case "Dinosaur":
+                    enemy = new Dinosaur(pos);
+                    break;
             }
             return enemy;
         }

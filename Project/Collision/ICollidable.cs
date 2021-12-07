@@ -21,6 +21,6 @@ namespace Project.Collision
     public interface ICollidable
     {
         public Rectangle BoundingBox { get; }
-        public CollisionType CollisionType { get; }
+        public CollisionType CollisionType { get; }        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Rooms.Doors;
+using Project.Sound;
 using Project.Utilities;
 
 namespace Project.Collision.CollisionHandlers.Doors
@@ -49,6 +50,7 @@ namespace Project.Collision.CollisionHandlers.Doors
         {
             door.Unlock();
             player.Inventory.RemoveItem(ItemType.Key);
+            SoundManager.Instance.CreateDoorUnlockSound();
         }
     }
 }

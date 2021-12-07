@@ -22,24 +22,22 @@ namespace Project.Projectiles
         private Facing facing;
         private Vector2 offset;
         private float offsetVal;
+        public Rectangle BoundingBox => boundingBox;
+        private Rectangle boundingBox;
+        public CollisionType CollisionType => CollisionType.Bomb;
+        public bool IsActive { get; set; } = true;
 
         public Bomb(Facing facing, Vector2 position, bool isFriendly = true)
         {
             this.facing = facing;
             this.position = position;
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(this.facing);
+            boundingBox = sprite.DestRectangle;
             this.isFriendly = isFriendly;
             offsetVal = 30f;
             offset = Offset();
             SoundManager.Instance.CreateBombDropSound();
         }
-
-
-
-        public Rectangle BoundingBox => sprite.DestRectangle;
-        public CollisionType CollisionType => CollisionType.Bomb;
-        public bool IsActive { get; set; } = true;
-
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -51,6 +49,11 @@ namespace Project.Projectiles
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             sprite.Update(gameTime);
+            if (IsExploding)
+            {
+                boundingBox = new Rectangle(sprite.DestRectangle.X, sprite.DestRectangle.Y, sprite.DestRectangle.Width, sprite.DestRectangle.Height);
+                boundingBox.Inflate(sprite.DestRectangle.Width, sprite.DestRectangle.Height); //double size of bounding box
+            }
 
         }
 
