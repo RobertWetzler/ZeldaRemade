@@ -67,6 +67,11 @@ namespace Project.GameState
             this.currentState = new WinScreenState();
         }
 
+        public void GameOverScreen()
+        {
+            this.currentState = new GameOverScreenState();
+        }
+
         public void PickUpItemScreen(IItems item)
         {
             this.currentState = new PickUpItemState(item);
