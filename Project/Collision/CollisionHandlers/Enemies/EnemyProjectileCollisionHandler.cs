@@ -22,13 +22,9 @@ namespace Project.Collision.CollisionHandlers.Enemies
             randDouble = rand.NextDouble();
             if (randDouble < 0.05)
                 item = new BombItem(enemyPos);
-            else if (randDouble < 0.07)
-                item = new Compass(enemyPos);
-            else if (randDouble < 0.12) 
-                item = new Key(enemyPos);
-            else if (randDouble < 0.18) 
+            else if (randDouble < 0.2)
                 item = new Fairy(enemyPos);
-            else if (randDouble < 0.42) 
+            else if (randDouble < 0.6)
                 item = new Heart(enemyPos);
             else 
                 item = new OneRupee(enemyPos);
@@ -38,13 +34,28 @@ namespace Project.Collision.CollisionHandlers.Enemies
             {
                 if (!(enemy is Trap))
                 {
-                    if (item is Arrow)
+                    if (projectile is Arrow)
                     {
-                        enemy.Health.DecreaseHealth(2);
+                        enemy.TakeDamage(2);
+                    }
+                    else if (projectile is Bomb || projectile is BlueArrow)
+                    {
+                        enemy.TakeDamage(4); 
+                    }
+                    else if (projectile is Boomerang || projectile is BlueBoomerang)
+                    {
+                        if (enemy is Bat || enemy is SmallJelly || enemy is BigJelly)
+                        {
+                            enemy.TakeDamage(1);
+                        }
+                        else
+                        {
+                            enemy.TakeDamage(0); //Boomerang only stuns large enemies
+                        }
                     }
                     else
                     {
-                        enemy.Health.DecreaseHealth(1);
+                        enemy.TakeDamage(1);
                     }
                     if (enemy.Health.CurrentHealth == 0)
                     {

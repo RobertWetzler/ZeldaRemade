@@ -21,7 +21,14 @@ namespace Project.Collision.CollisionHandlers
                         block.MoveBlock(MovingDir.Up);
                         break;
                     case CollisionSide.Left:
-                        block.MoveBlock(MovingDir.Right);
+                        if (RoomManager.Instance.CurrentRoom.RoomID != 2)
+                        {
+                            block.MoveBlock(MovingDir.Right);
+                        }
+                        else
+                        {
+                            (new PlayerBlockCollisionHandler()).HandleCollision(player, blockCollidable, CollisionUtils.Opposite(side));
+                        }
                         break;
                     case CollisionSide.Right:
                         block.MoveBlock(MovingDir.Left);
