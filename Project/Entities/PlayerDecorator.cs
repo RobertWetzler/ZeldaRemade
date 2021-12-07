@@ -91,6 +91,11 @@ namespace Project.Entities
             decoratedPlayer.UseWeapon(weaponType);
         }
 
+        public virtual void ResetWeapon()
+        {
+            decoratedPlayer.ResetWeapon();
+        }
+
         public void PickUpItem(IItems item)
         {
             decoratedPlayer.PickUpItem(item);
