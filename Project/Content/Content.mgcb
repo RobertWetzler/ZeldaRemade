@@ -871,6 +871,12 @@
 /processorParam:Quality=Best
 /build:Sound/LOZ_LowHealth.wav
 
+#begin Sound/LOZ_Magical.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/LOZ_Magical.wav
+
 #begin Sound/LOZ_Secret.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -906,6 +912,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sound/LOZ_Title.wav
+
+#begin Sound/LOZ_Victory.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/LOZ_Victory.wav
 
 #begin titleScreen.png
 /importer:TextureImporter
