@@ -5,7 +5,7 @@ namespace Project.Collision.CollisionHandlers
 {
     class PlayerEnemyCollisionHandler : ICollisionHandler
     {
-      
+
         public void HandleCollision(ICollidable playerCollidable, ICollidable enemyCollidable, CollisionSide side)
         {
             IPlayer player = playerCollidable as IPlayer;

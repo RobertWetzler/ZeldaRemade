@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
-using Project.Projectiles;
 using Project.Utilities;
 
 namespace Project

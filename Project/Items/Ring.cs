@@ -6,7 +6,7 @@ using Project.Shading;
 
 namespace Project.Items
 {
-    class Ring : Lightable, IItems 
+    class Ring : Lightable, IItems
     {
 
         private ISprite sprite;

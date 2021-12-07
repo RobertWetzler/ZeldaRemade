@@ -36,7 +36,7 @@ namespace Project.Rooms.Doors
         }
         public void OpenWithBomb(bool isAdjacent = false)
         {
-            
+
         }
     }
 }

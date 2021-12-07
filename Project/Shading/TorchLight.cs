@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Shading
 {
-    public abstract class TorchLight: Lightable
+    public abstract class TorchLight : Lightable
     {
         protected new Color lightColor = Color.DarkOrange;
         protected Color innerLightColor = Color.Red;
@@ -28,7 +25,7 @@ namespace Project.Shading
 
             Rectangle outerFlame = new Rectangle(destRectangle.X, destRectangle.Y, destRectangle.Width, destRectangle.Height);
             Rectangle innerFlame = new Rectangle(destRectangle.X, destRectangle.Y, destRectangle.Width, destRectangle.Height);
-            
+
             float outerHorizAdjust = (outerFlame.Width * lightScale - outerFlame.Width) / 2;
             float outerVertAdjust = (outerFlame.Height * lightScale - outerFlame.Height) / 2;
             outerFlame.Inflate(outerHorizAdjust, outerVertAdjust);

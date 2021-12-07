@@ -17,7 +17,7 @@ namespace Project.GameState
             this.item = item;
             smallHUD = new SmallHUD(false);
             Game1.Instance.Player.PickUpItem(item);
-            
+
             SoundManager.Instance.CreateItemSound();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -27,7 +27,7 @@ namespace Project.GameState
 
         public void Update(GameTime gameTime, Rectangle playerBounds)
         {
-            timer += (int) gameTime.ElapsedGameTime.TotalMilliseconds;
+            timer += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (timer >= maxTime)
             {
                 if (item.type == ItemType.Triforce)
@@ -38,14 +38,14 @@ namespace Project.GameState
                 {
                     Game1.Instance.GameStateMachine.Play();
                 }
- 
+
             }
             else
             {
                 smallHUD.Update(gameTime);
                 Game1.Instance.Player.Update(playerBounds, gameTime);
             }
-               
+
         }
     }
 }

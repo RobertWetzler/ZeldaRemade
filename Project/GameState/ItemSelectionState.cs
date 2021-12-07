@@ -28,7 +28,7 @@ namespace Project.GameState
         }
         public void Update(GameTime gameTime, Rectangle gameRect)
         {
-           
+
             keyboardController.Update();
             smallHud.Update(gameTime);
             bigHUD.Update(gameTime);
@@ -37,7 +37,7 @@ namespace Project.GameState
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            bigHUD.Draw(spriteBatch);   
+            bigHUD.Draw(spriteBatch);
             smallHud.Draw(spriteBatch);
             spriteBatch.End();
         }

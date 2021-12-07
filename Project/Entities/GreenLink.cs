@@ -7,7 +7,6 @@ using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
 using System.Collections.Generic;
-using Project.Sound;
 
 namespace Project.Entities
 {
@@ -180,7 +179,7 @@ namespace Project.Entities
             {
                 pickUpItem.Update(gameTime);
             }
-        } 
+        }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {

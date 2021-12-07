@@ -4,12 +4,12 @@ using Project.Blocks.MovableBlock;
 using Project.Blocks.Walls;
 using Project.Collision;
 using Project.Projectiles;
+using Project.Rooms.Doors;
 using Project.Shading;
 using Project.Text;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Rooms.Doors;
 
 namespace Project.Rooms
 {
@@ -151,7 +151,7 @@ namespace Project.Rooms
             {
                 block.Draw(spriteBatch);
             }
-            foreach(Torch torch in torches)
+            foreach (Torch torch in torches)
             {
                 torch.Draw(spriteBatch);
             }
@@ -178,12 +178,12 @@ namespace Project.Rooms
             {
                 foreach (IItems item in items)
                 {
-                    if (item.type == ItemType.Triforce || item.type == ItemType.Bow || item.type == ItemType.Map 
+                    if (item.type == ItemType.Triforce || item.type == ItemType.Bow || item.type == ItemType.Map
                         || item.type == ItemType.Compass)
                     {
                         item.Draw(spriteBatch);
                     }
-            
+
                 }
             }
         }

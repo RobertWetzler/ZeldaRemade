@@ -22,11 +22,11 @@ namespace Project.Sprites
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             int width = spriteSheet.Width;
-            int height = spriteSheet.Height /sheetRows ;
+            int height = spriteSheet.Height / sheetRows;
             int scale = 2;
 
 
-            Rectangle spriteRectangle = new Rectangle( 0, height*frame, width, height);
+            Rectangle spriteRectangle = new Rectangle(0, height * frame, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             SpriteEffects effect = flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White, 0f, Vector2.Zero, effect, 0f);

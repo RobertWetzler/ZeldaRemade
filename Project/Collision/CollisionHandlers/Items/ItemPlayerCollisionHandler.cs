@@ -1,9 +1,7 @@
-﻿using Project.Sound;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Project.Items;
+using Project.Sound;
 using System;
-using Project.Projectiles;
 
 namespace Project.Collision.CollisionHandlers
 {
@@ -35,13 +33,15 @@ namespace Project.Collision.CollisionHandlers
                 link.Inventory.AddNItems(ItemType.Heart, Math.Min(value, link.Health.MaxHealth - link.Health.CurrentHealth));
                 link.Health.AddHealth(value);
                 SoundManager.Instance.CreateMagicalSound();
-            }else if (item.type == ItemType.Triforce)
+            }
+            else if (item.type == ItemType.Triforce)
             {
                 link.Inventory.AddItem(item.type);
                 item = new Triforce(new Vector2(link.Position.X - 20, link.Position.Y - 50));
                 Game1.Instance.GameStateMachine.PickUpItemScreen(item);
                 SoundManager.Instance.CreateVictorySound();
-            }else if (item.type == ItemType.Bow)
+            }
+            else if (item.type == ItemType.Bow)
             {
                 link.Inventory.AddItem(item.type);
                 item = new Bow(new Vector2(link.Position.X - 20, link.Position.Y - 50));

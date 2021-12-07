@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace Project.Collision.CollisionHandlers
+﻿namespace Project.Collision.CollisionHandlers
 {
     class EnemyBlockCollisionHandler : ICollisionHandler
     {
@@ -27,7 +25,7 @@ namespace Project.Collision.CollisionHandlers
                         break;
                 }
             }
-          
+
 
 
         }

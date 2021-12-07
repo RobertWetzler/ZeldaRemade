@@ -21,7 +21,7 @@ namespace Project
         private double totalFlashTime = 750;
         private double remainingFlashTime;
         private Color colorTint;
-        public Facing FacingDirection { get=> facingDirection; set=>facingDirection=value; }
+        public Facing FacingDirection { get => facingDirection; set => facingDirection = value; }
         public ISprite EnemySprite { get => this.sprite; set => this.sprite = value; }
         public float Velocity { get => this.velocity; }
         public Vector2 Position { get => position; set => position = value; }
@@ -44,14 +44,14 @@ namespace Project
 
         public void ChangeDirection(EnemyDirections direction)
         {
-            
+
             if (remainingFlashTime <= 0)
             {
                 facingDirection = EnemyUtilities.GetFacingFromEnemyDirection(direction);
                 currentState.ChangeDirection(direction);
             }
 
-            
+
         }
 
         public void UseWeapon()
@@ -93,7 +93,7 @@ namespace Project
                         {
                             currentState = new DinosaurWalkEast(this);
                         }
-                       
+
                     }
 
                     movement.MoveWASDOnly(windowBounds, gameTime);
@@ -109,8 +109,8 @@ namespace Project
                 }
 
 
-            
-       
+
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

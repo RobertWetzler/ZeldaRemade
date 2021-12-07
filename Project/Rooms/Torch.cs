@@ -4,9 +4,9 @@ using Project.Collision;
 using Project.Factory;
 using Project.Shading;
 
-namespace Project 
+namespace Project
 {
-    public class Torch: TorchLight, ICollidable
+    public class Torch : TorchLight, ICollidable
     {
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Block;
@@ -18,7 +18,7 @@ namespace Project
             int mult = flipped ? -1 : 1;
             int lightOfssetMag = 10;
             this.position = position;
-            if(isHorizontal)
+            if (isHorizontal)
             {
                 sprite = BlockSpriteFactory.Instance.CreateEastWestTorchSprite(flipped);
                 lightOffset = new Vector2(lightOfssetMag * mult, 0);

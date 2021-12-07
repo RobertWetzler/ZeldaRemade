@@ -3,9 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.Commands;
 using Project.HUD;
-using Project.Items;
 using Project.Sound;
-using Project.Utilities;
 
 namespace Project.GameState
 {
@@ -26,7 +24,7 @@ namespace Project.GameState
             keyboardController.RegisterCommand(Keys.Down, new SelectHardModeCommand(game));
             keyboardController.RegisterCommand(Keys.Up, new SelectEasyModeCommand(game));
             keyboardController.RegisterCommand(Keys.Enter, new PlayGameCommand(game));
-            
+
 
             easyButton = new EasyButton();
             hardButton = new HardButton();

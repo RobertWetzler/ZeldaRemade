@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Factory;
 using Project.Utilities;
-using System.Collections.Generic;
 
 namespace Project.HUD
 {
@@ -14,7 +12,7 @@ namespace Project.HUD
         private IItems equipableItem;
         private Vector2 itemSelectedPosition;
         private IPlayer player;
-        private ItemType itemType; 
+        private ItemType itemType;
         private MapTiles mapTiles;
         private PositionDot posDot;
 
@@ -45,7 +43,7 @@ namespace Project.HUD
             itemType = ItemSelectionUtilities.IdToItem[Game1.Instance.ItemIdx];
             if (ItemSelectionUtilities.IdToItem.ContainsKey(game.ItemIdx) && player.Inventory.GetItemCount(itemType) > 0)
             {
-                equipableItem =  ItemSelectionUtilities.GetSelectedItem(itemType,itemSelectedPosition);
+                equipableItem = ItemSelectionUtilities.GetSelectedItem(itemType, itemSelectedPosition);
                 equipableItem.Draw(spriteBatch);
 
                 Game1.Instance.getItem = itemType;
@@ -59,7 +57,7 @@ namespace Project.HUD
             {
                 item.Draw(spriteBatch);
             }
-            
+
             mapTiles.Draw(spriteBatch);
             posDot.Draw(spriteBatch);
         }

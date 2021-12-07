@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project.Sound;
-using Project.Utilities;
-using System;
-using System.Collections.Generic;
 
 
 namespace Project.Entities
@@ -12,7 +8,7 @@ namespace Project.Entities
     {
         private double totalFlashTime = 1000;
         private double remainingFlashTime;
-        private int timeToChangeDirection = 100; 
+        private int timeToChangeDirection = 100;
         private int changeDirectionCounter = 0;
         private Color color;
         private Facing facing;
@@ -58,7 +54,7 @@ namespace Project.Entities
                             facing = Facing.Down;
                             break;
                     }
-                }               
+                }
             }
             else
             {

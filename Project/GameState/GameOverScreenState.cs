@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project.Entities;
 using Project.HUD;
 using Project.Sound;
 using Project.Text;
 using Project.Utilities;
-using Project.Entities;
 
 namespace Project.GameState
 {
@@ -53,7 +53,7 @@ namespace Project.GameState
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();
             }
-            else if (doneSpinning && doneFlashing &&!doneRestart)
+            else if (doneSpinning && doneFlashing && !doneRestart)
             {
                 spriteBatch.Begin(samplerState: SamplerState.PointClamp);
                 Game1.Instance.GraphicsDevice.Clear(Color.Black);
@@ -92,7 +92,8 @@ namespace Project.GameState
                 {
                     doneSpinning = true;
                 }
-            } else if (doneSpinning && !doneFlashing)
+            }
+            else if (doneSpinning && !doneFlashing)
             {
                 flashTimer += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
                 flashCounter += (int)gameTime.ElapsedGameTime.TotalMilliseconds;

@@ -18,15 +18,15 @@ namespace Project.Sprites
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             const int columns = 2;
-            int width = spriteSheet.Width/ columns;
+            int width = spriteSheet.Width / columns;
             int height = spriteSheet.Height;
             const int scale = 1;
 
-            if(GameOptions.IsHarderVersion)
+            if (GameOptions.IsHarderVersion)
             {
                 frame = 0;
             }
-    
+
             Rectangle spriteRectangle = new Rectangle(width * frame, 0, width, height);
             destRectangle = new Rectangle((int)position.X, (int)position.Y, width * scale, height * scale);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
@@ -34,7 +34,7 @@ namespace Project.Sprites
 
         public void Update(GameTime gameTime)
         {
-            
+
             frame = (int)(gameTime.TotalGameTime.TotalSeconds * 10) % 2;
         }
     }

@@ -34,7 +34,7 @@ namespace Project.Factory
             rectangle1SpriteSheet = content.Load<Texture2D>("Blocks/Rectangle1");
             rectangle2SpriteSheet = content.Load<Texture2D>("Blocks/Rectangle2");
             torchSpriteSheet = content.Load<Texture2D>("Torch_Sprite_Sheet");
-            torchSpriteSheetEast= content.Load<Texture2D>("Torch_Sprite_Sheet_East");
+            torchSpriteSheetEast = content.Load<Texture2D>("Torch_Sprite_Sheet_East");
         }
 
         //Plain green block
@@ -110,7 +110,7 @@ namespace Project.Factory
         {
             return new EastWestTorchSprite(torchSpriteSheetEast, 6, 1, flipped);
         }
-      
+
     }
 
 }

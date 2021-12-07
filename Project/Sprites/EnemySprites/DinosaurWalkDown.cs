@@ -31,7 +31,7 @@ namespace Project
             {
                 spriteBatch.Draw(dinosaurSpriteSheet, destRectangle, sourceFrame, Color.White);
             }
-           
+
         }
 
         public void Update(GameTime gameTime)
@@ -41,7 +41,7 @@ namespace Project
             {
                 animationCounter -= animationDelay;
                 flipSprite = !flipSprite;
-               
+
             }
 
         }

@@ -1,7 +1,6 @@
 ﻿using Project.Blocks.MovableBlock;
 using Project.Sound;
 using Project.Utilities;
-using System.Collections.Generic;
 
 namespace Project.Collision.CollisionHandlers
 {

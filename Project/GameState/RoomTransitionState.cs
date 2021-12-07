@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.HUD;
 using Project.Rooms;
 using Project.Rooms.Doors;
+using Project.Shading;
 using Project.Utilities;
 using System;
 using System.Collections.Generic;
-using Project.Shading;
 
 namespace Project.GameState
 {

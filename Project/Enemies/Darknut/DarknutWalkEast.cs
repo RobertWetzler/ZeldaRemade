@@ -38,7 +38,7 @@ namespace Project
 
         public void UseWeapon()
         {
-           
+
         }
     }
 }

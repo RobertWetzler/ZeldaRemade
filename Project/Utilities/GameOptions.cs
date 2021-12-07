@@ -1,12 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace Project.Utilities
+﻿namespace Project.Utilities
 {
     public static class GameOptions
     {
         public static bool IsShaderOn { get; set; } = true;
-        public static bool IsHarderVersion { get; set; } 
-       
+        public static bool IsHarderVersion { get; set; }
+
     }
 }

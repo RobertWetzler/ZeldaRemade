@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Items;
 using Project.Projectiles;
-using Project.Sound;
 using System;
 
 namespace Project.Collision.CollisionHandlers.Enemies
@@ -26,9 +25,9 @@ namespace Project.Collision.CollisionHandlers.Enemies
                 item = new Fairy(enemyPos);
             else if (randDouble < 0.6)
                 item = new Heart(enemyPos);
-            else 
+            else
                 item = new OneRupee(enemyPos);
-            
+
 
             if (projectile.IsFriendly)
             {

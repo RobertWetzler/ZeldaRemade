@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Factory;
-using Project.Shading; 
+using Project.Shading;
 namespace Project.Items
 {
     class Map : Lightable, IItems

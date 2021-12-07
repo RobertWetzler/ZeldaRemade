@@ -111,7 +111,7 @@ namespace Project
                     UpdateColor();
                 }
             }
-               
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

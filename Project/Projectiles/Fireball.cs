@@ -42,7 +42,7 @@ namespace Project.Projectiles
         public void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);
-            if(!((IProjectile)this).IsInBounds())
+            if (!((IProjectile)this).IsInBounds())
             {
                 ((IProjectile)this).Despawn();
             }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Project.Entities;
 using Project.Items;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,7 @@ namespace Project.Utilities
                 ItemType.Blue_Boomerang => new BlueBoomerangItem(new Vector2(500, 180)),
                 ItemType.Map => new Map(new Vector2(165, 440)),
                 ItemType.Compass => new Compass(new Vector2(165, 600)),
-                ItemType.Bomb => new BombItem(new Vector2(600,250)),
+                ItemType.Bomb => new BombItem(new Vector2(600, 250)),
                 ItemType.Null => null,
                 _ => throw new NotImplementedException()
             };
@@ -68,7 +67,7 @@ namespace Project.Utilities
                 {
                     InventoryItems.Add(ItemSelectionUtilities.GetInventoryItem(holdableItems));
                 }
-                else if(ItemSelectionUtilities.GetInventoryItem(holdableItems) != null)
+                else if (ItemSelectionUtilities.GetInventoryItem(holdableItems) != null)
                 {
                     InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(holdableItems));
                 }

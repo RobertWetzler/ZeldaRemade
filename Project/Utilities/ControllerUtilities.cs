@@ -26,7 +26,7 @@ namespace Project.Utilities
                 keyboardController.RegisterCommand(Keys.K, new TestRoomTransitionDownCommand(game));
                 keyboardController.RegisterCommand(Keys.L, new TestRoomTransitionRightCommand(game));
             }
-            
+
             //Register both WASD and Arrows
             ICommand upCommand = new PlayerMoveUpCommand(game);
             keyboardController.RegisterCommand(Keys.W, upCommand);

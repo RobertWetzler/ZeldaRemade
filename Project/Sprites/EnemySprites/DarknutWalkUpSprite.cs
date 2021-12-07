@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 
 namespace Project
 {
@@ -43,7 +42,7 @@ namespace Project
             {
                 animationCounter -= animationDelay;
                 flipSprite = !flipSprite;
-               
+
             }
 
         }

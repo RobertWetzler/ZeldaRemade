@@ -13,7 +13,7 @@ namespace Project.Collision.CollisionHandlers
             {
                 if (!GameOptions.IsHarderVersion)
                 {
-                    player.TakeDamage(1); 
+                    player.TakeDamage(1);
                 }
                 else
                 {

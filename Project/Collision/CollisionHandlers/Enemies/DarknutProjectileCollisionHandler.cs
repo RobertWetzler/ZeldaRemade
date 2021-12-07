@@ -34,19 +34,19 @@ namespace Project.Collision.CollisionHandlers.Enemies
             Darknut darknut = enemy as Darknut;
             if (projectile.IsFriendly && !IsCollidingWithFace(side, darknut))
             {
-                
-                    enemy.Despawn();
-                        randDouble = rand.NextDouble();
-                        if (randDouble > 0.65)
-                            enemy.DropItem(item);
-                    
-                
+
+                enemy.Despawn();
+                randDouble = rand.NextDouble();
+                if (randDouble > 0.65)
+                    enemy.DropItem(item);
+
+
 
             }
         }
         private bool IsCollidingWithFace(CollisionSide side, Darknut darknut)
         {
-            
+
             bool result = side == CollisionSide.Left && darknut.FacingDirection == Entities.Facing.Left;
             result = result || (side == CollisionSide.Up && darknut.FacingDirection == Entities.Facing.Up);
             result = result || (side == CollisionSide.Down && darknut.FacingDirection == Entities.Facing.Down);

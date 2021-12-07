@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Utilities;
-using System;
 using System.Collections.Generic;
 
 
@@ -32,7 +31,7 @@ namespace Project.Entities
                 UpdateColor();
             }
             this.decoratedPlayer.Update(windowBounds, gameTime);
-            
+
             // remove decorator
             if (remainingFlashTime <= 0)
             {

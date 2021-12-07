@@ -5,8 +5,6 @@ using Project.Sound;
 using Project.Utilities;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Entities;
-using Project.Shading;
 
 namespace Project.GameState
 {

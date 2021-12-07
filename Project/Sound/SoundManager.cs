@@ -239,6 +239,6 @@ namespace Project.Sound
             soundInstance.IsLooped = false;
             soundInstance.Play();
         }
-        
+
     }
 }

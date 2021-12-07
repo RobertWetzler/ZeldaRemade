@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Project.Collision;
 using Project.Entities;
 using Project.Factory;
+using Project.Shading;
 using Project.Sound;
 using Project.Sprites.ItemSprites;
 using System;
-using Project.Shading;
 
 namespace Project.Projectiles
 {
@@ -52,7 +52,7 @@ namespace Project.Projectiles
             boundingBox = new Rectangle(sprite.DestRectangle.X, sprite.DestRectangle.Y, sprite.DestRectangle.Width, sprite.DestRectangle.Height);
             timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             lightOffset = new Vector2(0, -BoundingBox.Height / 3);
-            if(IsExploding)
+            if (IsExploding)
             {
                 lightOffset = Vector2.Zero;
                 lightColor = Color.Red;

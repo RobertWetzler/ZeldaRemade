@@ -14,13 +14,13 @@ namespace Project.Sprites
         public HardButtonSprite(Texture2D spriteSheet)
         {
             this.spriteSheet = spriteSheet;
- 
+
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             const int columns = 2;
-            int width = spriteSheet.Width /columns;
+            int width = spriteSheet.Width / columns;
             int height = spriteSheet.Height;
             const int scale = 1;
 
@@ -30,7 +30,7 @@ namespace Project.Sprites
             }
 
             Rectangle spriteRectangle = new Rectangle(width * frame, 0, width, height);
-            destRectangle = new Rectangle((int)position.X, (int)position.Y, scale* width, scale* height);
+            destRectangle = new Rectangle((int)position.X, (int)position.Y, scale * width, scale * height);
             spriteBatch.Draw(spriteSheet, destRectangle, spriteRectangle, Color.White);
         }
 
