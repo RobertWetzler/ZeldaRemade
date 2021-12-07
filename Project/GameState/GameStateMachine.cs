@@ -1,4 +1,6 @@
-﻿namespace Project.GameState
+﻿using Project.Rooms;
+
+namespace Project.GameState
 {
     public class GameStateMachine
     {
@@ -43,6 +45,13 @@
             if (this.currentState is PlayingState)
             {
                 this.currentState = new RoomTransitionState(game, dir);
+            }
+        }
+        public void RoomTransition(Room nextRoom, Direction dir = Direction.Down)
+        {
+            if (this.currentState is PlayingState)
+            {
+                this.currentState = new RoomTransitionState(nextRoom, dir);
             }
         }
 
