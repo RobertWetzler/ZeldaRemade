@@ -218,7 +218,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Skeleton</ObjectName>
-				<Position>5 10</Position>
+				<Position>10 4</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
@@ -825,7 +825,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Goriya</ObjectName>
-				<Position>0 3</Position>
+				<Position>6 0</Position>
 			</Object>
       <Object>
         <ObjectType>Item</ObjectType>
@@ -933,7 +933,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Snake</ObjectName>
-				<Position>0 6</Position>
+				<Position>0 4</Position>
 			</Object>
 		</Room8>
 		<Room9 Type="MyDataTypes.Room9ObjectData[]">

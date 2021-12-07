@@ -34,19 +34,35 @@ namespace Project.Collision.CollisionHandlers.Enemies
             Darknut darknut = enemy as Darknut;
             if (projectile.IsFriendly && !IsCollidingWithFace(side, darknut))
             {
-                
-                    enemy.Despawn();
-                        randDouble = rand.NextDouble();
-                        if (randDouble > 0.65)
-                            enemy.DropItem(item);
-                    
-                
+                if (projectile is Arrow)
+                {
+                    enemy.TakeDamage(2);
+                }
+                else if (projectile is Bomb || projectile is BlueArrow)
+                {
+                    enemy.TakeDamage(4);
+                }
+                else if (projectile is Boomerang || projectile is BlueBoomerang)
+                {
+                    enemy.TakeDamage(0); //Boomerang only stuns large enemies
 
+                }
+                else
+                {
+                    enemy.TakeDamage(1);
+                }
+                if (enemy.Health.CurrentHealth == 0)
+                {
+                    enemy.Despawn();
+                    randDouble = rand.NextDouble();
+                    if (randDouble > 0.65)
+                        enemy.DropItem(item);
+                }
             }
         }
         private bool IsCollidingWithFace(CollisionSide side, Darknut darknut)
         {
-            
+
             bool result = side == CollisionSide.Left && darknut.FacingDirection == Entities.Facing.Left;
             result = result || (side == CollisionSide.Up && darknut.FacingDirection == Entities.Facing.Up);
             result = result || (side == CollisionSide.Down && darknut.FacingDirection == Entities.Facing.Down);
