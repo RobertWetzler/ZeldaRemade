@@ -1,0 +1,21 @@
+Author of Review: Robert Wetzler
+Date of Review: 12/06/2021
+Sprint Number: 5
+Name of .cs file being reviewed: GameOverScreenState.cs
+Author of .cs file being reviewed: Yuting Yang
+
+Comments on Code Quality:
+The code's variable names are very readable. However, there are some aspects that could be refactored to make the code simpler. For instance, the variable doneSpinning does not need to be included in the else if statemens in the Draw method, as it is already checked in the previous if statement. There is also 3 levels of if-blocks in the update method, which should probably be refactored with a helper method.
+
+
+
+Author of Review: Robert Wetzler
+Date of Review: 12/06/2021
+Sprint Number: 5
+Name of .cs file being reviewed: BigHUD.cs
+Author of .cs file being reviewed: Yuting Yang
+
+Comments on Code Maintainability:
+I would say that BigHUD is very maintainable. I like how a lot of aspects are put in seperate classes, such as ItemSelectionBox, MapTiles, and PositionDot. This keeps the code cohesive and keeps BigHUD itself short, at only 70 lines of code. It would be easy to add more components to the BigHUD, you would simply make a class for it and add it to BigHUD's draw and update methods.
+
+

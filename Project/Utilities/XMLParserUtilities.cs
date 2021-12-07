@@ -45,7 +45,6 @@ namespace Project.Utilities
                 case "BigJelly":
                     enemy = new BigJelly(pos);
                     break;
-
                 case "Dinosaur":
                     enemy = new Dinosaur(pos);
                     break;
