@@ -9,8 +9,10 @@ namespace Project
     class Dinosaur : IEnemy
     {
 
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -32,7 +34,6 @@ namespace Project
             this.velocity = 50f;
             movement = new EnemyMovement(this);
             startTime = 0;
-            timeToSpawn = 600;
             currentState = new EnemySpawning(this);
             health = new Health(6);
             remainingFlashTime = 0;
@@ -94,7 +95,15 @@ namespace Project
                     UpdateColor();
                 }
             }
-                
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
+                }
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

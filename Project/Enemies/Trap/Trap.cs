@@ -8,8 +8,10 @@ namespace Project
 {
     class Trap : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -31,7 +33,6 @@ namespace Project
             this.velocity = 350f;
             this.player = player;
             startTime = 0;
-            timeToSpawn = 600;
             movingDirection = EnemyDirections.None;
             currentState = new EnemySpawning(this);
             health = new Health(int.MaxValue);
@@ -71,6 +72,14 @@ namespace Project
                 {
                     this.sprite = EnemySpriteFactory.Instance.CreateTrapSprite();
                     currentState = new TrapStill(this);
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
                 }
             }
             else if (movingDirection == EnemyDirections.None)

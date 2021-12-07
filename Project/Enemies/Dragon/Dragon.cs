@@ -11,8 +11,10 @@ namespace Project
     {
         private int timeToAttack;
         private int attackCounter;
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -38,7 +40,6 @@ namespace Project
             timeToAttack = 3000;
             attackCounter = 0;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(6);
@@ -106,6 +107,14 @@ namespace Project
                 if (remainingFlashTime > 0)
                 {
                     UpdateColor();
+                }
+            }
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
                 }
             }
 

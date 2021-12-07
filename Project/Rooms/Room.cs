@@ -111,9 +111,9 @@ namespace Project.Rooms
             {
                 item.Update(gameTime);
             }
-            foreach (IEnemy enemies in enemies)
+            for (int i = 0; i < enemies.Count; i++)
             {
-                enemies.Update(windowBounds, gameTime);
+                enemies[i].Update(windowBounds, gameTime);
             }
             for (int i = 0; i < projectiles.Count; i++)
             {

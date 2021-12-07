@@ -9,8 +9,10 @@ namespace Project
 {
     class Snake : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Facing facingDirection;
         private Vector2 pos;
@@ -33,7 +35,6 @@ namespace Project
             this.velocity = 50f;
             this.facingDirection = Facing.Down;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
@@ -111,7 +112,15 @@ namespace Project
                     UpdateColor();
                 }
             }
-               
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
+                }
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

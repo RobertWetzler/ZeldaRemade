@@ -10,8 +10,10 @@ namespace Project
 {
     class Bat : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -37,7 +39,6 @@ namespace Project
             this.position = position;
             this.velocity = 50f;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
@@ -107,7 +108,14 @@ namespace Project
                     UpdateColor();
                 }
             }
-           
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
+                }
+            }
         }
 
         

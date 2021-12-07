@@ -23,7 +23,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
                 item = new BombItem(enemyPos);
             else if (randDouble < 0.2)
                 item = new Fairy(enemyPos);
-            else if (randDouble < 0.6)
+            else if (randDouble < 0.3)
                 item = new Heart(enemyPos);
             else
                 item = new OneRupee(enemyPos);
@@ -57,11 +57,12 @@ namespace Project.Collision.CollisionHandlers.Enemies
                     }
                     if (enemy.Health.CurrentHealth == 0)
                     {
-                        enemy.Despawn();
+                        enemy.SetState(new EnemyDespawning(enemy));
+
                         if (enemy is Goriya || enemy is Skeleton || enemy is WallMaster)
                         {
                             randDouble = rand.NextDouble();
-                            if (randDouble > 0.65)
+                            if (randDouble < 0.10)
                                 enemy.DropItem(item);
                         }
                     }

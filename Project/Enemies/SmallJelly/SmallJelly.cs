@@ -9,8 +9,10 @@ namespace Project
 {
     class SmallJelly : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Vector2 position;
         private ISprite sprite;
@@ -31,7 +33,6 @@ namespace Project
             this.position = pos;
             this.velocity = 50f;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(1);
@@ -96,7 +97,15 @@ namespace Project
                     UpdateColor();
                 }
             }
-               
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
+                }
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)

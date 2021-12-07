@@ -8,8 +8,10 @@ namespace Project
 {
     class WallMaster : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private Vector2 pos;
         private ISprite sprite;
@@ -30,7 +32,6 @@ namespace Project
             this.pos = pos;
             this.velocity = 50f;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(2);

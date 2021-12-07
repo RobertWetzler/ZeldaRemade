@@ -11,8 +11,10 @@ namespace Project
 {
     class Goriya : IEnemy
     {
-        private int timeToSpawn;
+        private const int timeToSpawn = 600;
+        private const int timeToDespawn = 300;
         private int startTime;
+        private int startTimeTwo;
         private IEnemyState currentState;
         private ISprite sprite;
         private float velocity;
@@ -40,7 +42,6 @@ namespace Project
             this.velocity = 50f;
             this.facingDirection = Facing.Right;
             startTime = 0;
-            timeToSpawn = 600;
             movement = new EnemyMovement(this);
             currentState = new EnemySpawning(this);
             health = new Health(3);
@@ -124,8 +125,16 @@ namespace Project
                     UpdateColor();
                 }
             }
+            if (currentState is EnemyDespawning)
+            {
+                startTimeTwo += gameTime.ElapsedGameTime.Milliseconds;
+                if (startTimeTwo > timeToDespawn)
+                {
+                    ((IEnemy)this).Despawn();
+                }
+            }
 
-                
+
 
         }
 
