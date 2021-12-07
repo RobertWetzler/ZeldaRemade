@@ -16,12 +16,14 @@ namespace Project.GameState
         private bool doneSpinning = false, doneFlashing = false, doneRestart = false;
         private bool changeBackground = false;
         private IHUD smallHUD;
+        private const int START_HEALTH = 6;  //test
 
         public GameOverScreenState()
         {
             youLoseText = new StringText("GAME OVER", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 120, 400));
             smallHUD = new SmallHUD(false);
             Game1.Instance.Player = new DeadLink(Game1.Instance.Player, Game1.Instance);
+            SoundManager.Instance.backgroundInstance.Stop();
             SoundManager.Instance.CreateLinkDeathSound();
         }
 
@@ -31,6 +33,8 @@ namespace Project.GameState
             {
                 spriteBatch.Begin(samplerState: SamplerState.PointClamp);
                 RoomManager.Instance.CurrentRoom.Draw(spriteBatch, gameTime);
+                Game1.Instance.Player.Inventory.RemoveNItems(ItemType.Heart, 1);
+                smallHUD.Draw(spriteBatch);
                 Game1.Instance.Player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();
             }
@@ -59,6 +63,13 @@ namespace Project.GameState
             else if (doneRestart)
             {
                 Game1.Instance.GameStateMachine.TitleScreen();
+
+                Game1.Instance.Player.Health.MaxHealth = START_HEALTH;
+                Game1.Instance.Player.Inventory.RemoveNItems(ItemType.HeartContainer, Game1.Instance.Player.Inventory.GetItemCount(ItemType.HeartContainer));
+                Game1.Instance.Player.Inventory.AddNItems(ItemType.HeartContainer, START_HEALTH / 2);
+                Game1.Instance.Player.Health.CurrentHealth = Game1.Instance.Player.Health.MaxHealth;
+                Game1.Instance.Player.Inventory.RemoveNItems(ItemType.Heart, Game1.Instance.Player.Inventory.GetItemCount(ItemType.Heart));
+                Game1.Instance.Player.Inventory.AddNItems(ItemType.Heart, Game1.Instance.Player.Health.CurrentHealth);
             }
         }
 
