@@ -5,6 +5,7 @@ using Project.Commands;
 using Project.HUD;
 using Project.Items;
 using Project.Sound;
+using Project.Utilities;
 
 namespace Project.GameState
 {
@@ -14,7 +15,6 @@ namespace Project.GameState
         private KeyboardController keyboardController;
         private EasyButton easyButton;
         private HardButton hardButton;
-
 
         public TitleScreenState(Game1 game)
         {
@@ -44,7 +44,5 @@ namespace Project.GameState
             hardButton.Draw(spriteBatch);
             spriteBatch.End();
         }
-
-
     }
 }

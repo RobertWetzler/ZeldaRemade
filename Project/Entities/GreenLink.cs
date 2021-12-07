@@ -7,6 +7,7 @@ using Project.Sprites.ItemSprites;
 using Project.Sprites.PlayerSprites;
 using Project.Utilities;
 using System.Collections.Generic;
+using Project.Sound;
 
 namespace Project.Entities
 {
@@ -45,7 +46,6 @@ namespace Project.Entities
                 return new Rectangle(x, y, (int)width, (int)height);
             }
             return sprite.DestRectangle;
-
         }
         public Vector2 Position
         {
@@ -70,7 +70,7 @@ namespace Project.Entities
         {
             this.game = game;
             position = new Vector2(500, 500);
-            stateMachine = new LinkStateMachine(this, Facing.Right, Move.Idle, LinkColor.Green);
+            stateMachine = new LinkStateMachine(this, Facing.Up, Move.Idle, LinkColor.Green);
             sprite = stateMachine.StopMoving();
             inventory = new PlayerInventory();
             projectiles = new List<IProjectile>();
@@ -138,14 +138,9 @@ namespace Project.Entities
             inventory.RemoveNItems(ItemType.Heart, damage);
             if (health.CurrentHealth <= 0)
             {
-                game.GameStateMachine.TitleScreen();
-                health.MaxHealth = START_HEALTH;
-                health.CurrentHealth = health.MaxHealth;
-                inventory.ResetInventory(inventory.GetItemCount(ItemType.Rupee));
-                RoomManager.LoadAllRooms(this, Game1.Instance.Graphics);
-                RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
+                this.game.Player = new SpinningLink(Game1.Instance.Player, Game1.Instance);
+                game.GameStateMachine.GameOverScreen();
             }
-
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
@@ -185,9 +180,8 @@ namespace Project.Entities
             {
                 pickUpItem.Update(gameTime);
             }
+        } 
 
-
-        }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
         {
             sprite.Draw(spriteBatch, this.position, color);
@@ -202,7 +196,6 @@ namespace Project.Entities
             {
                 pickUpItem.Draw(spriteBatch);
             }
-
         }
 
         public void PickUpItem(IItems item)
