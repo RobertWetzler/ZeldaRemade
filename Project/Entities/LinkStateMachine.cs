@@ -120,6 +120,12 @@ namespace Project.Entities
             }
             return (sprite, weapon);
         }
+
+        internal void ResetWeapon()
+        {
+            oldWeapon = null;
+        }
+
         public IPlayerSprite PickUpItem()
         {
             IPlayerSprite sprite = this.link.PlayerSprite;
