@@ -76,6 +76,8 @@ namespace Project.Entities
             projectiles = new List<IProjectile>();
             health = new Health(START_HEALTH);
             isApproachBat = false;
+            lightScale = 3f;
+            innerLightScale = 2f;
         }
 
         public void SetSprite(IPlayerSprite sprite)
