@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Project.Items;
 using Project.Projectiles;
+using Project.Sound;
 using System;
 
 namespace Project.Collision.CollisionHandlers.Enemies
@@ -25,12 +26,13 @@ namespace Project.Collision.CollisionHandlers.Enemies
                 item = new Fairy(enemyPos);
             else if (randDouble < 0.3)
                 item = new Heart(enemyPos);
-            else
+            else 
                 item = new OneRupee(enemyPos);
+            
 
             if (projectile.IsFriendly)
             {
-                if (!(enemy is Trap))
+                if (!(enemy is Trap) && !(enemy is Dinosaur))
                 {
                     if (projectile is Arrow)
                     {
@@ -38,7 +40,7 @@ namespace Project.Collision.CollisionHandlers.Enemies
                     }
                     else if (projectile is Bomb || projectile is BlueArrow)
                     {
-                        enemy.TakeDamage(4); 
+                        enemy.TakeDamage(4);
                     }
                     else if (projectile is Boomerang || projectile is BlueBoomerang)
                     {
@@ -67,7 +69,18 @@ namespace Project.Collision.CollisionHandlers.Enemies
                         }
                     }
                 }
+                else if (enemy is Dinosaur)
+                {
+                    if (projectile is Bomb)
+                    {
+                        enemy.TakeDamage(1);
+                    }
 
+                    if (enemy.Health.CurrentHealth == 0)
+                    {
+                        enemy.Despawn();
+                    }
+                }
             }
         }
     }

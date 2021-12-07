@@ -8,9 +8,13 @@ namespace Project
 {
     class Dinosaur : IEnemy
     {
+<<<<<<< HEAD
 
         private const int timeToSpawn = 600;
         private const int timeToDespawn = 300;
+=======
+        private int timeToSpawn;
+>>>>>>> 659c62ce3d423d1ef7e45da55e94d427b8082192
         private int startTime;
         private int startTimeTwo;
         private IEnemyState currentState;
@@ -37,6 +41,8 @@ namespace Project
             currentState = new EnemySpawning(this);
             health = new Health(6);
             remainingFlashTime = 0;
+            health = new Health(2);
+
         }
 
         public void ChangeDirection(EnemyDirections direction)
@@ -45,12 +51,13 @@ namespace Project
             {
                 currentState.ChangeDirection(direction);
             }
-      
+
+            
         }
 
         public void UseWeapon()
         {
-            //No weapon
+            // No weapon
         }
 
         public void SetState(IEnemyState state)
@@ -59,6 +66,7 @@ namespace Project
             {
                 currentState = state;
             }
+
         }
 
         public void TakeDamage(int damage)
@@ -68,32 +76,39 @@ namespace Project
             {
                 remainingFlashTime = totalFlashTime;
             }
+
         }
 
         public void Update(Rectangle windowBounds, GameTime gameTime)
         {
             sprite.Update(gameTime);
             if (remainingFlashTime <= 0)
-            {
                 if (currentState is EnemySpawning)
                 {
-                    startTime += gameTime.ElapsedGameTime.Milliseconds;
+                    if (currentState is EnemySpawning)
+                        startTime += gameTime.ElapsedGameTime.Milliseconds;
                     if (startTime > timeToSpawn)
                     {
-                        currentState = new DinosaurWalkEast(this);
+                        startTime += gameTime.ElapsedGameTime.Milliseconds;
+                        if (startTime > timeToSpawn)
+                        {
+                            currentState = new DinosaurWalkEast(this);
+                        }
+                       
+                    }
+
+                    movement.MoveWASDOnly(windowBounds, gameTime);
+                    currentState.Update(gameTime);
+                }
+                else
+                {
+                    remainingFlashTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                    if (remainingFlashTime > 0)
+                    {
+                        UpdateColor();
                     }
                 }
-
-                movement.MoveWASDOnly(windowBounds, gameTime);
-                currentState.Update(gameTime);
-            }
-            else
-            {
-                remainingFlashTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
-                if (remainingFlashTime > 0)
-                {
-                    UpdateColor();
-                }
+<<<<<<< HEAD
             }
             if (currentState is EnemyDespawning)
             {
@@ -104,6 +119,12 @@ namespace Project
                 }
             }
 
+=======
+
+
+            
+       
+>>>>>>> 659c62ce3d423d1ef7e45da55e94d427b8082192
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Color color)
@@ -123,7 +144,7 @@ namespace Project
             double t = totalFlashTime - remainingFlashTime;
             int i = (int)(t / totalFlashTime * hues.Count * 10) % hues.Count; // cycle through list
             colorTint = ColorUtils.HSVToRGB(hues[i], 1, 1);
+
         }
     }
-
 }
