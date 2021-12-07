@@ -3,26 +3,26 @@ using Project.Factory;
 
 namespace Project
 {
-    class DinosaurWalkEast : IEnemyState
+    class DinosaurWalkSouth : IEnemyState
     {
 
         private Dinosaur dinosaur;
 
-        public DinosaurWalkEast(Dinosaur dinosaur)
+        public DinosaurWalkSouth(Dinosaur dinosaur)
         {
             this.dinosaur = dinosaur;
-            this.dinosaur.EnemySprite = EnemySpriteFactory.Instance.CreateDinosaurWalkRightSprite();
+            this.dinosaur.EnemySprite = EnemySpriteFactory.Instance.CreateDinosaurWalkDownSprite();
         }
 
         public void ChangeDirection(EnemyDirections direction)
         {
             switch (direction)
             {
-                case EnemyDirections.South:
-                    dinosaur.SetState(new DinosaurWalkSouth(dinosaur));
-                    break;
                 case EnemyDirections.North:
                     dinosaur.SetState(new DinosaurWalkNorth(dinosaur));
+                    break;
+                case EnemyDirections.East:
+                    dinosaur.SetState(new DinosaurWalkEast(dinosaur));
                     break;
                 case EnemyDirections.West:
                     dinosaur.SetState(new DinosaurWalkWest(dinosaur));
@@ -32,8 +32,7 @@ namespace Project
 
         public void Update(GameTime gameTime)
         {
-            dinosaur.Position = new Vector2((float)(gameTime.ElapsedGameTime.TotalSeconds * dinosaur.Velocity) + dinosaur.Position.X,
-                                            dinosaur.Position.Y);
+            dinosaur.Position = new Vector2(dinosaur.Position.X, dinosaur.Position.Y + (float)(gameTime.ElapsedGameTime.TotalSeconds * dinosaur.Velocity));
         }
 
         public void UseWeapon()

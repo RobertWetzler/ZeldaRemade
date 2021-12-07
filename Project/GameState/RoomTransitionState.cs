@@ -119,7 +119,7 @@ namespace Project.GameState
                 Direction.Up => doors.Find(x => x is SouthDoor),
                 Direction.Down => doors.Find(x => x is NorthDoor),
                 Direction.Left => doors.Find(x => x is EastDoor),
-                Direction.Right => doors.Find(x => x is EastDoor),
+                Direction.Right => doors.Find(x => x is WestDoor),
                 _ => throw new NotImplementedException()
             };
             if (door is null)

@@ -36,6 +36,9 @@ namespace Project.Utilities
                 case "WallMaster":
                     enemy = new WallMaster(pos);
                     break;
+                case "Dinosaur":
+                    enemy = new Dinosaur(pos);
+                    break;
             }
             return enemy;
         }

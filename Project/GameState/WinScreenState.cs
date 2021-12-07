@@ -31,7 +31,6 @@ namespace Project.GameState
             RobertName = new StringText("Robert Wetzler", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 190, 600));
             YutingName = new StringText("Yuting Yang", new Vector2(Game1.Instance.Graphics.PreferredBackBufferWidth / 2 - 170, 650));
             smallHUD = new SmallHUD(false);
-            SoundManager.Instance.CreateBackgroundMusic();
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
