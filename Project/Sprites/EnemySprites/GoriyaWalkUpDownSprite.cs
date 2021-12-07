@@ -25,11 +25,11 @@ namespace Project
                 sourceFrame.Width * 4, sourceFrame.Height * 4);
             if (flipSprite)
             {
-                spriteBatch.Draw(goriyaSpriteSheet, destRectangle, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(goriyaSpriteSheet, destRectangle, sourceFrame, color, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                spriteBatch.Draw(goriyaSpriteSheet, destRectangle, sourceFrame, Color.White);
+                spriteBatch.Draw(goriyaSpriteSheet, destRectangle, sourceFrame, color);
             }
         }
 

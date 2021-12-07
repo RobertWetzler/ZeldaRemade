@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Project.Rooms;
+using Project.Rooms.Doors;
 using System.Collections.Generic;
 
 namespace Project.Utilities

@@ -2,7 +2,7 @@
 using Project.Collision;
 using Project.Utilities;
 
-namespace Project
+namespace Project.Rooms.Doors
 {
     public interface IDoor : ICollidable
     {
