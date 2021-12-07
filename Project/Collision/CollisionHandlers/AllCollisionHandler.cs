@@ -22,8 +22,6 @@ namespace Project.Collision
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.Block), new EnemyBlockCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Player, CollisionType.BlueBlock), new PlayerBlockCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Enemy, CollisionType.BlueBlock), new EnemyBlockCollisionHandler());
-            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.Block), new ProjectileAnyCollisionHandler());
-            commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.MovableBlock), new ProjectileAnyCollisionHandler());
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.Projectile, CollisionType.NPC), new ProjectileAnyCollisionHandler());
 
             commandMap.Add(new Tuple<CollisionType, CollisionType>(CollisionType.StairBlock, CollisionType.Player), new StairBlockPlayerCollisionHandler());

@@ -71,6 +71,10 @@ namespace Project.Projectiles
             this.position.Y += (float)(gameTime.ElapsedGameTime.TotalSeconds * yPos * velocity);
 
             sprite.Update(gameTime);
+            if (!((IProjectile)this).IsInBounds())
+            {
+                ((IProjectile)this).Despawn();
+            }
         }
 
         private Vector2 Offset()

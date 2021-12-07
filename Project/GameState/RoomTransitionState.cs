@@ -60,6 +60,10 @@ namespace Project.GameState
             {
                 this.game.GameStateMachine.Play();
             }
+            else
+            {
+                Game1.Instance.Player.ResetWeapon();
+            }
         }
         private bool IsTransitionDone()
         {

@@ -30,7 +30,7 @@ namespace Project
         public EnemyMovement(IEnemy enemy)
         {
             this.enemy = enemy;
-            timeToChangeDirection = 1000;
+            timeToChangeDirection = 400;
             changeDirectionCounter = 0;
             rand = new Random();
         }

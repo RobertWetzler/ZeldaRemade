@@ -107,7 +107,11 @@ namespace Project.Entities
             pickUpItem = null;
             sprite = stateMachine.StopMoving();
         }
-
+        public void ResetWeapon()
+        {
+            // use when changing rooms and need to set current weapon to null
+            stateMachine.ResetWeapon();
+        }
         public void UseWeapon(WeaponTypes weaponType)
         {
             pickUpItem = null;

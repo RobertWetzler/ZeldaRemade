@@ -32,6 +32,8 @@ namespace Project
         public Rectangle BoundingBox => sprite.DestRectangle;
         public CollisionType CollisionType => CollisionType.Enemy;
         public Health Health { get => health; }
+        public IEnemyState CurrentState { get => currentState; }
+
         public Goriya(Vector2 position)
         {
             this.position = position;

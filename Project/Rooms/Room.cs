@@ -116,9 +116,9 @@ namespace Project.Rooms
             {
                 enemies.Update(windowBounds, gameTime);
             }
-            foreach (IProjectile projectile in projectiles)
+            for (int i = 0; i < projectiles.Count; i++)
             {
-                projectile.Update(gameTime);
+                projectiles[i].Update(gameTime);
             }
             if (roomID == 1)
             {

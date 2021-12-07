@@ -14,6 +14,7 @@ namespace Project
 {
     public class Game1 : Game
     {
+        public bool DEBUG = true;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private IPlayer player;
