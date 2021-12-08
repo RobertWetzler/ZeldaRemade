@@ -62,6 +62,7 @@ namespace Project.Rooms.Doors
             doorType = DoorType.BOMB_OPEN;
             isClosed = false;
             eastDoorSprite = (DoorSprite)DoorSpriteFactory.Instance.CreateEastDoorSprite(doorType, position);
+            SoundManager.Instance.CreateDoorUnlockSound();
             // try opening door in adjacent room
             if (!isAdjacent)
             {
