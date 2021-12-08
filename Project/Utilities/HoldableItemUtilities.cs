@@ -21,7 +21,7 @@ namespace Project.Utilities
                 ItemType.Blue_Boomerang => new BlueBoomerangItem(pos),
                 ItemType.Bomb => new BombItem(pos),
                 ItemType.Null => null,
-                _ => throw new NotImplementedException()
+                //_ => throw new NotImplementedException()
             };
         }
         public static WeaponTypes GetWeaponType(ItemType itemType)
