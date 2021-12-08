@@ -1072,11 +1072,6 @@
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
 			</Object>
-      <Object>
-        <ObjectType>Door</ObjectType>
-        <ObjectName>Open</ObjectName>
-        <Position>South</Position>
-      </Object>
 			<Object>
 				<ObjectType>Block</ObjectType>
 				<ObjectName>RightDragon</ObjectName>
