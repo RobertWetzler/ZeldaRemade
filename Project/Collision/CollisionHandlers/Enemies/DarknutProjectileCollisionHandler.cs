@@ -21,27 +21,40 @@ namespace Project.Collision.CollisionHandlers.Enemies
             randDouble = rand.NextDouble();
             if (randDouble < 0.05)
                 item = new BombItem(enemyPos);
-            else if (randDouble < 0.07)
-                item = new Compass(enemyPos);
-            else if (randDouble < 0.12)
-                item = new Key(enemyPos);
-            else if (randDouble < 0.18)
+            else if (randDouble < 0.2)
                 item = new Fairy(enemyPos);
-            else if (randDouble < 0.42)
+            else if (randDouble < 0.6)
                 item = new Heart(enemyPos);
             else
                 item = new OneRupee(enemyPos);
+
             Darknut darknut = enemy as Darknut;
             if (projectile.IsFriendly && !IsCollidingWithFace(side, darknut))
             {
+                if (projectile is Arrow)
+                {
+                    enemy.TakeDamage(2);
+                }
+                else if (projectile is Bomb || projectile is BlueArrow)
+                {
+                    enemy.TakeDamage(4);
+                }
+                else if (projectile is Boomerang || projectile is BlueBoomerang)
+                {
+                    enemy.TakeDamage(0); //Boomerang only stuns large enemies
 
-                enemy.Despawn();
-                randDouble = rand.NextDouble();
-                if (randDouble > 0.65)
-                    enemy.DropItem(item);
-
-
-
+                }
+                else
+                {
+                    enemy.TakeDamage(1);
+                }
+                if (enemy.Health.CurrentHealth == 0)
+                {
+                    enemy.Despawn();
+                    randDouble = rand.NextDouble();
+                    if (randDouble > 0.65)
+                        enemy.DropItem(item);
+                }
             }
         }
         private bool IsCollidingWithFace(CollisionSide side, Darknut darknut)

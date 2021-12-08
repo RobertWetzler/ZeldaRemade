@@ -55,10 +55,9 @@ namespace Project.HUD
 
             foreach (IItems item in ItemSelectionUtilities.InventoryItems)
             {
-               
-                item.Draw(spriteBatch);  
+                item.Draw(spriteBatch);
             }
-
+           
             mapTiles.Draw(spriteBatch);
             posDot.Draw(spriteBatch);
         }

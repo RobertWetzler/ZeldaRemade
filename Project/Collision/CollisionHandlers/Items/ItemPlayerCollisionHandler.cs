@@ -51,7 +51,7 @@ namespace Project.Collision.CollisionHandlers
             else if (item.type == ItemType.Boomerang)
             {
                 link.Inventory.AddItem(item.type);
-                SoundManager.Instance.CreateFanfare();
+                SoundManager.Instance.CreateItemSound();
             }
             else if (item.type == ItemType.Rupee)
             {

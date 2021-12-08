@@ -1292,11 +1292,8 @@
 				<ObjectName>Open</ObjectName>
 				<Position>West</Position>
 			</Object>
-			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Open</ObjectName>
-				<Position>South</Position>
-			</Object>
+		
+			
 			<Object>
 				<ObjectType>Torch</ObjectType>
 				<Position>405, 290</Position>
