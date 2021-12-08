@@ -8,21 +8,30 @@ namespace Project.Utilities
 {
     public static class ItemSelectionUtilities
     {
+        private static Bow bow = new Bow(new Vector2(700, 180));
+        private static SwordItem sword = new SwordItem(new Vector2(700, 180));
+        private static BlueCandle blueCandle = new BlueCandle(new Vector2(600, 180));
+        private static BoomerangItem boomerang = new BoomerangItem(new Vector2(800, 180));
+        private static BlueBoomerangItem blueBoomerang = new BlueBoomerangItem(new Vector2(500, 180));
+        private static Map map = new Map(new Vector2(165, 440));
+        private static Compass compass = new Compass(new Vector2(165, 600));
+        private static BombItem bomb = new BombItem(new Vector2(600, 250));
 
-        public static IItems GetInventoryItem(ItemType itemType)
+        private static IItems GetInventoryItem(ItemType itemType)
         {
             return itemType switch
             {
-                ItemType.Bow => new Bow(new Vector2(700, 180)),
-                ItemType.Sword => new SwordItem(new Vector2(500, 250)),
-                ItemType.Blue_Candle => new BlueCandle(new Vector2(600, 180)),
-                ItemType.Boomerang => new BoomerangItem(new Vector2(800, 180)),
-                ItemType.Blue_Boomerang => new BlueBoomerangItem(new Vector2(500, 180)),
-                ItemType.Map => new Map(new Vector2(165, 440)),
-                ItemType.Compass => new Compass(new Vector2(165, 600)),
-                ItemType.Bomb => new BombItem(new Vector2(600,250)),
+                ItemType.Bow => bow,
+                ItemType.Sword => sword,
+                ItemType.Blue_Candle => blueCandle,
+                ItemType.Boomerang => boomerang,
+                ItemType.Blue_Boomerang => blueBoomerang,
+                ItemType.Map => map,
+                ItemType.Compass => compass,
+                ItemType.Bomb => bomb,
                 ItemType.Null => null,
-                _ => throw new NotImplementedException()
+              //  ItemType.Key => null,   // 
+                _ => throw new NotImplementedException("sss")
             };
         }
 
@@ -70,7 +79,11 @@ namespace Project.Utilities
                 }
                 else if(Game1.Instance.Player.Inventory.GetItemCount(holdableItem) <= 0)
                 {
-                    InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(holdableItem));
+
+                    InventoryItems.RemoveAll(obj => obj.Equals(ItemSelectionUtilities.GetInventoryItem(holdableItem)));
+                    //InventoryItems.Clear();
+                    //InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(holdableItem));
+                    //InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(ItemType.Map));
                 }
             }
         }
