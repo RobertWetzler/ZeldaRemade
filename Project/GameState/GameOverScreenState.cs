@@ -71,7 +71,7 @@ namespace Project.GameState
             // reset game
             Game1.Instance.Player = new GreenLink(Game1.Instance);
             Game1.Instance.Player.Inventory.ResetInventory(0);
-            Game1.Instance.PassedRoom = new List<int>();
+            Game1.Instance.PassedRoom = new List<int>() { 11 };
             RoomManager.LoadAllRooms(Game1.Instance.Player, Game1.Instance.Graphics);
             RoomManager.Instance.SetCurrentRoom(RoomManager.GetRoom(11));
         }

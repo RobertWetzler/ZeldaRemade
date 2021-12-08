@@ -27,11 +27,11 @@ namespace Project
                 sourceFrame.Width * 4, sourceFrame.Height * 4);
             if (flipSprite)
             {
-                spriteBatch.Draw(darknutSpriteSheet, destRectangle, sourceFrame, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(darknutSpriteSheet, destRectangle, sourceFrame, color, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                spriteBatch.Draw(darknutSpriteSheet, destRectangle, sourceFrame, Color.White);
+                spriteBatch.Draw(darknutSpriteSheet, destRectangle, sourceFrame, color);
             }
 
         }
