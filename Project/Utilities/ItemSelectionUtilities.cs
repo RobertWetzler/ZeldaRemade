@@ -9,7 +9,7 @@ namespace Project.Utilities
     public static class ItemSelectionUtilities
     {
         private static Bow bow = new Bow(new Vector2(700, 180));
-        private static SwordItem sword = new SwordItem(new Vector2(700, 180));
+        private static SwordItem sword = new SwordItem(new Vector2(500, 250));
         private static BlueCandle blueCandle = new BlueCandle(new Vector2(600, 180));
         private static BoomerangItem boomerang = new BoomerangItem(new Vector2(800, 180));
         private static BlueBoomerangItem blueBoomerang = new BlueBoomerangItem(new Vector2(500, 180));
@@ -29,8 +29,7 @@ namespace Project.Utilities
                 ItemType.Map => map,
                 ItemType.Compass => compass,
                 ItemType.Bomb => bomb,
-                ItemType.Null => null,
-                //_ => throw new NotImplementedException()
+                _ => throw new NotImplementedException()
             };
         }
 
