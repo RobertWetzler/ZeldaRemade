@@ -1293,11 +1293,6 @@
 				<Position>West</Position>
 			</Object>
 			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Open</ObjectName>
-				<Position>South</Position>
-			</Object>
-			<Object>
 				<ObjectType>Torch</ObjectType>
 				<Position>405, 290</Position>
 				<Direction>North</Direction>
@@ -2179,7 +2174,7 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Hidden</ObjectName>
-				<Position>null</Position>
+f				<Position>null</Position>
 			</Object>
 			<Object>
 				<ObjectType>Block</ObjectType>

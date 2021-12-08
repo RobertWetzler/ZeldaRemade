@@ -28,11 +28,6 @@
 			<Object>
 				<ObjectType>Door</ObjectType>
 				<ObjectName>Empty</ObjectName>
-				<Position>South</Position>
-			</Object>
-			<Object>
-				<ObjectType>Door</ObjectType>
-				<ObjectName>Empty</ObjectName>
 				<Position>West</Position>
 			</Object>
 			<Object>
