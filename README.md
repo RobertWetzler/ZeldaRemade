@@ -1,4 +1,4 @@
-# CSE3902_Group 
+# Made by the Maximum Viable Products (Team MVP)
 
 # Legend of Zelda Level 1 Dungeon Clone
 
