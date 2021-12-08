@@ -1576,12 +1576,7 @@
 			<Object>
 				<ObjectType>Enemy</ObjectType>
 				<ObjectName>Snake</ObjectName>
-				<Position>6 6</Position>
-			</Object>
-			<Object>
-				<ObjectType>Enemy</ObjectType>
-				<ObjectName>Trap</ObjectName>
-				<Position>0 0</Position>
+				<Position>6 1</Position>
 			</Object>
 		</Room15>
 		<Room16 Type="MyDataTypes.Room16ObjectData[]">
