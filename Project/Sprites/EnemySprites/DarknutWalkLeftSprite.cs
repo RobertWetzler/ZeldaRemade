@@ -26,7 +26,7 @@ namespace Project
             destRectangle = new Rectangle(
                 (int)position.X, (int)position.Y,
                 source.Width * 4, source.Height * 4);
-            spriteBatch.Draw(darknutSpriteSheet, destRectangle, source, Color.White, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
+            spriteBatch.Draw(darknutSpriteSheet, destRectangle, source, color, 0f, new Vector2(), SpriteEffects.FlipHorizontally, 0f);
         }
         public void Update(GameTime gameTime)
         {
