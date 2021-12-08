@@ -79,9 +79,6 @@ namespace Project.Utilities
                 {
 
                     InventoryItems.RemoveAll(obj => obj.Equals(ItemSelectionUtilities.GetInventoryItem(holdableItem)));
-                    //InventoryItems.Clear();
-                    //InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(holdableItem));
-                    //InventoryItems.Remove(ItemSelectionUtilities.GetInventoryItem(ItemType.Map));
                 }
             }
         }
