@@ -31,8 +31,8 @@ namespace Project.GameState
            
             keyboardController.Update();
             smallHud.Update(gameTime);
-            bigHUD.Update(gameTime);
             ItemSelectionUtilities.UpdateAllInventoryItems();
+            bigHUD.Update(gameTime);
         }
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

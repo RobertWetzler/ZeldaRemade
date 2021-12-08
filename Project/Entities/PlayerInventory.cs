@@ -76,8 +76,10 @@ namespace Project
         }
         public int GetItemCount(ItemType item)
         {
-            if (inventory.ContainsKey(item))
-                return inventory[item];
+            if (inventory.ContainsKey(item)) 
+            { 
+                return inventory[item]; 
+            }
             return 0;
         }
         public void SetAItem(ItemType item)
