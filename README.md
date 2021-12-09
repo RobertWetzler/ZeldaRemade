@@ -31,8 +31,6 @@ Developers:
 #### Link Move Right
 - ```D```
 - ```→```
-#### Link Attack with Sword
-- ```N```
 #### Link Attack with A Weapon
 - ```Z```
 #### Link Attack with B Weapon
@@ -61,7 +59,7 @@ Developers:
 - ```T```
 ## Keyboard Controls (Debugging Commands)
 #### Note:
-If you would like to access debug commands, change the property DEBUG at the start of Game1.cs to false.
+If you would like to access debug commands, change the property DEBUG at the start of Game1.cs to true.
 #### Room Panning
 - Up: ```I```
 - Down: ```K```
