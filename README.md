@@ -1,6 +1,14 @@
 # CSE3902_Group 
 
 # Legend of Zelda Level 1 Dungeon Clone
+
+## A remake of the Level 1 Dungeon from The Legend of Zelda developed from scratch for Ohio State's CSE3902 class.
+Developed in .NET Core using MonoGame, the project aims to exactly clone the first Legend of Zelda level.
+![Intro Gif](images/Intro.gif)
+
+## Including moody lighting, implemented with HLSL shaders!
+![Shader Gif](images/Shader.gif)
+
 Developers: 
 - Jacob Batt
 - Maggie Feng
@@ -73,3 +81,6 @@ If you would like to access debug commands, change the property DEBUG at the sta
 
 ## Missing Features
 - Enemy Despawn
+
+### Legal Note
+This project is an educational, non-commercial recreation of the first level of The Legend of Zelda, developed from scratch for a college class project. It is not affiliated with or endorsed by Nintendo, and all rights to the Legend of Zelda franchise belong to Nintendo.
