@@ -1,5 +1,3 @@
-# Made by the Maximum Viable Products (Team MVP)
-
 # Legend of Zelda Level 1 Dungeon Clone
 
 ## A remake of the Level 1 Dungeon from The Legend of Zelda developed from scratch for Ohio State's CSE3902 class.
